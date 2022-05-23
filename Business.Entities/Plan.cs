@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TP2_01
+namespace Business.Entities
 {
 	public class Plan: BusinessEntity
 	{
