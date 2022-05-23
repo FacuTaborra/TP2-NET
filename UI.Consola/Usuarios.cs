@@ -57,7 +57,8 @@ namespace UI.Consola
         public void ListadoGeneral()
         {
             List<Usuario> lista;
-            lista= Business.Logic.UsuarioLogic GetAll();    
+            var ul = new UsuarioLogic;
+            lista= ul.GetAll();    
         }
 
         public void Consulta()
