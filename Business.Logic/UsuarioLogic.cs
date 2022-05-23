@@ -8,7 +8,7 @@ using Business.Entities;
 
 namespace Business.Logic
 {
-    class UsuarioLogic:BusinessLogic
+    public class UsuarioLogic: BusinessLogic
     {
         public Data.Database.UsuarioAdapter UsuarioData;
 
@@ -31,7 +31,5 @@ namespace Business.Logic
         {
             UsuarioData.Save(usuario);
         }
-
-  
     }
 }

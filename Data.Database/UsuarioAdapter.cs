@@ -27,7 +27,7 @@ namespace Data.Database
                     usr.Apellido = "Cegado";
                     usr.NombreUsuario = "casicegado";
                     usr.Clave = "miro";
-                    usr.EMail = "casimirocegado@gmail.com";
+                    usr.Email = "casimirocegado@gmail.com";
                     usr.Habilitado = true;
                     _Usuarios.Add(usr);
 
@@ -38,7 +38,7 @@ namespace Data.Database
                     usr.Apellido = "Quito";
                     usr.NombreUsuario = "aequito";
                     usr.Clave = "carpintero";
-                    usr.EMail = "armandoquito@gmail.com";
+                    usr.Email = "armandoquito@gmail.com";
                     usr.Habilitado = true;
                     _Usuarios.Add(usr);
 
@@ -49,7 +49,7 @@ namespace Data.Database
                     usr.Apellido = "Brado";
                     usr.NombreUsuario = "alanbrado";
                     usr.Clave = "abrete sesamo";
-                    usr.EMail = "alanbrado@gmail.com";
+                    usr.Email = "alanbrado@gmail.com";
                     usr.Habilitado = true;
                     _Usuarios.Add(usr);
 

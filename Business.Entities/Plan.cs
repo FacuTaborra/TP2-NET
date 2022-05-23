@@ -6,7 +6,7 @@ namespace Business.Entities
 	{
 		private string _Descripcion;
 		private int _IDEspecialidad;
-
+		private int _IDPlan;
 		public string Descripcion
 		{
 			get { return _Descripcion; }
