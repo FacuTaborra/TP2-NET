@@ -10,11 +10,17 @@ namespace Business.Logic
 {
     public class UsuarioLogic: BusinessLogic
     {
-        public Data.Database.UsuarioAdapter UsuarioData;
+        public Data.Database.UsuarioAdapter _UsuarioData;
 
         public List<Usuario> GetAll()
         {
-            return UsuarioData.GetAll();
+            try
+            {
+                return UsuarioData.GetAll();
+            }catch(Exception e)
+            {
+                Console.Write("Error");
+            }
         }
 
         public Usuario GetOne(int idUsuario)
