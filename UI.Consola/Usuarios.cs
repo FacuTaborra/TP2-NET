@@ -154,7 +154,6 @@ namespace UI.Consola
                 usuario.Habilitado = (Console.ReadLine() == "1");
                 usuario.State = BusinessEntity.States.Modified;
                 UsuarioNegocio.Save(usuario);
-
             }
             catch (FormatException e)
             {
@@ -212,8 +211,5 @@ namespace UI.Consola
             Console.WriteLine("\t\tHabilitado: {0}", usr.Habilitado);
             Console.WriteLine();
         }
-
     }
-
-
 }
