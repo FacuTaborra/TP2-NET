@@ -14,13 +14,7 @@ namespace Business.Logic
 
         public List<Usuario> GetAll()
         {
-            try
-            {
-                return UsuarioData.GetAll();
-            }catch(Exception e)
-            {
-                Console.Write("Error");
-            }
+            return UsuarioData.GetAll();
         }
 
         public Usuario GetOne(int idUsuario)
