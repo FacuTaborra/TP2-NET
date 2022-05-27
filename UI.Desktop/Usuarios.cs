@@ -62,12 +62,40 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-
+            int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+            if (this.dgvUsuarios.SelectedRows.Count >= 1)
+            {
+                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.modificacion);
+                formUsuario.ShowDialog();
+                this.Listar();
+            }
         }
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            UsuarioDesktop formUsuario = new UsuarioDesktop(ApplicationForm.ModoForm.alta);
+            formUsuario.ShowDialog();
+            this.Listar();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+            if (this.dgvUsuarios.SelectedRows.Count >= 1)
+            {
+                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.modificacion);
+                formUsuario.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila");
+            }
         }
     }
 }

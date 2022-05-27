@@ -39,14 +39,6 @@ namespace UI.Desktop
             if(_Modo == ModoForm.alta || _Modo == ModoForm.modificacion)
             {
                 this.btnAceptar.Text = "Guardar";
-                if (Validar())
-                {
-                    MapearADatos();
-                }
-                else
-                {
-                    //notificar
-                }
                 
             }else if(_Modo == ModoForm.baja)
             {
@@ -137,6 +129,13 @@ namespace UI.Desktop
             
         }
 
+        public override void GuardarCambios()
+        {
+            MapearADatos();
+            UsuarioLogic ul = new UsuarioLogic();
+            ul.Save(_UsuarioActual);
+        }
+
         private void UsuarioDesktop_Load(object sender, EventArgs e)
         {
 
@@ -160,6 +159,20 @@ namespace UI.Desktop
         private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                GuardarCambios();
+                Close();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
