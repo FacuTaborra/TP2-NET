@@ -142,7 +142,7 @@
   <data name="tsbNuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAACGWSURBVHhe7d1bqObnWffx/26Sg5HQg/SgISZQwR5UsAcj
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACGWSURBVHhe7d1bqObnWffx/26Sg5HQg/SgISZQwR5UsAcj
         REkKJtiAigoqKhFxg4gbRIxSxCgyySCDG0RMRMQNwaASDSrGRkVDE2MtVkiJFabgCBWmL4mBytiDDDjv
         e93zXHnbPnOnyWQ2a637+nzgS0tmbZ//Pev3n5m1mYDh3LJN24llWh5Y5/XkOm9PzPP29DIvz0cvxn87
         G//tlei1LP7/erb9Wnua9rTtedrztpfRXlZ7mbsXDQAcBsfXab0/xvp0DPezMdznov97nTq3ex3r6fY6
@@ -292,7 +292,7 @@
   <data name="tsbEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAADVeSURBVHhe7d152PXV3PfxBk2aNak0UpQyNNCgUkIaVKZU
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADVeSURBVHhe7d152PXV3PfxBk2aNak0UpQyNNCgUkIaVKZU
         lERKSOiOO6k4MoWMSW5JqIiiZIg0SneDJtEoQ2miUZOG5/l8dDu6XH2v65z2Xnut73q/j+P1z/O4u/bv
         3Pvc+3v+9u+31ixEREQJmlWWl1fI3vIV+YGcJhfIlXKj3C0Pyz1yk1wjF8vZ8iP5guwlW8qzZC4hIiKi
         SlpR3ibHyCVyn/y/IXhEPCQcJW8RDwVERERUqIXl1XK4XCfRh3Upt8mJ4gFkMSEiIqIBNo/sKD6N77/E
@@ -526,7 +526,7 @@
   <data name="tsbEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA3gAAAPUCAYAAAD/sJvbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAKlvSURBVHhe7N0HmBRl1vbxZYYoWSUpMKhkd5lBiUo2EJSo
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAKlvSURBVHhe7N0HmBRl1vbxZYYoWSUpMKhkd5lBiUo2EJSo
         ZHclCAIq0V0FFCRKcFWCqICB4KuS1CUpYVWiSpK4SlYJKkElS5j65rjl9bmcAaanq7vrdP9/13Vfd2HY
         1/fUzFP9zHRX/QkAotmFCxecffv2OcuXL3emTp3qDB482Hn00Ued1q1bO3fddZeTlJTk3Hjjjc61117r
         5M2b18mTJ4+T8q8RQoxEvmflezdfvny/fS/L97R8b8v3uHyvy/e8fO/LGiBrQXJysvx7AAAA8LsDBw44

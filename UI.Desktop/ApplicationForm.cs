@@ -13,6 +13,11 @@ namespace UI.Desktop
     public partial class ApplicationForm : Form
     {
         public ModoForm _Modo;
+
+        public enum ModoForm
+        {
+            alta, baja, modificacion, consulta
+        }
         public ApplicationForm()
         {
             InitializeComponent();
@@ -23,15 +28,22 @@ namespace UI.Desktop
 
         }
 
-        public enum ModoForm
+        public virtual void MapearDeDatos() 
         {
-            alta, baja, modificacion, consulta
+           
         }
+        public virtual void MapearADatos() 
+        {
 
-        public virtual void MapearDeDatos() { }
-        public virtual void MapearADatos() { }
-        public virtual void GuardarCambios() { }
-        public virtual bool Validar() { return false; }
+        }
+        public virtual void GuardarCambios() 
+        { 
+            
+        }
+        public virtual bool Validar()
+        {
+            return false;
+        }
         public void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             MessageBox.Show(mensaje, titulo, botones, icono);
