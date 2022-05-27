@@ -33,13 +33,21 @@ namespace UI.Desktop
             {
                 UsuarioLogic ul = new UsuarioLogic();
                 _UsuarioActual = ul.GetOne(ID);
-                this.MapearDeDatos();
+                MapearDeDatos();
             }
             
             if(_Modo == ModoForm.alta || _Modo == ModoForm.modificacion)
             {
                 this.btnAceptar.Text = "Guardar";
-                this.MapearADatos();
+                if (Validar())
+                {
+                    MapearADatos();
+                }
+                else
+                {
+                    //notificar
+                }
+                
             }else if(_Modo == ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
@@ -78,12 +86,56 @@ namespace UI.Desktop
                 _UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 _UsuarioActual.Clave = this.txtClave.Text;
                 _UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+                if(_Modo == ModoForm.alta)
+                {
+                    _UsuarioActual.State = BusinessEntity.States.New;
+                }
+                else if(_Modo == ModoForm.modificacion)
+                {
+                    _UsuarioActual.State = BusinessEntity.States.Modified;
+                }
             }
-
-            
         }
 
+        public override bool Validar()
+        {
+            //falta validad bien el mail
+            if (this.txtNombre.Text != null && this.txtApellido.Text != null && this.txtEmail.Text != null && this.txtClave.Text != null && this.txtUsuario.Text != null && this.chkHabilitado.Text != null)
+            {
+                if(this.txtClave.Text == this.txtConfirmarClave.Text)
+                {
+                    if (this.txtClave.Text.Length >= 8)
+                    {
+                        if (this.txtEmail.Text.Contains("@gmail.com"))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            Notificar("El email es invalido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        Notificar("La clave debe contener al menos 8 digitos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+                else
+                {
+                    Notificar("Las claves no coinciden", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
 
+            }
+            else
+            {
+                Notificar("Los campos no pueden estar vacios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            
+        }
 
         private void UsuarioDesktop_Load(object sender, EventArgs e)
         {
