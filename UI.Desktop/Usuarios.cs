@@ -63,7 +63,7 @@ namespace UI.Desktop
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-            if (this.dgvUsuarios.SelectedRows.Count >= 1)
+            if (this.dgvUsuarios.SelectedRows.Count == 1)
             {
                 UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.baja);
                 formUsuario.ShowDialog();
@@ -86,7 +86,7 @@ namespace UI.Desktop
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-            if (this.dgvUsuarios.SelectedRows.Count >= 1)
+            if (this.dgvUsuarios.SelectedRows.Count == 1)
             {
                 UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.modificacion);
                 formUsuario.ShowDialog();
