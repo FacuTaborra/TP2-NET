@@ -16,6 +16,7 @@ namespace UI.Desktop
     {
         public Usuario _UsuarioActual;
 
+
         public UsuarioDesktop()
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace UI.Desktop
             this.txtUsuario.Text = this._UsuarioActual.NombreUsuario;
             this.txtEmail.Text = this._UsuarioActual.Email;
             this.txtClave.Text = this._UsuarioActual.Clave;
-            //this.txtConfirmarClave = this._UsuarioActual.?;
+            this.txtConfirmarClave.Text = this._UsuarioActual.?;
         }
 
         public override void MapearADatos()
@@ -123,7 +124,7 @@ namespace UI.Desktop
             }
             else
             {
-                Notificar("Los campos no pueden estar vacios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Notificar("Ninguno de los campos no puede estar vacio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             
@@ -173,6 +174,16 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtConfirmarClave_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
