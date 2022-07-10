@@ -27,7 +27,7 @@ namespace Business.Logic
             UsuarioData.Delete(idUsuario);        
         }
 
-        public void Save(Usuario usuario)
+        public void Save(Business.Entities.Usuario usuario)
         {
             UsuarioData.Save(usuario);
         }

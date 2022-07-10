@@ -60,7 +60,6 @@ namespace UI.Desktop
             this.txtUsuario.Text = this._UsuarioActual.NombreUsuario;
             this.txtEmail.Text = this._UsuarioActual.Email;
             this.txtClave.Text = this._UsuarioActual.Clave;
-            this.txtConfirmarClave.Text = this._UsuarioActual.?;
         }
 
         public override void MapearADatos()
