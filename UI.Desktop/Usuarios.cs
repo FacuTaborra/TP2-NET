@@ -65,7 +65,7 @@ namespace UI.Desktop
             int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
             if (this.dgvUsuarios.SelectedRows.Count == 1)
             {
-                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.modificacion);
+                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.baja);
                 formUsuario.ShowDialog();
                 this.Listar();
             }
