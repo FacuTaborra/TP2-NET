@@ -11,13 +11,13 @@ namespace Data.Database
 
         const string consKeyDefaultCnnString = "ConnStringExpress";
 
-        public SqlConnection sqlConn;
-
-
+        SqlConnection _sqlConn;
+        public SqlConnection sqlConn { get; set; }
+        
         protected void OpenConnection()
         {
             //string connectionString ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
-            string connectionString = @"Server=localhost\\SQLEXPRESS;Database=tp2_net;Integrated Security=true; User=net; Password=net;";
+            string connectionString = @"Server=localhost\\SQLEXPRESS;Database=tp2_net;Integrated Security=true; User=user_program; Password=user_program;";
             sqlConn = new SqlConnection(connectionString);
             sqlConn.Open();
         }
@@ -30,7 +30,7 @@ namespace Data.Database
 
         protected SqlDataReader ExecuteReader(String commandText)
         {
-
+            throw new Exception("Metodo no implementado");
         }
     }
 }
