@@ -74,7 +74,7 @@ namespace Data.Database
             Usuarios.Remove(this.GetOne(ID));
         }
 
-        public void Save(Business.Entities.Usuario usuario)
+        public void Save(Usuario usuario)
         {
             if (usuario.State == BusinessEntity.States.New)
             {
