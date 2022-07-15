@@ -54,8 +54,9 @@ namespace UI.Desktop
             this.Notificar(this.Text, mensaje, botones, icono);
         }
 
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }
