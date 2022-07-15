@@ -33,18 +33,18 @@ namespace UI.Desktop
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -111,54 +111,6 @@ namespace UI.Desktop
             this.dgvUsuarios.Size = new System.Drawing.Size(857, 358);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 125;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "Nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 125;
-            // 
-            // apellido
-            // 
-            this.apellido.DataPropertyName = "Apellido";
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.MinimumWidth = 6;
-            this.apellido.Name = "apellido";
-            this.apellido.Width = 125;
-            // 
-            // usuario
-            // 
-            this.usuario.DataPropertyName = "NombreUsuario";
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.MinimumWidth = 6;
-            this.usuario.Name = "usuario";
-            this.usuario.Width = 125;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "Email";
-            this.email.HeaderText = "EMail";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.Width = 125;
-            // 
-            // habilitado
-            // 
-            this.habilitado.DataPropertyName = "Habilitado";
-            this.habilitado.HeaderText = "Habilitado";
-            this.habilitado.MinimumWidth = 6;
-            this.habilitado.Name = "habilitado";
-            this.habilitado.Width = 125;
             // 
             // btnSalir
             // 
@@ -229,6 +181,54 @@ namespace UI.Desktop
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id_usuario";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 125;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 125;
+            // 
+            // apellido
+            // 
+            this.apellido.DataPropertyName = "apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.MinimumWidth = 6;
+            this.apellido.Name = "apellido";
+            this.apellido.Width = 125;
+            // 
+            // usuario
+            // 
+            this.usuario.DataPropertyName = "nombre_usuario";
+            this.usuario.HeaderText = "Usuario";
+            this.usuario.MinimumWidth = 6;
+            this.usuario.Name = "usuario";
+            this.usuario.Width = 125;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "Email";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            this.email.Width = 125;
+            // 
+            // habilitado
+            // 
+            this.habilitado.DataPropertyName = "habilitado";
+            this.habilitado.HeaderText = "Habilitado";
+            this.habilitado.MinimumWidth = 6;
+            this.habilitado.Name = "habilitado";
+            this.habilitado.Width = 125;
             // 
             // tcUsuarios
             // 

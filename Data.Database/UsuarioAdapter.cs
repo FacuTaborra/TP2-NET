@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Data.Database
 {
-    public class UsuarioAdapter:Adapter
+    public class UsuarioAdapter: Adapter
     {
         #region DatosEnMemoria
         // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
@@ -73,7 +73,7 @@ namespace Data.Database
                     Usuario usr = new Usuario();
                     usr.ID = (int)drUsuarios["id_usuario"];
                     usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
-                    usr.Clave = (string)drUsuarios["clve"];
+                    usr.Clave = (string)drUsuarios["clave"];
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];

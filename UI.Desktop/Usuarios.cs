@@ -18,8 +18,6 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;
-           
-
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
