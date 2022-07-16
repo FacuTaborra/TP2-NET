@@ -12,6 +12,17 @@ namespace Business.Logic
     {
         public Data.Database.UsuarioAdapter _UsuarioData;
 
+        public UsuarioAdapter UsuarioData
+        {
+            get { return _UsuarioData; }
+            set { _UsuarioData = value; }
+        }
+
+        public UsuarioLogic()
+        {
+            UsuarioData = new UsuarioAdapter();
+        }
+
         public List<Usuario> GetAll()
         {
             return UsuarioData.GetAll();

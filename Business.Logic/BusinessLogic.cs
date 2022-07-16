@@ -9,6 +9,6 @@ namespace Business.Logic
 {
     public class BusinessLogic
     {
-        public Data.Database.UsuarioAdapter UsuarioData;
+
     }
 }

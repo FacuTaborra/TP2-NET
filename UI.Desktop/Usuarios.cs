@@ -37,15 +37,10 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            try
-            {
-                UsuarioLogic ul = new UsuarioLogic();
-                this.dgvUsuarios.DataSource= ul.GetAll();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error");
-            }
+
+            UsuarioLogic ul = new UsuarioLogic();
+            this.dgvUsuarios.DataSource= ul.GetAll();
+
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
