@@ -90,14 +90,14 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            //falta validad bien el mail
+          
             if (this.txtNombre.Text != null && this.txtApellido.Text != null && this.txtEmail.Text != null && this.txtClave.Text != null && this.txtUsuario.Text != null && this.chkHabilitado.Text != null)
             {
                 if(this.txtClave.Text == this.txtConfirmarClave.Text)
                 {
                     if (this.txtClave.Text.Length >= 8)
                     {
-                        if (this.txtEmail.Text.Contains("@gmail.com"))
+                        if (Validaciones.emailValido(this.txtEmail.Text))
                         {
                             return true;
                         }
