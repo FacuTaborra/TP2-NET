@@ -184,7 +184,7 @@ namespace UI.Desktop
             // 
             // id
             // 
-            this.id.DataPropertyName = "id_usuario";
+            this.id.DataPropertyName = "ID";
             this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -208,7 +208,7 @@ namespace UI.Desktop
             // 
             // usuario
             // 
-            this.usuario.DataPropertyName = "nombre_usuario";
+            this.usuario.DataPropertyName = "NombreUsuario";
             this.usuario.HeaderText = "Usuario";
             this.usuario.MinimumWidth = 6;
             this.usuario.Name = "usuario";
