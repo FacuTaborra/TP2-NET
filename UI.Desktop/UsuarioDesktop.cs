@@ -135,27 +135,7 @@ namespace UI.Desktop
             ul.Save(_UsuarioActual);
         }
 
-        private void UsuarioDesktop_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
@@ -174,14 +154,5 @@ namespace UI.Desktop
             Close();
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtConfirmarClave_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

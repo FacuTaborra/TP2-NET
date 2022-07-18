@@ -192,7 +192,7 @@ namespace UI.Desktop
             // 
             // nombre
             // 
-            this.nombre.DataPropertyName = "nombre";
+            this.nombre.DataPropertyName = "Nombre";
             this.nombre.HeaderText = "Nombre";
             this.nombre.MinimumWidth = 6;
             this.nombre.Name = "nombre";
@@ -200,7 +200,7 @@ namespace UI.Desktop
             // 
             // apellido
             // 
-            this.apellido.DataPropertyName = "apellido";
+            this.apellido.DataPropertyName = "Apellido";
             this.apellido.HeaderText = "Apellido";
             this.apellido.MinimumWidth = 6;
             this.apellido.Name = "apellido";
@@ -216,7 +216,7 @@ namespace UI.Desktop
             // 
             // email
             // 
-            this.email.DataPropertyName = "email";
+            this.email.DataPropertyName = "Email";
             this.email.HeaderText = "Email";
             this.email.MinimumWidth = 6;
             this.email.Name = "email";
@@ -224,7 +224,7 @@ namespace UI.Desktop
             // 
             // habilitado
             // 
-            this.habilitado.DataPropertyName = "habilitado";
+            this.habilitado.DataPropertyName = "Habilitado";
             this.habilitado.HeaderText = "Habilitado";
             this.habilitado.MinimumWidth = 6;
             this.habilitado.Name = "habilitado";

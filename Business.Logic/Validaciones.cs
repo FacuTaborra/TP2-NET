@@ -10,8 +10,6 @@ namespace Business.Logic
 {
     public static class Validaciones
     {
-
-
         public static bool emailValido(string strMailAddress)
         {
             // Return true if strIn is in valid e-mail format.
