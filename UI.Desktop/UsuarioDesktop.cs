@@ -103,7 +103,7 @@ namespace UI.Desktop
                         }
                         else
                         {
-                            Notificar("El email es invalido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Notificar("El email es inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return false;
                         }
                     }
@@ -122,7 +122,7 @@ namespace UI.Desktop
             }
             else
             {
-                Notificar("Ninguno de los campos no puede estar vacio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Notificar("Ninguno de los campos puede estar vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             
