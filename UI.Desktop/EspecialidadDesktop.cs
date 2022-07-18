@@ -15,11 +15,15 @@ namespace UI.Desktop
 {
     public partial class EspecialidadDesktop : ApplicationForm
     {
+        public Especialidad _EspecialidadActual;
         public EspecialidadDesktop()
         {
             InitializeComponent();
         }
 
+        public EspecialidadDesktop(ModoForm modo): this()
+        {
 
+        }   
     }
 }
