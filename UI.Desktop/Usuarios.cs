@@ -91,7 +91,8 @@ namespace UI.Desktop
             }
             else
             {
-                MessageBox.Show("Debe seleccionar una fila");
+                ApplicationForm af = new ApplicationForm();
+                af.Notificar("Debe seleccionar una fila", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
