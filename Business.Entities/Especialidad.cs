@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Entities
 {
-    class Especialidad: BusinessEntity
+    public class Especialidad: BusinessEntity
     {
         private string _Descripcion;
 
