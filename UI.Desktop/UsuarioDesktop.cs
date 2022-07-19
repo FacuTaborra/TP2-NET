@@ -91,7 +91,7 @@ namespace UI.Desktop
         public override bool Validar()
         {
           
-            if (this.txtNombre.Text != null && this.txtApellido.Text != null && this.txtEmail.Text != null && this.txtClave.Text != null && this.txtUsuario.Text != null && this.chkHabilitado.Text != null)
+            if (this.txtNombre.Text != "" && this.txtApellido.Text != "" && this.txtEmail.Text != "" && this.txtClave.Text != "" && this.txtUsuario.Text != "")
             {
                 if(this.txtClave.Text == this.txtConfirmarClave.Text)
                 {
@@ -133,11 +133,6 @@ namespace UI.Desktop
             MapearADatos();
             UsuarioLogic ul = new UsuarioLogic();
             ul.Save(_UsuarioActual);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

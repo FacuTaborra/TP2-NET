@@ -97,6 +97,7 @@ namespace UI.Desktop
             this.btnAceptar.TabIndex = 2;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnSalir
             // 
@@ -108,6 +109,7 @@ namespace UI.Desktop
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // textID
             // 
@@ -125,7 +127,6 @@ namespace UI.Desktop
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(322, 20);
             this.txtDescripcion.TabIndex = 5;
-            this.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // EspecialidadDesktop
             // 
@@ -134,7 +135,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(419, 104);
             this.Controls.Add(this.tlpEspecialidad);
             this.Name = "EspecialidadDesktop";
-            this.Text = "EspecialidadDesktop";
+            this.Text = "Especialidad";
             this.tlpEspecialidad.ResumeLayout(false);
             this.tlpEspecialidad.PerformLayout();
             this.ResumeLayout(false);

@@ -53,11 +53,11 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Especialidad.cs">
+    <Compile Include="Especialidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Especialidad.Designer.cs">
-      <DependentUpon>Especialidad.cs</DependentUpon>
+    <Compile Include="Especialidades.Designer.cs">
+      <DependentUpon>Especialidades.cs</DependentUpon>
     </Compile>
     <Compile Include="EspecialidadDesktop.cs">
       <SubType>Form</SubType>
@@ -100,8 +100,8 @@
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Especialidad.resx">
-      <DependentUpon>Especialidad.cs</DependentUpon>
+    <EmbeddedResource Include="Especialidades.resx">
+      <DependentUpon>Especialidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>

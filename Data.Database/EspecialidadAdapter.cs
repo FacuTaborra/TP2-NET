@@ -85,7 +85,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("delete especialidad where id_especialidad = @id", sqlConn);
+                SqlCommand cmdDelete = new SqlCommand("delete especialidades where id_especialidad = @id" , sqlConn);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (SqlException Ex1)
@@ -109,7 +110,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT TO especialidades (desc_especialidad)" + "values (@desc_especialidad)");
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO especialidades (desc_especialidad)" + "values (@desc_especialidad)" + "select @@identity", sqlConn);
                 cmdSave.Parameters.Add("@desc_especialidad", SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
                 especialidad.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }

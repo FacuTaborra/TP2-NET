@@ -78,9 +78,9 @@ namespace UI.Desktop
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 409);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ApplicationForm";
-            this.Text = "Form1";
+            this.Text = "Notificación";
             this.Load += new System.EventHandler(this.ApplicationForm_Load);
             this.ResumeLayout(false);
 
