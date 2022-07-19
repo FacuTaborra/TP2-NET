@@ -25,5 +25,11 @@ namespace UI.Desktop
         {
 
         }   
+
+        public EspecialidadDesktop(int ID, ModoForm modo): this()
+        {
+            _Modo = modo;
+
+        }
     }
 }
