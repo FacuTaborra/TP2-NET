@@ -149,5 +149,9 @@ namespace UI.Desktop
             Close();
         }
 
+        private void UsuarioDesktop_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

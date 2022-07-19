@@ -35,12 +35,14 @@ namespace UI.Desktop
                 _MateriaActual = ml.GetOne(ID);
                 MapearDeDatos();
             }
-            if(_Modo==ModoForm.alta || _Modo == ModoForm.modificacion)
+            if(_Modo == ModoForm.alta || _Modo == ModoForm.modificacion)
             {
                 this.btnAceptar.Text = "Guardar";
+
             }else if(_Modo == ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
+
             }else if (_Modo == ModoForm.consulta)
             {
                 this.btnAceptar.Text = "Aceptar";
@@ -65,12 +67,11 @@ namespace UI.Desktop
             {
                 _MateriaActual = new Materia();
             }
-
             if (_Modo == ModoForm.modificacion || _Modo == ModoForm.alta)
             {
                 _MateriaActual.Descripcion = this.txtDescrip.Text;
                 _MateriaActual.HSSemanales = int.Parse(this.nudHsSem.Text);
-                _MateriaActual.HSTotales = int.Parse(this.nudHsSem.Text);
+                _MateriaActual.HSTotales = int.Parse(this.nudHsTot.Text);
                 _MateriaActual.IDPlan = int.Parse(this.txtIDPlan.Text);
                 if (_Modo == ModoForm.alta)
                 {
@@ -86,9 +87,10 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
+            PlanLogic pl = new PlanLogic();
             if(this.txtDescrip.Text!=null && this.nudHsSem.Text != null && this.nudHsTot.Text!=null && this.txtIDPlan != null)
             {
-                if (Validaciones.ValidarIDPlan(int.Parse(this.txtIDPlan.Text))) {
+                if (pl.ValidarIDPlan(int.Parse(this.txtIDPlan.Text))) {
                     if (Validaciones.ValidarHorasSemanales(int.Parse(this.nudHsSem.Text)))
                     {
                         if (Validaciones.ValidarHorasTotales(int.Parse(this.nudHsTot.Text)))
