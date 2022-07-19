@@ -41,7 +41,7 @@ namespace Business.Logic
             MateriaData.Delete(idMateria);
         }
 
-        public void Save(Business.Entities.Materia materia)
+        public void Save(Materia materia)
         {
             MateriaData.Save(materia);
         }

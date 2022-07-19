@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Data.Database;
+using Business.Entities;
 
 
 namespace Business.Logic
 {
-    public static class Validaciones
+    public class Validaciones
     {
 
         public static bool emailValido(string strMailAddress)
@@ -17,11 +19,6 @@ namespace Business.Logic
             return Regex.IsMatch(strMailAddress, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
         }
 
-        public static bool ValidarIDPlan(int id)
-        {
-            ///COMPLETARLO UNA VEZ QUE ESTÉ LA CLASE PlanAdapter.cs en Data.Database
-            return true;
-        }
 
         public static bool ValidarHorasSemanales(int cant_hs)
         {
