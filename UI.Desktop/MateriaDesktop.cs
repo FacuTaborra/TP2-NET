@@ -87,10 +87,11 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            PlanLogic pl = new PlanLogic();
             if(this.txtDescrip.Text!=null && this.nudHsSem.Text != null && this.nudHsTot.Text!=null && this.txtIDPlan != null)
             {
-                if (pl.ValidarIDPlan(int.Parse(this.txtIDPlan.Text))) {
+                PlanLogic pl = new PlanLogic();
+                var p = pl.GetOne(Convert.ToInt32(txtIDPlan.Text));
+                if (p!=null) {
                     if (Validaciones.ValidarHorasSemanales(int.Parse(this.nudHsSem.Text)))
                     {
                         if (Validaciones.ValidarHorasTotales(int.Parse(this.nudHsTot.Text)))
@@ -173,6 +174,11 @@ namespace UI.Desktop
         }
 
         private void txtHsTot_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
         {
 
         }

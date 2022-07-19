@@ -38,21 +38,6 @@ namespace Business.Logic
             PlanData.Save(plan);
         }
 
-        public bool ValidarIDPlan(int id)
-        {
-            return true;
-
-            /*Plan buscPlan = PlanData.GetOne(id);
-            if (buscPlan != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }*/
-        }
-
 
     }
 }
