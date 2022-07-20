@@ -35,11 +35,7 @@ namespace Business.Logic
         {
             EspecialidadData.Delete(idEspecialidad);
         }
-        /*
-        public List<string> GetDescEspecialidades()
-        {
-            return EspecialidadData.GetDescEspecialidades();
-        }*/
+     
 
         public void Save(Especialidad especialidad)
         {

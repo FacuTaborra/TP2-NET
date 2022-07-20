@@ -63,6 +63,24 @@ namespace UI.Desktop
             
         }
 
+
+
+        private DataTable getEspecialidades()
+        {
+            DataTable dtEsp = new DataTable();
+            dtEsp.Columns.Add("id_esp", typeof(int));
+            dtEsp.Columns.Add("desc_esp", typeof(string));
+            List<Especialidad> listaEsp = new List<Especialidad>();
+            EspecialidadLogic el = new EspecialidadLogic();
+            listaEsp = el.GetAll();
+            foreach (Especialidad esp in listaEsp)
+            {
+                dtEsp.Rows.Add(new Object[] { esp.ID.ToString(), esp.Descripcion.ToString() });
+            }
+            return dtEsp;
+        }
+        
+        
         public void CompletarCBEspecialidad(ComboBox cbEsp)
         {
             List<Especialidad> listaEsp = new List<Especialidad>();
@@ -70,14 +88,61 @@ namespace UI.Desktop
             listaEsp = el.GetAll();
             foreach(Especialidad esp in listaEsp)
             {
-                cbEsp.Items.Add(esp.Descripcion);
+                cbEsp.Items.Add(esp.Descripcion.ToString());
+                cbEsp.ValueMember = esp.ID.ToString();
             }
         }
+        
+        
+        /*
+        public void CompletarCBEspecialidad(ComboBox cbEsp)
+        {
+            DataTable listaEsp = new DataTable();
+            //EspecialidadLogic el = new EspecialidadLogic();
+            listaEsp = getEspecialidades();
+            foreach (DataRow esp in listaEsp.Rows)
+            {
+                cbEsp.Items.Add(esp.DataColum.data());
+                cbEsp.ValueMember = "id_esp";
+                cbEsp.DisplayMember = "desc_esp";
+            }
+            
+        }*/
+
+        /*
+        public void CompletarCBEspecialidad(ComboBox cbEsp)
+        {
+            cbEsp.DataSource = getEspecialidades();
+            foreach (DataRow esp in cbEsp.DataSource)
+            {
+                cbEsp.Items.Add(esp);
+                cbEsp.ValueMember = "id_esp";
+                cbEsp.DisplayMember = "desc_esp";
+            }
+        }
+        */
 
 
         public override void MapearADatos()
         {
+            if (_Modo == ModoForm.alta)
+            {
+                _PlanActual = new Plan();
+            }
 
+            if(_Modo==ModoForm.alta || _Modo == ModoForm.modificacion)
+            {
+                _PlanActual.Descripcion = this.txtDesc.Text;
+                _PlanActual.IDEspecialidad =int.Parse( this.cbEspecialidad.ValueMember);
+                if (_Modo == ModoForm.alta)
+                {
+                    _PlanActual.State = BusinessEntity.States.New;
+                }
+                else if (_Modo == ModoForm.modificacion)
+                {
+                    _PlanActual.State = BusinessEntity.States.Modified;
+                }
+            }
         }
 
         public override bool Validar()
@@ -88,7 +153,9 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-
+            MapearADatos();
+            PlanLogic pl = new PlanLogic();
+            pl.Save(_PlanActual);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -99,6 +166,20 @@ namespace UI.Desktop
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cbEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                GuardarCambios();
+                Close();
+            }
         }
     }
 }

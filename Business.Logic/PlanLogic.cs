@@ -18,6 +18,11 @@ namespace Business.Logic
             set { _PlanData = value; }
         }
 
+        public PlanLogic()
+        {
+            PlanData = new PlanAdapter();
+        }
+
         public List<Plan> GetAll()
         {
             return PlanData.GetAll();
@@ -37,7 +42,6 @@ namespace Business.Logic
         {
             PlanData.Save(plan);
         }
-
 
     }
 }

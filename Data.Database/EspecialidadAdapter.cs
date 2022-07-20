@@ -50,7 +50,7 @@ namespace Data.Database
 
         public Especialidad GetOne(int ID)
         {
-            Especialidad esr = new Especialidad();
+            Especialidad esp = new Especialidad();
             try
             {
                 this.OpenConnection();
@@ -59,8 +59,8 @@ namespace Data.Database
                 SqlDataReader drEspecialidad = cmdEspecialidad.ExecuteReader();
                 if (drEspecialidad.Read())
                 {
-                    esr.ID = (int)drEspecialidad["id_especialidad"];
-                    esr.Descripcion = (string)drEspecialidad["desc_especialidad"];
+                    esp.ID = (int)drEspecialidad["id_especialidad"];
+                    esp.Descripcion = (string)drEspecialidad["desc_especialidad"];
                 }
                 drEspecialidad.Close();
             }
@@ -78,7 +78,7 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-            return esr;
+            return esp;
         }
 
         public void Delete(int ID)

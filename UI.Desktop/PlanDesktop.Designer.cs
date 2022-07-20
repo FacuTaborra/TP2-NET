@@ -109,6 +109,7 @@ namespace UI.Desktop
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // label2
             // 
@@ -129,6 +130,7 @@ namespace UI.Desktop
             this.cbEspecialidad.Name = "cbEspecialidad";
             this.cbEspecialidad.Size = new System.Drawing.Size(185, 21);
             this.cbEspecialidad.TabIndex = 5;
+            this.cbEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cbEspecialidad_SelectedIndexChanged);
             // 
             // label3
             // 
