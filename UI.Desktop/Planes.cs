@@ -18,25 +18,8 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.dgvPlanes.AutoGenerateColumns = false;
-            
         }
 
-
-        private void GenerarColumnaEspecialidad()
-        {
-
-
-
-
-            /*
-            DataGridViewTextBoxColumn colEsp = new DataGridViewTextBoxColumn();
-            DataTable tablaEsp = new DataTable();
-            tablaEsp = getEspecialidades();
-            */
-
-
-
-        }
 
 
         private DataTable getEspecialidades()
@@ -104,7 +87,6 @@ namespace UI.Desktop
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             PlanDesktop formPlan = new PlanDesktop(ApplicationForm.ModoForm.alta);
-            formPlan.CompletarCBEspecialidad(formPlan.cbEspecialidad);
             formPlan.ShowDialog();
             this.Listar();
         }

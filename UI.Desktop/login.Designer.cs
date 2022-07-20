@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class login
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -90,6 +90,7 @@ namespace UI.Desktop
             this.btnIngresar.TabIndex = 5;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // linkOlvidaPass
             // 

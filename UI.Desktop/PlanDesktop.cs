@@ -19,12 +19,16 @@ namespace UI.Desktop
         public PlanDesktop()
         {
             InitializeComponent();
+            CompletarCBEspecialidad(this.cbEspecialidad);
         }
 
         public PlanDesktop(ModoForm modo) : this()
         {
 
         }
+
+
+
         public PlanDesktop(int ID, ModoForm modo) : this()
         {
             _Modo = modo;
@@ -57,10 +61,14 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             base.MapearDeDatos();
+            EspecialidadLogic el = new EspecialidadLogic();
+            Especialidad esp = new Especialidad();
             this.txtID.Text = this._PlanActual.ID.ToString();
             this.txtDesc.Text = this._PlanActual.Descripcion;
-            CompletarCBEspecialidad(this.cbEspecialidad);
-            
+            var idEsp = this._PlanActual.IDEspecialidad;
+            esp = el.GetOne(idEsp);
+
+
         }
 
 
@@ -129,11 +137,10 @@ namespace UI.Desktop
             {
                 _PlanActual = new Plan();
             }
-
             if(_Modo==ModoForm.alta || _Modo == ModoForm.modificacion)
             {
                 _PlanActual.Descripcion = this.txtDesc.Text;
-                _PlanActual.IDEspecialidad =int.Parse( this.cbEspecialidad.ValueMember);
+                _PlanActual.IDEspecialidad= Convert.ToInt32(this.cbEspecialidad.SelectedValue);
                 if (_Modo == ModoForm.alta)
                 {
                     _PlanActual.State = BusinessEntity.States.New;
@@ -168,10 +175,6 @@ namespace UI.Desktop
 
         }
 
-        private void cbEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -181,5 +184,6 @@ namespace UI.Desktop
                 Close();
             }
         }
+
     }
 }
