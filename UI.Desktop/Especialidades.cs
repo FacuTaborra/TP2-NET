@@ -79,5 +79,10 @@ namespace UI.Desktop
                 af.Notificar("Debe seleccionar una fila", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void dgvEspecialidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

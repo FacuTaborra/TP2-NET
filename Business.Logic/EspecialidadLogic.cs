@@ -35,11 +35,14 @@ namespace Business.Logic
         {
             EspecialidadData.Delete(idEspecialidad);
         }
+     
 
         public void Save(Especialidad especialidad)
         {
             EspecialidadData.Save(especialidad);
         }
+        
+       
 
     }
 }

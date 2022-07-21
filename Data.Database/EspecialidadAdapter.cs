@@ -47,9 +47,10 @@ namespace Data.Database
             return especialidades;
         }
 
+
         public Especialidad GetOne(int ID)
         {
-            Especialidad esr = new Especialidad();
+            Especialidad esp = new Especialidad();
             try
             {
                 this.OpenConnection();
@@ -58,8 +59,8 @@ namespace Data.Database
                 SqlDataReader drEspecialidad = cmdEspecialidad.ExecuteReader();
                 if (drEspecialidad.Read())
                 {
-                    esr.ID = (int)drEspecialidad["id_especialidad"];
-                    esr.Descripcion = (string)drEspecialidad["desc_especialidad"];
+                    esp.ID = (int)drEspecialidad["id_especialidad"];
+                    esp.Descripcion = (string)drEspecialidad["desc_especialidad"];
                 }
                 drEspecialidad.Close();
             }
@@ -77,7 +78,7 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-            return esr;
+            return esp;
         }
 
         public void Delete(int ID)
@@ -171,5 +172,40 @@ namespace Data.Database
             }
             especialidad.State = BusinessEntity.States.Unmodified;
         }
+
+        /*
+        public List<string> GetDescEspecialidades()
+        {
+            List<string> descripciones = new List<string>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdEspecialidades = new SqlCommand("Select  desc_especialidad from especialidades", sqlConn);
+                SqlDataReader drEspecialidades = cmdEspecialidades.ExecuteReader();
+                while (drEspecialidades.Read())
+                {
+
+                    Especialidad esr = new Especialidad();
+                    esr.ID = (int)drEspecialidades["id_especialidad"];
+                    esr.Descripcion = (string)drEspecialidades["desc_especialidad"];
+                    esr.Add(esr);
+                }
+            }
+            catch (SqlException Ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al obtener la lista de descripciones de especialidades", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return descripciones;
+        }*/
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class login
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -90,6 +90,7 @@ namespace UI.Desktop
             this.btnIngresar.TabIndex = 5;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // linkOlvidaPass
             // 
@@ -100,8 +101,9 @@ namespace UI.Desktop
             this.linkOlvidaPass.TabIndex = 6;
             this.linkOlvidaPass.TabStop = true;
             this.linkOlvidaPass.Text = "Olvidé mi contraseña";
+            this.linkOlvidaPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkOlvidaPass_LinkClicked);
             // 
-            // login
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,7 +115,7 @@ namespace UI.Desktop
             this.Controls.Add(this.labelLogin3);
             this.Controls.Add(this.labelLogin2);
             this.Controls.Add(this.labelLogin1);
-            this.Name = "login";
+            this.Name = "Login";
             this.Text = "Iniciar sesión";
             this.ResumeLayout(false);
             this.PerformLayout();

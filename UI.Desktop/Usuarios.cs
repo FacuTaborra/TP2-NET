@@ -25,11 +25,6 @@ namespace UI.Desktop
             Listar();
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tlUsuarios_Paint(object sender, PaintEventArgs e)
         {
 

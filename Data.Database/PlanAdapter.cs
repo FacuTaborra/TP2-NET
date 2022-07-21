@@ -142,7 +142,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("Update planes set desc_plan=@desc, id_especialidad=@id_esp where id_plan=@id", sqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
-                cmdSave.Parameters.Add("@descrip", SqlDbType.VarChar, 50).Value = plan.Descripcion;
+                cmdSave.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
                 cmdSave.Parameters.Add("id_esp", SqlDbType.Int).Value = plan.IDEspecialidad;
                 cmdSave.ExecuteNonQuery();
             }
