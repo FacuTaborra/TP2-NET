@@ -8,7 +8,6 @@ namespace Data.Database
 {
     public class Adapter
     {
-        //Clave por defecto a utlizar para la cadena de conexion
         const string consKeyDefaultCnnString = "ConnStringExpress";
 
         //SqlConnection _sqlConn;

@@ -43,7 +43,12 @@ namespace UI.Desktop
             }else if(_Modo == ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
-            }else if(_Modo == ModoForm.consulta)
+                this.txtApellido.ReadOnly = true;
+                this.txtEmail.ReadOnly = true;
+                this.txtUsuario.ReadOnly = true;
+
+            }
+            else if(_Modo == ModoForm.consulta)
             {
                 this.btnAceptar.Text = "Aceptar";
             }

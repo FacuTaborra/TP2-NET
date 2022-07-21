@@ -136,6 +136,7 @@ namespace UI.Desktop
             this.Controls.Add(this.tlpEspecialidad);
             this.Name = "EspecialidadDesktop";
             this.Text = "Especialidad";
+            this.Load += new System.EventHandler(this.EspecialidadDesktop_Load);
             this.tlpEspecialidad.ResumeLayout(false);
             this.tlpEspecialidad.PerformLayout();
             this.ResumeLayout(false);

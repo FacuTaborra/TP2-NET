@@ -42,6 +42,7 @@ namespace UI.Desktop
             else if (_Modo != ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
+                this.txtDescripcion.ReadOnly = true;
             }
             else if (_Modo == ModoForm.consulta)
             {
@@ -109,6 +110,11 @@ namespace UI.Desktop
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void EspecialidadDesktop_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
