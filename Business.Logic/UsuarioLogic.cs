@@ -10,7 +10,7 @@ namespace Business.Logic
 {
     public class UsuarioLogic: BusinessLogic
     {
-        public Data.Database.UsuarioAdapter _UsuarioData;
+        public UsuarioAdapter _UsuarioData;
 
         public UsuarioAdapter UsuarioData
         {

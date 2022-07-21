@@ -51,7 +51,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPlanes = new SqlCommand("select * from planes where id_plan=@id", sqlConn);
+                SqlCommand cmdPlanes = new SqlCommand("select * from planes where id_plan = @id", sqlConn);
                 cmdPlanes.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 SqlDataReader drPlan = cmdPlanes.ExecuteReader();
                 if (drPlan.Read())
@@ -60,6 +60,7 @@ namespace Data.Database
                     plan.Descripcion = (string)drPlan["desc_plan"];
                     plan.IDEspecialidad = (int)drPlan["id_especialidad"];
                 }
+
                 drPlan.Close();
             }
             catch (SqlException Ex1)
@@ -76,6 +77,7 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
+
             return plan;
         }
 

@@ -90,8 +90,7 @@ namespace UI.Desktop
             if(this.txtDescrip.Text!=null && this.nudHsSem.Text != null && this.nudHsTot.Text!=null && this.txtIDPlan != null)
             {
                 PlanLogic pl = new PlanLogic();
-                var p = pl.GetOne(Convert.ToInt32(txtIDPlan.Text));
-                if (p!=null) {
+                if (pl.GetOne(Convert.ToInt32(txtIDPlan.Text)) != null) {
                     if (Validaciones.ValidarHorasSemanales(int.Parse(this.nudHsSem.Text)))
                     {
                         if (Validaciones.ValidarHorasTotales(int.Parse(this.nudHsTot.Text)))

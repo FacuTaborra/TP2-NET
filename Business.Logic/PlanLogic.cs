@@ -10,7 +10,7 @@ namespace Business.Logic
 {
     public class PlanLogic: BusinessLogic
     {
-        public Data.Database.PlanAdapter _PlanData;
+        public PlanAdapter _PlanData;
 
         public PlanAdapter PlanData
         {
