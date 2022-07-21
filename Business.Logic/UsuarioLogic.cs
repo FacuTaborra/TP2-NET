@@ -42,5 +42,11 @@ namespace Business.Logic
         {
             UsuarioData.Save(usuario);
         }
+
+        public Usuario GetOneByUserName(string nombreUsu)
+        {
+           return UsuarioData.GetOneByUserName(nombreUsu);
+        }
+
     }
 }
