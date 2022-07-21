@@ -54,26 +54,26 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtDesc, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtEspecialidad, 1, 4);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 19);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.30275F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.69725F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.92593F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.07407F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(275, 165);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(275, 184);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // txtID
             // 
-            this.txtID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtID.Location = new System.Drawing.Point(98, 3);
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtID.Location = new System.Drawing.Point(98, 10);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(174, 20);
@@ -81,11 +81,11 @@ namespace UI.Desktop
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(35, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 27);
+            this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "  ID";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -93,7 +93,7 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(98, 137);
+            this.btnCancelar.Location = new System.Drawing.Point(98, 155);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -103,7 +103,7 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(17, 137);
+            this.btnAceptar.Location = new System.Drawing.Point(17, 155);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -113,37 +113,38 @@ namespace UI.Desktop
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 43);
+            this.label2.Location = new System.Drawing.Point(13, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 29);
+            this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "  Descripcion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 82);
+            this.label3.Location = new System.Drawing.Point(4, 111);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 28);
+            this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "  ID Especialidad";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtDesc
             // 
-            this.txtDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDesc.Location = new System.Drawing.Point(98, 46);
+            this.txtDesc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDesc.Location = new System.Drawing.Point(98, 60);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(174, 20);
             this.txtDesc.TabIndex = 2;
             // 
             // txtEspecialidad
             // 
-            this.txtEspecialidad.Location = new System.Drawing.Point(98, 85);
+            this.txtEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEspecialidad.Location = new System.Drawing.Point(98, 108);
             this.txtEspecialidad.Name = "txtEspecialidad";
             this.txtEspecialidad.Size = new System.Drawing.Size(174, 20);
             this.txtEspecialidad.TabIndex = 8;

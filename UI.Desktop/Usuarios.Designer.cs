@@ -238,6 +238,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(863, 420);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "tcUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);

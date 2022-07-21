@@ -49,9 +49,10 @@ namespace UI.Desktop
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             if (Validar())
-            {
-                Notificar("Bienvenido al Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Close();
+            { 
+                formMenu mn = new formMenu();
+                mn.Show();
+                this.Close();
             }
         }
 

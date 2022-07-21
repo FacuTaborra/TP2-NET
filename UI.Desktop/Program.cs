@@ -17,7 +17,10 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Materias());
+
+            Login lg = new Login();
+            lg.Show();
+            Application.Run();
         }
     }
 }

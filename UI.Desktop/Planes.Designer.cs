@@ -195,6 +195,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tcPlanes);
             this.Name = "Planes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Planes";
             this.Load += new System.EventHandler(this.Planes_Load);
             this.tcPlanes.ContentPanel.ResumeLayout(false);

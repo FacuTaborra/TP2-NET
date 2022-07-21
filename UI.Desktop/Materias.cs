@@ -39,6 +39,8 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            formMenu mn = new formMenu();
+            mn.Show();
             this.Close();
         }
 

@@ -116,6 +116,7 @@ namespace UI.Desktop
             this.Controls.Add(this.labelLogin2);
             this.Controls.Add(this.labelLogin1);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar sesión";
             this.ResumeLayout(false);
             this.PerformLayout();

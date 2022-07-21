@@ -211,6 +211,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tcMaterias);
             this.Name = "Materias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Materias";
             this.Load += new System.EventHandler(this.Materias_Load);
             this.tcMaterias.ContentPanel.ResumeLayout(false);
