@@ -41,8 +41,20 @@ namespace Business.Logic
         {
             EspecialidadData.Save(especialidad);
         }
-        
-       
+
+        public bool ValidarIDEspecialidad(int id)
+        {
+            Especialidad esp = new Especialidad();
+            esp = EspecialidadData.GetOne(id);
+            if (esp.ID == id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }

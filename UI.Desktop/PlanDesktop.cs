@@ -19,7 +19,6 @@ namespace UI.Desktop
         public PlanDesktop()
         {
             InitializeComponent();
-            CompletarCBEspecialidad(this.cbEspecialidad);
         }
 
         public PlanDesktop(ModoForm modo) : this()
@@ -46,6 +45,9 @@ namespace UI.Desktop
             else if (_Modo == ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
+                this.txtDesc.ReadOnly = true;
+                this.txtEspecialidad.ReadOnly = true;
+
             }
             else if (_Modo == ModoForm.consulta)
             {
@@ -61,74 +63,10 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             base.MapearDeDatos();
-            EspecialidadLogic el = new EspecialidadLogic();
-            Especialidad esp = new Especialidad();
             this.txtID.Text = this._PlanActual.ID.ToString();
             this.txtDesc.Text = this._PlanActual.Descripcion;
-            var idEsp = this._PlanActual.IDEspecialidad;
-            esp = el.GetOne(idEsp);
-
-
+            this.txtEspecialidad.Text = this._PlanActual.IDEspecialidad.ToString();
         }
-
-
-
-        private DataTable getEspecialidades()
-        {
-            DataTable dtEsp = new DataTable();
-            dtEsp.Columns.Add("id_esp", typeof(int));
-            dtEsp.Columns.Add("desc_esp", typeof(string));
-            List<Especialidad> listaEsp = new List<Especialidad>();
-            EspecialidadLogic el = new EspecialidadLogic();
-            listaEsp = el.GetAll();
-            foreach (Especialidad esp in listaEsp)
-            {
-                dtEsp.Rows.Add(new Object[] { esp.ID.ToString(), esp.Descripcion.ToString() });
-            }
-            return dtEsp;
-        }
-        
-        
-        public void CompletarCBEspecialidad(ComboBox cbEsp)
-        {
-            List<Especialidad> listaEsp = new List<Especialidad>();
-            EspecialidadLogic el = new EspecialidadLogic();
-            listaEsp = el.GetAll();
-            foreach(Especialidad esp in listaEsp)
-            {
-                cbEsp.Items.Add(esp.Descripcion.ToString());
-                cbEsp.ValueMember = esp.ID.ToString();
-            }
-        }
-        
-        
-        /*
-        public void CompletarCBEspecialidad(ComboBox cbEsp)
-        {
-            DataTable listaEsp = new DataTable();
-            //EspecialidadLogic el = new EspecialidadLogic();
-            listaEsp = getEspecialidades();
-            foreach (DataRow esp in listaEsp.Rows)
-            {
-                cbEsp.Items.Add(esp.DataColum.data());
-                cbEsp.ValueMember = "id_esp";
-                cbEsp.DisplayMember = "desc_esp";
-            }
-            
-        }*/
-
-        /*
-        public void CompletarCBEspecialidad(ComboBox cbEsp)
-        {
-            cbEsp.DataSource = getEspecialidades();
-            foreach (DataRow esp in cbEsp.DataSource)
-            {
-                cbEsp.Items.Add(esp);
-                cbEsp.ValueMember = "id_esp";
-                cbEsp.DisplayMember = "desc_esp";
-            }
-        }
-        */
 
 
         public override void MapearADatos()
@@ -140,7 +78,7 @@ namespace UI.Desktop
             if(_Modo==ModoForm.alta || _Modo == ModoForm.modificacion)
             {
                 _PlanActual.Descripcion = this.txtDesc.Text;
-                _PlanActual.IDEspecialidad= Convert.ToInt32(this.cbEspecialidad.SelectedValue);
+                _PlanActual.IDEspecialidad= Convert.ToInt32(this.txtEspecialidad.Text);
                 if (_Modo == ModoForm.alta)
                 {
                     _PlanActual.State = BusinessEntity.States.New;
@@ -154,8 +92,25 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
+            if (this.txtDesc.Text != "" && this.txtEspecialidad.Text != "")
+            {
+                EspecialidadLogic el = new EspecialidadLogic();
+                if (!el.ValidarIDEspecialidad(Convert.ToInt32(this.txtEspecialidad.Text)))
+                {
+                    Notificar("El ID de especialidad ingresado no corresponde a una especialidad registrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else
+                {
+                    return true;
 
-            return true;
+                }
+            }
+            else
+            {
+                Notificar("Ninguno de los campos puede estar vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
         }
 
         public override void GuardarCambios()
