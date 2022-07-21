@@ -43,5 +43,18 @@ namespace Business.Logic
             PlanData.Save(plan);
         }
 
+        public bool ValidarIDPlan(int id)
+        {
+            Plan plan = new Plan();
+            plan = PlanData.GetOne(id);
+            if (plan.ID == id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

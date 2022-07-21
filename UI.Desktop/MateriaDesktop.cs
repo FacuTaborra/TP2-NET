@@ -42,8 +42,12 @@ namespace UI.Desktop
             }else if(_Modo == ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
-
-            }else if (_Modo == ModoForm.consulta)
+                this.txtDescrip.ReadOnly = true;
+                this.txtIDPlan.ReadOnly = true;
+                this.nudHsSem.ReadOnly = true;
+                this.nudHsTot.ReadOnly = true;
+            }
+            else if (_Modo == ModoForm.consulta)
             {
                 this.btnAceptar.Text = "Aceptar";
             }
@@ -87,11 +91,11 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            if(this.txtDescrip.Text!=null && this.nudHsSem.Text != null && this.nudHsTot.Text!=null && this.txtIDPlan != null)
+            if(this.txtDescrip.Text!="" && this.nudHsSem.Text !="" && this.nudHsTot.Text!="" && this.txtIDPlan.Text != "")
             {
                 PlanLogic pl = new PlanLogic();
-                var p = pl.GetOne(Convert.ToInt32(txtIDPlan.Text));
-                if (p!=null) {
+                if (pl.ValidarIDPlan(int.Parse(this.txtIDPlan.Text))) 
+                {
                     if (Validaciones.ValidarHorasSemanales(int.Parse(this.nudHsSem.Text)))
                     {
                         if (Validaciones.ValidarHorasTotales(int.Parse(this.nudHsTot.Text)))
