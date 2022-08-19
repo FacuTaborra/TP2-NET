@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="UI.Web.Site" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title>Academia</title>
+    </head>
+    <body>
+        <form id="bodyForm" runat="server">
+            <asp:Menu runat="server" ID="menu" DataSourseID="SiteMapDataSource">
+            </asp:Menu>
+            <asp:SiteMapDataSource id="SiteMapDataSource" runat="server"/>
+            <div>
+                <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </body>
+</html>
