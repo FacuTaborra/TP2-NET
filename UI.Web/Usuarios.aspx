@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Usuarios" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="UI.Web.Usuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-   <asp:Panel ID="gridPanel" runat="server">
+    
+    <asp:Panel ID="gridPanel" runat="server">
        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
            <Columns>
                <asp:BoundField HeaderText="Nombre" DataField="Nombre"/>
@@ -49,7 +50,7 @@
         <br />
     </asp:Panel>
 
-    <asp:Panel ID="formActionPanel" runat="server">
+    <asp:Panel ID="formActionsPanel" runat="server">
         <asp:LinkButton ID="aceptarLinkButton" runat="server">Aceptar</asp:LinkButton>
         <asp:LinkButton ID="cancelarLinkButton" runat="server">Cancelar</asp:LinkButton>
     </asp:Panel>

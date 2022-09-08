@@ -54,7 +54,9 @@ namespace UI.Web
             {
                 if (this.ViewState["SelectedID"] != null)
                 {
+                    //Console.WriteLine((int)this.ViewState["SelectedID"]);
                     return (int)this.ViewState["SelectedID"];
+                    
                 }
                 else
                 {
@@ -75,7 +77,7 @@ namespace UI.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!this.Page.IsPostBack)
             {
                 LoadGrid();
             }
@@ -90,13 +92,18 @@ namespace UI.Web
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.gridView.SelectedValue;
+            this.formPanel.Visible = false;
+            this.editarLinkButton.Visible = true;
+            this.eliminarLinkButton.Visible = true;
+            this.nuevoLinkButton.Visible = true;
+            this.formActionsPanel.Visible = false;
         }
 
         protected void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            this.nombreTextBox.Text = this.Entity.Nombre;
-            this.apellidoTextBox.Text = this.Entity.Apellido;
+            //this.nombreTextBox.Text = this.Entity.Nombre;
+            //this.apellidoTextBox.Text = this.Entity.Apellido;
             this.emailTextBox.Text = this.Entity.Email;
             this.habilitadoCheckBox.Checked = this.Entity.Habilitado;
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
