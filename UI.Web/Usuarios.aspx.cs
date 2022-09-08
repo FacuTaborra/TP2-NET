@@ -75,7 +75,7 @@ namespace UI.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!this.Page.IsPostBack)
             {
                 LoadGrid();
             }
@@ -111,5 +111,7 @@ namespace UI.Web
                 this.LoadForm(this.SelectedID);
             }
         }
+
+
     }
 }
