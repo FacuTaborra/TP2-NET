@@ -38,7 +38,6 @@ namespace UI.Web
                 }
                 return _logic;
             }
-            
         }
 
 
@@ -54,9 +53,7 @@ namespace UI.Web
             {
                 if (this.ViewState["SelectedID"] != null)
                 {
-                    //Console.WriteLine((int)this.ViewState["SelectedID"]);
-                    return (int)this.ViewState["SelectedID"];
-                    
+                    return (int)this.ViewState["SelectedID"];                   
                 }
                 else
                 {
@@ -91,19 +88,14 @@ namespace UI.Web
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.gridView.SelectedValue;
-            this.formPanel.Visible = false;
-            this.editarLinkButton.Visible = true;
-            this.eliminarLinkButton.Visible = true;
-            this.nuevoLinkButton.Visible = true;
-            this.formActionsPanel.Visible = false;
+            this.SelectedID = (int)this.gridView.SelectedValue;          
         }
 
         protected void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            //this.nombreTextBox.Text = this.Entity.Nombre;
-            //this.apellidoTextBox.Text = this.Entity.Apellido;
+            this.nombreTextBox.Text = this.Entity.Nombre;
+            this.apellidoTextBox.Text = this.Entity.Apellido;
             this.emailTextBox.Text = this.Entity.Email;
             this.habilitadoCheckBox.Checked = this.Entity.Habilitado;
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
@@ -116,9 +108,53 @@ namespace UI.Web
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedID);
+                this.EnableForm(true);
             }
         }
 
+        private void EnableForm(bool enable)
+        {
+            this.nombreTextBox.Enabled = enable;
+            this.apellidoTextBox.Enabled = enable;
+            this.emailTextBox.Enabled = enable;
+            this.claveTextBox.Visible = enable;
+            this.repetirClaveLabel.Visible = enable;
+            this.nombreUsuarioTextBox.Enabled = enable;
+            this.repetirClaveTextBox.Visible = enable;
+            this.repetirClaveLabel.Visible = enable;
+        }
 
+        protected void eliminarLinkButton_Click(object sender, EventArgs e)
+        {
+            if (this.IsEntitySelected)
+            {
+                this.formPanel.Visible = true;
+                this.FormMode = FormModes.Baja;
+                this.EnableForm(false);
+                this.LoadForm(this.SelectedID);
+            }
+        }
+
+        private void DeleteEntity(int id)
+        {
+            this.Logic.Delete(id);
+        }
+
+        protected void aceptarLinkButton_Click(object sender, EventArgs e)
+        {
+            switch (this.FormMode)
+            {
+                case FormModes.Baja:
+                    this.DeleteEntity(this.SelectedID);
+                    this.LoadGrid();
+                    break;
+                case FormModes.Modificacion:
+                    this.Entity = new Usuario();
+                    this.Entity.ID = this.SelectedID;
+                    this.Entity.State = BusinessEntity.States.Modified;
+                    //this.LoadEntity(this.Entity);
+                    break;
+            }
+        }
     }
 }
