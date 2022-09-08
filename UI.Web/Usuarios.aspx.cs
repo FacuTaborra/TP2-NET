@@ -112,6 +112,20 @@ namespace UI.Web
             }
         }
 
+        protected void LoadEntity(Usuario usuario)
+        {
+            usuario.Nombre = this.nombreTextBox.Text;
+            usuario.Apellido = this.apellidoTextBox.Text;
+            usuario.Email = this.emailTextBox.Text;
+            usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
+            usuario.Clave = this.claveTextBox.Text;
+            usuario.Habilitado = this.habilitadoCheckBox.Checked;
+        }
+
+        protected void SaveEntity(Usuario usuario)
+        {
+            this.Logic.Save(usuario);
+        }
         private void EnableForm(bool enable)
         {
             this.nombreTextBox.Enabled = enable;
@@ -124,6 +138,16 @@ namespace UI.Web
             this.repetirClaveLabel.Visible = enable;
         }
 
+        protected void aceptarLinkButton_Click(object sender, EventArgs e)
+        {
+            this.Entity = new Usuario();
+            this.Entity.ID = this.SelectedID;
+            this.Entity.State = BusinessEntity.States.Modified;
+            this.LoadEntity(this.Entity);
+            this.SaveEntity(this.Entity);
+            this.LoadGrid();
+            this.formPanel.Visible = false;
+        }
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
         {
             if (this.IsEntitySelected)
