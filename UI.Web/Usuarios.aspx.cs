@@ -42,8 +42,6 @@ namespace UI.Web
             this.gridView.DataBind();
         }
 
-
-
-        
+    
     }
 }
