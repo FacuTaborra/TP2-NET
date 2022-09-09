@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="UI.Web.Site" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml%22%3E
+<html xmlns="http://www.w3.org/1999/xhtml%22%3E >
     <head runat="server">
         <title>Academia</title>
     </head>

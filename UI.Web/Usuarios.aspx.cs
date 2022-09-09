@@ -12,9 +12,7 @@ namespace UI.Web
 {
     public partial class Usuarios : System.Web.UI.Page
     {
-
         UsuarioLogic _logic;
-
         public enum FormModes
         {
             Alta,
@@ -39,14 +37,11 @@ namespace UI.Web
                 return _logic;
             }
         }
-
-
         private Usuario Entity
         {
             get;
             set;
         }
-
         private int SelectedID
         {
             get
@@ -140,13 +135,29 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            this.Entity = new Usuario();
-            this.Entity.ID = this.SelectedID;
-            this.Entity.State = BusinessEntity.States.Modified;
-            this.LoadEntity(this.Entity);
-            this.SaveEntity(this.Entity);
-            this.LoadGrid();
-            this.formPanel.Visible = false;
+            switch (this.FormMode)
+            {
+                case FormModes.Baja:
+                    this.DeleteEntity(this.SelectedID);
+                    this.LoadGrid();
+                    break;
+                case FormModes.Modificacion:
+                    this.Entity = new Usuario();
+                    this.Entity.ID = this.SelectedID;
+                    this.Entity.State = BusinessEntity.States.Modified;
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    this.LoadGrid();
+                    break;
+                case FormModes.Alta:
+                    this.Entity = new Usuario();
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    this.LoadGrid();
+                    break;
+                default:
+                    break;
+            }
         }
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
         {
@@ -164,21 +175,26 @@ namespace UI.Web
             this.Logic.Delete(id);
         }
 
-        protected void aceptarLinkButton_Click(object sender, EventArgs e)
+        protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
-            {
-                case FormModes.Baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.Modificacion:
-                    this.Entity = new Usuario();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    //this.LoadEntity(this.Entity);
-                    break;
-            }
+            this.formPanel.Visible = true;
+            this.FormMode = FormModes.Alta;
+            this.ClearForm();
+            this.EnableForm(true);
+        }
+
+        private void ClearForm()
+        {
+            this.nombreTextBox.Text = string.Empty;
+            this.apellidoTextBox.Text = string.Empty;
+            this.emailTextBox.Text = string.Empty;
+            this.habilitadoCheckBox.Checked = false;
+            this.nombreUsuarioTextBox.Text = string.Empty;
+        }
+
+        protected void cancelarLinkButton_Click(object sender, EventArgs e)
+        {
+            this.LoadGrid();
         }
     }
 }
