@@ -114,6 +114,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox DescripcionTextBox;
 
         /// <summary>
+        /// descripReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator descripReq;
+
+        /// <summary>
         /// IDEspecialidadLabel control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,24 @@ namespace UI.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox IDEspecialidadTextBox;
+
+        /// <summary>
+        /// IDEspReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator IDEspReq;
+
+        /// <summary>
+        /// Errores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary Errores;
 
         /// <summary>
         /// formActionsPanel control.

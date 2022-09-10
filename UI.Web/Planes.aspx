@@ -26,15 +26,25 @@
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click" >Nuevo</asp:LinkButton>
     </asp:Panel>
 
-    <asp:Panel ID="formPanel" Visible="false" runat="server">
+    <asp:Panel ID="formPanel" runat="server">
         <asp:Label ID="IDPlanLabel" runat="server" Text="ID Plan"></asp:Label>
         <asp:TextBox ID="IDPlanTextBox" runat="server" ReadOnly="True"></asp:TextBox>
         <br/>
+
         <asp:Label ID="DescripcionLabel" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="descripReq" runat="server" ErrorMessage="La descripcion del Plan no puede estar vacía"
+         ControlToValidate ="DescripcionTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
         <br/>
+
         <asp:Label ID="IDEspecialidadLabel" runat="server" Text="ID Especialidad"></asp:Label>
         <asp:TextBox ID="IDEspecialidadTextBox" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="IDEspReq" runat="server" ErrorMessage="El ID de la Especialidad del Plan no puede estar vacío"
+         ControlToValidate ="IDEspecialidadTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
+        <br />
+
+        <asp:ValidationSummary ID="Errores" ForeColor="Red" runat="server"/>
+        <br />
     </asp:Panel>
 
     <asp:Panel ID="formActionsPanel" runat="server">

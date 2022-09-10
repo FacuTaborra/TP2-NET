@@ -196,5 +196,14 @@ namespace UI.Web
         {
             this.LoadGrid();
         }
+
+        protected void ValidarLongClave_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length >= 8)
+            {
+                args.IsValid = true;
+            }
+            else args.IsValid = false;
+        }
     }
 }
