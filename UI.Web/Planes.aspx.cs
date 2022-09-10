@@ -91,7 +91,91 @@ namespace UI.Web
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedID);
+                this.EnableForm(true);
             }
+        }
+
+        protected void LoadEntity(Plan plan)
+        {
+            plan.ID = int.Parse(this.IDPlanTextBox.Text);
+            plan.IDEspecialidad = int.Parse(this.IDEspecialidadTextBox.Text);
+            plan.Descripcion = this.DescripcionTextBox.Text;
+        }
+
+        protected void SaveEntity(Plan plan)
+        {
+            this.Logic.Save(plan);
+        }
+
+        protected void aceptarLinkButton_Click(object sender, EventArgs e)
+        {
+            switch (this.FormMode)
+            {
+                case FormModes.Baja:
+                    this.DeleteEntity(this.SelectedID);
+                    this.LoadGrid();
+                    break;
+                case FormModes.Modificacion:
+                    this.Entity = new Plan();
+                    this.Entity.ID = this.SelectedID;
+                    this.Entity.State = BusinessEntity.States.Modified;
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    this.LoadGrid();
+                    break;
+                case FormModes.Alta:
+                    this.Entity = new Plan();
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    this.LoadGrid();
+                    break;
+                default:
+                    break;
+
+
+            }
+        }
+
+
+
+
+
+
+        private void EnableForm(bool enable)
+        {
+            this.DescripcionTextBox.Enabled = enable;
+            this.IDEspecialidadTextBox.Enabled = enable;
+        }
+
+        protected void eliminarLinkButton_Click(object sender, EventArgs e)
+        {
+            if (this.IsEntitySelected)
+            {
+                this.formPanel.Visible = true;
+                this.FormMode = FormModes.Baja;
+                this.EnableForm(false);
+                this.LoadForm(this.SelectedID);
+            }
+        }
+
+        private void DeleteEntity(int id)
+        {
+            this.Logic.Delete(id);
+        }
+
+        protected void nuevoLinkButton_Click(object sender, EventArgs e)
+        {
+            this.formPanel.Visible = true;
+            this.FormMode = FormModes.Alta;
+            this.ClearForm();
+            this.EnableForm(true);
+        }
+
+        private void ClearForm()
+        {
+            this.IDPlanTextBox.Text = string.Empty;
+            this.IDEspecialidadTextBox.Text = string.Empty;
+            this.DescripcionTextBox.Text = string.Empty;
         }
     }
 }
