@@ -1,15 +1,25 @@
 ﻿<%@ Page Title="Usuarios" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="UI.Web.Usuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <asp:Panel ID="gridPanel" runat="server">
-       <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
+       <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White"  OnSelectedIndexChanged="gridView_SelectedIndexChanged" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID">
            <Columns>
+               <asp:BoundField HeaderText="ID" DataField="ID"/>
                <asp:BoundField HeaderText="Nombre" DataField="Nombre"/>
                <asp:BoundField HeaderText="Apellido" DataField="Apellido"/>
                <asp:BoundField HeaderText="Email" DataField="Email"/>
                <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario"/>
                <asp:BoundField HeaderText="Habilitado" DataField="Habilitado"/>
-               <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true"/>
+               <asp:CommandField SelectText="Seleccionar" ButtonType="Button" ShowSelectButton="true"/>
            </Columns>
+           <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+           <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+           <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+           <RowStyle BackColor="White" ForeColor="#330099" />
+           <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+           <SortedAscendingCellStyle BackColor="#FEFCEB" />
+           <SortedAscendingHeaderStyle BackColor="#AF0101" />
+           <SortedDescendingCellStyle BackColor="#F6F0C0" />
+           <SortedDescendingHeaderStyle BackColor="#7E0000" />
        </asp:GridView>
    </asp:Panel>
 
@@ -20,6 +30,9 @@
     </asp:Panel>
 
     <asp:Panel ID="formPanel" Visible="false" runat="server">
+        <asp:Label ID="IDlabel" runat="server" Text="ID: "></asp:Label>
+        <asp:TextBox ID="IDTextBox" runat="server"></asp:TextBox>
+        <br/>
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
         <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
          <asp:RequiredFieldValidator ID="nombreReq" runat="server" ErrorMessage="El nombre no puede estar vacío"

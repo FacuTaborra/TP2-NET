@@ -83,12 +83,14 @@ namespace UI.Web
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Console.WriteLine("entre " + this.gridView.SelectedValue);
             this.SelectedID = (int)this.gridView.SelectedValue;          
         }
 
         protected void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
+            this.nombreTextBox.Text = this.Entity.ID.ToString();
             this.nombreTextBox.Text = this.Entity.Nombre;
             this.apellidoTextBox.Text = this.Entity.Apellido;
             this.emailTextBox.Text = this.Entity.Email;
@@ -109,6 +111,7 @@ namespace UI.Web
 
         protected void LoadEntity(Usuario usuario)
         {
+            usuario.ID = int.Parse(this.IDTextBox.ID);
             usuario.Nombre = this.nombreTextBox.Text;
             usuario.Apellido = this.apellidoTextBox.Text;
             usuario.Email = this.emailTextBox.Text;

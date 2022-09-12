@@ -73,10 +73,12 @@ namespace UI.Web
                 this.LoadGrid();
             }
         }
+
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.gridView.SelectedValue;
         }
+
         protected void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
@@ -84,6 +86,7 @@ namespace UI.Web
             this.DescripcionTextBox.Text = this.Entity.Descripcion;
             this.IDEspecialidadTextBox.Text = this.Entity.IDEspecialidad.ToString();
         }
+
         protected void editarLinkButton_Click(object sender, EventArgs e)
         {
             if (this.IsEntitySelected)
@@ -131,15 +134,8 @@ namespace UI.Web
                     break;
                 default:
                     break;
-
-
             }
         }
-
-
-
-
-
 
         private void EnableForm(bool enable)
         {
