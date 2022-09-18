@@ -208,5 +208,14 @@ namespace UI.WebForm
             this.nombreUsuarioTextBox.Text = string.Empty;
         }
 
+        protected void ValidarLongClave_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length >= 8)
+            {
+                args.IsValid = true;
+            }
+            else args.IsValid = false;
+        }
+
     }
 }

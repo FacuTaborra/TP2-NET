@@ -96,6 +96,15 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox nombreTextBox;
 
         /// <summary>
+        /// nombreReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator nombreReq;
+
+        /// <summary>
         /// apellidoLabel control.
         /// </summary>
         /// <remarks>
@@ -114,6 +123,15 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox apellidoTextBox;
 
         /// <summary>
+        /// apellidoReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator apellidoReq;
+
+        /// <summary>
         /// emailLabel control.
         /// </summary>
         /// <remarks>
@@ -130,6 +148,24 @@ namespace UI.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox emailTextBox;
+
+        /// <summary>
+        /// emailReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailReq;
+
+        /// <summary>
+        /// isValidEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator isValidEmail;
 
         /// <summary>
         /// habilitadoLabel control.
@@ -168,6 +204,15 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox nombreUsuarioTextBox;
 
         /// <summary>
+        /// usrNameReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator usrNameReq;
+
+        /// <summary>
         /// claveLabel control.
         /// </summary>
         /// <remarks>
@@ -186,6 +231,24 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox claveTextBox;
 
         /// <summary>
+        /// claveReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator claveReq;
+
+        /// <summary>
+        /// longClave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator longClave;
+
+        /// <summary>
         /// repetirClaveLabel control.
         /// </summary>
         /// <remarks>
@@ -202,6 +265,33 @@ namespace UI.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox repetirClaveTextBox;
+
+        /// <summary>
+        /// repetirClaveReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator repetirClaveReq;
+
+        /// <summary>
+        /// IgualClave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator IgualClave;
+
+        /// <summary>
+        /// Errores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary Errores;
 
         /// <summary>
         /// formActionPanel control.
