@@ -6,7 +6,7 @@
                <asp:BoundField HeaderText="Id Plan" DataField="ID"/>
                <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"/>
                <asp:BoundField HeaderText="Id Especialidad" DataField="IDEspecialidad"/>
-               <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" ButtonType="Button"> </asp:CommandField>
+               <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" ButtonType="Button"/>
            </Columns>
            <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
