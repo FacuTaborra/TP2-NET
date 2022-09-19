@@ -7,7 +7,7 @@
             <Columns>
                 <asp:BoundField HeaderText="ID" DataField="ID"/>
                 <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"/>
-                <asp:CommandField SelectText="Seleccioar" ShowSelectButton="true"/>
+                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -30,7 +30,7 @@
 
     <asp:Panel ID="formPanel" Visible="false" runat="server">
         <asp:Label ID="IDLabel" runat="server" Text="ID: " ></asp:Label>
-        <asp:TextBox ID="IDTextBox" runat="server" enable="false"></asp:TextBox>
+        <asp:TextBox ID="IDTextBox" runat="server" enable="false" Enabled="False"></asp:TextBox>
         <br />
         <asp:Label ID="descripcionLabel" runat="server" Text="Descripción: " ></asp:Label>
         <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
@@ -38,6 +38,7 @@
          ControlToValidate ="descripcionTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
         <br />
         <asp:ValidationSummary ID="Errores" ForeColor="Red" runat="server"/>
+
         <br />
         <asp:Panel ID="formActionPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>

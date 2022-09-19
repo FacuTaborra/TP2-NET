@@ -36,9 +36,8 @@ namespace UI.WebForm
 
         public FormModes FormMode
         {
-            get { return (FormModes)this.ViewState["FromMode"]; }
+            get { return (FormModes)this.ViewState["FormMode"]; }
             set { this.ViewState["FormMode"] = value; }
-
         }
 
         public Especialidad Entity
@@ -183,7 +182,9 @@ namespace UI.WebForm
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
-
+            this.ClearForm();
+            this.LoadGrid();
+            this.formPanel.Visible = false;
         }
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
