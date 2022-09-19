@@ -26,7 +26,7 @@
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click" >Nuevo</asp:LinkButton>
     </asp:Panel>
 
-    <asp:Panel ID="formPanel" runat="server">
+    <asp:Panel ID="formPanel" Visible="false" runat="server">
         <asp:Label ID="IDPlanLabel" runat="server" Text="ID Plan"></asp:Label>
         <asp:TextBox ID="IDPlanTextBox" runat="server" ReadOnly="True"></asp:TextBox>
         <br/>
@@ -45,12 +45,13 @@
 
         <asp:ValidationSummary ID="Errores" ForeColor="Red" runat="server"/>
         <br />
+        <asp:Panel ID="formActionsPanel" runat="server">
+            <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" >Aceptar</asp:LinkButton>
+            <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" >Cancelar</asp:LinkButton>
+        </asp:Panel>
     </asp:Panel>
 
-    <asp:Panel ID="formActionsPanel" runat="server">
-        <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" >Aceptar</asp:LinkButton>
-        <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" >Cancelar</asp:LinkButton>
-    </asp:Panel>
+
 
 </asp:Content>
 
