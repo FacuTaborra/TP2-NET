@@ -112,7 +112,6 @@ namespace UI.WebForm
 
         private void SaveEntity(Usuario usr)
         {
-            //this.Logic.Save(usr);
             this.Logic.Save(usr);
         }
 
