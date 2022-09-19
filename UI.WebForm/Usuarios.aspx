@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
     <asp:Panel ID="gridPanel" runat="server">
-        <asp:GridView  ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView  ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" HorizontalAlign="Center" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="ID" DataField="ID"/>
@@ -11,7 +11,7 @@
                 <asp:BoundField HeaderText="EMail" DataField="Email"/>
                 <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario"/>
                 <asp:BoundField HeaderText="Habilitado" DataField="Habilitado"/>
-                <asp:CommandField SelectText="Seleccioar" ShowSelectButton="true"/>
+                <asp:CommandField SelectText="Seleccioar" ShowSelectButton="true" ButtonType="Button"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -26,14 +26,14 @@
         </asp:GridView>
     </asp:Panel>
 
-    <asp:Panel ID="gridActionPanel" runat="server">
+    <asp:Panel ID="gridActionPanel" HorizontalAlign="Center"  runat="server">
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
         <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
         <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
     </asp:Panel>
 
 
-    <asp:Panel ID="formPanel" Visible="false" runat="server">
+    <asp:Panel ID="formPanel" HorizontalAlign="Center" Visible="false" runat="server">
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre: " ></asp:Label>
         <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="nombreReq" runat="server" ErrorMessage="El nombre no puede estar vacío"
@@ -63,8 +63,8 @@
         <asp:TextBox ID="claveTextBox" runat="server" TextMode="Password"></asp:TextBox>
         <asp:RequiredFieldValidator ID="claveReq" runat="server" ErrorMessage="La clave no puede estar vacía"
          ControlToValidate ="claveTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
-        <asp:CustomValidator ID="longClave" runat="server" ErrorMessage="La clave debe tener 8 caracteres o más"
-         ControlToValidate="claveTextBox" OnServerValidate="ValidarLongClave_ServerValidate" ForeColor ="Red">#</asp:CustomValidator>
+        <asp:CustomValidator ID="long" runat="server" ErrorMessage="La clave debe tener 8 o más caracteres"
+         ControlToValidate="claveTextBox" OnServerValidate="ValidarLongClave_ServerValidate" ForeColor ="Red">*</asp:CustomValidator>
         <br />
         <asp:Label ID="repetirClaveLabel" runat="server" Text="Repetir Clave:"></asp:Label>
         <asp:TextBox ID="repetirClaveTextBox" runat="server" TextMode="Password"></asp:TextBox>
@@ -73,6 +73,8 @@
         <asp:CompareValidator ID="IgualClave" runat="server" ErrorMessage="Las claves ingresadas no coinciden"
          ControlToValidate="claveTextBox" ControlToCompare="repetirClaveTextBox" Operator ="Equal"  Type="String" ForeColor="Red">#</asp:CompareValidator>
         <br />
+
+
 
         
         <asp:ValidationSummary ID="Errores" ForeColor="Red" runat="server"/>
