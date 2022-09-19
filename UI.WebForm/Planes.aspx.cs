@@ -61,11 +61,13 @@ namespace UI.Web
         {
             get { return (this.SelectedID != 0); }
         }
+
         private void LoadGrid()
         {
             this.gridView.DataSource = this.Logic.GetAll(); // cambiar y traer las especialidades
             this.gridView.DataBind();
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.Page.IsPostBack)
@@ -172,6 +174,12 @@ namespace UI.Web
             this.IDPlanTextBox.Text = string.Empty;
             this.IDEspecialidadTextBox.Text = string.Empty;
             this.DescripcionTextBox.Text = string.Empty;
+        }
+
+        protected void cancelarLinkButton_Click(object sender, EventArgs e)
+        {
+            this.LoadGrid();
+            this.formPanel.Visible = false;
         }
     }
 }
