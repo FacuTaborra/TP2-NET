@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI.Web
+namespace UI.WebForm
 {
 
 
@@ -33,13 +33,22 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.GridView gridView;
 
         /// <summary>
-        /// gridActionsPanel control.
+        /// gridActionPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel gridActionsPanel;
+        protected global::System.Web.UI.WebControls.Panel gridActionPanel;
+
+        /// <summary>
+        /// nuevoLinkButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton nuevoLinkButton;
 
         /// <summary>
         /// editarLinkButton control.
@@ -60,15 +69,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.LinkButton eliminarLinkButton;
 
         /// <summary>
-        /// nuevoLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton nuevoLinkButton;
-
-        /// <summary>
         /// formPanel control.
         /// </summary>
         /// <remarks>
@@ -76,24 +76,6 @@ namespace UI.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel formPanel;
-
-        /// <summary>
-        /// IDlabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label IDlabel;
-
-        /// <summary>
-        /// IDTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IDTextBox;
 
         /// <summary>
         /// nombreLabel control.
@@ -166,6 +148,15 @@ namespace UI.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox emailTextBox;
+
+        /// <summary>
+        /// emailReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailReq;
 
         /// <summary>
         /// isValidEmail control.
@@ -303,13 +294,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.ValidationSummary Errores;
 
         /// <summary>
-        /// formActionsPanel control.
+        /// formActionPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel formActionsPanel;
+        protected global::System.Web.UI.WebControls.Panel formActionPanel;
 
         /// <summary>
         /// aceptarLinkButton control.

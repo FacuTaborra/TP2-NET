@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Consola", "UI.Consola\UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Web", "UI.Web\UI.Web.csproj", "{B46C080B-93D2-4661-B508-72B836CA6A32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.WebForm", "UI.WebForm\UI.WebForm.csproj", "{0D39E956-1E6B-4D8C-B824-EE669A897296}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B46C080B-93D2-4661-B508-72B836CA6A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B46C080B-93D2-4661-B508-72B836CA6A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B46C080B-93D2-4661-B508-72B836CA6A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D39E956-1E6B-4D8C-B824-EE669A897296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D39E956-1E6B-4D8C-B824-EE669A897296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D39E956-1E6B-4D8C-B824-EE669A897296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D39E956-1E6B-4D8C-B824-EE669A897296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

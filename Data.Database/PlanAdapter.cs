@@ -99,7 +99,7 @@ namespace Data.Database
             catch (Exception Ex2)
             {
                 Exception ExcepcionManejada = new Exception("Error al borrar plan", Ex2);
-                throw ExcepcionManejada;
+                throw ExcepcionManejada; // falta cartel de cascada
             }
             finally
             {
