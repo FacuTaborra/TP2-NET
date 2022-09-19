@@ -145,7 +145,6 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
-            this.formActionsPanel.Visible = false;
         }
 
         private void EnableForm(bool enable)
