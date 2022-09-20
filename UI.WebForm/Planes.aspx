@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
      <asp:Panel ID="gridPanel" runat="server">
-       <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White"  OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" Height="157px" Width="485px" ForeColor="#333333" GridLines="None">
+       <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White"  OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" Height="49px" Width="422px" ForeColor="#333333" GridLines="None">
            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
            <Columns>
                <asp:BoundField HeaderText="Id Plan" DataField="ID"/>
