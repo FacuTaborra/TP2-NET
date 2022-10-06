@@ -149,11 +149,18 @@ namespace UI.WebForm
                     this.LoadGrid();
                     break;
                 case FormModes.Alta:
-                    this.Entity = new Usuario();
-                    this.Entity.State = BusinessEntity.States.New;
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
+                    //if (this.ValidarLongClave())
+                    //{
+                        this.Entity = new Usuario();
+                        this.Entity.State = BusinessEntity.States.New;
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                    /*}
+                    else
+                    {
+                        this.longClave.Visible = true;
+                    }*/
                     break;
                 default:
                     break;
@@ -206,6 +213,15 @@ namespace UI.WebForm
             this.nombreUsuarioTextBox.Text = string.Empty;
         }
 
+        protected bool ValidarLongClave()
+        {
+            if (this.claveTextBox.Text.Length >= 8)
+            {
+               return true;
+            }
+            else return false;
+        }
+
         protected void ValidarLongClave_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (args.Value.Length >= 8)
@@ -214,6 +230,5 @@ namespace UI.WebForm
             }
             else args.IsValid = false;
         }
-
     }
 }

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs"  Inherits="UI.Web.Planes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
      <asp:Panel ID="gridPanel" runat="server">
-       <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White"  OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" Height="49px" Width="422px" ForeColor="#333333" GridLines="None">
+       <asp:GridView ID="gridView" runat="server" HorizontalAlign="Center" AutoGenerateColumns="False" DataKeyNames="ID" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White"  OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" Height="157px" Width="485px" ForeColor="#333333" GridLines="None">
            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
            <Columns>
                <asp:BoundField HeaderText="Id Plan" DataField="ID"/>
@@ -22,13 +22,13 @@
        </asp:GridView>
    </asp:Panel>
 
-    <asp:Panel ID="gridActionsPanel" runat="server">
+    <asp:Panel ID="gridActionsPanel" HorizontalAlign="Center" runat="server">
         <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
         <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click" >Eliminar</asp:LinkButton>
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click" >Nuevo</asp:LinkButton>
     </asp:Panel>
 
-    <asp:Panel ID="formPanel" Visible="false" runat="server">
+    <asp:Panel ID="formPanel" HorizontalAlign="Center" Visible="false" runat="server">
         <asp:Label ID="IDPlanLabel" runat="server" Text="ID Plan"></asp:Label>
         <asp:TextBox ID="IDPlanTextBox" runat="server" ReadOnly="True"></asp:TextBox>
         <br/>
