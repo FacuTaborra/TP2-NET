@@ -11,7 +11,6 @@ namespace Data.Database
 {
     public class MateriaAdapter : Adapter
     {
-
         public List<Materia> GetAll()
         {
             List<Materia> materias = new List<Materia>();

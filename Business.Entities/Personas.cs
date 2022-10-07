@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Business.Entities
 {
-    class Personas: BusinessEntity
+    public class Personas: BusinessEntity
     {
         private string _Apellido;
         private string _Nombre;
         private string _Direccion;
         private string _Email;
         private DateTime _FechaNacimiento;
-        private int _IDPlan;
+        private Plan _Plan;
         private int _Legajo;
         private string _Telefono;
         private TiposPersonas _TipoPersona;
@@ -21,7 +21,6 @@ namespace Business.Entities
             Alumno,
             Profesor
         }
-
         public string Apellido
         {
             get { return _Apellido; }
@@ -42,16 +41,15 @@ namespace Business.Entities
             get { return _Email; }
             set { _Email = value; }
         }
-
         public DateTime FechaNacimiento
         {
             get { return _FechaNacimiento; }
             set { _FechaNacimiento = value; }
         } 
-        public int IDPlan
+        public Plan Plan
         {
-            get { return _IDPlan; }
-            set { _IDPlan = value; }
+            get { return _Plan; }
+            set { _Plan = value; }
         }
         public int Legajo
         {
