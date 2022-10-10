@@ -45,9 +45,18 @@ namespace UI.Desktop
             this.Close();
         }
 
+        private void btnPersonas_Click(object sender, EventArgs e)
+        {
+            Personas per = new Personas();
+            per.Show();
+            this.Close();
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+
     }
 }

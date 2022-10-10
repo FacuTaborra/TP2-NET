@@ -16,7 +16,7 @@ namespace Data.Database
         
         protected void OpenConnection()
         {
-            //string connectionString = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
+            // string connectionString = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
             string connectionString = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=tp2_net;Integrated Security=true;";
             sqlConn = new SqlConnection(connectionString);
             sqlConn.Open();

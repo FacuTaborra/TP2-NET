@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Personas: BusinessEntity
+    public class Persona: BusinessEntity
     {
         private string _Apellido;
         private string _Nombre;

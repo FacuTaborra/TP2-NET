@@ -16,7 +16,6 @@ namespace UI.Desktop
     {
         public Usuario _UsuarioActual;
 
-
         public UsuarioDesktop()
         {
             InitializeComponent();
@@ -152,16 +151,6 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void UsuarioDesktop_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -28,5 +28,10 @@ namespace Business.Entities
 			get { return _IDEspecialidad; }
 			set { _IDEspecialidad = value; }
 		}
+
+		public override string ToString()
+		{
+			return Descripcion;
+        }
 	}
 }

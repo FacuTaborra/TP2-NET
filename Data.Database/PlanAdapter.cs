@@ -113,7 +113,9 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("insert into planes (desc_plan, id_especialidad)" + "values(@descrip, @id_esp)" + "select @@identity", sqlConn);
+                SqlCommand cmdSave = new SqlCommand("insert into planes (desc_plan, id_especialidad)" 
+                    + "values(@descrip, @id_esp)" 
+                    + "select @@identity", sqlConn);
                 cmdSave.Parameters.Add("@descrip", SqlDbType.VarChar, 50).Value = plan.Descripcion;
                 cmdSave.Parameters.Add("id_esp", SqlDbType.Int).Value = plan.IDEspecialidad;
                 plan.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());

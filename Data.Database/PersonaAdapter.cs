@@ -9,29 +9,30 @@ using System.Data.SqlClient;
 
 namespace Data.Database
 {
-    public class PersonaAdapter: Adapter
+    public class PersonaAdapter : Adapter
     {
-        public List<Personas> GetAll()
+        public List<Persona> GetAll()
         {
-            List<Personas> personas = new List<Personas>();
+            List<Persona> personas = new List<Persona>();
             try
             {
                 this.OpenConnection();
                 SqlCommand cmdPersonas = new SqlCommand("select * from personas", sqlConn);
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
-                while(drPersonas.Read())
+                while (drPersonas.Read())
                 {
-                    Personas per = new Personas();
+                    Persona per = new Persona();
                     per.ID = (int)drPersonas["id_persona"];
                     per.Apellido = (string)drPersonas["apellido"];
                     per.Nombre = (string)drPersonas["nombre"];
+                    per.Direccion = (string)drPersonas["direccion"];
                     Plan p = new Plan((int)drPersonas["id_plan"]);
                     per.Plan = p;
                     per.Legajo = (int)drPersonas["legajo"];
                     per.Telefono = (string)drPersonas["telefono"];
                     per.Email = (string)drPersonas["email"];
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
-                    per.TipoPersona = (Personas.TiposPersonas)drPersonas["tipo_persona"];
+                    per.TipoPersona = (Persona.TiposPersonas)drPersonas["tipo_persona"];
                     personas.Add(per);
                 }
 
@@ -49,32 +50,33 @@ namespace Data.Database
             return personas;
         }
 
-        public Personas GetOne(int id)
+        public Persona GetOne(int id)
         {
-            Personas p = new Personas();
+            Persona p = new Persona();
             try
             {
                 OpenConnection();
                 SqlCommand cmdPersona = new SqlCommand("select * " +
                                                        "from personas per" +
-                                                       "inner join planes pl on pl.id_plan = per.id_plan" +
                                                        "where per.id_persona = @idPer ", sqlConn);
                 cmdPersona.Parameters.Add("@idPer", SqlDbType.Int).Value = id;
                 SqlDataReader drPersona = cmdPersona.ExecuteReader();
-                if(drPersona.Read())
+                if (drPersona.Read())
                 {
                     p.ID = (int)drPersona["id_persona"];
                     p.Apellido = (string)drPersona["apellido"];
                     p.Nombre = (string)drPersona["nombre"];
+                    p.Direccion = (string)drPersona["direccion"];
                     Plan plan = new Plan();
                     plan.ID = (int)drPersona["id_plan"];
+                    plan.IDEspecialidad = (int)drPersona["id_especialidad"];
                     plan.Descripcion = (string)drPersona["desc_plan"];
                     p.Plan = plan;
                     p.Legajo = (int)drPersona["legajo"];
                     p.Telefono = (string)drPersona["telefono"];
                     p.Email = (string)drPersona["email"];
                     p.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
-                    p.TipoPersona = (Personas.TiposPersonas)drPersona["tipo_personas"];
+                    p.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_personas"];
                 }
             }
             catch (Exception Ex1)
@@ -89,6 +91,102 @@ namespace Data.Database
             return p;
         }
 
+        protected void Insert(Persona per)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdSave = new SqlCommand("Insert into personas (nombre, apellido, direccion, email, telefono, fecha_nac, legajo, tipo_persona, id_plan)" +
+                    "values(@nom, @ape, @dire, @email, @tel, @fena, @leg, @tp, @idp)" + "select @@identity", sqlConn);
+                cmdSave.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
+                cmdSave.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
+                cmdSave.Parameters.Add("@dire", SqlDbType.VarChar, 50).Value = per.Direccion;
+                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
+                cmdSave.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
+                cmdSave.Parameters.Add("@fena", SqlDbType.DateTime).Value = per.FechaNacimiento;
+                cmdSave.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
+                cmdSave.Parameters.Add("@tp", SqlDbType.Int).Value = (int)per.TipoPersona;
+                cmdSave.Parameters.Add("@idp", SqlDbType.Int).Value = per.Plan.ID; //corregir
+                per.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+            }
+            /*catch (SqlException Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al agregar persona", Ex2);
+                throw ExcepcionManejada;
+            }*/
+            finally
+            {
+                this.CloseConnection();
+            }
+           
+        }
+
+        protected void Update(Persona per)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUpdate = new SqlCommand("update personas set nombre = @nom, apellido = @ape, direccion = @dire " +
+                    "email = @email, telefono = @tel, fecha_nac = @fena, legajo = @leg, tipo_persona = @tp" +
+                    "where id_persona = @id", sqlConn);
+
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = per.ID;
+                cmdUpdate.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
+                cmdUpdate.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
+                cmdUpdate.Parameters.Add("@dire", SqlDbType.VarChar, 50).Value = per.Direccion;
+                cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
+                cmdUpdate.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
+                cmdUpdate.Parameters.Add("@fena", SqlDbType.DateTime, 50).Value = per.FechaNacimiento;
+                cmdUpdate.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
+                cmdUpdate.Parameters.Add("@tp", SqlDbType.Int).Value = per.TipoPersona;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al editar persona", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand("delete personas where id_persona = @id", sqlConn);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al borrar persona", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+        
+        public void Save(Persona per)
+        {
+            if(per.State == BusinessEntity.States.New)
+            {
+                this.Insert(per);
+            }
+            else if(per.State == BusinessEntity.States.Modified)
+            {
+                this.Update(per);
+            }
+            else if (per.State == BusinessEntity.States.Deleted)
+            {
+                this.Delete(per.ID);
+            }
+            per.State = BusinessEntity.States.Unmodified;
+        }
 
     }
 }
