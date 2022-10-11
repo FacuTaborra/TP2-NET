@@ -23,7 +23,7 @@ namespace Business.Logic
             ComisionData = new ComisionAdapter();
         }
 
-        public List<Comision> GetAl()
+        public List<Comision> GetAll()
         {
             return ComisionData.GetAll();
         }
