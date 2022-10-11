@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Business.Entities
 {
-    class Comision: BusinessEntity
+    public class Comision: BusinessEntity
     {
         private int _AnioEspecialidad;
-        private int _IDPlan;
+        private Plan _Plan;
         private string _Descripcion;
 
         public int AnioEspecialidad
@@ -16,10 +16,10 @@ namespace Business.Entities
             set { _AnioEspecialidad = value; }
         }
 
-        public int IDPlan
+        public Plan Plan
         {
-            get { return _IDPlan; }
-            set { _IDPlan = value; }
+            get { return _Plan; }
+            set { _Plan = value; }
         }
 
         public string Descripcion
