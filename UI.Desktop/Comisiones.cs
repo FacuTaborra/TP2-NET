@@ -17,6 +17,7 @@ namespace UI.Desktop
         public Comisiones()
         {
             InitializeComponent();
+            this.dgvComisiones.AutoGenerateColumns = false;
         }
 
         public void Listar()
@@ -38,6 +39,15 @@ namespace UI.Desktop
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            formMenu menu = new formMenu();
+            menu.Show();
+        }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            ComisionesDesktop cd = new ComisionesDesktop(ApplicationForm.ModoForm.alta);
+            cd.ShowDialog();
+            this.Listar();
         }
     }
 }

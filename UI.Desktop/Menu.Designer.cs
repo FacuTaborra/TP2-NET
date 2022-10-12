@@ -35,11 +35,11 @@ namespace UI.Desktop
             this.btnMaterias = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.TitleMenu = new System.Windows.Forms.Label();
             this.btnPersonas = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnComisiones = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.TitleMenu = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnPersonas, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnComisiones, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.button4, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(-1, 41);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -130,18 +130,6 @@ namespace UI.Desktop
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // TitleMenu
-            // 
-            this.TitleMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleMenu.AutoSize = true;
-            this.TitleMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleMenu.Location = new System.Drawing.Point(250, 9);
-            this.TitleMenu.Name = "TitleMenu";
-            this.TitleMenu.Size = new System.Drawing.Size(112, 20);
-            this.TitleMenu.TabIndex = 1;
-            this.TitleMenu.Text = "Menu Principal";
-            this.TitleMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnPersonas
             // 
             this.btnPersonas.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -165,16 +153,17 @@ namespace UI.Desktop
             this.button2.Text = "Materias";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnComisiones
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(383, 127);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 36);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Materias";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnComisiones.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnComisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComisiones.Location = new System.Drawing.Point(383, 127);
+            this.btnComisiones.Name = "btnComisiones";
+            this.btnComisiones.Size = new System.Drawing.Size(150, 36);
+            this.btnComisiones.TabIndex = 8;
+            this.btnComisiones.Text = "Comisones";
+            this.btnComisiones.UseVisualStyleBackColor = true;
+            this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
             // button4
             // 
@@ -186,6 +175,18 @@ namespace UI.Desktop
             this.button4.TabIndex = 9;
             this.button4.Text = "Materias";
             this.button4.UseVisualStyleBackColor = true;
+            // 
+            // TitleMenu
+            // 
+            this.TitleMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TitleMenu.AutoSize = true;
+            this.TitleMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleMenu.Location = new System.Drawing.Point(250, 9);
+            this.TitleMenu.Name = "TitleMenu";
+            this.TitleMenu.Size = new System.Drawing.Size(112, 20);
+            this.TitleMenu.TabIndex = 1;
+            this.TitleMenu.Text = "Menu Principal";
+            this.TitleMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formMenu
             // 
@@ -214,7 +215,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Label TitleMenu;
         private System.Windows.Forms.Button btnPersonas;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnComisiones;
         private System.Windows.Forms.Button button4;
     }
 }

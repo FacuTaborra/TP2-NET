@@ -57,6 +57,11 @@ namespace UI.Desktop
             Application.Exit();
         }
 
-
+        private void btnComisiones_Click(object sender, EventArgs e)
+        {
+            Comisiones com = new Comisiones();
+            com.Show();
+            this.Close();
+        }
     }
 }
