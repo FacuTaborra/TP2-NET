@@ -53,22 +53,23 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtIDComision, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.nudAñioEspecialidad, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.cbPlanes, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(323, 307);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(323, 253);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -78,7 +79,7 @@ namespace UI.Desktop
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 69);
+            this.label1.Size = new System.Drawing.Size(90, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID Comision";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -87,10 +88,10 @@ namespace UI.Desktop
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 69);
+            this.label2.Location = new System.Drawing.Point(3, 51);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 69);
+            this.label2.Size = new System.Drawing.Size(90, 51);
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripcion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -99,10 +100,10 @@ namespace UI.Desktop
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 138);
+            this.label3.Location = new System.Drawing.Point(3, 102);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 69);
+            this.label3.Size = new System.Drawing.Size(90, 51);
             this.label3.TabIndex = 2;
             this.label3.Text = "Año Especialidad";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -111,10 +112,10 @@ namespace UI.Desktop
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 207);
+            this.label4.Location = new System.Drawing.Point(3, 153);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 69);
+            this.label4.Size = new System.Drawing.Size(90, 51);
             this.label4.TabIndex = 3;
             this.label4.Text = "Plan";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -122,7 +123,7 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(32, 279);
+            this.btnAceptar.Location = new System.Drawing.Point(32, 227);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(68, 23);
             this.btnAceptar.TabIndex = 4;
@@ -131,7 +132,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(106, 279);
+            this.btnSalir.Location = new System.Drawing.Point(106, 227);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 5;
@@ -149,7 +150,7 @@ namespace UI.Desktop
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(106, 89);
+            this.txtDescripcion.Location = new System.Drawing.Point(106, 71);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(188, 20);
@@ -157,7 +158,7 @@ namespace UI.Desktop
             // 
             // nudAñioEspecialidad
             // 
-            this.nudAñioEspecialidad.Location = new System.Drawing.Point(106, 158);
+            this.nudAñioEspecialidad.Location = new System.Drawing.Point(106, 122);
             this.nudAñioEspecialidad.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.nudAñioEspecialidad.Name = "nudAñioEspecialidad";
             this.nudAñioEspecialidad.Size = new System.Drawing.Size(188, 20);
@@ -166,7 +167,7 @@ namespace UI.Desktop
             // cbPlanes
             // 
             this.cbPlanes.FormattingEnabled = true;
-            this.cbPlanes.Location = new System.Drawing.Point(106, 227);
+            this.cbPlanes.Location = new System.Drawing.Point(106, 173);
             this.cbPlanes.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.cbPlanes.Name = "cbPlanes";
             this.cbPlanes.Size = new System.Drawing.Size(188, 21);
@@ -176,7 +177,7 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 307);
+            this.ClientSize = new System.Drawing.Size(323, 253);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ComisionesDesktop";
             this.Text = "ComisionesDesktop";

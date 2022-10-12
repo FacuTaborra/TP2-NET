@@ -61,6 +61,10 @@ namespace UI.Desktop
             this.cbPlanes.DataSource = planesList;
             this.cbPlanes.DisplayMember = "Descripcion";
             this.cbPlanes.ValueMember = "ID";
+            if (_ComisionActual == null)
+            {
+                this.cbPlanes.SelectedIndex = planesList.Count() -1;
+            }
         }
 
         public override void MapearDeDatos()
