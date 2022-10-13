@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Planes : System.Web.UI.Page
+    public partial class Planes : UI.WebForm.Default
     {
         PlanLogic _logic;
         private PlanLogic Logic
@@ -23,12 +23,7 @@ namespace UI.Web
                 return _logic;
             }
         }
-        public enum FormModes
-        {
-            Alta,
-            Baja,
-            Modificacion
-        }
+
         public FormModes FormMode
         {
             get { return (FormModes)this.ViewState["FormMode"]; }

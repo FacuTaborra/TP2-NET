@@ -9,18 +9,11 @@ using Business.Logic;
 
 namespace UI.WebForm
 {
-    public partial class Especialidades : System.Web.UI.Page
+    public partial class Especialidades : UI.WebForm.Default
     {
 
         EspecialidadLogic _logic;
 
-
-        public enum FormModes
-        {
-            Alta,
-            Baja,
-            Modificacion
-        }
 
         private EspecialidadLogic Logic
         {

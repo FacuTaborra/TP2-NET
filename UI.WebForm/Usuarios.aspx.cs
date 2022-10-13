@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.WebForm
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Usuarios : Default
     {
         UsuarioLogic _logic;
 
@@ -23,13 +23,6 @@ namespace UI.WebForm
                 }
                 return _logic;
             }
-        }
-
-        public enum FormModes
-        {
-            Alta,
-            Baja,
-            Modificacion
         }
 
         public FormModes FormMode

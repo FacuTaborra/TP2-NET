@@ -9,6 +9,13 @@ namespace UI.WebForm
 {
     public partial class Default : System.Web.UI.Page
     {
+        public enum FormModes
+        {
+            Alta,
+            Baja,
+            Modificacion
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

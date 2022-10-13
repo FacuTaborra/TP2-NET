@@ -10,9 +10,8 @@ using Business.Logic;
 
 namespace UI.WebForm
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Materias : UI.WebForm.Default
     {
-        // REVISAR QUE COSAS PUEDEN IR OTRA CLASE PARA QUE HEREDEN ESTOS
 
         MateriaLogic _logic;
         private MateriaLogic Logic
@@ -25,13 +24,6 @@ namespace UI.WebForm
                 }
                 return _logic;
             }
-        }
-
-        public enum FormModes
-        {
-            Alta,
-            Baja,
-            Modificacion
         }
 
         public FormModes FormMode
