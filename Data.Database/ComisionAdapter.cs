@@ -124,7 +124,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                String consulta = "Insert into comisiones (desc_comision, anio_especialidad, id_plan)" + "values (@desc, @anio_esp, @plan)" + "select @@idenity";
+                String consulta = "Insert into comisiones (desc_comision, anio_especialidad, id_plan)" + "values (@desc, @anio_esp, @plan)" + "select @@identity";
                 SqlCommand cmdSave = new SqlCommand(consulta, sqlConn);
                 cmdSave.Parameters.Add("desc", SqlDbType.VarChar, 50).Value = com.Descripcion;
                 cmdSave.Parameters.Add("anio_esp", SqlDbType.Int).Value = com.AnioEspecialidad;
@@ -179,22 +179,19 @@ namespace Data.Database
 
         public void Save(Comision com)
         {
-            switch (com.State)
+            if(com.State== BusinessEntity.States.New)
             {
-                case BusinessEntity.States.New:
-                    this.Insert(com);
-                    break;
-
-                case BusinessEntity.States.Deleted:
-                    this.Delete(com.ID);
-                    break;
-
-                case BusinessEntity.States.Modified:
-                    this.Update(com);
-                    break;
+                this.Insert(com);
             }
-
-            com.State=BusinessEntity.States.Unmodified;
+            else if (com.State == BusinessEntity.States.Deleted)
+            {
+                this.Delete(com.ID);
+            }
+            else if (com.State == BusinessEntity.States.Modified)
+            {
+                this.Update(com);
+            }
+            com.State = BusinessEntity.States.Unmodified;
         }
 
     }

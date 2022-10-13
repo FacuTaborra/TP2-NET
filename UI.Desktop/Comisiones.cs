@@ -49,5 +49,38 @@ namespace UI.Desktop
             cd.ShowDialog();
             this.Listar();
         }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvComisiones.SelectedRows.Count == 1)
+            {
+                int id = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                ComisionesDesktop cd = new ComisionesDesktop(id, ApplicationForm.ModoForm.modificacion);
+                cd.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                ApplicationForm af = new ApplicationForm();
+                af.Notificar("Debe seleccionar una fila", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvComisiones.SelectedRows.Count == 1)
+            {
+                int id = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                ComisionesDesktop cd = new ComisionesDesktop(id, ApplicationForm.ModoForm.baja);
+                cd.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                ApplicationForm af = new ApplicationForm();
+                af.Notificar("Debe seleccionar una fila", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

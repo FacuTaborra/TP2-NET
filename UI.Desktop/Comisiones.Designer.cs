@@ -33,16 +33,16 @@ namespace UI.Desktop
             this.tcComisiones = new System.Windows.Forms.ToolStripContainer();
             this.tlComisiones = new System.Windows.Forms.TableLayoutPanel();
             this.dgvComisiones = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.tsComisiones = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcComisiones.ContentPanel.SuspendLayout();
             this.tcComisiones.TopToolStripPanel.SuspendLayout();
             this.tcComisiones.SuspendLayout();
@@ -104,6 +104,36 @@ namespace UI.Desktop
             this.dgvComisiones.Size = new System.Drawing.Size(794, 390);
             this.dgvComisiones.TabIndex = 0;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID  Comision";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 200;
+            // 
+            // AnioEspecialidad
+            // 
+            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
+            this.AnioEspecialidad.HeaderText = "Año Especialidad";
+            this.AnioEspecialidad.Name = "AnioEspecialidad";
+            this.AnioEspecialidad.ReadOnly = true;
+            this.AnioEspecialidad.Width = 150;
+            // 
+            // Plan
+            // 
+            this.Plan.DataPropertyName = "Plan";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(722, 399);
@@ -134,7 +164,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsComisiones.Location = new System.Drawing.Point(3, 0);
             this.tsComisiones.Name = "tsComisiones";
-            this.tsComisiones.Size = new System.Drawing.Size(81, 25);
+            this.tsComisiones.Size = new System.Drawing.Size(112, 25);
             this.tsComisiones.TabIndex = 0;
             // 
             // tsbNuevo
@@ -157,6 +187,7 @@ namespace UI.Desktop
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
             this.tsbEditar.Text = "toolStripButton2";
             this.tsbEditar.ToolTipText = "Editar";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -167,36 +198,7 @@ namespace UI.Desktop
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton3";
             this.tsbEliminar.ToolTipText = "Eliminar";
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID  Comision";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 200;
-            // 
-            // AnioEspecialidad
-            // 
-            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
-            this.AnioEspecialidad.HeaderText = "Año Especialidad";
-            this.AnioEspecialidad.Name = "AnioEspecialidad";
-            this.AnioEspecialidad.ReadOnly = true;
-            this.AnioEspecialidad.Width = 150;
-            // 
-            // Plan
-            // 
-            this.Plan.DataPropertyName = "IDPlan";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // Comisiones
             // 

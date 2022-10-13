@@ -34,12 +34,12 @@ namespace UI.Desktop
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.txtIDComision = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtDescrip = new System.Windows.Forms.TextBox();
             this.nudAñioEspecialidad = new System.Windows.Forms.NumericUpDown();
             this.cbPlanes = new System.Windows.Forms.ComboBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAñioEspecialidad)).BeginInit();
             this.SuspendLayout();
@@ -54,11 +54,11 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtIDComision, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtDescrip, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.nudAñioEspecialidad, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.cbPlanes, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -120,27 +120,9 @@ namespace UI.Desktop
             this.label4.Text = "Plan";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(32, 227);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(68, 23);
-            this.btnAceptar.TabIndex = 4;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(106, 227);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
             // txtIDComision
             // 
+            this.txtIDComision.Enabled = false;
             this.txtIDComision.Location = new System.Drawing.Point(106, 20);
             this.txtIDComision.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.txtIDComision.Name = "txtIDComision";
@@ -148,18 +130,23 @@ namespace UI.Desktop
             this.txtIDComision.Size = new System.Drawing.Size(188, 20);
             this.txtIDComision.TabIndex = 6;
             // 
-            // txtDescripcion
+            // txtDescrip
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(106, 71);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(188, 20);
-            this.txtDescripcion.TabIndex = 7;
+            this.txtDescrip.Location = new System.Drawing.Point(106, 71);
+            this.txtDescrip.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.txtDescrip.Name = "txtDescrip";
+            this.txtDescrip.Size = new System.Drawing.Size(188, 20);
+            this.txtDescrip.TabIndex = 7;
             // 
             // nudAñioEspecialidad
             // 
             this.nudAñioEspecialidad.Location = new System.Drawing.Point(106, 122);
             this.nudAñioEspecialidad.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.nudAñioEspecialidad.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.nudAñioEspecialidad.Name = "nudAñioEspecialidad";
             this.nudAñioEspecialidad.Size = new System.Drawing.Size(188, 20);
             this.nudAñioEspecialidad.TabIndex = 8;
@@ -172,6 +159,27 @@ namespace UI.Desktop
             this.cbPlanes.Name = "cbPlanes";
             this.cbPlanes.Size = new System.Drawing.Size(188, 21);
             this.cbPlanes.TabIndex = 9;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.Location = new System.Drawing.Point(25, 227);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(106, 227);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(68, 23);
+            this.btnAceptar.TabIndex = 4;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // ComisionesDesktop
             // 
@@ -199,7 +207,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtIDComision;
-        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtDescrip;
         private System.Windows.Forms.NumericUpDown nudAñioEspecialidad;
         private System.Windows.Forms.ComboBox cbPlanes;
     }
