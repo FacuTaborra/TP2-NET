@@ -122,25 +122,28 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUpdate = new SqlCommand("update personas set nombre = @nom, apellido = @ape, direccion = @dire " +
-                    "email = @email, telefono = @tel, fecha_nac = @fena, legajo = @leg, tipo_persona = @tp" +
+                SqlCommand cmdUpdate = new SqlCommand("update personas set nombre = @nom, apellido = @ape, direccion = @dire, " +
+                    " email = @em, telefono = @tel, fecha_nac = @fena, legajo = @leg, tipo_persona = @tp, id_plan = @plan " +
                     "where id_persona = @id", sqlConn);
 
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = per.ID;
                 cmdUpdate.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
                 cmdUpdate.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
                 cmdUpdate.Parameters.Add("@dire", SqlDbType.VarChar, 50).Value = per.Direccion;
-                cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
+                cmdUpdate.Parameters.Add("@em", SqlDbType.VarChar, 50).Value = per.Email;
                 cmdUpdate.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
                 cmdUpdate.Parameters.Add("@fena", SqlDbType.DateTime, 50).Value = per.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
                 cmdUpdate.Parameters.Add("@tp", SqlDbType.Int).Value = per.TipoPersona;
+                cmdUpdate.Parameters.Add("@plan", SqlDbType.Int).Value = per.Plan.ID;
+
+                cmdUpdate.ExecuteNonQuery();
             }
-            catch (Exception Ex2)
+            /*catch (Exception Ex2)
             {
                 Exception ExcepcionManejada = new Exception("Error al editar persona", Ex2);
                 throw ExcepcionManejada;
-            }
+            }*/
             finally
             {
                 this.CloseConnection();

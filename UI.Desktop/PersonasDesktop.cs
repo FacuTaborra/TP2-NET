@@ -63,24 +63,26 @@ namespace UI.Desktop
             PlanLogic planLogic = new PlanLogic();
             List<Plan> planes = planLogic.GetAll();
 
-            //agregamos manualmente "plan"-
+            //agregamos manualmente "plan"
             Plan p = new Plan();
             p.Descripcion = "Plan";
-            planes.Add(p);
             planes.Insert(0, p);
+
             cbPlan.DataSource = planes;
             cbPlan.DisplayMember = "Descripcion";
             cbPlan.ValueMember = "ID";
+
             if (_PersonaActual == null)
             {
+                cbTipo.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
                 cbPlan.SelectedIndex = planes.Count() - 1;
                 cbPlan.SelectedIndex = 0;
-
             }
             else
             {
-                cbPlan.SelectedIndex = _PersonaActual.Plan.ID - 1;
-            }
+                cbPlan.SelectedValue = _PersonaActual.Plan.ID;
+            } 
+            
 
         }
 
@@ -100,7 +102,7 @@ namespace UI.Desktop
                 _PersonaActual.Direccion = this.txtDireccion.Text;
                 _PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
                 _PersonaActual.Telefono = this.txtTelefono.Text;
-                Plan p = new Plan(this.cbPlan.SelectedIndex + 1);
+                Plan p = new Plan(int.Parse(this.cbPlan.SelectedValue.ToString()));
                 _PersonaActual.Plan = p; //verificar
                 _PersonaActual.TipoPersona = (Persona.TiposPersonas)this.cbTipo.SelectedIndex; //verificar
                 _PersonaActual.FechaNacimiento = this.dtpFechaNac.Value.Date; //verificar
@@ -126,6 +128,8 @@ namespace UI.Desktop
             this.txtDireccion.Text = _PersonaActual.Direccion;
             this.txtTelefono.Text = _PersonaActual.Telefono;
             this.txtLegajo.Text = _PersonaActual.Legajo.ToString();
+            cbTipo.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
+            this.cbTipo.SelectedIndex = (int)_PersonaActual.TipoPersona;
             this.cbPlan.SelectedValue = _PersonaActual.Plan.ID; //verificar
             this.dtpFechaNac.Text = _PersonaActual.FechaNacimiento.ToShortDateString(); //verificar
         }

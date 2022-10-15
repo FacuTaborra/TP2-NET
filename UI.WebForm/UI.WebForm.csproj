@@ -71,6 +71,7 @@
     <Content Include="Especialidades.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="personas.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="personas.aspx.cs">
+      <DependentUpon>personas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="personas.aspx.designer.cs">
+      <DependentUpon>personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
