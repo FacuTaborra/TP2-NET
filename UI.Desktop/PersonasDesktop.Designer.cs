@@ -61,7 +61,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.1875F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.8125F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 217F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.label5, 2, 1);
@@ -87,12 +87,13 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.19149F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.80851F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.38298F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.61702F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(615, 266);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -100,7 +101,7 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAceptar.Location = new System.Drawing.Point(290, 230);
+            this.btnAceptar.Location = new System.Drawing.Point(277, 230);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 19;
@@ -111,7 +112,7 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancelar.Location = new System.Drawing.Point(400, 230);
+            this.btnCancelar.Location = new System.Drawing.Point(387, 230);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 20;
@@ -124,7 +125,7 @@ namespace UI.Desktop
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(295, 63);
+            this.label5.Location = new System.Drawing.Point(282, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 18);
             this.label5.TabIndex = 4;
@@ -133,17 +134,17 @@ namespace UI.Desktop
             // txtTelefono
             // 
             this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTelefono.Location = new System.Drawing.Point(400, 62);
+            this.txtTelefono.Location = new System.Drawing.Point(387, 59);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(212, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(215, 20);
             this.txtTelefono.TabIndex = 10;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.Location = new System.Drawing.Point(86, 184);
+            this.txtDireccion.Location = new System.Drawing.Point(82, 183);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(170, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(161, 20);
             this.txtDireccion.TabIndex = 15;
             // 
             // label4
@@ -151,7 +152,7 @@ namespace UI.Desktop
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 185);
+            this.label4.Location = new System.Drawing.Point(4, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 18);
             this.label4.TabIndex = 3;
@@ -162,7 +163,7 @@ namespace UI.Desktop
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 143);
+            this.label3.Location = new System.Drawing.Point(17, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 18);
             this.label3.TabIndex = 2;
@@ -173,7 +174,7 @@ namespace UI.Desktop
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 104);
+            this.label2.Location = new System.Drawing.Point(10, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 18);
             this.label2.TabIndex = 1;
@@ -184,7 +185,7 @@ namespace UI.Desktop
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 63);
+            this.label1.Location = new System.Drawing.Point(8, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 18);
             this.label1.TabIndex = 0;
@@ -193,34 +194,34 @@ namespace UI.Desktop
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(86, 142);
+            this.txtEmail.Location = new System.Drawing.Point(82, 140);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(170, 20);
+            this.txtEmail.Size = new System.Drawing.Size(161, 20);
             this.txtEmail.TabIndex = 13;
             // 
             // txtApellido
             // 
             this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApellido.Location = new System.Drawing.Point(86, 103);
+            this.txtApellido.Location = new System.Drawing.Point(82, 100);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(170, 20);
+            this.txtApellido.Size = new System.Drawing.Size(161, 20);
             this.txtApellido.TabIndex = 11;
             // 
             // txtNombre
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.Location = new System.Drawing.Point(86, 62);
+            this.txtNombre.Location = new System.Drawing.Point(82, 59);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(170, 20);
+            this.txtNombre.Size = new System.Drawing.Size(161, 20);
             this.txtNombre.TabIndex = 9;
             // 
             // txtId
             // 
             this.txtId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtId.Location = new System.Drawing.Point(86, 15);
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(82, 15);
             this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(170, 20);
+            this.txtId.Size = new System.Drawing.Size(161, 20);
             this.txtId.TabIndex = 21;
             // 
             // label10
@@ -228,7 +229,7 @@ namespace UI.Desktop
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(30, 16);
+            this.label10.Location = new System.Drawing.Point(28, 16);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(22, 18);
             this.label10.TabIndex = 22;
@@ -237,9 +238,9 @@ namespace UI.Desktop
             // dtpFechaNac
             // 
             this.dtpFechaNac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpFechaNac.Location = new System.Drawing.Point(400, 15);
+            this.dtpFechaNac.Location = new System.Drawing.Point(387, 15);
             this.dtpFechaNac.Name = "dtpFechaNac";
-            this.dtpFechaNac.Size = new System.Drawing.Size(212, 20);
+            this.dtpFechaNac.Size = new System.Drawing.Size(215, 20);
             this.dtpFechaNac.TabIndex = 18;
             // 
             // label6
@@ -247,7 +248,7 @@ namespace UI.Desktop
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(264, 16);
+            this.label6.Location = new System.Drawing.Point(251, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 18);
             this.label6.TabIndex = 5;
@@ -256,9 +257,9 @@ namespace UI.Desktop
             // txtLegajo
             // 
             this.txtLegajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLegajo.Location = new System.Drawing.Point(400, 103);
+            this.txtLegajo.Location = new System.Drawing.Point(387, 100);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(212, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(215, 20);
             this.txtLegajo.TabIndex = 14;
             // 
             // label7
@@ -266,7 +267,7 @@ namespace UI.Desktop
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(302, 104);
+            this.label7.Location = new System.Drawing.Point(289, 101);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 18);
             this.label7.TabIndex = 6;
@@ -276,9 +277,9 @@ namespace UI.Desktop
             // 
             this.cbPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbPlan.FormattingEnabled = true;
-            this.cbPlan.Location = new System.Drawing.Point(400, 184);
+            this.cbPlan.Location = new System.Drawing.Point(387, 183);
             this.cbPlan.Name = "cbPlan";
-            this.cbPlan.Size = new System.Drawing.Size(212, 21);
+            this.cbPlan.Size = new System.Drawing.Size(215, 21);
             this.cbPlan.TabIndex = 16;
             // 
             // cbTipo
@@ -290,9 +291,9 @@ namespace UI.Desktop
             "Administrador",
             "Alumno",
             "Profesor"});
-            this.cbTipo.Location = new System.Drawing.Point(400, 142);
+            this.cbTipo.Location = new System.Drawing.Point(387, 140);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(212, 21);
+            this.cbTipo.Size = new System.Drawing.Size(215, 21);
             this.cbTipo.TabIndex = 17;
             // 
             // label8
@@ -300,7 +301,7 @@ namespace UI.Desktop
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(309, 143);
+            this.label8.Location = new System.Drawing.Point(296, 141);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 18);
             this.label8.TabIndex = 7;
@@ -311,7 +312,7 @@ namespace UI.Desktop
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(309, 185);
+            this.label9.Location = new System.Drawing.Point(296, 184);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 18);
             this.label9.TabIndex = 8;
@@ -324,6 +325,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(615, 266);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PersonasDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonasDesktop";
             this.Load += new System.EventHandler(this.PersonasDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

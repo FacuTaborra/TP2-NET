@@ -56,9 +56,7 @@ namespace Data.Database
             try
             {
                 OpenConnection();
-                SqlCommand cmdPersona = new SqlCommand("select * " +
-                                                       "from personas per" +
-                                                       "where per.id_persona = @idPer ", sqlConn);
+                SqlCommand cmdPersona = new SqlCommand("select * from personas where id_persona = @idPer ", sqlConn);
                 cmdPersona.Parameters.Add("@idPer", SqlDbType.Int).Value = id;
                 SqlDataReader drPersona = cmdPersona.ExecuteReader();
                 if (drPersona.Read())
@@ -69,21 +67,19 @@ namespace Data.Database
                     p.Direccion = (string)drPersona["direccion"];
                     Plan plan = new Plan();
                     plan.ID = (int)drPersona["id_plan"];
-                    plan.IDEspecialidad = (int)drPersona["id_especialidad"];
-                    plan.Descripcion = (string)drPersona["desc_plan"];
                     p.Plan = plan;
                     p.Legajo = (int)drPersona["legajo"];
                     p.Telefono = (string)drPersona["telefono"];
                     p.Email = (string)drPersona["email"];
                     p.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
-                    p.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_personas"];
+                    p.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_persona"];
                 }
             }
-            catch (Exception Ex1)
+            /*catch (Exception Ex1)
             {
                 Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
                 throw ExcepcionManejada;
-            }
+            }*/
             finally
             {
                 CloseConnection();

@@ -62,10 +62,25 @@ namespace UI.Desktop
         {
             PlanLogic planLogic = new PlanLogic();
             List<Plan> planes = planLogic.GetAll();
-            //agregar "plan" manualemte
+
+            //agregamos manualmente "plan"-
+            Plan p = new Plan();
+            p.Descripcion = "Plan";
+            planes.Add(p);
+            planes.Insert(0, p);
             cbPlan.DataSource = planes;
             cbPlan.DisplayMember = "Descripcion";
             cbPlan.ValueMember = "ID";
+            if (_PersonaActual == null)
+            {
+                cbPlan.SelectedIndex = planes.Count() - 1;
+                cbPlan.SelectedIndex = 0;
+
+            }
+            else
+            {
+                cbPlan.SelectedIndex = _PersonaActual.Plan.ID - 1;
+            }
 
         }
 
@@ -104,10 +119,12 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             base.MapearDeDatos();
+            this.txtId.Text = _PersonaActual.ID.ToString();
             this.txtNombre.Text = _PersonaActual.Nombre;
             this.txtApellido.Text = _PersonaActual.Apellido;
             this.txtEmail.Text = _PersonaActual.Email;
             this.txtDireccion.Text = _PersonaActual.Direccion;
+            this.txtTelefono.Text = _PersonaActual.Telefono;
             this.txtLegajo.Text = _PersonaActual.Legajo.ToString();
             this.cbPlan.SelectedValue = _PersonaActual.Plan.ID; //verificar
             this.dtpFechaNac.Text = _PersonaActual.FechaNacimiento.ToShortDateString(); //verificar
