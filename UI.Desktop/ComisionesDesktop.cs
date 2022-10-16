@@ -77,6 +77,20 @@ namespace UI.Desktop
                 this.cbPlanes.SelectedValue = _ComisionActual.Plan.ID;
 
             }
+
+            if (_Modo == ModoForm.alta || _Modo == ModoForm.modificacion)
+            {
+                this.btnAceptar.Text = "Guardar";
+            }
+            else if (_Modo == ModoForm.baja)
+            {
+                this.btnAceptar.Text = "Eliminar";
+            }
+            else if (_Modo == ModoForm.consulta)
+            {
+                this.btnAceptar.Text = "Aceptar";
+            }
+
         }
 
         public override void MapearDeDatos()
