@@ -38,7 +38,7 @@ namespace UI.Desktop
             this.btnPersonas = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnComisiones = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCursos = new System.Windows.Forms.Button();
             this.TitleMenu = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnPersonas, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnComisiones, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnCursos, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(-1, 41);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -165,16 +165,17 @@ namespace UI.Desktop
             this.btnComisiones.UseVisualStyleBackColor = true;
             this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
-            // button4
+            // btnCursos
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(383, 188);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 36);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Materias";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCursos.Location = new System.Drawing.Point(383, 188);
+            this.btnCursos.Name = "btnCursos";
+            this.btnCursos.Size = new System.Drawing.Size(150, 36);
+            this.btnCursos.TabIndex = 9;
+            this.btnCursos.Text = "Cursos";
+            this.btnCursos.UseVisualStyleBackColor = true;
+            this.btnCursos.Click += new System.EventHandler(this.btnCursos_Click);
             // 
             // TitleMenu
             // 
@@ -216,6 +217,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnPersonas;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnComisiones;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCursos;
     }
 }

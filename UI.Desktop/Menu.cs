@@ -59,8 +59,15 @@ namespace UI.Desktop
 
         private void btnComisiones_Click(object sender, EventArgs e)
         {
-            Comisiones com = new Comisiones();
-            com.Show();
+            Comisiones comisionesForm = new Comisiones();
+            comisionesForm.Show();
+            this.Close();
+        }
+
+        private void btnCursos_Click(object sender, EventArgs e)
+        {
+            Cursos cursosForm = new Cursos();
+            cursosForm.Show();
             this.Close();
         }
     }
