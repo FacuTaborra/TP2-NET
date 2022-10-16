@@ -62,10 +62,27 @@ namespace UI.Desktop
         {
             PlanLogic planLogic = new PlanLogic();
             List<Plan> planes = planLogic.GetAll();
-            //agregar "plan" manualemte
+
+            //agregamos manualmente "plan"
+            Plan p = new Plan();
+            p.Descripcion = "Plan";
+            planes.Insert(0, p);
+
             cbPlan.DataSource = planes;
             cbPlan.DisplayMember = "Descripcion";
             cbPlan.ValueMember = "ID";
+
+            if (_PersonaActual == null)
+            {
+                cbTipo.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
+                cbPlan.SelectedIndex = planes.Count() - 1;
+                cbPlan.SelectedIndex = 0;
+            }
+            else
+            {
+                cbPlan.SelectedValue = _PersonaActual.Plan.ID;
+            } 
+            
 
         }
 
@@ -85,7 +102,7 @@ namespace UI.Desktop
                 _PersonaActual.Direccion = this.txtDireccion.Text;
                 _PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
                 _PersonaActual.Telefono = this.txtTelefono.Text;
-                Plan p = new Plan(this.cbPlan.SelectedIndex + 1);
+                Plan p = new Plan(int.Parse(this.cbPlan.SelectedValue.ToString()));
                 _PersonaActual.Plan = p; //verificar
                 _PersonaActual.TipoPersona = (Persona.TiposPersonas)this.cbTipo.SelectedIndex; //verificar
                 _PersonaActual.FechaNacimiento = this.dtpFechaNac.Value.Date; //verificar
@@ -104,11 +121,15 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             base.MapearDeDatos();
+            this.txtId.Text = _PersonaActual.ID.ToString();
             this.txtNombre.Text = _PersonaActual.Nombre;
             this.txtApellido.Text = _PersonaActual.Apellido;
             this.txtEmail.Text = _PersonaActual.Email;
             this.txtDireccion.Text = _PersonaActual.Direccion;
+            this.txtTelefono.Text = _PersonaActual.Telefono;
             this.txtLegajo.Text = _PersonaActual.Legajo.ToString();
+            cbTipo.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
+            this.cbTipo.SelectedIndex = (int)_PersonaActual.TipoPersona;
             this.cbPlan.SelectedValue = _PersonaActual.Plan.ID; //verificar
             this.dtpFechaNac.Text = _PersonaActual.FechaNacimiento.ToShortDateString(); //verificar
         }

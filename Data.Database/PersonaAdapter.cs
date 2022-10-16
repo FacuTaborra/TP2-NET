@@ -56,9 +56,7 @@ namespace Data.Database
             try
             {
                 OpenConnection();
-                SqlCommand cmdPersona = new SqlCommand("select * " +
-                                                       "from personas per" +
-                                                       "where per.id_persona = @idPer ", sqlConn);
+                SqlCommand cmdPersona = new SqlCommand("select * from personas where id_persona = @idPer ", sqlConn);
                 cmdPersona.Parameters.Add("@idPer", SqlDbType.Int).Value = id;
                 SqlDataReader drPersona = cmdPersona.ExecuteReader();
                 if (drPersona.Read())
@@ -69,21 +67,19 @@ namespace Data.Database
                     p.Direccion = (string)drPersona["direccion"];
                     Plan plan = new Plan();
                     plan.ID = (int)drPersona["id_plan"];
-                    plan.IDEspecialidad = (int)drPersona["id_especialidad"];
-                    plan.Descripcion = (string)drPersona["desc_plan"];
                     p.Plan = plan;
                     p.Legajo = (int)drPersona["legajo"];
                     p.Telefono = (string)drPersona["telefono"];
                     p.Email = (string)drPersona["email"];
                     p.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
-                    p.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_personas"];
+                    p.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_persona"];
                 }
             }
-            catch (Exception Ex1)
+            /*catch (Exception Ex1)
             {
                 Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
                 throw ExcepcionManejada;
-            }
+            }*/
             finally
             {
                 CloseConnection();
@@ -126,25 +122,28 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUpdate = new SqlCommand("update personas set nombre = @nom, apellido = @ape, direccion = @dire " +
-                    "email = @email, telefono = @tel, fecha_nac = @fena, legajo = @leg, tipo_persona = @tp" +
+                SqlCommand cmdUpdate = new SqlCommand("update personas set nombre = @nom, apellido = @ape, direccion = @dire, " +
+                    " email = @em, telefono = @tel, fecha_nac = @fena, legajo = @leg, tipo_persona = @tp, id_plan = @plan " +
                     "where id_persona = @id", sqlConn);
 
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = per.ID;
                 cmdUpdate.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
                 cmdUpdate.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
                 cmdUpdate.Parameters.Add("@dire", SqlDbType.VarChar, 50).Value = per.Direccion;
-                cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
+                cmdUpdate.Parameters.Add("@em", SqlDbType.VarChar, 50).Value = per.Email;
                 cmdUpdate.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
                 cmdUpdate.Parameters.Add("@fena", SqlDbType.DateTime, 50).Value = per.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
                 cmdUpdate.Parameters.Add("@tp", SqlDbType.Int).Value = per.TipoPersona;
+                cmdUpdate.Parameters.Add("@plan", SqlDbType.Int).Value = per.Plan.ID;
+
+                cmdUpdate.ExecuteNonQuery();
             }
-            catch (Exception Ex2)
+            /*catch (Exception Ex2)
             {
                 Exception ExcepcionManejada = new Exception("Error al editar persona", Ex2);
                 throw ExcepcionManejada;
-            }
+            }*/
             finally
             {
                 this.CloseConnection();

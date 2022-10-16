@@ -35,6 +35,7 @@ namespace UI.Desktop
                 _UsuarioActual = ul.GetOne(ID);
                 MapearDeDatos();
             }
+
             if(_Modo == ModoForm.alta || _Modo == ModoForm.modificacion)
             {
                 this.btnAceptar.Text = "Guardar";
