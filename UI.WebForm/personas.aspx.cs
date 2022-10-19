@@ -95,6 +95,7 @@ namespace UI.WebForm
             this.DireccionTextBox.Text = Entity.Direccion;
             this.EmailTextBox.Text = Entity.Email;
             this.TelefonoTextBox.Text = Entity.Telefono;
+            this.LegajoTextBox.Text = Entity.Legajo.ToString();
             this.DateTimeTextBox.Text = Entity.FechaNacimiento.ToString();
             this.PlanDropDownList.SelectedValue = Entity.Plan.ID.ToString();
             this.TipoPersonaDropDownList.SelectedIndex = (int)Entity.TipoPersona;
@@ -102,16 +103,23 @@ namespace UI.WebForm
 
         protected void PlanDropDownList_Load(object sender, EventArgs e)
         {
-            PlanLogic pl = new PlanLogic();
-            List<Plan> planes = pl.GetAll();
-            Plan plan = new Plan();
-            plan.Descripcion = "Plan";
-            plan.ID = 0;
-            planes.Insert(0, plan);
-            this.PlanDropDownList.DataSource = planes;
-            this.PlanDropDownList.DataValueField = "ID";
-            this.PlanDropDownList.DataTextField = "Descripcion";
-            this.PlanDropDownList.DataBind();
+            if (!this.Page.IsPostBack)
+            {
+                PlanLogic pl = new PlanLogic();
+                List<Plan> planes = pl.GetAll();
+                Plan plan = new Plan();
+                plan.Descripcion = "Plan";
+                planes.Insert(0, plan);
+                this.PlanDropDownList.DataSource = planes;
+                this.PlanDropDownList.DataTextField = "Descripcion";
+                this.PlanDropDownList.DataValueField = "ID";
+                this.PlanDropDownList.DataBind();
+            }
+        }
+        protected void TipoPersonaDropDownList_Load(object sender, EventArgs e)
+        {
+            this.TipoPersonaDropDownList.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
+            this.TipoPersonaDropDownList.DataBind();
         }
 
         protected void EditarLinkButton_Click(object sender, EventArgs e)
@@ -127,14 +135,17 @@ namespace UI.WebForm
 
         private void EnableForm(bool enable)
         {
-
+            this.NombreTextBox.Enabled = enable;
+            this.ApellidoTextBox.Enabled = enable;
+            this.DireccionTextBox.Enabled = enable;
+            this.EmailTextBox.Enabled = enable;
+            this.DateTimeTextBox.Enabled = enable;
+            this.PlanDropDownList.Enabled = enable;
+            this.LegajoTextBox.Enabled = enable;
+            this.TelefonoTextBox.Enabled = enable;
+            this.TipoPersonaDropDownList.Enabled = enable;
         }
 
-        protected void TipoPersonaDropDownList_Load(object sender, EventArgs e)
-        {
-            this.TipoPersonaDropDownList.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
-            this.TipoPersonaDropDownList.DataBind();
-        }
 
         private void LoadEntity(Persona persona)
         {
@@ -143,9 +154,11 @@ namespace UI.WebForm
             persona.Direccion = this.DireccionTextBox.Text;
             persona.Email = this.EmailTextBox.Text;
             persona.Telefono = this.TelefonoTextBox.Text;
+            persona.Legajo = int.Parse(this.LegajoTextBox.Text);
             persona.FechaNacimiento = DateTime.Parse(this.DateTimeTextBox.Text);
-            persona.TipoPersona = (Persona.TiposPersonas)this.PlanDropDownList.SelectedIndex;
-            persona.Plan.ID = this.PlanDropDownList.SelectedIndex;
+            persona.TipoPersona = (Persona.TiposPersonas)this.TipoPersonaDropDownList.SelectedIndex;
+            Plan p = new Plan(int.Parse(this.PlanDropDownList.SelectedItem.Value));
+            persona.Plan = p;
         }
 
         private void SaveEntity(Persona persona)
@@ -165,11 +178,60 @@ namespace UI.WebForm
                     this.SaveEntity(this.Entity);
                     this.loadGrid();
                     break;
+                case FormModes.Baja:
+                    this.DeleteEntity(this.SelectedID);
+                    this.loadGrid();
+                    break;
+                case FormModes.Alta:
+                    this.Entity = new Persona();
+                    this.Entity.State = BusinessEntity.States.New;
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    this.loadGrid();
+                    break;
                 default:
                     break;
             }
             this.formPanel.Visible = false;
             
         }
+
+        protected void EliminarLinkButton_Click(object sender, EventArgs e)
+        {
+            if(this.isEntitySelected)
+            {
+                this.formPanel.Visible = true;
+                this.FormMode = FormModes.Baja;
+                this.EnableForm(false);
+                this.LoadForm(this.SelectedID);
+            }
+        }
+
+        private void DeleteEntity(int id)
+        {
+            this.logic.Delete(id);
+        }
+
+        protected void NuevoLinkButton_Click(object sender, EventArgs e)
+        {
+            this.formPanel.Visible = true;
+            this.FormMode = FormModes.Alta;
+            this.ClearForm();
+            this.EnableForm(true);
+        }
+
+        private void ClearForm()
+        {
+            this.NombreTextBox.Text = string.Empty;
+            this.ApellidoTextBox.Text = string.Empty;
+            this.DireccionTextBox.Text = string.Empty;
+            this.EmailTextBox.Text = string.Empty;
+            this.DateTimeTextBox.Text = string.Empty;
+            this.PlanDropDownList.SelectedIndex = 0;
+            this.LegajoTextBox.Text = string.Empty;
+            this.TelefonoTextBox.Text = string.Empty;
+            this.TipoPersonaDropDownList.SelectedIndex = 0;
+        }
+
     }
 }

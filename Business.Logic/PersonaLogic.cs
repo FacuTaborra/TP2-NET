@@ -33,6 +33,12 @@ namespace Business.Logic
             return PersonaData.GetOne(idPersona);
         }
 
+        public void Delete(int id)
+        {
+            Persona per = new Persona(id, BusinessEntity.States.Deleted);
+            Save(per);
+        }
+
         public void Save(Persona per)
         {
             PersonaData.Save(per);

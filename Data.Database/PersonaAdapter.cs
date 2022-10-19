@@ -73,6 +73,7 @@ namespace Data.Database
                     p.Email = (string)drPersona["email"];
                     p.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     p.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_persona"];
+
                 }
             }
             /*catch (Exception Ex1)

@@ -15,9 +15,9 @@
         </Columns>
     </asp:GridView>
     <asp:Panel ID="gridActionsPanel" runat="server">
-        <asp:LinkButton ID="NuevoLinkButton" runat="server">Nuevo</asp:LinkButton>
+        <asp:LinkButton ID="NuevoLinkButton" runat="server" OnClick="NuevoLinkButton_Click">Nuevo</asp:LinkButton>
         <asp:LinkButton ID="EditarLinkButton" runat="server" OnClick="EditarLinkButton_Click">Editar</asp:LinkButton>
-        <asp:LinkButton ID="EliminarLinkButton" runat="server">Eliminar</asp:LinkButton>
+        <asp:LinkButton ID="EliminarLinkButton" runat="server" OnClick="EliminarLinkButton_Click">Eliminar</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formPanel" runat="server" Visible="False">
         <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
@@ -34,6 +34,9 @@
         <br />
         <asp:Label ID="Label6" runat="server" Text="Telefono"></asp:Label>
         <asp:TextBox ID="TelefonoTextBox" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label10" runat="server" Text="Legajo"></asp:Label>
+        <asp:TextBox ID="LegajoTextBox" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="Label7" runat="server" Text="Fecha Nacimiento"></asp:Label>
         <asp:TextBox ID="DateTimeTextBox" runat="server" TextMode="DateTime"></asp:TextBox>

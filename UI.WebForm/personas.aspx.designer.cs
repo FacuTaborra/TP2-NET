@@ -159,6 +159,24 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox TelefonoTextBox;
 
         /// <summary>
+        /// Control Label10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label10;
+
+        /// <summary>
+        /// Control LegajoTextBox.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LegajoTextBox;
+
+        /// <summary>
         /// Control Label7.
         /// </summary>
         /// <remarks>

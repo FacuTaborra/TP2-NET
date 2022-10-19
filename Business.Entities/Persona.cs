@@ -15,11 +15,23 @@ namespace Business.Entities
         private int _Legajo;
         private string _Telefono;
         private TiposPersonas _TipoPersona;
+
         public enum TiposPersonas
         {
             Administrador,
             Alumno,
             Profesor
+        }
+
+        public Persona()
+        {
+
+        }
+
+        public Persona(int id, BusinessEntity.States state )
+        {
+            ID = id;
+            State = state;
         }
         public string Apellido
         {
