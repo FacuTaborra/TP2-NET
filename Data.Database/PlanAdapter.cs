@@ -24,7 +24,9 @@ namespace Data.Database
                     Plan plan = new Plan();
                     plan.ID = (int)drPlanes["id_plan"];
                     plan.Descripcion = (string)drPlanes["desc_plan"];
-                    plan.IDEspecialidad = (int)drPlanes["id_especialidad"];
+                    Especialidad e = new Especialidad();
+                    e.ID = (int)drPlanes["id_especialidad"];
+                    plan.Especialidad = e;
                     planes.Add(plan);
                 }
             }catch (SqlException Ex1)
@@ -58,7 +60,9 @@ namespace Data.Database
                 {
                     plan.ID = (int)drPlan["id_plan"];
                     plan.Descripcion = (string)drPlan["desc_plan"];
-                    plan.IDEspecialidad = (int)drPlan["id_especialidad"];
+                    Especialidad e = new Especialidad();
+                    e.ID = (int)drPlan["id_especialidad"];
+                    plan.Especialidad = e;
                 }
 
                 drPlan.Close();
@@ -113,12 +117,11 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("insert into planes (desc_plan, id_especialidad)" 
-                    + "values(@descrip, @id_esp)" 
-                    + "select @@identity", sqlConn);
+                SqlCommand cmdSave = new SqlCommand("insert into planes (desc_plan, id_especialidad) " 
+                    + "values(@descrip, @id_esp) ", sqlConn);
                 cmdSave.Parameters.Add("@descrip", SqlDbType.VarChar, 50).Value = plan.Descripcion;
-                cmdSave.Parameters.Add("id_esp", SqlDbType.Int).Value = plan.IDEspecialidad;
-                plan.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                cmdSave.Parameters.Add("id_esp", SqlDbType.Int).Value = plan.Especialidad.ID;
+                cmdSave.ExecuteNonQuery();
             }
             catch (SqlException Ex1)
             {
@@ -145,7 +148,7 @@ namespace Data.Database
                 SqlCommand cmdSave = new SqlCommand("Update planes set desc_plan=@desc, id_especialidad=@id_esp where id_plan=@id", sqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
                 cmdSave.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
-                cmdSave.Parameters.Add("id_esp", SqlDbType.Int).Value = plan.IDEspecialidad;
+                cmdSave.Parameters.Add("id_esp", SqlDbType.Int).Value = plan.Especialidad.ID;
                 cmdSave.ExecuteNonQuery();
             }
             catch (SqlException Ex1)

@@ -232,5 +232,60 @@ namespace Data.Database
             return usr;
         }
 
+        public Usuario GetOneWithPerson(string name)
+        {
+            Usuario usr = new Usuario();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUsuarios = new SqlCommand("Select * from usuarios as usu " +
+                                                        "inner join personas as per " +
+                                                        "on per.id_persona = usu.id_persona " +
+                                                        "Where nombre_usuario = @nombre_usuario ", sqlConn);
+                cmdUsuarios.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = name;
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+                if (drUsuarios.Read())
+                {
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    usr.Nombre = (string)drUsuarios["nombre"];
+                    usr.Apellido = (string)drUsuarios["apellido"];
+                    usr.Email = (string)drUsuarios["email"];
+                    Persona per = new Persona();
+                    
+                    per.ID = (int)drUsuarios["id_persona"];
+                    per.Apellido = (string)drUsuarios["apellido"];
+                    per.Nombre = (string)drUsuarios["nombre"];
+                    per.Direccion = (string)drUsuarios["direccion"];
+                    Plan plan = new Plan();
+                    plan.ID = (int)drUsuarios["id_plan"];
+                    per.Plan = plan;
+                    per.Legajo = (int)drUsuarios["legajo"];
+                    per.Telefono = (string)drUsuarios["telefono"];
+                    per.Email = (string)drUsuarios["email"];
+                    per.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
+                    per.TipoPersona = (Persona.TiposPersonas)drUsuarios["tipo_persona"];
+                    usr.Persona = per;
+                }
+            }
+            catch (SqlException Ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar usuario", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return usr;
+        }
+
     }   
 }

@@ -128,10 +128,10 @@ namespace UI.Desktop
             this.txtDireccion.Text = _PersonaActual.Direccion;
             this.txtTelefono.Text = _PersonaActual.Telefono;
             this.txtLegajo.Text = _PersonaActual.Legajo.ToString();
-            cbTipo.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
+            this.cbTipo.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
             this.cbTipo.SelectedIndex = (int)_PersonaActual.TipoPersona;
-            this.cbPlan.SelectedValue = _PersonaActual.Plan.ID; //verificar
-            this.dtpFechaNac.Text = _PersonaActual.FechaNacimiento.ToShortDateString(); //verificar
+            this.cbPlan.SelectedValue = _PersonaActual.Plan.ID;
+            this.dtpFechaNac.Text = _PersonaActual.FechaNacimiento.ToShortDateString();
         }
 
         public override bool Validar()

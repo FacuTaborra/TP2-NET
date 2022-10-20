@@ -27,7 +27,6 @@ namespace UI.Desktop
         }
 
 
-
         public PlanDesktop(int ID, ModoForm modo) : this()
         {
             _Modo = modo;
@@ -46,7 +45,7 @@ namespace UI.Desktop
             {
                 this.btnAceptar.Text = "Eliminar";
                 this.txtDesc.ReadOnly = true;
-                this.txtEspecialidad.ReadOnly = true;
+                this.cbEspecialidad.Enabled = false;
 
             }
             else if (_Modo == ModoForm.consulta)
@@ -57,7 +56,13 @@ namespace UI.Desktop
 
         private void PlanDesktop_Load(object sender, EventArgs e)
         {
-
+            EspecialidadLogic el = new EspecialidadLogic();
+            List<Especialidad> especialidades = el.GetAll();
+            Especialidad esp = new Especialidad("Especialidad");
+            especialidades.Insert(0, esp);
+            this.cbEspecialidad.DataSource = especialidades;
+            this.cbEspecialidad.ValueMember = "ID";
+            this.cbEspecialidad.DisplayMember = "Descripcion";
         }
 
         public override void MapearDeDatos()
@@ -65,7 +70,7 @@ namespace UI.Desktop
             base.MapearDeDatos();
             this.txtID.Text = this._PlanActual.ID.ToString();
             this.txtDesc.Text = this._PlanActual.Descripcion;
-            this.txtEspecialidad.Text = this._PlanActual.IDEspecialidad.ToString();
+            this.cbEspecialidad.SelectedValue = this._PlanActual.Especialidad.ID.ToString();
         }
 
 
@@ -78,7 +83,9 @@ namespace UI.Desktop
             if(_Modo==ModoForm.alta || _Modo == ModoForm.modificacion)
             {
                 _PlanActual.Descripcion = this.txtDesc.Text;
-                _PlanActual.IDEspecialidad= Convert.ToInt32(this.txtEspecialidad.Text);
+                Especialidad e = new Especialidad();
+                e.ID = int.Parse(this.cbEspecialidad.SelectedValue.ToString());
+                _PlanActual.Especialidad = e;
                 if (_Modo == ModoForm.alta)
                 {
                     _PlanActual.State = BusinessEntity.States.New;
@@ -92,19 +99,9 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            if (this.txtDesc.Text != "" && this.txtEspecialidad.Text != "")
+            if (this.txtDesc.Text != "" && this.cbEspecialidad.SelectedIndex != 0)
             {
-                EspecialidadLogic el = new EspecialidadLogic();
-                if (!el.ValidarIDEspecialidad(Convert.ToInt32(this.txtEspecialidad.Text)))
-                {
-                    Notificar("El ID de especialidad ingresado no corresponde a una especialidad registrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                else
-                {
-                    return true;
-
-                }
+                return true;
             }
             else
             {
@@ -120,16 +117,6 @@ namespace UI.Desktop
             pl.Save(_PlanActual);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -140,5 +127,9 @@ namespace UI.Desktop
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

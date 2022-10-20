@@ -48,5 +48,10 @@ namespace Business.Logic
            return UsuarioData.GetOneByUserName(nombreUsu);
         }
 
+        public Usuario GetOneWithPerson(string name)
+        {
+            return UsuarioData.GetOneWithPerson(name);
+        }
+
     }
 }

@@ -24,7 +24,13 @@ namespace UI.Desktop
         public void Listar()
         {
             PlanLogic pl = new PlanLogic();
-            this.dgvPlanes.DataSource = pl.GetAll();
+            List<Plan> planes = pl.GetAll();
+            foreach(Plan p in planes)
+            {
+                EspecialidadLogic el = new EspecialidadLogic();
+                p.Especialidad = el.GetOne(p.Especialidad.ID);
+            }
+            this.dgvPlanes.DataSource = planes;
         }
 
         private void dgvPlanes_CellContentClick(object sender, DataGridViewCellEventArgs e)

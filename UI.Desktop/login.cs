@@ -29,12 +29,12 @@ namespace UI.Desktop
                 usu = ul.GetOneByUserName(this.txtUsuario.Text);
                 if (usu==null)
                 {
-                    Notificar("El nombre de usuario ingresado es incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Notificar("La contraseña y/o nombre de usuario es incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 else if (usu.Clave != this.txtPass.Text)
                 {
-                    Notificar("La contraseña es incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Notificar("La contraseña y/o nombre de usuario es incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 return true;
@@ -49,10 +49,30 @@ namespace UI.Desktop
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             if (Validar())
-            { 
-                formMenu mn = new formMenu();
-                mn.Show();
-                this.Close();
+            {
+                UsuarioLogic ul = new UsuarioLogic();
+                Usuario u = ul.GetOneWithPerson(this.txtUsuario.Text);
+                if (u.Persona.TipoPersona == (Persona.TiposPersonas)0)
+                {
+                    formMenu menuAdministrativo = new formMenu();
+                    menuAdministrativo.Show();
+                    this.Close();
+                }else if(u.Persona.TipoPersona == (Persona.TiposPersonas)1)
+                {
+                    formMenu menuAdministrativo = new formMenu();
+                    menuAdministrativo.Show();
+                    this.Close();
+                }
+                else if(u.Persona.TipoPersona == (Persona.TiposPersonas)2)
+                {
+                    formMenu menuAdministrativo = new formMenu();
+                    menuAdministrativo.Show();
+                    this.Close();
+                }
+                else
+                {
+                    Notificar("Error de Cuenta", "Contacte un administrativo para solucionar el problema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
