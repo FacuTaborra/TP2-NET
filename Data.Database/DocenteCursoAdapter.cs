@@ -22,9 +22,13 @@ namespace Data.Database
                 {
                     DocenteCurso dc = new DocenteCurso();
                     dc.ID = (int)drGetAll["id_dictado"];
-                    dc.IDCurso = (int)drGetAll["id_curso"];
-                    dc.IDDocente = (int)drGetAll["id_docente"];
-                    dc.Cargo = (int)drGetAll["cargo"];
+                    int IDCurso = (int)drGetAll["id_curso"];
+                    CursoAdapter ca = new CursoAdapter();
+                    dc.Curso = ca.GetOne(IDCurso);
+                    int IDDocente = (int)drGetAll["id_docente"];
+                    PersonaAdapter pa = new PersonaAdapter();
+                    dc.Docente = pa.GetOne(IDDocente);
+                    dc.Cargo = (DocenteCurso.TiposCragos)drGetAll["cargo"];
 
                     lista.Add(dc);
                 }
@@ -61,9 +65,13 @@ namespace Data.Database
                 if (drGetOne.Read())
                 {
                     dc.ID = (int)drGetOne["id_dictado"];
-                    dc.IDCurso = (int)drGetOne["id_curso"];
-                    dc.IDDocente = (int)drGetOne["id_docente"];
-                    dc.Cargo = (int)drGetOne["cargo"];
+                    int IDCurso = (int)drGetOne["id_curso"];
+                    CursoAdapter ca = new CursoAdapter();
+                    dc.Curso = ca.GetOne(IDCurso);
+                    int IDDocente = (int)drGetOne["id_docente"];
+                    PersonaAdapter pa = new PersonaAdapter();
+                    dc.Docente = pa.GetOne(IDDocente);
+                    dc.Cargo = (DocenteCurso.TiposCragos)drGetOne["cargo"];
                 }
                 drGetOne.Close();
             }
@@ -92,9 +100,9 @@ namespace Data.Database
                 this.OpenConnection();
                 string consulta = "insert into docentes_cursos (id_docente, id_curso, cargo) values(@id_docente, @id_curso, @cargo)";
                 SqlCommand cmdInsert = new SqlCommand(consulta, sqlConn);
-                cmdInsert.Parameters.Add("id_docente", SqlDbType.Int).Value = dc.IDDocente;
-                cmdInsert.Parameters.Add("id_curso", SqlDbType.Int).Value = dc.IDCurso;
-                cmdInsert.Parameters.Add("cargo", SqlDbType.Int).Value = dc.Cargo;
+                cmdInsert.Parameters.Add("id_docente", SqlDbType.Int).Value = dc.Docente.ID;
+                cmdInsert.Parameters.Add("id_curso", SqlDbType.Int).Value = dc.Curso.ID;
+                cmdInsert.Parameters.Add("cargo", SqlDbType.Int).Value = (int)dc.Cargo;
                 dc.ID = decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (SqlException Ex1)
@@ -148,9 +156,9 @@ namespace Data.Database
                 string consulta = "update docentes_cursos set id_docente=@id_docente, id_curso=@id_curso, cargo=@cargo where id_dictado=@id";
                 SqlCommand cmdInsert = new SqlCommand(consulta, sqlConn);
                 cmdInsert.Parameters.Add("id", SqlDbType.Int).Value = dc.ID;
-                cmdInsert.Parameters.Add("id_docente", SqlDbType.Int).Value = dc.IDDocente;
-                cmdInsert.Parameters.Add("id_curso", SqlDbType.Int).Value = dc.IDCurso;
-                cmdInsert.Parameters.Add("cargo", SqlDbType.Int).Value = dc.Cargo;
+                cmdInsert.Parameters.Add("id_docente", SqlDbType.Int).Value = dc.Docente.ID;
+                cmdInsert.Parameters.Add("id_curso", SqlDbType.Int).Value = dc.Curso.ID;
+                cmdInsert.Parameters.Add("cargo", SqlDbType.Int).Value =(int)dc.Cargo;
                 cmdInsert.ExecuteNonQuery();
             }
             catch (SqlException Ex1)
