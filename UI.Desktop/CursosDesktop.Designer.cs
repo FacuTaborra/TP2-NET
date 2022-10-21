@@ -54,7 +54,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.587444F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.53363F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -83,7 +83,7 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(205, 328);
+            this.btnCancelar.Location = new System.Drawing.Point(204, 328);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
@@ -94,7 +94,7 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(124, 328);
+            this.btnAceptar.Location = new System.Drawing.Point(123, 328);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 0;
@@ -108,7 +108,7 @@ namespace UI.Desktop
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 65);
+            this.label1.Size = new System.Drawing.Size(92, 65);
             this.label1.TabIndex = 2;
             this.label1.Text = "ID:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -119,7 +119,7 @@ namespace UI.Desktop
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(3, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 65);
+            this.label2.Size = new System.Drawing.Size(92, 65);
             this.label2.TabIndex = 3;
             this.label2.Text = "Materia";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -130,7 +130,7 @@ namespace UI.Desktop
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 65);
+            this.label3.Size = new System.Drawing.Size(92, 65);
             this.label3.TabIndex = 4;
             this.label3.Text = "Comision";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -141,7 +141,7 @@ namespace UI.Desktop
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 195);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 65);
+            this.label4.Size = new System.Drawing.Size(92, 65);
             this.label4.TabIndex = 5;
             this.label4.Text = "Año Calendario";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,7 +152,7 @@ namespace UI.Desktop
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 260);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 65);
+            this.label5.Size = new System.Drawing.Size(92, 65);
             this.label5.TabIndex = 6;
             this.label5.Text = "Cupo";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,7 +162,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.SetColumnSpan(this.cbMateria, 2);
             this.cbMateria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbMateria.FormattingEnabled = true;
-            this.cbMateria.Location = new System.Drawing.Point(109, 86);
+            this.cbMateria.Location = new System.Drawing.Point(108, 86);
             this.cbMateria.Margin = new System.Windows.Forms.Padding(3, 21, 3, 3);
             this.cbMateria.Name = "cbMateria";
             this.cbMateria.Size = new System.Drawing.Size(171, 21);
@@ -173,7 +173,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.SetColumnSpan(this.cbComision, 2);
             this.cbComision.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbComision.FormattingEnabled = true;
-            this.cbComision.Location = new System.Drawing.Point(109, 151);
+            this.cbComision.Location = new System.Drawing.Point(108, 151);
             this.cbComision.Margin = new System.Windows.Forms.Padding(3, 21, 3, 3);
             this.cbComision.Name = "cbComision";
             this.cbComision.Size = new System.Drawing.Size(171, 21);
@@ -183,7 +183,7 @@ namespace UI.Desktop
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.nudAnio, 2);
             this.nudAnio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudAnio.Location = new System.Drawing.Point(109, 216);
+            this.nudAnio.Location = new System.Drawing.Point(108, 216);
             this.nudAnio.Margin = new System.Windows.Forms.Padding(3, 21, 3, 3);
             this.nudAnio.Maximum = new decimal(new int[] {
             2040,
@@ -199,7 +199,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.SetColumnSpan(this.txtID, 2);
             this.txtID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(109, 21);
+            this.txtID.Location = new System.Drawing.Point(108, 21);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 21, 3, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
@@ -210,7 +210,7 @@ namespace UI.Desktop
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.nudCupo, 2);
             this.nudCupo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudCupo.Location = new System.Drawing.Point(109, 281);
+            this.nudCupo.Location = new System.Drawing.Point(108, 281);
             this.nudCupo.Margin = new System.Windows.Forms.Padding(3, 21, 3, 3);
             this.nudCupo.Name = "nudCupo";
             this.nudCupo.Size = new System.Drawing.Size(171, 20);
