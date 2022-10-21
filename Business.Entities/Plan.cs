@@ -12,6 +12,11 @@ namespace Business.Entities
 
         }
 
+		public Plan(string desc)
+		{
+			Descripcion = desc;
+		}
+
 		public Plan(int idPlan)
 		{
 			ID = idPlan;

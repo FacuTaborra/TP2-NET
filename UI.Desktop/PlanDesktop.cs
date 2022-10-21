@@ -23,7 +23,12 @@ namespace UI.Desktop
 
         public PlanDesktop(ModoForm modo) : this()
         {
-
+            if (_Modo == ModoForm.alta)
+            {
+                this.btnMateriasPlan.Visible = false;
+                this.labelMateriasPlan.Visible = false;
+                this.btnAceptar.Text = "Guardar";
+            }
         }
 
 
@@ -36,17 +41,20 @@ namespace UI.Desktop
                 _PlanActual = pl.GetOne(ID);
                 MapearDeDatos();
             }
-            if (_Modo == ModoForm.alta || _Modo == ModoForm.modificacion)
+            if (_Modo == ModoForm.modificacion)
             {
+                this.btnMateriasPlan.Visible = true;
+                this.labelMateriasPlan.Visible = true;
                 this.btnAceptar.Text = "Guardar";
-
             }
             else if (_Modo == ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
                 this.txtDesc.ReadOnly = true;
                 this.cbEspecialidad.Enabled = false;
-
+                this.btnMateriasPlan.Visible = true;
+                this.labelMateriasPlan.Visible = true;
+                this.btnMateriasPlan.Enabled = false;
             }
             else if (_Modo == ModoForm.consulta)
             {
@@ -63,6 +71,14 @@ namespace UI.Desktop
             this.cbEspecialidad.DataSource = especialidades;
             this.cbEspecialidad.ValueMember = "ID";
             this.cbEspecialidad.DisplayMember = "Descripcion";
+            if (_PlanActual != null)
+            {
+                this.cbEspecialidad.SelectedValue = this._PlanActual.Especialidad.ID;
+            }
+            else
+            {
+                this.cbEspecialidad.SelectedIndex = 0;
+            }
         }
 
         public override void MapearDeDatos()
@@ -70,7 +86,6 @@ namespace UI.Desktop
             base.MapearDeDatos();
             this.txtID.Text = this._PlanActual.ID.ToString();
             this.txtDesc.Text = this._PlanActual.Descripcion;
-            this.cbEspecialidad.SelectedValue = this._PlanActual.Especialidad.ID.ToString();
         }
 
 
@@ -130,6 +145,20 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnMateriasPlan_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Materias mt = null;
+            if(_Modo == ModoForm.alta)
+            {
+                mt = new UI.Desktop.Materias();
+            }
+            else if (_Modo == ModoForm.modificacion)
+            {
+                mt = new UI.Desktop.Materias(int.Parse(this.txtID.Text));
+            }
+            mt.ShowDialog();
         }
     }
 }

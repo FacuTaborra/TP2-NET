@@ -15,40 +15,106 @@ namespace UI.Desktop
 {
     public partial class Materias : Form
     {
+        public int _id_plan;
+        public Tipo _tipo;
+        public enum Tipo
+        {
+            filtrado,
+            nofiltrado
+        }
+
+        public int idplan
+        {
+            get { return _id_plan; }
+            set { _id_plan = value; }
+        }
+
+        public Tipo tipo
+        {
+            get { return _tipo; }
+            set { _tipo = value; }
+        }
+
         public Materias()
         {
+            tipo = Tipo.nofiltrado;
             InitializeComponent();
             this.dgvMaterias.AutoGenerateColumns = false;
+            Listar();
+        }
+
+        public Materias(int id_plan)
+        {
+            tipo = Tipo.filtrado;
+            idplan = id_plan;
+            InitializeComponent();
+            this.dgvMaterias.AutoGenerateColumns = false;
+            ListarRespectoPlan(idplan);
         }
 
         public void Listar()
         {
             MateriaLogic ml = new MateriaLogic();
-            this.dgvMaterias.DataSource = ml.GetAll();
+            List<Materia> materias = ml.GetAll();
+            foreach(Materia m in materias)
+            {
+                PlanLogic pl = new PlanLogic();
+                m.Plan = pl.GetOne(m.Plan.ID);
+            }
+            this.dgvMaterias.DataSource = materias;
+        }
+
+        public void ListarRespectoPlan(int id_plan)
+        {
+            MateriaLogic ml = new MateriaLogic();
+
+            this.dgvMaterias.DataSource = ml.GetAllWhithPlan(id_plan);
         }
 
         private void Materias_Load(object sender, EventArgs e)
         {
-            Listar();
+            
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Listar();
+            if (tipo == Tipo.filtrado)
+            {
+                ListarRespectoPlan(idplan);
+            }else if(tipo == Tipo.nofiltrado)
+            {
+                Listar();
+            }
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            formMenu mn = new formMenu();
-            mn.Show();
-            this.Close();
+            if (tipo == Tipo.filtrado)
+            {
+                this.Close();
+            }
+            else if (tipo == Tipo.nofiltrado)
+            {
+                formMenu fm = new formMenu();
+                fm.Show();
+                this.Close();
+            }
+            
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             MateriaDesktop formMateria = new MateriaDesktop(ApplicationForm.ModoForm.alta);
             formMateria.ShowDialog();
-            this.Listar();
+            if (tipo == Tipo.filtrado)
+            {
+                ListarRespectoPlan(idplan);
+            }
+            else if (tipo == Tipo.nofiltrado)
+            {
+                Listar();
+            }
 
         }
 
@@ -59,7 +125,14 @@ namespace UI.Desktop
                 int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
                 MateriaDesktop formMateria = new MateriaDesktop(ID, ApplicationForm.ModoForm.modificacion);
                 formMateria.ShowDialog();
-                this.Listar();
+                if (tipo == Tipo.filtrado)
+                {
+                    ListarRespectoPlan(idplan);
+                }
+                else if (tipo == Tipo.nofiltrado)
+                {
+                    Listar();
+                }
             }
             else
             {
@@ -75,7 +148,14 @@ namespace UI.Desktop
                 int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
                 MateriaDesktop formMateria = new MateriaDesktop(ID, ApplicationForm.ModoForm.baja);
                 formMateria.ShowDialog();
-                this.Listar();
+                if (tipo == Tipo.filtrado)
+                {
+                    ListarRespectoPlan(idplan);
+                }
+                else if (tipo == Tipo.nofiltrado)
+                {
+                    Listar();
+                }
             }
             else
             {

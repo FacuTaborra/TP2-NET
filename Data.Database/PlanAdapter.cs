@@ -91,9 +91,9 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("delete planes where id_plan=@id", sqlConn);
+                SqlCommand cmdDelete = new SqlCommand("delete planes where id_plan = @id", sqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                cmdDelete.ExecuteNonQuery();
+                cmdDelete.ExecuteNonQuery(); //tiene un error
             }
             catch (SqlException Ex1)
             {
