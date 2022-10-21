@@ -6,22 +6,22 @@ namespace Business.Entities
 {
     public class ModuloUsuario: BusinessEntity
     {
-        private int _IDUsuario;
-        private int _IDModulo;
+        private Usuario _Usuario;
+        private Modulo _Modulo;
         private bool _PermiteAlta;
         private bool _PermiteBaja;
         private bool _PermiteModificacion;
         private bool _PermiteConsulta;
 
-        public int IDUsuario
+        public Usuario Usuario
         {
-            get { return _IDUsuario; }
-            set { _IDUsuario = value; }
+            get { return _Usuario; }
+            set { _Usuario = value; }
         }
-        public int IDModulo
+        public Modulo Modulo
         {
-            get { return _IDModulo; }
-            set { _IDModulo = value; }
+            get { return _Modulo; }
+            set { _Modulo = value; }
         }
         public bool PermiteAlta
         {
