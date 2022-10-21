@@ -14,6 +14,8 @@ namespace UI.Desktop
 {
     public partial class Cursos : Form
     {
+
+        CursoLogic cl = new CursoLogic();
         public Cursos()
         {
             InitializeComponent();
@@ -23,13 +25,13 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            CursoLogic cl = new CursoLogic();
-            this.dgvCursos.DataSource = cl.GetAll();
+            this.dgvCursos.DataSource = cl.GetAll(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
         }
 
         private void Cursos_Load(object sender, EventArgs e)
         {
             Listar();
+            this.cbConsultaAño.DataSource = cl.GetAños();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -76,6 +78,11 @@ namespace UI.Desktop
                 cd.ShowDialog();
                 Listar();
             }
+        }
+
+        private void cbConsultaAño_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -35,5 +35,6 @@ namespace Business.Entities
 			get { return _Plan; }
 			set { _Plan = value; }
 		}
+
 	}
 }

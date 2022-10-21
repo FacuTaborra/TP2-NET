@@ -11,15 +11,16 @@ namespace Data.Database
 {
     public class CursoAdapter : Adapter
     {
-        public List<Curso> GetAll()
+        public List<Curso> GetAll(int año)
         {
             List<Curso> listaCursos = new List<Curso>();
 
             try
             {
                 this.OpenConnection();
-                string consulta = "select * from cursos";
+                string consulta = "select * from cursos where anio_calendario = @anio";
                 SqlCommand cmdCursos = new SqlCommand(consulta, sqlConn);
+                cmdCursos.Parameters.Add("@anio",SqlDbType.Int ).Value = año;
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
 
                 while (drCursos.Read())
@@ -200,6 +201,36 @@ namespace Data.Database
             }
 
             c.State = BusinessEntity.States.Unmodified;
+        }
+
+        public List<int> GetAños()
+        {
+            List<int> años = new List<int>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdanio = new SqlCommand(" select distinct anio_calendario from cursos c ", sqlConn);
+                SqlDataReader reader = cmdanio.ExecuteReader();
+                while(reader.Read())
+                {
+                    años.Add((int)reader["anio_calendario"]);
+                }
+            }
+            catch (SqlException Ex1)
+            {
+                Exception ExManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExManejada;
+            }
+            catch (Exception ex)
+            {
+                Exception exManejada = new Exception("Error al actualizar datos del curso", ex);
+                throw ex;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return años;
         }
 
     }

@@ -30,10 +30,10 @@ namespace UI.Desktop
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAlumnos = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnPlanes = new System.Windows.Forms.Button();
             this.btnComisiones = new System.Windows.Forms.Button();
-            this.btnAlumnos = new System.Windows.Forms.Button();
             this.btnProfesores = new System.Windows.Forms.Button();
             this.btnMaterias = new System.Windows.Forms.Button();
             this.btnEspecialidades = new System.Windows.Forms.Button();
@@ -53,10 +53,10 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnPlanes, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnComisiones, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnProfesores, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnMaterias, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnEspecialidades, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnCursos, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnMaterias, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnCursos, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 49);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,6 +69,19 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(578, 277);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnAlumnos
+            // 
+            this.btnAlumnos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAlumnos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumnos.Location = new System.Drawing.Point(358, 4);
+            this.btnAlumnos.Name = "btnAlumnos";
+            this.btnAlumnos.Size = new System.Drawing.Size(150, 46);
+            this.btnAlumnos.TabIndex = 11;
+            this.btnAlumnos.Text = "Gestionar Alumnos";
+            this.btnAlumnos.UseVisualStyleBackColor = false;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // btnSalir
             // 
@@ -109,19 +122,6 @@ namespace UI.Desktop
             this.btnComisiones.UseVisualStyleBackColor = false;
             this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
-            // btnAlumnos
-            // 
-            this.btnAlumnos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAlumnos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnos.Location = new System.Drawing.Point(358, 4);
-            this.btnAlumnos.Name = "btnAlumnos";
-            this.btnAlumnos.Size = new System.Drawing.Size(150, 46);
-            this.btnAlumnos.TabIndex = 11;
-            this.btnAlumnos.Text = "Gestionar Alumnos";
-            this.btnAlumnos.UseVisualStyleBackColor = false;
-            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
-            // 
             // btnProfesores
             // 
             this.btnProfesores.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -140,7 +140,7 @@ namespace UI.Desktop
             this.btnMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMaterias.BackColor = System.Drawing.SystemColors.Control;
             this.btnMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaterias.Location = new System.Drawing.Point(69, 115);
+            this.btnMaterias.Location = new System.Drawing.Point(358, 171);
             this.btnMaterias.Name = "btnMaterias";
             this.btnMaterias.Size = new System.Drawing.Size(150, 44);
             this.btnMaterias.TabIndex = 3;
@@ -166,7 +166,7 @@ namespace UI.Desktop
             this.btnCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCursos.BackColor = System.Drawing.SystemColors.Control;
             this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCursos.Location = new System.Drawing.Point(358, 114);
+            this.btnCursos.Location = new System.Drawing.Point(69, 114);
             this.btnCursos.Name = "btnCursos";
             this.btnCursos.Size = new System.Drawing.Size(150, 46);
             this.btnCursos.TabIndex = 9;
@@ -179,7 +179,7 @@ namespace UI.Desktop
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(358, 171);
+            this.button1.Location = new System.Drawing.Point(358, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 44);
             this.button1.TabIndex = 12;

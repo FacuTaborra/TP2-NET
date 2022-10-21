@@ -24,9 +24,9 @@ namespace Business.Logic
             CursoData = new CursoAdapter();
         }
 
-        public List<Curso> GetAll()
+        public List<Curso> GetAll(int año)
         {
-            return CursoData.GetAll();
+            return CursoData.GetAll(año);
         }
 
         public Curso GetOne(int id)
@@ -42,6 +42,11 @@ namespace Business.Logic
         public void Save(Curso curso)
         {
             CursoData.Save(curso);
+        }
+
+        public List<int> GetAños()
+        {
+            return CursoData.GetAños();
         }
 
     }
