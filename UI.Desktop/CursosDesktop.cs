@@ -65,32 +65,9 @@ namespace UI.Desktop
 
         private void CursosDesktop_Load(object sender, EventArgs e)
         {
-            MateriaLogic ml = new MateriaLogic();
-            List<Materia> listaMaterias = new List<Materia>();
-            listaMaterias = ml.GetAll();
-            Materia materiaExtra = new Materia();
-            materiaExtra.ID = 0;
-            materiaExtra.Descripcion = "Seleccionar Materia";
-            listaMaterias.Add(materiaExtra);
-            this.cbMateria.DataSource = listaMaterias;
-            this.cbMateria.DisplayMember = "Descripcion";
-            this.cbMateria.ValueMember = "ID";
-
-            ComisionLogic cl = new ComisionLogic();
-            List<Comision> listaComisiones = new List<Comision>();
-            listaComisiones = cl.GetAll();
-            Comision comisionExtra = new Comision();
-            comisionExtra.ID = 0;
-            comisionExtra.Descripcion = "Elegir comision";
-            listaComisiones.Add(comisionExtra);
-            this.cbComision.DataSource = listaComisiones;
-            this.cbComision.ValueMember = "ID";
-            this.cbComision.DisplayMember = "Descripcion";
-
+            this.LoadComboBox();
             if (_CursoActual == null)
             {
-                this.cbMateria.SelectedIndex = listaMaterias.Count() - 1;
-                this.cbComision.SelectedIndex = listaComisiones.Count() - 1;
                 this.nudAnio.Value = 2022;
             }
 
@@ -101,6 +78,9 @@ namespace UI.Desktop
             else if (_Modo == ModoForm.baja)
             {
                 this.btnAceptar.Text = "Eliminar";
+                this.cbMateria.DropDownStyle = ComboBoxStyle.Simple;
+                this.cbComision.DropDownStyle = ComboBoxStyle.Simple;
+
             }
             else if (_Modo == ModoForm.consulta)
             {
@@ -141,14 +121,49 @@ namespace UI.Desktop
             }
         }
 
+        public void LoadComboBox()
+        {
+            MateriaLogic ml = new MateriaLogic();
+            List<Materia> listaMaterias = new List<Materia>();
+            listaMaterias = ml.GetAll();
+            Materia materiaExtra = new Materia();
+            materiaExtra.ID = 0;
+            materiaExtra.Descripcion = "Seleccionar Materia";
+            listaMaterias.Add(materiaExtra);
+            this.cbMateria.DataSource = listaMaterias;
+            this.cbMateria.DisplayMember = "Descripcion";
+            this.cbMateria.ValueMember = "ID";
+
+            ComisionLogic cl = new ComisionLogic();
+            List<Comision> listaComisiones = new List<Comision>();
+            listaComisiones = cl.GetAll();
+            Comision comisionExtra = new Comision();
+            comisionExtra.ID = 0;
+            comisionExtra.Descripcion = "Seleccionar comision";
+            listaComisiones.Add(comisionExtra);
+            this.cbComision.DataSource = listaComisiones;
+            this.cbComision.ValueMember = "ID";
+            this.cbComision.DisplayMember = "Descripcion";
+
+            if (_CursoActual != null)
+            {
+                this.cbComision.SelectedValue = _CursoActual.Comision.ID;
+                this.cbMateria.SelectedValue = _CursoActual.Materia.ID;
+            }
+            else
+            {
+                this.cbMateria.SelectedIndex = listaMaterias.Count() - 1;
+                this.cbComision.SelectedIndex = listaComisiones.Count() - 1;
+            }
+        }
+
+
         public override void MapearDeDatos()
         {
             base.MapearDeDatos();
             this.txtID.Text = this._CursoActual.ID.ToString();
             this.nudAnio.Text = this._CursoActual.AnioCalendario.ToString();
             this.nudCupo.Text = this._CursoActual.Cupo.ToString();
-            this.cbComision.SelectedValue = _CursoActual.Comision.ID;
-            this.cbMateria.SelectedValue = _CursoActual.Materia.ID;
         }
 
 

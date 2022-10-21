@@ -142,7 +142,7 @@ namespace UI.Desktop
         {
             PlanLogic pl = new PlanLogic();
             List<Plan> planes = pl.GetAll();
-            Plan p = new Plan("Plan");
+            Plan p = new Plan("Seleccionar Plan");
             planes.Insert(0, p);
             this.cbPlanes.DataSource = planes;
             this.cbPlanes.ValueMember = "ID";
