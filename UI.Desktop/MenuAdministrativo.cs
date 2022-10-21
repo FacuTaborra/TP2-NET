@@ -45,13 +45,6 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void btnPersonas_Click(object sender, EventArgs e)
-        {
-            Personas per = new Personas();
-            per.Show();
-            this.Close();
-        }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -73,7 +66,16 @@ namespace UI.Desktop
 
         private void btnAlumnos_Click(object sender, EventArgs e)
         {
-            Personas perfom = new Personas();
+            UI.Desktop.Personas perfom = new Personas(Business.Entities.Persona.TiposPersonas.Alumno);
+            perfom.Show();
+            this.Close();
+        }
+
+        private void btnProfesores_Click(object sender, EventArgs e)
+        {
+            Personas perfom = new Personas(Business.Entities.Persona.TiposPersonas.Profesor);
+            perfom.Show();
+            this.Close();
         }
     }
 }

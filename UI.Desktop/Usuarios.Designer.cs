@@ -60,11 +60,11 @@ namespace UI.Desktop
             // 
             this.toolStripContainer1.ContentPanel.AccessibleName = "tcUsuarios";
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tlUsuarios);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(863, 393);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(814, 393);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(863, 420);
+            this.toolStripContainer1.Size = new System.Drawing.Size(814, 420);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -87,7 +87,7 @@ namespace UI.Desktop
             this.tlUsuarios.RowCount = 2;
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlUsuarios.Size = new System.Drawing.Size(863, 393);
+            this.tlUsuarios.Size = new System.Drawing.Size(814, 393);
             this.tlUsuarios.TabIndex = 0;
             this.tlUsuarios.Paint += new System.Windows.Forms.PaintEventHandler(this.tlUsuarios_Paint);
             // 
@@ -108,7 +108,7 @@ namespace UI.Desktop
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(857, 358);
+            this.dgvUsuarios.Size = new System.Drawing.Size(808, 358);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
@@ -163,7 +163,7 @@ namespace UI.Desktop
             // btnSalir
             // 
             this.btnSalir.AccessibleName = "btnSalir";
-            this.btnSalir.Location = new System.Drawing.Point(785, 367);
+            this.btnSalir.Location = new System.Drawing.Point(736, 367);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 1;
@@ -175,7 +175,7 @@ namespace UI.Desktop
             // 
             this.btnActualizar.AccessibleName = "btnActualizar";
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(704, 367);
+            this.btnActualizar.Location = new System.Drawing.Point(655, 367);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 2;
@@ -235,7 +235,7 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 420);
+            this.ClientSize = new System.Drawing.Size(814, 420);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "tcUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

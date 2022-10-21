@@ -86,6 +86,7 @@ namespace UI.Desktop
             // 
             // dgvEspecialidades
             // 
+            this.dgvEspecialidades.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,

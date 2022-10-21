@@ -88,7 +88,7 @@ namespace UI.Web
             this.Entity = this.Logic.GetOne(id);
             this.IDPlanTextBox.Text = this.Entity.ID.ToString();
             this.DescripcionTextBox.Text = this.Entity.Descripcion;
-            this.IDEspecialidadTextBox.Text = this.Entity.IDEspecialidad.ToString();
+            this.IDEspecialidadTextBox.Text = this.Entity.Especialidad.ID.ToString();
         }
 
         protected void editarLinkButton_Click(object sender, EventArgs e)
@@ -104,7 +104,8 @@ namespace UI.Web
 
         protected void LoadEntity(Plan plan)
         {
-            plan.IDEspecialidad = int.Parse(this.IDEspecialidadTextBox.Text);
+            Especialidad e = new Especialidad(int.Parse(this.IDEspecialidadTextBox.Text));
+            plan.Especialidad = e;
             plan.Descripcion = this.DescripcionTextBox.Text;
         }
 

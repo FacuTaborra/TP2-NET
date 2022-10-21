@@ -31,15 +31,15 @@ namespace UI.Desktop
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnCursos = new System.Windows.Forms.Button();
-            this.btnEspecialidades = new System.Windows.Forms.Button();
-            this.btnMaterias = new System.Windows.Forms.Button();
             this.btnPlanes = new System.Windows.Forms.Button();
-            this.TitleMenu = new System.Windows.Forms.Label();
-            this.btnProfesores = new System.Windows.Forms.Button();
-            this.btnAlumnos = new System.Windows.Forms.Button();
             this.btnComisiones = new System.Windows.Forms.Button();
+            this.btnAlumnos = new System.Windows.Forms.Button();
+            this.btnProfesores = new System.Windows.Forms.Button();
+            this.btnMaterias = new System.Windows.Forms.Button();
+            this.btnEspecialidades = new System.Windows.Forms.Button();
+            this.btnCursos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.TitleMenu = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,10 +48,10 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 289F));
+            this.tableLayoutPanel1.Controls.Add(this.btnAlumnos, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnPlanes, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnComisiones, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnAlumnos, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnProfesores, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnMaterias, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnEspecialidades, 0, 1);
@@ -83,45 +83,6 @@ namespace UI.Desktop
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnCursos
-            // 
-            this.btnCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCursos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCursos.Location = new System.Drawing.Point(358, 114);
-            this.btnCursos.Name = "btnCursos";
-            this.btnCursos.Size = new System.Drawing.Size(150, 46);
-            this.btnCursos.TabIndex = 9;
-            this.btnCursos.Text = "Gestionar Cursos";
-            this.btnCursos.UseVisualStyleBackColor = false;
-            this.btnCursos.Click += new System.EventHandler(this.btnCursos_Click);
-            // 
-            // btnEspecialidades
-            // 
-            this.btnEspecialidades.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEspecialidades.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEspecialidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEspecialidades.Location = new System.Drawing.Point(69, 59);
-            this.btnEspecialidades.Name = "btnEspecialidades";
-            this.btnEspecialidades.Size = new System.Drawing.Size(150, 46);
-            this.btnEspecialidades.TabIndex = 1;
-            this.btnEspecialidades.Text = "Gestionar Especialidades";
-            this.btnEspecialidades.UseVisualStyleBackColor = false;
-            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
-            // 
-            // btnMaterias
-            // 
-            this.btnMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMaterias.BackColor = System.Drawing.SystemColors.Control;
-            this.btnMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaterias.Location = new System.Drawing.Point(69, 115);
-            this.btnMaterias.Name = "btnMaterias";
-            this.btnMaterias.Size = new System.Drawing.Size(150, 44);
-            this.btnMaterias.TabIndex = 3;
-            this.btnMaterias.Text = "Gestionar Materias";
-            this.btnMaterias.UseVisualStyleBackColor = false;
-            this.btnMaterias.Click += new System.EventHandler(this.btnMaterias_Click);
-            // 
             // btnPlanes
             // 
             this.btnPlanes.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -134,43 +95,6 @@ namespace UI.Desktop
             this.btnPlanes.Text = "Gestionar Planes";
             this.btnPlanes.UseVisualStyleBackColor = false;
             this.btnPlanes.Click += new System.EventHandler(this.btnPlanes_Click);
-            // 
-            // TitleMenu
-            // 
-            this.TitleMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleMenu.AutoSize = true;
-            this.TitleMenu.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleMenu.Location = new System.Drawing.Point(233, 9);
-            this.TitleMenu.Name = "TitleMenu";
-            this.TitleMenu.Size = new System.Drawing.Size(112, 34);
-            this.TitleMenu.TabIndex = 1;
-            this.TitleMenu.Text = "Sysacad";
-            this.TitleMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnProfesores
-            // 
-            this.btnProfesores.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnProfesores.BackColor = System.Drawing.SystemColors.Control;
-            this.btnProfesores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfesores.Location = new System.Drawing.Point(358, 60);
-            this.btnProfesores.Name = "btnProfesores";
-            this.btnProfesores.Size = new System.Drawing.Size(150, 45);
-            this.btnProfesores.TabIndex = 10;
-            this.btnProfesores.Text = "Gestionar Profesores";
-            this.btnProfesores.UseVisualStyleBackColor = false;
-            // 
-            // btnAlumnos
-            // 
-            this.btnAlumnos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAlumnos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnos.Location = new System.Drawing.Point(358, 4);
-            this.btnAlumnos.Name = "btnAlumnos";
-            this.btnAlumnos.Size = new System.Drawing.Size(150, 46);
-            this.btnAlumnos.TabIndex = 11;
-            this.btnAlumnos.Text = "Gestionar Alumnos";
-            this.btnAlumnos.UseVisualStyleBackColor = false;
-            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // btnComisiones
             // 
@@ -185,6 +109,71 @@ namespace UI.Desktop
             this.btnComisiones.UseVisualStyleBackColor = false;
             this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
+            // btnAlumnos
+            // 
+            this.btnAlumnos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAlumnos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumnos.Location = new System.Drawing.Point(358, 4);
+            this.btnAlumnos.Name = "btnAlumnos";
+            this.btnAlumnos.Size = new System.Drawing.Size(150, 46);
+            this.btnAlumnos.TabIndex = 11;
+            this.btnAlumnos.Text = "Gestionar Alumnos";
+            this.btnAlumnos.UseVisualStyleBackColor = false;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
+            // 
+            // btnProfesores
+            // 
+            this.btnProfesores.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnProfesores.BackColor = System.Drawing.SystemColors.Control;
+            this.btnProfesores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfesores.Location = new System.Drawing.Point(358, 60);
+            this.btnProfesores.Name = "btnProfesores";
+            this.btnProfesores.Size = new System.Drawing.Size(150, 45);
+            this.btnProfesores.TabIndex = 10;
+            this.btnProfesores.Text = "Gestionar Profesores";
+            this.btnProfesores.UseVisualStyleBackColor = false;
+            this.btnProfesores.Click += new System.EventHandler(this.btnProfesores_Click);
+            // 
+            // btnMaterias
+            // 
+            this.btnMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMaterias.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaterias.Location = new System.Drawing.Point(69, 115);
+            this.btnMaterias.Name = "btnMaterias";
+            this.btnMaterias.Size = new System.Drawing.Size(150, 44);
+            this.btnMaterias.TabIndex = 3;
+            this.btnMaterias.Text = "Gestionar Materias";
+            this.btnMaterias.UseVisualStyleBackColor = false;
+            this.btnMaterias.Click += new System.EventHandler(this.btnMaterias_Click);
+            // 
+            // btnEspecialidades
+            // 
+            this.btnEspecialidades.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEspecialidades.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEspecialidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEspecialidades.Location = new System.Drawing.Point(69, 59);
+            this.btnEspecialidades.Name = "btnEspecialidades";
+            this.btnEspecialidades.Size = new System.Drawing.Size(150, 46);
+            this.btnEspecialidades.TabIndex = 1;
+            this.btnEspecialidades.Text = "Gestionar Especialidades";
+            this.btnEspecialidades.UseVisualStyleBackColor = false;
+            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
+            // 
+            // btnCursos
+            // 
+            this.btnCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCursos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCursos.Location = new System.Drawing.Point(358, 114);
+            this.btnCursos.Name = "btnCursos";
+            this.btnCursos.Size = new System.Drawing.Size(150, 46);
+            this.btnCursos.TabIndex = 9;
+            this.btnCursos.Text = "Gestionar Cursos";
+            this.btnCursos.UseVisualStyleBackColor = false;
+            this.btnCursos.Click += new System.EventHandler(this.btnCursos_Click);
+            // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -196,6 +185,18 @@ namespace UI.Desktop
             this.button1.TabIndex = 12;
             this.button1.Text = "Gestionar Usuarios";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // TitleMenu
+            // 
+            this.TitleMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TitleMenu.AutoSize = true;
+            this.TitleMenu.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleMenu.Location = new System.Drawing.Point(233, 9);
+            this.TitleMenu.Name = "TitleMenu";
+            this.TitleMenu.Size = new System.Drawing.Size(112, 34);
+            this.TitleMenu.TabIndex = 1;
+            this.TitleMenu.Text = "Sysacad";
+            this.TitleMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formMenu
             // 

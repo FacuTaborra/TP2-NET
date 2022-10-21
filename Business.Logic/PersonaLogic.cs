@@ -23,9 +23,19 @@ namespace Business.Logic
             PersonaData = new PersonaAdapter();
         }
 
-        public List<Persona> GetAll()
+        public List<Persona> GetProfesores()
         {
-            return PersonaData.GetAll();
+            return PersonaData.GetAll(Persona.TiposPersonas.Profesor);
+        }
+
+        public List<Persona> GetAlumnos()
+        {
+            return PersonaData.GetAll(Persona.TiposPersonas.Alumno);
+        }
+
+        public List<Persona> GetAdministrativos()
+        {
+            return PersonaData.GetAll(Persona.TiposPersonas.Administrador);
         }
 
         public Persona GetOne(int idPersona)

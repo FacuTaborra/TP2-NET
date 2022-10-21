@@ -89,7 +89,7 @@ namespace UI.WebForm
             this.DescripcionTextBox.Text = Entity.Descripcion;
             this.HSSemanalesTextBox.Text = Entity.HSSemanales.ToString();
             this.HSTotalesTextBox.Text = this.Entity.HSTotales.ToString();
-            this.PlanTextBox.Text = this.Entity.IDPlan.ToString();
+            this.PlanTextBox.Text = this.Entity.Plan.ID.ToString();
         }
 
         private void LoadEntity(Materia materia)
@@ -97,7 +97,7 @@ namespace UI.WebForm
             materia.Descripcion = this.DescripcionTextBox.Text;
             materia.HSSemanales = int.Parse(this.HSSemanalesTextBox.Text);
             materia.HSTotales = int.Parse(this.HSTotalesTextBox.Text);
-            materia.IDPlan = int.Parse(this.PlanTextBox.Text);
+            materia.Plan.ID = int.Parse(this.PlanTextBox.Text);
         }
         private void SaveEntity(Materia mat)
         {
