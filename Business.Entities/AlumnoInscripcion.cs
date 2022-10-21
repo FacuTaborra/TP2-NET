@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Business.Entities
 {
-    class AlumnoInscripcion: BusinessEntity
+    public class AlumnoInscripcion: BusinessEntity
     {
         private string _Condicion;
-        private int _IDAlumno;
-        private int _IDCurso;
+        private Persona _Alumno;
+        private Curso _Curso;
         private int _Nota;
 
         public string Condicion
@@ -16,15 +16,15 @@ namespace Business.Entities
             get { return _Condicion; }
             set { _Condicion = value; }
         }
-        public int IDAlumno
+        public Persona Alumno
         {
-            get { return _IDAlumno; }
-            set { _IDAlumno = value; }
+            get { return _Alumno; }
+            set { _Alumno = value; }
         }
-        public int IDCurso
+        public Curso Curso
         {
-            get { return _IDCurso; }
-            set { _IDCurso = value; }
+            get { return _Curso; }
+            set { _Curso = value; }
         }
         public int Nota
         {
