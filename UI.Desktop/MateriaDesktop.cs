@@ -43,7 +43,8 @@ namespace UI.Desktop
             {
                 this.btnAceptar.Text = "Eliminar";
                 this.txtDescrip.ReadOnly = true;
-                this.txtIDPlan.ReadOnly = true;
+                this.cbPlanes.DropDownStyle = ComboBoxStyle.Simple;
+                this.cbPlanes.Enabled = false;
                 this.nudHsSem.ReadOnly = true;
                 this.nudHsTot.ReadOnly = true;
             }
@@ -60,7 +61,6 @@ namespace UI.Desktop
             this.txtDescrip.Text = this._MateriaActual.Descripcion;
             this.nudHsSem.Text = this._MateriaActual.HSSemanales.ToString();
             this.nudHsTot.Text = this._MateriaActual.HSTotales.ToString();
-            this.txtIDPlan.Text = this._MateriaActual.IDPlan.ToString();
         }
 
 
@@ -76,7 +76,8 @@ namespace UI.Desktop
                 _MateriaActual.Descripcion = this.txtDescrip.Text;
                 _MateriaActual.HSSemanales = int.Parse(this.nudHsSem.Text);
                 _MateriaActual.HSTotales = int.Parse(this.nudHsTot.Text);
-                _MateriaActual.IDPlan = int.Parse(this.txtIDPlan.Text);
+                Plan p = new Plan(int.Parse(this.cbPlanes.SelectedValue.ToString()));
+                _MateriaActual.Plan = p;
                 if (_Modo == ModoForm.alta)
                 {
                     _MateriaActual.State = BusinessEntity.States.New;
@@ -91,10 +92,10 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            if(this.txtDescrip.Text!="" && this.nudHsSem.Text !="" && this.nudHsTot.Text!="" && this.txtIDPlan.Text != "")
+            if(this.txtDescrip.Text!="" && this.nudHsSem.Text !="" && this.nudHsTot.Text!="" && this.cbPlanes.SelectedIndex != 0)
             {
                 PlanLogic pl = new PlanLogic();
-                if (pl.ValidarIDPlan(int.Parse(this.txtIDPlan.Text))) 
+                if (pl.ValidarIDPlan(int.Parse(this.cbPlanes.SelectedValue.ToString()))) 
                 {
                     if (Validaciones.ValidarHorasSemanales(int.Parse(this.nudHsSem.Text)))
                     {
@@ -139,19 +140,23 @@ namespace UI.Desktop
 
         private void MateriaDesktop_Load(object sender, EventArgs e)
         {
-
+            PlanLogic pl = new PlanLogic();
+            List<Plan> planes = pl.GetAll();
+            Plan p = new Plan("Plan");
+            planes.Insert(0, p);
+            this.cbPlanes.DataSource = planes;
+            this.cbPlanes.ValueMember = "ID";
+            this.cbPlanes.DisplayMember = "Descripcion";
+            if(_MateriaActual != null)
+            {
+                this.cbPlanes.SelectedValue = _MateriaActual.Plan.ID;
+            }
+            else
+            {
+                this.cbPlanes.SelectedIndex = 0;
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {

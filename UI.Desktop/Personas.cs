@@ -14,6 +14,7 @@ namespace UI.Desktop
 {
     public partial class Personas : Form
     {
+        
         public Personas()
         {
             InitializeComponent();

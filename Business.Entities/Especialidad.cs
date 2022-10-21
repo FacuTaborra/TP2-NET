@@ -12,6 +12,10 @@ namespace Business.Entities
         {
 
         }
+        public Especialidad(int id)
+        {
+            ID = id;
+        }
         public Especialidad(string desc)
         {
             Descripcion = desc;

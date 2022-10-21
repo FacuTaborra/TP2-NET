@@ -75,7 +75,6 @@ namespace UI.Desktop
             if (_PersonaActual == null)
             {
                 cbTipo.DataSource = Enum.GetValues(typeof(Persona.TiposPersonas));
-                cbPlan.SelectedIndex = planes.Count() - 1;
                 cbPlan.SelectedIndex = 0;
             }
             else

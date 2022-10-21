@@ -70,5 +70,10 @@ namespace UI.Desktop
             cursosForm.Show();
             this.Close();
         }
+
+        private void btnAlumnos_Click(object sender, EventArgs e)
+        {
+            Personas perfom = new Personas();
+        }
     }
 }
