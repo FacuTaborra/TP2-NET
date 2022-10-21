@@ -4,14 +4,22 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class DocenteCurso: BusinessEntity
+    public class DocenteCurso : BusinessEntity
     {
-        private TiposCragos _cargo;
+        /*private TiposCragos _cargo;*/
         private int _IDCurso;
         private int _IDDocente;
+        private int _cargo;
 
-
+        /*
         public TiposCragos Cargo
+        {
+            get { return _cargo; }
+            set { _cargo = value; }
+        } 
+        */
+
+        public int Cargo
         {
             get { return _cargo; }
             set { _cargo = value; }
@@ -31,12 +39,9 @@ namespace Business.Entities
             set { _IDDocente = value; }
         }
         public enum TiposCragos
-    {
-       /* esto va? 
-        Deleted,
-        New,
-        Modified,
-        Unmodified*/
-    }
+        {
+            Auxiliar,
+            Profesor
+        }
     }
 }
