@@ -78,14 +78,83 @@ namespace UI.Desktop
             }
         }
 
+        private int MateriasDePlan(int id)
+        {
+            MateriaLogic ml = new MateriaLogic();
+            List<Materia> listaMaterias = ml.GetAll();
+            int cant = 0;
+            foreach(var mat in listaMaterias)
+            {
+                if (mat.Plan.ID == id)
+                {
+                    cant++;
+                }
+            }
+            return cant;
+        }
+
+        private int ComisionesdePlan(int id)
+        {
+            ComisionLogic cl = new ComisionLogic();
+            List<Comision> listaCom = cl.GetAll();
+            int cant = 0;
+            foreach (var com in listaCom)
+            {
+                if (com.Plan.ID == id)
+                {
+                    cant++;
+                }
+            }
+            return cant;
+        }
+
+        private int PersonasDePlan(int id)
+        {
+            PersonaLogic pl = new PersonaLogic();
+            List<Persona> listaPersonas = pl.GetAll();
+            int cant = 0;
+            foreach (var per in listaPersonas)
+            {
+                if (per.Plan.ID == id)
+                {
+                    cant++;
+                }
+            }
+            return cant;
+        }
+
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvPlanes.SelectedRows.Count == 1)
             {
                 int id = ((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
-                PlanDesktop formPlan = new PlanDesktop(id, ApplicationForm.ModoForm.baja);
-                formPlan.ShowDialog();
-                this.Listar();
+                if (MateriasDePlan(id) == 0)
+                {
+                    if (ComisionesdePlan(id) == 0)
+                    {
+                        if (PersonasDePlan(id) == 0)
+                        {
+                            PlanDesktop formPlan = new PlanDesktop(id, ApplicationForm.ModoForm.baja);
+                            formPlan.ShowDialog();
+                            this.Listar();
+                        }
+                        else
+                        {
+                            ApplicationForm af = new ApplicationForm();
+                            af.Notificar("No es posible eliminar el Plan por tener Personas asociadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        ApplicationForm af = new ApplicationForm();
+                        af.Notificar("No es posible eliminar el Plan por tener Comisiones asociadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    ApplicationForm af = new ApplicationForm();
+                    af.Notificar("No es posible eliminar el Plan por tener Materias asociadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

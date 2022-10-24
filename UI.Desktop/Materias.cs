@@ -71,6 +71,21 @@ namespace UI.Desktop
             this.dgvMaterias.DataSource = ml.GetAllWhithPlan(id_plan);
         }
 
+        private int CursosDeMateria(int id)
+        {
+            CursoLogic cl = new CursoLogic();
+            List<Curso> listaCursos = cl.GetAll();
+            int cant = 0;
+            foreach(var cur in listaCursos)
+            {
+                if (cur.Materia.ID == id)
+                {
+                    cant++;
+                }
+            }
+            return cant;
+        }
+
         private void Materias_Load(object sender, EventArgs e)
         {
             
@@ -146,15 +161,23 @@ namespace UI.Desktop
             if (this.dgvMaterias.SelectedRows.Count == 1)
             {
                 int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
-                MateriaDesktop formMateria = new MateriaDesktop(ID, ApplicationForm.ModoForm.baja);
-                formMateria.ShowDialog();
-                if (tipo == Tipo.filtrado)
+                if (CursosDeMateria(ID) == 0)
                 {
-                    ListarRespectoPlan(idplan);
+                    MateriaDesktop formMateria = new MateriaDesktop(ID, ApplicationForm.ModoForm.baja);
+                    formMateria.ShowDialog();
+                    if (tipo == Tipo.filtrado)
+                    {
+                        ListarRespectoPlan(idplan);
+                    }
+                    else if (tipo == Tipo.nofiltrado)
+                    {
+                        Listar();
+                    }
                 }
-                else if (tipo == Tipo.nofiltrado)
+                else
                 {
-                    Listar();
+                    ApplicationForm af = new ApplicationForm();
+                    af.Notificar("No es posible eliminar la materia por tener cursos asociados", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
