@@ -58,7 +58,7 @@ namespace UI.Desktop
             // tcMaterias.ContentPanel
             // 
             this.tcMaterias.ContentPanel.Controls.Add(this.tlMaterias);
-            this.tcMaterias.ContentPanel.Size = new System.Drawing.Size(550, 289);
+            this.tcMaterias.ContentPanel.Size = new System.Drawing.Size(550, 264);
             this.tcMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMaterias.Location = new System.Drawing.Point(0, 0);
             this.tcMaterias.Name = "tcMaterias";
@@ -84,7 +84,7 @@ namespace UI.Desktop
             this.tlMaterias.RowCount = 2;
             this.tlMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlMaterias.Size = new System.Drawing.Size(550, 289);
+            this.tlMaterias.Size = new System.Drawing.Size(550, 264);
             this.tlMaterias.TabIndex = 0;
             // 
             // dgvMaterias
@@ -100,7 +100,7 @@ namespace UI.Desktop
             this.dgvMaterias.Location = new System.Drawing.Point(3, 3);
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.ReadOnly = true;
-            this.dgvMaterias.Size = new System.Drawing.Size(544, 254);
+            this.dgvMaterias.Size = new System.Drawing.Size(544, 229);
             this.dgvMaterias.TabIndex = 0;
             this.dgvMaterias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterias_CellContentClick);
             // 
@@ -142,7 +142,7 @@ namespace UI.Desktop
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(391, 263);
+            this.btnActualizar.Location = new System.Drawing.Point(391, 238);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -152,7 +152,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(472, 263);
+            this.btnSalir.Location = new System.Drawing.Point(472, 238);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -169,39 +169,39 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsMaterias.Location = new System.Drawing.Point(3, 0);
             this.tsMaterias.Name = "tsMaterias";
-            this.tsMaterias.Size = new System.Drawing.Size(81, 25);
+            this.tsMaterias.Size = new System.Drawing.Size(153, 25);
             this.tsMaterias.TabIndex = 0;
             // 
             // tsbNuevo
             // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-            this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.Size = new System.Drawing.Size(46, 22);
+            this.tsbNuevo.Text = "Nuevo";
             this.tsbNuevo.ToolTipText = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
             // 
-            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEditar.Text = "toolStripButton1";
+            this.tsbEditar.Size = new System.Drawing.Size(41, 22);
+            this.tsbEditar.Text = "Editar";
             this.tsbEditar.ToolTipText = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEliminar.Text = "toolStripButton1";
+            this.tsbEliminar.Size = new System.Drawing.Size(54, 22);
+            this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
@@ -212,9 +212,9 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(550, 314);
             this.Controls.Add(this.tcMaterias);
             this.Name = "Materias";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Materias";
             this.Load += new System.EventHandler(this.Materias_Load);
+            this.Controls.SetChildIndex(this.tcMaterias, 0);
             this.tcMaterias.ContentPanel.ResumeLayout(false);
             this.tcMaterias.TopToolStripPanel.ResumeLayout(false);
             this.tcMaterias.TopToolStripPanel.PerformLayout();
@@ -225,6 +225,7 @@ namespace UI.Desktop
             this.tsMaterias.ResumeLayout(false);
             this.tsMaterias.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

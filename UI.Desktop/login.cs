@@ -54,20 +54,18 @@ namespace UI.Desktop
                 Usuario u = ul.GetOneWithPerson(this.txtUsuario.Text);
                 if (u.Persona.TipoPersona == (Persona.TiposPersonas)0)
                 {
-                    formMenu menuAdministrativo = new formMenu();
-                    menuAdministrativo.Show();
+                    MenuAdmin menuAdmin = new MenuAdmin();
+                    menuAdmin.Show();
                     this.Close();
+
                 }else if(u.Persona.TipoPersona == (Persona.TiposPersonas)1)
                 {
-                    formMenu menuAdministrativo = new formMenu();
-                    menuAdministrativo.Show();
-                    this.Close();
+
+                   
                 }
                 else if(u.Persona.TipoPersona == (Persona.TiposPersonas)2)
                 {
-                    formMenu menuAdministrativo = new formMenu();
-                    menuAdministrativo.Show();
-                    this.Close();
+                    
                 }
                 else
                 {

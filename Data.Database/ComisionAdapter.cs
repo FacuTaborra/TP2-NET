@@ -18,7 +18,12 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                string consulta = "Select * from comisiones";
+                string consulta = " Select * " +
+                                  " from comisiones c" +
+                                  " inner join planes pl" +
+                                  "   on pl.id_plan = c.id_plan" +
+                                  " inner join especialidades esp" +
+                                  "   on esp.id_especialidad = pl.id_especialidad" ; 
                 SqlCommand cmdComisiones = new SqlCommand(consulta, sqlConn);
                 SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
                 while (drComisiones.Read())
@@ -27,10 +32,14 @@ namespace Data.Database
                     com.ID = (int)drComisiones["id_comision"];
                     com.Descripcion = (string)drComisiones["desc_comision"];
                     com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
-                    PlanAdapter pa = new PlanAdapter();
-                    int idPlan = (int)drComisiones["id_plan"];
-                    com.Plan = pa.GetOne(idPlan);
+                    Plan p = new Plan((int)drComisiones["id_plan"]);
+                    p.Descripcion = (string)drComisiones["desc_plan"];
 
+                    Especialidad esp = new Especialidad((int)drComisiones["id_especialidad"]);
+                    esp.Descripcion = (string)drComisiones["desc_especialidad"];
+                    p.Especialidad = esp;
+
+                    com.Plan = p;
                     comisiones.Add(com);
                 }
             }

@@ -18,7 +18,12 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdMaterias = new SqlCommand("Select * from materias", sqlConn);
+                SqlCommand cmdMaterias = new SqlCommand(" Select * " +
+                                                        " from materias m" +
+                                                        " inner join planes pl" +
+                                                        "   on pl.id_plan = m.id_plan" +
+                                                        " inner join especialidades esp" +
+                                                        "   on esp.id_especialidad = pl.id_especialidad", sqlConn);
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
                 while (drMaterias.Read())
                 {
@@ -27,7 +32,14 @@ namespace Data.Database
                     mat.Descripcion = (string)drMaterias["desc_materia"];
                     mat.HSSemanales = (int)drMaterias["hs_semanales"];
                     mat.HSTotales = (int)drMaterias["hs_totales"];
+
                     Plan p = new Plan((int)drMaterias["id_plan"]);
+                    p.Descripcion = (string)drMaterias["desc_plan"];
+
+                    Especialidad esp = new Especialidad();
+                    esp.Descripcion = (string)drMaterias["desc_especialidad"];
+                    p.Especialidad = esp;
+
                     mat.Plan = p;
                     materias.Add(mat);
                 }

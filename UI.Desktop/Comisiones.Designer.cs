@@ -57,11 +57,11 @@ namespace UI.Desktop
             // tcComisiones.ContentPanel
             // 
             this.tcComisiones.ContentPanel.Controls.Add(this.tlComisiones);
-            this.tcComisiones.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.tcComisiones.ContentPanel.Size = new System.Drawing.Size(597, 266);
             this.tcComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcComisiones.Location = new System.Drawing.Point(0, 0);
             this.tcComisiones.Name = "tcComisiones";
-            this.tcComisiones.Size = new System.Drawing.Size(800, 450);
+            this.tcComisiones.Size = new System.Drawing.Size(597, 316);
             this.tcComisiones.TabIndex = 0;
             this.tcComisiones.Text = "toolStripContainer1";
             // 
@@ -83,11 +83,12 @@ namespace UI.Desktop
             this.tlComisiones.RowCount = 2;
             this.tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlComisiones.Size = new System.Drawing.Size(800, 425);
+            this.tlComisiones.Size = new System.Drawing.Size(597, 266);
             this.tlComisiones.TabIndex = 0;
             // 
             // dgvComisiones
             // 
+            this.dgvComisiones.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -101,7 +102,7 @@ namespace UI.Desktop
             this.dgvComisiones.Name = "dgvComisiones";
             this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComisiones.Size = new System.Drawing.Size(794, 390);
+            this.dgvComisiones.Size = new System.Drawing.Size(591, 231);
             this.dgvComisiones.TabIndex = 0;
             // 
             // ID
@@ -136,7 +137,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(722, 399);
+            this.btnSalir.Location = new System.Drawing.Point(519, 240);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 1;
@@ -147,7 +148,7 @@ namespace UI.Desktop
             // btnActualizar
             // 
             this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(641, 399);
+            this.btnActualizar.Location = new System.Drawing.Point(438, 240);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 2;
@@ -164,39 +165,39 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsComisiones.Location = new System.Drawing.Point(3, 0);
             this.tsComisiones.Name = "tsComisiones";
-            this.tsComisiones.Size = new System.Drawing.Size(81, 25);
+            this.tsComisiones.Size = new System.Drawing.Size(153, 25);
             this.tsComisiones.TabIndex = 0;
             // 
             // tsbNuevo
             // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-            this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.Size = new System.Drawing.Size(46, 22);
+            this.tsbNuevo.Text = "Nuevo";
             this.tsbNuevo.ToolTipText = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
             // 
-            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEditar.Text = "toolStripButton2";
+            this.tsbEditar.Size = new System.Drawing.Size(41, 22);
+            this.tsbEditar.Text = "Editar";
             this.tsbEditar.ToolTipText = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEliminar.Text = "toolStripButton3";
+            this.tsbEliminar.Size = new System.Drawing.Size(54, 22);
+            this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
@@ -204,11 +205,12 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(597, 316);
             this.Controls.Add(this.tcComisiones);
             this.Name = "Comisiones";
             this.Text = "Comisiones";
             this.Load += new System.EventHandler(this.Comisiones_Load);
+            this.Controls.SetChildIndex(this.tcComisiones, 0);
             this.tcComisiones.ContentPanel.ResumeLayout(false);
             this.tcComisiones.TopToolStripPanel.ResumeLayout(false);
             this.tcComisiones.TopToolStripPanel.PerformLayout();
@@ -219,6 +221,7 @@ namespace UI.Desktop
             this.tsComisiones.ResumeLayout(false);
             this.tsComisiones.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

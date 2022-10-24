@@ -38,6 +38,8 @@ namespace Data.Database
                     per.TipoPersona = (Persona.TiposPersonas)drPersonas["tipo_persona"];
                     Plan p = new Plan((int)drPersonas["id_plan"]);
                     p.Descripcion = (string)drPersonas["desc_plan"];
+                    Especialidad esp = new Especialidad((int)drPersonas["id_especialidad"]);
+                    esp.Descripcion = (string)drPersonas["desc_especialidad"];
                     per.Plan = p;
                     personas.Add(per);
                 }

@@ -32,5 +32,6 @@ namespace Business.Entities
             get { return _Materia; }
             set { _Materia = value; }
         }
+
     }
 }

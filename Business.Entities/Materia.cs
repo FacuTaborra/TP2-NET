@@ -36,5 +36,10 @@ namespace Business.Entities
 			set { _Plan = value; }
 		}
 
+		public override string ToString()
+		{
+			return Descripcion;
+		}
+
 	}
 }

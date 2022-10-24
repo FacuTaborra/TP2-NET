@@ -13,7 +13,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Materias : Form
+    public partial class Materias : Master
     {
         public int _id_plan;
         public Tipo _tipo;
@@ -49,6 +49,7 @@ namespace UI.Desktop
             idplan = id_plan;
             InitializeComponent();
             this.dgvMaterias.AutoGenerateColumns = false;
+            // falta ocultar el toolscript
             ListarRespectoPlan(idplan);
         }
 
@@ -56,11 +57,6 @@ namespace UI.Desktop
         {
             MateriaLogic ml = new MateriaLogic();
             List<Materia> materias = ml.GetAll();
-            foreach(Materia m in materias)
-            {
-                PlanLogic pl = new PlanLogic();
-                m.Plan = pl.GetOne(m.Plan.ID);
-            }
             this.dgvMaterias.DataSource = materias;
         }
 
@@ -81,6 +77,7 @@ namespace UI.Desktop
             if (tipo == Tipo.filtrado)
             {
                 ListarRespectoPlan(idplan);
+
             }else if(tipo == Tipo.nofiltrado)
             {
                 Listar();
@@ -96,7 +93,7 @@ namespace UI.Desktop
             }
             else if (tipo == Tipo.nofiltrado)
             {
-                formMenu fm = new formMenu();
+                MenuAdmin fm = new MenuAdmin();
                 fm.Show();
                 this.Close();
             }
@@ -107,6 +104,7 @@ namespace UI.Desktop
         {
             MateriaDesktop formMateria = new MateriaDesktop(ApplicationForm.ModoForm.alta);
             formMateria.ShowDialog();
+
             if (tipo == Tipo.filtrado)
             {
                 ListarRespectoPlan(idplan);

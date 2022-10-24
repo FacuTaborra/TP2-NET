@@ -65,11 +65,13 @@ namespace UI.Desktop
 
             //agregamos manualmente "plan"
             Plan p = new Plan();
-            p.Descripcion = "Plan";
+            p.Descripcion = "Selecccionar Plan";
+            Especialidad esp = new Especialidad();
+            p.Especialidad = esp;
             planes.Insert(0, p);
 
             cbPlan.DataSource = planes;
-            cbPlan.DisplayMember = "Descripcion";
+            cbPlan.DisplayMember = "DescripcionYEspecialidad";
             cbPlan.ValueMember = "ID";
 
             if (_PersonaActual == null)

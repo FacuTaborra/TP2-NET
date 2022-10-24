@@ -12,7 +12,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Planes : Form
+    public partial class Planes : Master
     {
         public Planes()
         {
@@ -50,7 +50,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            formMenu mn = new formMenu();
+            MenuAdmin mn = new MenuAdmin();
             mn.Show();
             this.Close();
         }

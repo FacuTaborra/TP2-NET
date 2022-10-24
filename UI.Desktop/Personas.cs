@@ -12,7 +12,7 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class Personas : Form
+    public partial class Personas : Master
     {
         public Persona.TiposPersonas _tipoForm;
 
@@ -64,7 +64,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            formMenu mn = new formMenu();
+            MenuAdmin mn = new MenuAdmin();
             mn.Show();
             this.Close();
         }

@@ -157,6 +157,7 @@ namespace UI.Desktop
             else if (_Modo == ModoForm.modificacion)
             {
                 mt = new UI.Desktop.Materias(int.Parse(this.txtID.Text));
+                
             }
             mt.ShowDialog();
         }

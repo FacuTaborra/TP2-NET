@@ -188,7 +188,8 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(323, 253);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ComisionesDesktop";
-            this.Text = "ComisionesDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Comisiones";
             this.Load += new System.EventHandler(this.ComisionesDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

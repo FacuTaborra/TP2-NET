@@ -34,9 +34,18 @@ namespace Business.Entities
 			set { _Especialidad = value; }
 		}
 
+		public String DescripcionYEspecialidad
+        {
+			
+            get {
+				var especialidad = Especialidad;
+				return Descripcion + " " + especialidad.Descripcion; 
+			}
+        }
+
 		public override string ToString()
 		{
-			return Descripcion;
-        }
+			return DescripcionYEspecialidad;
+		}
 	}
 }
