@@ -12,11 +12,19 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class Personas : Form
+    public partial class Personas : Master
     {
-        
-        public Personas()
+        public Persona.TiposPersonas _tipoForm;
+
+        public Persona.TiposPersonas TipoForm
         {
+            get { return _tipoForm; }
+            set { _tipoForm = value; }
+        }
+
+        public Personas(Persona.TiposPersonas tipop)
+        {
+            TipoForm = tipop;
             InitializeComponent();
             this.dgvPersonas.AutoGenerateColumns = false;
         }
@@ -24,13 +32,24 @@ namespace UI.Desktop
         public void Listar()
         {
             PersonaLogic pl = new PersonaLogic();
-            List<Persona> personas = pl.GetAll();
-            foreach (var p in personas)
+            if (TipoForm == Persona.TiposPersonas.Profesor)
             {
-                PlanLogic PlanLogic = new PlanLogic();
-                p.Plan = PlanLogic.GetOne(p.Plan.ID);
+                this.Text = "Profesores";
+                List<Persona> profesores = pl.GetProfesores();
+                this.dgvPersonas.DataSource = profesores;
             }
-            this.dgvPersonas.DataSource = personas;
+            else if(TipoForm == Persona.TiposPersonas.Alumno)
+            {
+                this.Text = "Alumnos";
+                List<Persona> alumnos = pl.GetAlumnos();
+                this.dgvPersonas.DataSource = alumnos;
+            }
+            else if (TipoForm == Persona.TiposPersonas.Administrador)
+            {
+                this.Text = "Administrativos";
+                List<Persona> administratuvos = pl.GetAdministrativos();
+                this.dgvPersonas.DataSource = administratuvos;
+            }
         }
 
         private void Personas_Load(object sender, EventArgs e)
@@ -45,7 +64,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            formMenu mn = new formMenu();
+            MenuAdmin mn = new MenuAdmin();
             mn.Show();
             this.Close();
         }

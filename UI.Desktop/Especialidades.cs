@@ -12,7 +12,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class tcEspecialidades : Form
+    public partial class tcEspecialidades : Master
     {
         public tcEspecialidades()
         {
@@ -38,7 +38,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            formMenu mn = new formMenu();
+            MenuAdmin mn = new MenuAdmin();
             mn.Show();
             this.Close();
         }

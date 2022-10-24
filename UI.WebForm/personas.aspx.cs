@@ -23,7 +23,7 @@ namespace UI.WebForm
 
         private void LoadGrid()
         {
-            List<Persona> personas = logic.GetAll();
+            List<Persona> personas = logic.GetAlumnos();
             foreach (Persona p in personas)
             {
                 PlanLogic pl = new PlanLogic();

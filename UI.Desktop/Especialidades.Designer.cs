@@ -55,11 +55,11 @@ namespace UI.Desktop
             // tcEspecialidad.ContentPanel
             // 
             this.tcEspecialidad.ContentPanel.Controls.Add(this.tlEspecialidad);
-            this.tcEspecialidad.ContentPanel.Size = new System.Drawing.Size(359, 350);
+            this.tcEspecialidad.ContentPanel.Size = new System.Drawing.Size(349, 350);
             this.tcEspecialidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcEspecialidad.Location = new System.Drawing.Point(0, 0);
             this.tcEspecialidad.Name = "tcEspecialidad";
-            this.tcEspecialidad.Size = new System.Drawing.Size(359, 375);
+            this.tcEspecialidad.Size = new System.Drawing.Size(349, 375);
             this.tcEspecialidad.TabIndex = 0;
             this.tcEspecialidad.Text = "toolStripContainer1";
             // 
@@ -81,11 +81,12 @@ namespace UI.Desktop
             this.tlEspecialidad.RowCount = 2;
             this.tlEspecialidad.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlEspecialidad.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlEspecialidad.Size = new System.Drawing.Size(359, 350);
+            this.tlEspecialidad.Size = new System.Drawing.Size(349, 350);
             this.tlEspecialidad.TabIndex = 0;
             // 
             // dgvEspecialidades
             // 
+            this.dgvEspecialidades.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -97,7 +98,7 @@ namespace UI.Desktop
             this.dgvEspecialidades.Name = "dgvEspecialidades";
             this.dgvEspecialidades.ReadOnly = true;
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(353, 315);
+            this.dgvEspecialidades.Size = new System.Drawing.Size(343, 315);
             this.dgvEspecialidades.TabIndex = 0;
             this.dgvEspecialidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEspecialidades_CellContentClick);
             // 
@@ -118,7 +119,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(281, 324);
+            this.btnSalir.Location = new System.Drawing.Point(271, 324);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -129,7 +130,7 @@ namespace UI.Desktop
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(200, 324);
+            this.btnActualizar.Location = new System.Drawing.Point(190, 324);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -146,39 +147,39 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsEspecialidad.Location = new System.Drawing.Point(3, 0);
             this.tsEspecialidad.Name = "tsEspecialidad";
-            this.tsEspecialidad.Size = new System.Drawing.Size(81, 25);
+            this.tsEspecialidad.Size = new System.Drawing.Size(153, 25);
             this.tsEspecialidad.TabIndex = 0;
             // 
             // tsbNuevo
             // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-            this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.Size = new System.Drawing.Size(46, 22);
+            this.tsbNuevo.Text = "Nuevo";
             this.tsbNuevo.ToolTipText = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
             // 
-            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEditar.Text = "toolStripButton1";
+            this.tsbEditar.Size = new System.Drawing.Size(41, 22);
+            this.tsbEditar.Text = "Editar";
             this.tsbEditar.ToolTipText = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEliminar.Text = "toolStripButton1";
+            this.tsbEliminar.Size = new System.Drawing.Size(54, 22);
+            this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
@@ -186,12 +187,13 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 375);
+            this.ClientSize = new System.Drawing.Size(349, 375);
             this.Controls.Add(this.tcEspecialidad);
             this.Name = "tcEspecialidades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidades";
             this.Load += new System.EventHandler(this.Especialidad_Load);
+            this.Controls.SetChildIndex(this.tcEspecialidad, 0);
             this.tcEspecialidad.ContentPanel.ResumeLayout(false);
             this.tcEspecialidad.TopToolStripPanel.ResumeLayout(false);
             this.tcEspecialidad.TopToolStripPanel.PerformLayout();
@@ -202,6 +204,7 @@ namespace UI.Desktop
             this.tsEspecialidad.ResumeLayout(false);
             this.tsEspecialidad.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

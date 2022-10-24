@@ -12,33 +12,38 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Cursos : Form
+    public partial class Cursos : Master
     {
+
+        CursoLogic cl = new CursoLogic();
         public Cursos()
         {
             InitializeComponent();
             this.dgvCursos.AutoGenerateColumns = false;
         }
 
-
-        public void Listar()
+        public void Listar(int año)
         {
-            CursoLogic cl = new CursoLogic();
-            this.dgvCursos.DataSource = cl.GetAll();
+            this.dgvCursos.DataSource = cl.GetAll(año);
+            var index = this.cbConsultaAño.SelectedIndex;
+            this.cbConsultaAño.DataSource = cl.GetAños();
+            this.cbConsultaAño.SelectedIndex = index;
         }
 
         private void Cursos_Load(object sender, EventArgs e)
         {
-            Listar();
+            Listar(0);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            MenuAdmin ma = new MenuAdmin();
+            ma.Show();
             this.Close();
         }
 
@@ -46,7 +51,7 @@ namespace UI.Desktop
         {
             CursosDesktop cd = new CursosDesktop(ApplicationForm.ModoForm.alta);
             cd.ShowDialog();
-            this.Listar();
+            this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -56,7 +61,7 @@ namespace UI.Desktop
                 int selectedID = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
                 CursosDesktop cd = new CursosDesktop(selectedID, ApplicationForm.ModoForm.modificacion);
                 cd.ShowDialog();
-                this.Listar();
+                this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
 
             }
             else
@@ -74,8 +79,13 @@ namespace UI.Desktop
                 int selectedID = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
                 CursosDesktop cd = new CursosDesktop(selectedID, ApplicationForm.ModoForm.baja);
                 cd.ShowDialog();
-                Listar();
+                Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
         }
     }
 }

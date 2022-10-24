@@ -11,13 +11,18 @@ namespace Data.Database
 {
     public class PersonaAdapter : Adapter
     {
-        public List<Persona> GetAll()
+        public List<Persona> GetAll(Persona.TiposPersonas tipo)
         {
             List<Persona> personas = new List<Persona>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas", sqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select * " +
+                                                        " from personas as per " +
+                                                        " inner join planes as pl " +
+                                                        "   on per.id_plan = pl.id_plan " +
+                                                        " where per.tipo_persona = @tipo ", sqlConn);
+                cmdPersonas.Parameters.Add("@tipo", SqlDbType.Int).Value = (int)tipo ;
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
                 while (drPersonas.Read())
                 {
@@ -26,17 +31,18 @@ namespace Data.Database
                     per.Apellido = (string)drPersonas["apellido"];
                     per.Nombre = (string)drPersonas["nombre"];
                     per.Direccion = (string)drPersonas["direccion"];
-                    Plan p = new Plan((int)drPersonas["id_plan"]);
-                    per.Plan = p;
                     per.Legajo = (int)drPersonas["legajo"];
                     per.Telefono = (string)drPersonas["telefono"];
                     per.Email = (string)drPersonas["email"];
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.TipoPersona = (Persona.TiposPersonas)drPersonas["tipo_persona"];
+                    Plan p = new Plan((int)drPersonas["id_plan"]);
+                    p.Descripcion = (string)drPersonas["desc_plan"];
+                    Especialidad esp = new Especialidad((int)drPersonas["id_especialidad"]);
+                    esp.Descripcion = (string)drPersonas["desc_especialidad"];
+                    per.Plan = p;
                     personas.Add(per);
                 }
-
-
             }
             catch (Exception Ex1)
             {

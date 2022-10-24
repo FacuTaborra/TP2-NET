@@ -12,7 +12,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Comisiones : Form
+    public partial class Comisiones : Master
     {
         public Comisiones()
         {
@@ -54,9 +54,10 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
-            formMenu menu = new formMenu();
+            
+            MenuAdmin menu = new MenuAdmin();
             menu.Show();
+            this.Close();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)

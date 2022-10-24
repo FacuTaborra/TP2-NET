@@ -143,10 +143,13 @@ namespace UI.Desktop
             PlanLogic pl = new PlanLogic();
             List<Plan> planes = pl.GetAll();
             Plan p = new Plan("Seleccionar Plan");
+            Especialidad esp = new Especialidad();
+            esp.Descripcion = "";
+            p.Especialidad = esp;
             planes.Insert(0, p);
             this.cbPlanes.DataSource = planes;
             this.cbPlanes.ValueMember = "ID";
-            this.cbPlanes.DisplayMember = "Descripcion";
+            this.cbPlanes.DisplayMember = "DescripcionYEspecialidad";
             if(_MateriaActual != null)
             {
                 this.cbPlanes.SelectedValue = _MateriaActual.Plan.ID;

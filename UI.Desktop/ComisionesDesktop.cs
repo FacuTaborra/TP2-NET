@@ -58,24 +58,27 @@ namespace UI.Desktop
         private void ComisionesDesktop_Load(object sender, EventArgs e)
         {
             PlanLogic pl = new PlanLogic();
-            List<Plan> planesList = new List<Plan>();
-            planesList = pl.GetAll();
+            List<Plan> planesList = pl.GetAll();
+
+            //Titulo comboBox
             Plan extraPlan = new Plan();
             extraPlan.ID = 0;
             extraPlan.Descripcion = "Seleccionar Plan";
-            planesList.Add(extraPlan);
+            Especialidad extraEspecialidad = new Especialidad();
+            extraEspecialidad.Descripcion = "";
+            extraPlan.Especialidad = extraEspecialidad;
+
+            planesList.Insert(0, extraPlan);
             this.cbPlanes.DataSource = planesList;
-            this.cbPlanes.DisplayMember = "Descripcion";
+            this.cbPlanes.DisplayMember = "DescripcionYEspecialidad";
             this.cbPlanes.ValueMember = "ID";
             if (_ComisionActual == null)
             {
-                this.cbPlanes.SelectedIndex = planesList.Count() -1;
-                this.nudAñioEspecialidad.Value = 2022;
+                this.cbPlanes.SelectedIndex = 0;
             }
             else
             {
                 this.cbPlanes.SelectedValue = _ComisionActual.Plan.ID;
-
             }
 
             if (_Modo == ModoForm.alta || _Modo == ModoForm.modificacion)
