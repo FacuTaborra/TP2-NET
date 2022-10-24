@@ -63,6 +63,8 @@ namespace Data.Database
                                                         " from personas as per " +
                                                         " inner join planes as pl " +
                                                         "   on per.id_plan = pl.id_plan " +
+                                                        " inner join especialidades esp" +
+                                                        "   on esp.id_especialidad = pl.id_especialidad " +
                                                         " where per.tipo_persona = @tipo ", sqlConn);
                 cmdPersonas.Parameters.Add("@tipo", SqlDbType.Int).Value = (int)tipo ;
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
@@ -82,6 +84,8 @@ namespace Data.Database
                     p.Descripcion = (string)drPersonas["desc_plan"];
                     Especialidad esp = new Especialidad((int)drPersonas["id_especialidad"]);
                     esp.Descripcion = (string)drPersonas["desc_especialidad"];
+                    p.Especialidad = esp;
+    
                     per.Plan = p;
                     personas.Add(per);
                 }
