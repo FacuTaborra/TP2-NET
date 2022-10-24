@@ -14,7 +14,6 @@ namespace Data.Database
         public List<Materia> GetAll()
         {
             List<Materia> materias = new List<Materia>();
-
             try
             {
                 this.OpenConnection();
@@ -27,8 +26,9 @@ namespace Data.Database
                     mat.Descripcion = (string)drMaterias["desc_materia"];
                     mat.HSSemanales = (int)drMaterias["hs_semanales"];
                     mat.HSTotales = (int)drMaterias["hs_totales"];
-                    Plan p = new Plan((int)drMaterias["id_plan"]);
-                    mat.Plan = p;
+                    int idPlan = (int)drMaterias["id_plan"];
+                    PlanAdapter pa = new PlanAdapter();
+                    mat.Plan = pa.GetOne(idPlan);
                     materias.Add(mat);
                 }
             }
@@ -65,8 +65,9 @@ namespace Data.Database
                     mat.Descripcion = (string)drMaterias["desc_materia"];
                     mat.HSSemanales = (int)drMaterias["hs_semanales"];
                     mat.HSTotales = (int)drMaterias["hs_totales"];
-                    Plan p = new Plan((int)drMaterias["id_plan"]);
-                    mat.Plan = p;
+                    int idPlan = (int)drMaterias["id_plan"];
+                    PlanAdapter pa = new PlanAdapter();
+                    mat.Plan = pa.GetOne(idPlan);
                 }
                 drMaterias.Close();
             }
@@ -90,7 +91,6 @@ namespace Data.Database
         public List<Materia> GetAllWhithPlan(int id_plan)
         {
             List<Materia> materias = new List<Materia>();
-
             try
             {
                 this.OpenConnection();
