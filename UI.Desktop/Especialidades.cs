@@ -66,14 +66,38 @@ namespace UI.Desktop
             }
         }
 
+        private int PlanesDeEspecialidad(int id)
+        {
+            PlanLogic pl = new PlanLogic();
+            List<Plan> listaPlanes = pl.GetAll();
+            int cant = 0;
+            foreach (var plan in listaPlanes)
+            {
+                if (plan.Especialidad.ID == id)
+                {
+                    cant++;
+                }
+            }
+            return cant;
+        }
+
+
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (dgvEspecialidades.SelectedRows.Count == 1)
             {
                 int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
-                EspecialidadDesktop formEspecialidad = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.baja);
-                formEspecialidad.ShowDialog();
-                Listar();
+                if (PlanesDeEspecialidad(ID) == 0)
+                {
+                    EspecialidadDesktop formEspecialidad = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.baja);
+                    formEspecialidad.ShowDialog();
+                    Listar();
+                }
+                else
+                {
+                    ApplicationForm af = new ApplicationForm();
+                    af.Notificar("No es posible eliminar la Especialidad por tener Planes asociados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

@@ -29,6 +29,11 @@ namespace Business.Logic
             return CursoData.GetAll(año);
         }
 
+        public List<Curso> GetAll()
+        {
+            return CursoData.GetAll();
+        }
+
         public Curso GetOne(int id)
         {
             return CursoData.GetOne(id);

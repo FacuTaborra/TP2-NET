@@ -11,6 +11,53 @@ namespace Data.Database
 {
     public class CursoAdapter : Adapter
     {
+
+
+        public List<Curso> GetAll()
+        {
+            List<Curso> listaCursos = new List<Curso>();
+
+            try
+            {
+                this.OpenConnection();
+                string consulta = "select * from cursos";
+                SqlCommand cmdCursos = new SqlCommand(consulta, sqlConn);
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    Curso c = new Curso();
+                    c.ID = (int)drCursos["id_curso"];
+                    c.AnioCalendario = (int)drCursos["anio_calendario"];
+                    c.Cupo = (int)drCursos["cupo"];
+                    int idMat = (int)drCursos["id_materia"];
+                    MateriaAdapter ma = new MateriaAdapter();
+                    c.Materia = ma.GetOne(idMat);
+                    int idComi = (int)drCursos["id_comision"];
+                    ComisionAdapter ca = new ComisionAdapter();
+                    c.Comision = ca.GetOne(idComi);
+
+                    listaCursos.Add(c);
+                }
+            }
+            catch (SqlException ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos");
+                throw ExcepcionManejada;
+            }
+            catch (Exception ex2)
+            {
+                Exception ExcepcionManejada2 = new Exception("Error al recuperar la lista de cursos");
+                throw ExcepcionManejada2;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return listaCursos;
+        }
+
+
         public List<Curso> GetAll(int año)
         {
             List<Curso> listaCursos = new List<Curso>();

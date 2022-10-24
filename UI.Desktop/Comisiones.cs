@@ -26,6 +26,22 @@ namespace UI.Desktop
             this.dgvComisiones.DataSource = cl.GetAll();
         }
 
+        private int CursosDeComision(int id)
+        {
+            CursoLogic cl = new CursoLogic();
+            List<Curso> listaCursos = cl.GetAll();
+            int cant = 0;
+            foreach (var cur in listaCursos)
+            {
+                if (cur.Comision.ID == id)
+                {
+                    cant++;
+                }
+            }
+            return cant;
+        }
+
+
         private void Comisiones_Load(object sender, EventArgs e)
         {
             this.Listar();
@@ -73,9 +89,18 @@ namespace UI.Desktop
             if (this.dgvComisiones.SelectedRows.Count == 1)
             {
                 int id = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
-                ComisionesDesktop cd = new ComisionesDesktop(id, ApplicationForm.ModoForm.baja);
-                cd.ShowDialog();
-                this.Listar();
+                if (CursosDeComision(id) == 0)
+                {
+                    ComisionesDesktop cd = new ComisionesDesktop(id, ApplicationForm.ModoForm.baja);
+                    cd.ShowDialog();
+                    this.Listar();
+                }
+                else
+                {
+                    ApplicationForm af = new ApplicationForm();
+                    af.Notificar("No es posible eliminar la Comisión por tener Cursos asociados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
             else
             {
