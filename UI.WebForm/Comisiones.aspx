@@ -10,7 +10,7 @@
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                 <asp:BoundField DataField="AnioEspecialidad" HeaderText="Año Especialidad" />
                 <asp:BoundField DataField="Plan" HeaderText="Plan" />
-                <asp:CommandField SelectText="Seleccioar" ShowSelectButton="true" ButtonType="Button"/>
+                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" ButtonType="Button"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -52,7 +52,7 @@
 
         <asp:Panel ID="formActionPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" >Aceptar</asp:LinkButton>
-            <asp:LinkButton ID="cancelarLinkButton" runat="server" >Cancelar</asp:LinkButton>
+            <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" >Cancelar</asp:LinkButton>
          </asp:Panel>
    </asp:Panel>
 
