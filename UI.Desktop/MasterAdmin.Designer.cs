@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class Master
+    partial class MasterAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Master));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterAdmin));
             this.MenuToolScript = new System.Windows.Forms.ToolStrip();
             this.tsPlanes = new System.Windows.Forms.ToolStripSplitButton();
             this.gestionarPlanesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();

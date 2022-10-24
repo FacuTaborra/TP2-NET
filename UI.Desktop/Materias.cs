@@ -13,7 +13,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Materias : Master
+    public partial class Materias : MasterAdmin
     {
         public int _id_plan;
         public Tipo _tipo;

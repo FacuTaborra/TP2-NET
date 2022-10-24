@@ -12,7 +12,7 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class Personas : Master
+    public partial class Personas : MasterAdmin
     {
         public Persona.TiposPersonas _tipoForm;
 

@@ -12,7 +12,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Comisiones : Master
+    public partial class Comisiones : MasterAdmin
     {
         public Comisiones()
         {

@@ -95,11 +95,17 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master.cs">
+    <Compile Include="MasterAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master.Designer.cs">
-      <DependentUpon>Master.cs</DependentUpon>
+    <Compile Include="MasterAdmin.Designer.cs">
+      <DependentUpon>MasterAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterAlumno.Designer.cs">
+      <DependentUpon>MasterAlumno.cs</DependentUpon>
     </Compile>
     <Compile Include="MateriaDesktop.cs">
       <SubType>Form</SubType>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAlumno.Designer.cs">
+      <DependentUpon>MenuAlumno.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuAdmin.cs">
       <SubType>Form</SubType>
@@ -142,6 +154,12 @@
     </Compile>
     <Compile Include="Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanEstudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanEstudio.Designer.cs">
+      <DependentUpon>PlanEstudio.cs</DependentUpon>
     </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
@@ -181,14 +199,20 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master.resx">
-      <DependentUpon>Master.cs</DependentUpon>
+    <EmbeddedResource Include="MasterAdmin.resx">
+      <DependentUpon>MasterAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterAlumno.resx">
+      <DependentUpon>MasterAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materias.resx">
       <DependentUpon>Materias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAlumno.resx">
+      <DependentUpon>MenuAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
@@ -204,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanEstudio.resx">
+      <DependentUpon>PlanEstudio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>

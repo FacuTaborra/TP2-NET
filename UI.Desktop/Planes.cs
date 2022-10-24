@@ -12,7 +12,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Planes : Master
+    public partial class Planes : MasterAdmin
     {
         public Planes()
         {

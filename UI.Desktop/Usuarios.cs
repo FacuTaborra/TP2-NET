@@ -12,7 +12,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class tcUsuarios : Master
+    public partial class tcUsuarios : MasterAdmin
     {
         public tcUsuarios()
         {

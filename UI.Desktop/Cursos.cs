@@ -12,7 +12,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Cursos : Master
+    public partial class Cursos : MasterAdmin
     {
 
         CursoLogic cl = new CursoLogic();

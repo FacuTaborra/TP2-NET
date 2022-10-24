@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Master : Form
+    public partial class MasterAdmin : Form
     {
-        public Master()
+        public MasterAdmin()
         {
             InitializeComponent();
         }

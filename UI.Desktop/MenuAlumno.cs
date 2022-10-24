@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class MenuAdmin : UI.Desktop.MasterAdmin
+    public partial class MenuAlumno : MasterAlumno
     {
-        public MenuAdmin()
+        public MenuAlumno()
         {
             InitializeComponent();
         }

@@ -8,18 +8,11 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class MenuAdmin : UI.Desktop.MasterAdmin
+    public partial class PlanEstudio : UI.Desktop.MasterAlumno
     {
-        public MenuAdmin()
+        public PlanEstudio()
         {
             InitializeComponent();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Login l = new Login();
-            l.Show();
-            this.Close();
         }
     }
 }
