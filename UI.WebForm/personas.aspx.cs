@@ -12,15 +12,16 @@ namespace UI.WebForm
     public partial class personas : UI.WebForm.Default
     {
         private PersonaLogic _logic;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.Page.IsPostBack)
             {
-                this.loadGrid();
+                this.LoadGrid();
             }
         }
 
-        private void loadGrid()
+        private void LoadGrid()
         {
             List<Persona> personas = logic.GetAlumnos();
             foreach (Persona p in personas)
@@ -108,7 +109,7 @@ namespace UI.WebForm
                 PlanLogic pl = new PlanLogic();
                 List<Plan> planes = pl.GetAll();
                 Plan plan = new Plan();
-                plan.Descripcion = "Plan";
+                plan.Descripcion = "Seleccionar Plan";
                 planes.Insert(0, plan);
                 this.PlanDropDownList.DataSource = planes;
                 this.PlanDropDownList.DataTextField = "Descripcion";
@@ -176,18 +177,18 @@ namespace UI.WebForm
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    this.loadGrid();
+                    this.LoadGrid();
                     break;
                 case FormModes.Baja:
                     this.DeleteEntity(this.SelectedID);
-                    this.loadGrid();
+                    this.LoadGrid();
                     break;
                 case FormModes.Alta:
                     this.Entity = new Persona();
                     this.Entity.State = BusinessEntity.States.New;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    this.loadGrid();
+                    this.LoadGrid();
                     break;
                 default:
                     break;

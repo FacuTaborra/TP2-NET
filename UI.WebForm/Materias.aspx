@@ -9,7 +9,7 @@
                 <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"/>
                 <asp:BoundField HeaderText="HS Semanales" DataField="HSSemanales"/>
                 <asp:BoundField HeaderText="HS Totales" DataField="HSTotales"/>
-                <asp:BoundField HeaderText="Plan" DataField="IDPlan"/>
+                <asp:BoundField HeaderText="Plan" DataField="Plan"/>
                 <asp:CommandField SelectText="Seleccioar" ShowSelectButton="true" ButtonType="Button"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
@@ -48,12 +48,12 @@
         <asp:RequiredFieldValidator ID="HSTotaleReq" runat="server" ErrorMessage="El Campo no puede estar vacía" ControlToValidate ="HSTotalesTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="PlanLabel" runat="server" Text="Plan: " ></asp:Label>
-        <asp:TextBox ID="PlanTextBox" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="PlanReq" runat="server" ErrorMessage="El Campo no puede estar vacía" ControlToValidate ="PlanTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>        
+        <asp:DropDownList ID="ddlPlan" runat="server" OnLoad="ddlPlan_Load"></asp:DropDownList>
+        <%--<asp:RequiredFieldValidator ID="PlanReq" runat="server" ErrorMessage="Seleccione un plan" ControlToValidate ="ddlPlan" ForeColor="Red">#</asp:RequiredFieldValidator>--%>        
         <br />
 
         <asp:ValidationSummary ID="Errores" ForeColor="Red" runat="server"/>
-
+        <asp:Label ID="labelErrorFK" runat="server" ForeColor="Red" Text="No es posible eliminar la materia por tener cursos asociados" Visible="false"></asp:Label>
         <asp:Panel ID="formActionPanel"  runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" >Aceptar</asp:LinkButton>
             <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" >Cancelar</asp:LinkButton>

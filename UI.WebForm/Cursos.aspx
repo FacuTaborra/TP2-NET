@@ -3,7 +3,7 @@
 
 
     <asp:Panel runat="server" ID="gridPanel">
-        <asp:GridView runat="server" ID="gvCursos" AutoGenerateColumns="False">
+        <asp:GridView runat="server" ID="GridViewCursos" AutoGenerateColumns="False" OnSelectedIndexChanged="GridViewCursos_SelectedIndexChanged" DataKeyNames="ID">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" />
                 <asp:BoundField DataField="Materia" HeaderText="Materia" />

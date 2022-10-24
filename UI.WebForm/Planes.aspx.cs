@@ -104,8 +104,9 @@ namespace UI.Web
 
         protected void LoadEntity(Plan plan)
         {
-            Especialidad e = new Especialidad(int.Parse(this.IDEspecialidadTextBox.Text));
-            plan.Especialidad = e;
+            int idEsp = int.Parse(this.IDEspecialidadTextBox.Text);
+            EspecialidadLogic el = new EspecialidadLogic();
+            plan.Especialidad = el.GetOne(idEsp);
             plan.Descripcion = this.DescripcionTextBox.Text;
         }
 

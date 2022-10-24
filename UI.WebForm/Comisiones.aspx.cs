@@ -85,7 +85,7 @@ namespace UI.WebForm
             listaPlanes = pl.GetAll();
             Plan extraPlan = new Plan();
             extraPlan.ID = 0;
-            extraPlan.Descripcion = "Elegir Plan";
+            extraPlan.Descripcion = "Seleccionar Plan";
             listaPlanes.Add(extraPlan);
             this.ddlPlanes.DataSource = listaPlanes;
             this.ddlPlanes.DataValueField = "ID";
@@ -197,6 +197,12 @@ namespace UI.WebForm
                 default:
                     break;
             }
+            this.formPanel.Visible = false;
+        }
+
+        protected void cancelarLinkButton_Click(object sender, EventArgs e)
+        {
+            this.LoadGrid();
             this.formPanel.Visible = false;
         }
     }

@@ -40,6 +40,5 @@ namespace Business.Entities
 		{
 			return Descripcion;
 		}
-
 	}
 }
