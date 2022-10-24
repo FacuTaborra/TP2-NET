@@ -89,7 +89,7 @@ namespace UI.WebForm
             this.DescripcionTextBox.Text = Entity.Descripcion;
             this.HSSemanalesTextBox.Text = Entity.HSSemanales.ToString();
             this.HSTotalesTextBox.Text = this.Entity.HSTotales.ToString();
-            this.PlanTextBox.Text = this.Entity.IDPlan.ToString();
+            this.ddlPlan.SelectedValue = this.Entity.Plan.ID.ToString();
         }
 
         private void LoadEntity(Materia materia)
@@ -97,7 +97,9 @@ namespace UI.WebForm
             materia.Descripcion = this.DescripcionTextBox.Text;
             materia.HSSemanales = int.Parse(this.HSSemanalesTextBox.Text);
             materia.HSTotales = int.Parse(this.HSTotalesTextBox.Text);
-            materia.IDPlan = int.Parse(this.PlanTextBox.Text);
+            int idPlan = int.Parse(this.ddlPlan.SelectedValue);
+            PlanLogic pl = new PlanLogic();
+            materia.Plan = pl.GetOne(idPlan);
         }
         private void SaveEntity(Materia mat)
         {
@@ -114,7 +116,15 @@ namespace UI.WebForm
             this.DescripcionTextBox.Enabled = enable;
             this.HSSemanalesTextBox.Enabled = enable;
             this.HSTotalesTextBox.Enabled = enable;
-            this.PlanTextBox.Visible = enable;
+            this.ddlPlan.Enabled = enable;
+        }
+
+        public int CursosDeMateria(int id)
+        {
+            CursoLogic cl = new CursoLogic();
+            List<Curso> listaCursos = cl.GetAll();
+            int cant = listaCursos.Select(cur => cur.Materia.ID == id).Count();
+            return cant;
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -122,8 +132,15 @@ namespace UI.WebForm
             switch (this.FormMode)
             {
                 case FormModes.Baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
+                    if (CursosDeMateria(this.SelectedID)==0)
+                    {
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                    }
+                    else
+                    {
+                        this.labelErrorFK.Visible = true;
+                    }
                     break;
                 case FormModes.Modificacion:
                     this.Entity = new Materia();
@@ -132,6 +149,7 @@ namespace UI.WebForm
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
+                    this.formPanel.Visible = false;
                     break;
                 case FormModes.Alta:
                     this.Entity = new Materia();
@@ -139,11 +157,11 @@ namespace UI.WebForm
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
+                    this.formPanel.Visible = false;
                     break;
                 default:
                     break;
             }
-            this.formPanel.Visible = false;
         }
 
         protected void editarLinkButton_Click(object sender, EventArgs e)
@@ -188,8 +206,23 @@ namespace UI.WebForm
             this.DescripcionTextBox.Text = string.Empty;
             this.HSSemanalesTextBox.Text = string.Empty;
             this.HSTotalesTextBox.Text = string.Empty;
-            this.PlanTextBox.Text = string.Empty;
+            this.ddlPlan.SelectedValue = 0.ToString();
         }
 
+        protected void ddlPlan_Load(object sender, EventArgs e)
+        {
+            if (!this.Page.IsPostBack)
+            {
+                PlanLogic pl = new PlanLogic();
+                List<Plan> planes = pl.GetAll();
+                Plan plan = new Plan();
+                plan.Descripcion = "Plan";
+                planes.Insert(0, plan);
+                this.ddlPlan.DataSource = planes;
+                this.ddlPlan.DataTextField = "Descripcion";
+                this.ddlPlan.DataValueField = "ID";
+                this.ddlPlan.DataBind();
+            }
+        }
     }
 }

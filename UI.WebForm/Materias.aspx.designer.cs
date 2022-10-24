@@ -186,22 +186,13 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.Label PlanLabel;
 
         /// <summary>
-        /// PlanTextBox control.
+        /// ddlPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PlanTextBox;
-
-        /// <summary>
-        /// PlanReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator PlanReq;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlan;
 
         /// <summary>
         /// Errores control.
@@ -211,6 +202,15 @@ namespace UI.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary Errores;
+
+        /// <summary>
+        /// labelErrorFK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelErrorFK;
 
         /// <summary>
         /// formActionPanel control.
