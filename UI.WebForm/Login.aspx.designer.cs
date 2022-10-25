@@ -15,120 +15,84 @@ namespace UI.WebForm
     {
 
         /// <summary>
-        /// formLogin control.
+        /// loginPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel formLogin;
+        protected global::System.Web.UI.WebControls.Table loginPanel;
 
         /// <summary>
-        /// usrLabel control.
+        /// labelUsrName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usrLabel;
+        protected global::System.Web.UI.WebControls.Label labelUsrName;
 
         /// <summary>
-        /// usrTextBox control.
+        /// txtUsrName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usrTextBox;
+        protected global::System.Web.UI.WebControls.TextBox txtUsrName;
 
         /// <summary>
-        /// usrReq control.
+        /// usrNameReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator usrReq;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator usrNameReq;
 
         /// <summary>
-        /// passwordLabel control.
+        /// labelPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passwordLabel;
+        protected global::System.Web.UI.WebControls.Label labelPassword;
 
         /// <summary>
-        /// passwordTextBox control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordTextBox;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// passwordReq control.
+        /// passReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordReq;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator passReq;
 
         /// <summary>
-        /// validaciones control.
+        /// btnIngresar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel validaciones;
+        protected global::System.Web.UI.WebControls.Button btnIngresar;
 
         /// <summary>
-        /// errores control.
+        /// labelErrorInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary errores;
-
-        /// <summary>
-        /// usrExiste control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usrExiste;
-
-        /// <summary>
-        /// LoginActionPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel LoginActionPanel;
-
-        /// <summary>
-        /// ingresarLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ingresarLinkButton;
-
-        /// <summary>
-        /// LinkButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.Label labelErrorInicio;
     }
 }
