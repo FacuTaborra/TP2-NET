@@ -1,40 +1,17 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.WebForm.Login" %>
+﻿<%@ Page Title="Login" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Login.aspx.cs" Inherits="UI.WebForm.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-
-    <asp:Panel ID="formLogin" Visible="true" runat="server">
-
-        <table>
-            <tr>
-                <td>
-                    <asp:Label ID="usrLabel" runat="server" Text="Nombre de Usuario: "></asp:Label>
-                </td>
-                <td>
-                <asp:TextBox ID="usrTextBox" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="usrReq" runat="server" ErrorMessage="Debe ingresar su nombre de usuario."
-         ControlToValidate ="usrTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="passwordLabel" runat="server" Text="Clave : "></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="passwordTextBox" runat="server" TextMode="Password"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="passwordReq" runat="server" ErrorMessage="Debe ingresar su clave."
-         ControlToValidate ="passwordTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-        </table>
-    </asp:Panel>
-
-    <asp:Panel ID="validaciones" runat="server">
-        <asp:ValidationSummary ID="errores" ForeColor="Red" runat="server"/>
-        <asp:Label ID="usrExiste" runat="server" ForeColor="Red" Text="Usuario y/o contraseña inválidos." visible="false"></asp:Label>
-    </asp:Panel>
-
-    <asp:Panel ID="LoginActionPanel" runat="server">
-        <asp:LinkButton ID="ingresarLinkButton" runat="server" OnClick="ingresarLinkButton_Click">Iniciar Sesion</asp:LinkButton> 
-        <br />
-        <asp:LinkButton ID="LinkButton1" runat="server">Olvidé mi clave</asp:LinkButton>
-    </asp:Panel>
+<asp:Table ID="loginPanel" runat="server">
+                   <asp:TableRow>
+                        <asp:TableCell><asp:Label ID="labelUsrName" Text="Nombre de usuario:" runat="server"></asp:Label></asp:TableCell>
+                        <asp:TableCell><asp:TextBox ID="txtUsrName" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell><asp:RequiredFieldValidator ID="usrNameReq" runat="server" ControlToValidate="txtUsrName" ErrorMessage="Ingrese su nombre de usuario." ForeColor="Red"></asp:RequiredFieldValidator></asp:TableCell>
+                   </asp:TableRow>
+                   <asp:TableRow>
+                        <asp:TableCell><asp:Label ID="labelPassword" Text="Contraseña:" runat="server"></asp:Label></asp:TableCell>
+                        <asp:TableCell><asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></asp:TableCell>   
+                        <asp:TableCell><asp:RequiredFieldValidator ID="passReq" runat="server" ControlToValidate="txtPassword" forecolor="Red" ErrorMessage="Ingrese su contraseña."></asp:RequiredFieldValidator></asp:TableCell>
+                   </asp:TableRow>
+               </asp:Table>  
+              <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" /> <br />
+                <asp:Label ID="labelErrorInicio" Text="Nombre de usuario y/o contraseña incorrectos." ForeColor="Red" Visible="false" runat="server"></asp:Label>
 </asp:Content>

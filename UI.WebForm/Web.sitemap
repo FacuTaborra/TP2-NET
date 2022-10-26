@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="Default.aspx" title="Home"  description="">
-    <siteMapNode url="Usuarios.aspx" title="Usuarios"  description="" />
-	 <siteMapNode url="Especialidades.aspx" title="Especialidades"  description="" />
-	  <siteMapNode url="Planes.aspx" title="Planes"  description="" />
-	  <siteMapNode url="Materias.aspx" title="Materias"  description="" />
-	  <siteMapNode url="Comisiones.aspx" title="Comisiones" description=""/>
-	  <siteMapNode url="Personas.aspx" title="Personas" description=""/>
-  </siteMapNode>
+	<siteMapNode url="Default.aspx" title="Home"  roles="Alumno, Profesor, Administrador">
+		<siteMapNode roles="Administrador"  title="Administrador" description="Administrador">
+			<siteMapNode url="Usuarios.aspx" title="Usuarios"  description="Gestionar Usuarios" roles="Administrador" />
+			<siteMapNode url="Especialidades.aspx" title="Especialidades"  description="Gestionar Especialidades" roles="Administrador"/>
+			<siteMapNode url="Planes.aspx" title="Planes"  description="Gestionar Planes" roles="Administrador" />
+			<siteMapNode url="Materias.aspx" title="Materias"  description="Gestionar Materias" roles="Administrador" />
+			<siteMapNode url="Comisiones.aspx" title="Comisiones" description="Gestionar Personas" roles="Administrador"/>
+			<siteMapNode url="Personas.aspx" title="Personas" description="Gestionar Personas" roles="Administrador"/>
+		</siteMapNode>
+		<siteMapNode roles="Alumno"  title="Alumno" description="Alumno">
+			<siteMapNode url="Login.aspx" title="Login"  description="" />
+		</siteMapNode>
+		<!--<siteMapNode roles="Profesor" description="Profesor	">
+			<siteMapNode url="Planes.aspx" title="Planes"  description="" />
+			<siteMapNode url="Materias.aspx" title="Materias"  description="" />
+			<siteMapNode url="Comisiones.aspx" title="Comisiones" description=""/>
+		</siteMapNode>-->
+	</siteMapNode>
 </siteMap>

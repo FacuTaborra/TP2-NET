@@ -11,42 +11,23 @@ namespace UI.WebForm
 {
     public partial class Login : System.Web.UI.Page
     {
-
-        public bool ValidarIngreso()
-        {
-            UsuarioLogic usrLogic = new UsuarioLogic();
-            Usuario usr = new Usuario();
-            usr = usrLogic.GetOneByUserName(this.usrTextBox.Text);
-            if (usr == null)
-            {
-                return false;
-            }
-            else if (usr.Clave != this.passwordTextBox.Text)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.labelErrorInicio.Visible = false;
         }
 
-        protected void ingresarLinkButton_Click(object sender, EventArgs e)
+        protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (ValidarIngreso())
+            UsuarioLogic ul = new UsuarioLogic();
+            Usuario usr = ul.GetOneByUserName(this.txtUsrName.Text);
+            if(usr!=null && usr.Clave == this.txtPassword.Text)
             {
-                // Ingresó
+                Session["UsrActual"] = usr;
+                Response.Redirect("~/Default.aspx");
             }
             else
             {
-                this.usrExiste.Visible = true;
+                this.labelErrorInicio.Visible = true;
             }
         }
     }
