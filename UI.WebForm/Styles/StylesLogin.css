@@ -1,0 +1,80 @@
+﻿
+.LoginPage {
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
+    background-blend-mode: screen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentLogin {
+    width: 60vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(110deg,#50c9c3 50%, #cffcfa 50%);
+    box-shadow: 10px 5px 5px #808080;
+}
+
+.imgLogin {
+    width: 50%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    padding: 50px;
+}
+.imgLogin img{
+    height: 100px;
+    width: auto;
+    margin-bottom:15px;
+}
+
+.imgLogin span {
+    font-size: 30px;
+    font-weight:600;
+}
+
+.formLogin {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginRow {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.formLabel{
+    text-align:left;
+    font-weight: 600;
+}
+
+.formTxt {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid #50c9c3 2px;
+}
+
+#btnIngresar {
+    background-color: #50c9c3;
+    border: none;
+    color: black;
+    font-weight: 600;
+    box-shadow: 5px 5px 5px #808080;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}

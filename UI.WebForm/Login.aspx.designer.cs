@@ -11,17 +11,17 @@ namespace UI.WebForm
 {
 
 
-    public partial class Login
+    public partial class Login1
     {
 
         /// <summary>
-        /// loginPanel control.
+        /// formLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table loginPanel;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formLogin;
 
         /// <summary>
         /// labelUsrName control.
@@ -78,13 +78,13 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.RequiredFieldValidator passReq;
 
         /// <summary>
-        /// btnIngresar control.
+        /// divErrorInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIngresar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divErrorInicio;
 
         /// <summary>
         /// labelErrorInicio control.
@@ -94,5 +94,14 @@ namespace UI.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labelErrorInicio;
+
+        /// <summary>
+        /// btnIngresar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIngresar;
     }
 }
