@@ -4,24 +4,39 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Academia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UTN | Sistema de gestión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="Styles/StylesMaster.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="bodyForm" runat="server">
-        <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource" BackColor="#F7F6F3" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#7C6F57" StaticSubMenuIndent="10px">
-            <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
-            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-            <DynamicMenuStyle BackColor="#F7F6F3" />
-            <DynamicSelectedStyle BackColor="#5D7B9D" />
-            <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
-            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-            <StaticSelectedStyle BackColor="#5D7B9D" />
-        </asp:Menu>
-        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
-        <div>
-            <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+            <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" href="/"><img class="navbar-img" src="Images/logo-utn.png"/></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <asp:Menu ID="MainMenu" DataSourceID="SiteMapDataSource" runat="server" Orientation="horizontal" CssClass="navbar-nav mr-auto" StaticMenuStyle-CssClass="nav-item" StaticSelectedStyle-CssClass="nav-item" StaticSubMenuIndent="16px" DynamicMenuStyle-CssClass="nav-item dropdown-menu" RenderingMode="List" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" >
+                        <LevelMenuItemStyles>
+                            <asp:MenuItemStyle CssClass="dropdown-item" HorizontalPadding="15px" Height="50px" VerticalPadding="15px" />
+                        </LevelMenuItemStyles>
+                        <LevelSelectedStyles>
+                            <asp:MenuItemStyle CssClass="nav-item active" Font-Underline="False" />
+                        </LevelSelectedStyles>
+                        <StaticHoverStyle Font-Underline="true" />
+                        <StaticSelectedStyle Font-Bold="true"   />
+                        <DynamicMenuItemStyle CssClass="dropdown-item" />
+                    </asp:Menu>
+                </div>
+            </nav>
+            <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+            <div>
+                <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>     
 </body>
 </html>

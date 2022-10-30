@@ -1,0 +1,13 @@
+﻿*{
+    background-color: aliceblue;
+}
+
+.navbar-img{
+    width:100px;
+    height:auto;
+}
+
+.navbar-nav{
+    display: flex;
+    flex-direction:row;
+}
