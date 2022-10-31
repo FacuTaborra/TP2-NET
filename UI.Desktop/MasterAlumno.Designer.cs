@@ -47,7 +47,7 @@ namespace UI.Desktop
             this.toolStripSplitButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(730, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(758, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -66,15 +66,16 @@ namespace UI.Desktop
             // materiasDelPlanToolStripMenuItem
             // 
             this.materiasDelPlanToolStripMenuItem.Name = "materiasDelPlanToolStripMenuItem";
-            this.materiasDelPlanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.materiasDelPlanToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.materiasDelPlanToolStripMenuItem.Text = "Materias Del Plan";
             this.materiasDelPlanToolStripMenuItem.Click += new System.EventHandler(this.materiasDelPlanToolStripMenuItem_Click);
             // 
             // estadoAcademicoToolStripMenuItem
             // 
             this.estadoAcademicoToolStripMenuItem.Name = "estadoAcademicoToolStripMenuItem";
-            this.estadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.estadoAcademicoToolStripMenuItem.Text = "Estado Academico";
+            this.estadoAcademicoToolStripMenuItem.Click += new System.EventHandler(this.estadoAcademicoToolStripMenuItem_Click);
             // 
             // toolStripSplitButton1
             // 
@@ -93,6 +94,7 @@ namespace UI.Desktop
             this.inscripcionACursadoToolStripMenuItem.Name = "inscripcionACursadoToolStripMenuItem";
             this.inscripcionACursadoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.inscripcionACursadoToolStripMenuItem.Text = "Inscripcion a Cursado";
+            this.inscripcionACursadoToolStripMenuItem.Click += new System.EventHandler(this.inscripcionACursadoToolStripMenuItem_Click);
             // 
             // inscripcionAExamenToolStripMenuItem
             // 
@@ -104,9 +106,10 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 427);
+            this.ClientSize = new System.Drawing.Size(758, 406);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MasterAlumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MasterAlumno";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

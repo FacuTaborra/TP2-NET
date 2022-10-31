@@ -13,6 +13,81 @@ namespace Data.Database
     public class AlumnoInscripcionAdapter:Adapter
     {
 
+        public List<AlumnoInscripcion> GetEstadoAcademico(int legajo)
+        {
+            List<AlumnoInscripcion> EstadoAcademico = new List<AlumnoInscripcion>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdEstadoAcademico = new SqlCommand(" Select ai.id_inscripcion, ai.condicion, ai.nota," +
+                                                      "        alu.id_alumno, alu.legajo," +
+                                                      "        c.anio_academico," +
+                                                      "        m.desc_materia," +
+                                                      "        p.desc_plan " +
+                                                      " from Persona alu" +
+                                                      " inner join alunos_inscripciones ai" +
+                                                      "     on ai.id_persona = alu.id_persona" +
+                                                      " inner join cursos c" +
+                                                      "     on c.id_curso = ai.id_curso" +
+                                                      " inner join materias m" +
+                                                      "     on m.id_materia = c.id_materia" +
+                                                      " inner join comisiones com" +
+                                                      "     on c.id_comision = com.id_comision" +
+                                                      " inner join planes pl" +
+                                                      "     on pl.id_plan = com.id_plan" +
+                                                      " where alu.legajo = @legajo", sqlConn);
+                cmdEstadoAcademico.Parameters.Add("@legajo", SqlDbType.Int).Value = legajo;
+                SqlDataReader drEstadoAcademico = cmdEstadoAcademico.ExecuteReader();
+                while (drEstadoAcademico.Read())
+                {
+                    AlumnoInscripcion ai = new AlumnoInscripcion();
+                    
+                    Persona alu = new Persona((int)drEstadoAcademico["id_alumno"]);
+                    alu.Legajo = (int)drEstadoAcademico["legajo"];
+                    
+                    ai.ID = (int)drEstadoAcademico["id_inscripcion"];
+                    ai.Condicion = (string)drEstadoAcademico["condicion"];
+                    ai.Nota = (int)drEstadoAcademico["nota"];
+
+                    Curso c = new Curso();
+                    c.AnioCalendario = (int)drEstadoAcademico["anio_calendario"];
+
+                    Materia m = new Materia();
+                    m.Descripcion = (string)drEstadoAcademico["desc_materia"];
+                    c.Materia = m;
+
+                    Plan p = new Plan((string)drEstadoAcademico["desc_plan"]);
+
+                    Comision com = new Comision();
+                    com.Plan = p;
+                    c.Comision = com;
+
+                    ai.Alumno = alu;
+                    ai.Curso = c;
+
+                    EstadoAcademico.Add(ai);
+                }
+                drEstadoAcademico.Close();
+            }
+            catch (SqlException Ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar inscripciones", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return EstadoAcademico;
+        }
+
+
+
         public List<AlumnoInscripcion> GetAll()
         {
             List<AlumnoInscripcion> lista = new List<AlumnoInscripcion>();

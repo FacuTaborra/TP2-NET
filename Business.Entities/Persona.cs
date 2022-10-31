@@ -27,6 +27,10 @@ namespace Business.Entities
         {
 
         }
+        public Persona(int id)
+        {
+            ID = id;
+        }
 
         public Persona(int id, BusinessEntity.States state )
         {

@@ -89,6 +89,12 @@
     <Compile Include="EspecialidadDesktop.Designer.cs">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="InscripcionCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InscripcionCurso.Designer.cs">
+      <DependentUpon>InscripcionCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     </Compile>
     <Compile Include="MasterAlumno.Designer.cs">
       <DependentUpon>MasterAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoAcademico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadoAcademico.Designer.cs">
+      <DependentUpon>EstadoAcademico.cs</DependentUpon>
     </Compile>
     <Compile Include="MateriaDesktop.cs">
       <SubType>Form</SubType>
@@ -196,6 +208,9 @@
     <EmbeddedResource Include="EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InscripcionCurso.resx">
+      <DependentUpon>InscripcionCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterAlumno.resx">
       <DependentUpon>MasterAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadoAcademico.resx">
+      <DependentUpon>EstadoAcademico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>

@@ -63,7 +63,6 @@ namespace UI.Desktop
         public void ListarRespectoPlan(int id_plan)
         {
             MateriaLogic ml = new MateriaLogic();
-
             this.dgvMaterias.DataSource = ml.GetAllWhithPlan(id_plan);
         }
 

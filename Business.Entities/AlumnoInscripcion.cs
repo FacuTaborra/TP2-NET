@@ -31,5 +31,15 @@ namespace Business.Entities
             get { return _Nota; }
             set { _Nota = value; }
         }
+
+        public Materia MateriaCurso
+        {
+            get { return Curso.Materia; }
+        }
+
+        public Plan PlanCurso
+        {
+            get { return Curso.Comision.Plan; }
+        }
     }
 }

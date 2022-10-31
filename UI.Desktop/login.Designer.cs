@@ -118,6 +118,7 @@ namespace UI.Desktop
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar sesión";
+            this.Enter += new System.EventHandler(this.btnIngresar_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

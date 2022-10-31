@@ -60,8 +60,9 @@ namespace UI.Desktop
 
                 }else if(u.Persona.TipoPersona == (Persona.TiposPersonas)1)
                 {
-
-                   
+                    MenuAlumno menuAlumno = new MenuAlumno(u.Persona);
+                    menuAlumno.Show();
+                    this.Close();
                 }
                 else if(u.Persona.TipoPersona == (Persona.TiposPersonas)2)
                 {

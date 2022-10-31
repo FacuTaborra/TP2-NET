@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class MasterAdmin : Form
+    public partial class MasterAdmin : ApplicationForm
     {
         public MasterAdmin()
         {

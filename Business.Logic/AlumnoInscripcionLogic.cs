@@ -23,6 +23,11 @@ namespace Business.Logic
             _AIData = new AlumnoInscripcionAdapter();
         }
 
+        public List<AlumnoInscripcion> GetEstadoAcademico(int legajo)
+        {
+            return _AIData.GetEstadoAcademico(legajo);
+        }
+
 
         public AlumnoInscripcion GetOne(int id)
         {
