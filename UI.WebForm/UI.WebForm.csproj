@@ -72,9 +72,12 @@
     <Content Include="Default.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\logo-utn.png" />
     <Content Include="Login.aspx" />
     <Content Include="personas.aspx" />
     <Content Include="Planes.aspx" />
+    <Content Include="Styles\StylesLogin.css" />
+    <Content Include="Styles\StylesMaster.css" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
     <Content Include="Materias.aspx" />

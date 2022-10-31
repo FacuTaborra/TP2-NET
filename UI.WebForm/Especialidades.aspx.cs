@@ -21,7 +21,7 @@ namespace UI.WebForm
             {
                 if (_logic == null)
                 {
-                    _logic = new EspecialidadLogic();
+                    _logic =new EspecialidadLogic();
                 }
                 return _logic;
             }

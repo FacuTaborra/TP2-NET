@@ -1,0 +1,72 @@
+﻿.formContent {
+    background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
+}
+
+.navbar-img {
+    width: 100px;
+    height: auto;
+    background-color: #50c9c3;
+}
+
+.navbar-nav{
+    display: flex;
+    flex-direction:row;
+}
+
+.navbar, .navbar-collapse {
+    background-color: #50c9c3;
+}
+
+
+#gridPanel, .gridActionPanel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    width: max-content;
+    margin-top: 30px;
+    background-color: #f5f7fa;
+    box-shadow: #c3cfe2 5px 5px 5px
+}
+
+.btnSeleccionar {
+    border-color: #50c9c3;
+    font-size: 15px;
+    color: #50c9c3;
+
+}
+
+.btnSeleccionar:hover {
+    background-color: #50c9c3;
+}
+
+
+
+.actionPanel{
+    border: solid #50c9c3 2px;
+    padding: 5px 0px;
+    width:max-content;
+    border-radius: 5px;
+
+}
+
+.actionPanelLink{
+    border-right: solid #50c9c3 2px;
+    padding: 5px 30px;
+    text-decoration:none;
+    color:black;
+    width:600;
+}
+
+    .actionPanelLink:hover {
+        background-color: #50c9c3;
+        text-decoration: none;
+        color: black;
+        width: 600;
+    }
+
+.lastLink{
+    border:none;
+}
