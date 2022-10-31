@@ -6,7 +6,7 @@
            <Columns>
                <asp:BoundField HeaderText="Id Plan" DataField="ID"/>
                <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"/>
-               <asp:BoundField HeaderText="Id Especialidad" DataField="IDEspecialidad"/>
+               <asp:BoundField HeaderText="Especialidad" DataField="Especialidad"/>
                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" ButtonType="Button"/>
            </Columns>
            <EditRowStyle BackColor="#999999" />
