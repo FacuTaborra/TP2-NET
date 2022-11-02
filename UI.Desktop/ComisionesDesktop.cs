@@ -141,16 +141,11 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            PlanLogic pl = new PlanLogic();
-            List<Plan> planesList = new List<Plan>();
-            planesList = pl.GetAll();
-            int planesLenght = planesList.Count();
-
             if (this.txtDescrip.Text != "")
             {
-                if (this.nudAñioEspecialidad.Value <= 2030 && this.nudAñioEspecialidad.Value >= 1990)
+                if (this.nudAñioEspecialidad.Value <= 6 && this.nudAñioEspecialidad.Value >= 1)
                 {
-                    if (this.cbPlanes.SelectedIndex != planesLenght)
+                    if (this.cbPlanes.SelectedIndex != 0)
                     {
                         return true;
                     }
@@ -162,7 +157,7 @@ namespace UI.Desktop
                 }
                 else
                 {
-                    Notificar("Año de especialidad ingresado Inválido. El año de especialidad es válido desde 1990 hasta 2030", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Notificar("Año de especialidad ingresado Inválido. El año de especialidad es válido desde 1ero hasta 6to", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }

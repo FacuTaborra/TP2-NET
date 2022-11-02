@@ -23,21 +23,22 @@ namespace UI.Desktop
         public void Listar()
         {
             CursoLogic cl = new CursoLogic();
-            this.dgvInscripciones.DataSource = cl.GetCursosDisponibles(DateTime.Now.Year, Alumno.Plan.ID);
+            this.dgvInscripciones.DataSource = cl.GetCursosDisponibles(DateTime.Now.Year, Alumno);
         }
 
         private void dgvInscripciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 //falta validad que para que no este inscripto 2 veces
-                if(Validaciones.EstaInscripto())
+                int idCurso = int.Parse(this.dgvInscripciones.CurrentRow.Cells[0].Value.ToString());
+                if (Validaciones.EstaInscripto(idCurso, Alumno.ID))
                 {
-                    if(Validaciones.HayCupo()){
+                    if (Validaciones.HayCupo(idCurso)){
                         AlumnoInscripcion alumnoInscripcio = new AlumnoInscripcion();
                         alumnoInscripcio.Alumno = Alumno;
                         Curso curso = new Curso();
-                        curso.ID = int.Parse(this.dgvInscripciones.CurrentRow.Cells[0].Value.ToString());
+                        curso.ID = idCurso;
                         alumnoInscripcio.Curso = curso;
                         AlumnoInscripcionLogic ai = new AlumnoInscripcionLogic();
                         ai.Insert(alumnoInscripcio);

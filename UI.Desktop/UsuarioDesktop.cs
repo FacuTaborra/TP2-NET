@@ -15,14 +15,27 @@ namespace UI.Desktop
     public partial class UsuarioDesktop : ApplicationForm
     {
         public Usuario _UsuarioActual;
+        public Persona _PersonaAtual { get; set; }
 
         public UsuarioDesktop()
         {
             InitializeComponent();
         }
 
-        public UsuarioDesktop(ModoForm modo) : this()
+        public UsuarioDesktop(ModoForm modo, int id_persona) : this()
         {
+            _Modo = modo;
+            _PersonaAtual = new Persona();
+            _PersonaAtual.ID = id_persona;
+            PersonaLogic pr = new PersonaLogic();
+            _PersonaAtual = pr.GetOne(_PersonaAtual.ID);
+            this.txtNombre.Text = this._PersonaAtual.Nombre;
+            this.txtApellido.Text = this._PersonaAtual.Apellido;
+            this.txtEmail.Text = this._PersonaAtual.Email;
+
+            this.txtApellido.ReadOnly = true;
+            this.txtEmail.ReadOnly = true;
+            this.txtNombre.ReadOnly = true;
 
         }
 
@@ -45,6 +58,7 @@ namespace UI.Desktop
                 this.btnAceptar.Text = "Eliminar";
                 this.txtApellido.ReadOnly = true;
                 this.txtEmail.ReadOnly = true;
+                this.txtNombre.ReadOnly = true;
                 this.txtUsuario.ReadOnly = true;
 
             }
@@ -76,13 +90,12 @@ namespace UI.Desktop
             
             if (_Modo == ModoForm.modificacion || _Modo == ModoForm.alta)
             {
-                _UsuarioActual.Nombre = this.txtNombre.Text;
-                _UsuarioActual.Apellido = this.txtApellido.Text;
-                _UsuarioActual.Email = this.txtEmail.Text;
+                _UsuarioActual.Persona = _PersonaAtual; //seteo los datos de la persona elegida
+                //datos nuevos del usuario
                 _UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 _UsuarioActual.Clave = this.txtClave.Text;
                 _UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                if(_Modo == ModoForm.alta)
+                if (_Modo == ModoForm.alta)
                 {
                     _UsuarioActual.State = BusinessEntity.States.New;
                 }

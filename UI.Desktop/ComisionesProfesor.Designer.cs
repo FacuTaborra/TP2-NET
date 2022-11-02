@@ -33,14 +33,14 @@ namespace UI.Desktop
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvComisionesProfesor = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.IDCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Alumnos = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisionesProfesor)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -86,8 +86,8 @@ namespace UI.Desktop
             this.IDCurso,
             this.Comision,
             this.Materia,
-            this.Cargo,
             this.Año,
+            this.Cargo,
             this.Plan,
             this.Alumnos});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvComisionesProfesor, 2);
@@ -98,58 +98,6 @@ namespace UI.Desktop
             this.dgvComisionesProfesor.Size = new System.Drawing.Size(656, 299);
             this.dgvComisionesProfesor.TabIndex = 0;
             this.dgvComisionesProfesor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComisionesProfesor_CellContentClick);
-            // 
-            // IDCurso
-            // 
-            this.IDCurso.DataPropertyName = "IDCurso";
-            this.IDCurso.HeaderText = "IDCurso";
-            this.IDCurso.Name = "IDCurso";
-            this.IDCurso.ReadOnly = true;
-            this.IDCurso.Visible = false;
-            // 
-            // Comision
-            // 
-            this.Comision.DataPropertyName = "ComisionCruso";
-            this.Comision.HeaderText = "Comision";
-            this.Comision.Name = "Comision";
-            this.Comision.ReadOnly = true;
-            // 
-            // Materia
-            // 
-            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Materia.DataPropertyName = "MateriaCurso";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.Name = "Materia";
-            this.Materia.ReadOnly = true;
-            // 
-            // Cargo
-            // 
-            this.Cargo.DataPropertyName = "Cargo";
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.Name = "Cargo";
-            this.Cargo.ReadOnly = true;
-            // 
-            // Año
-            // 
-            this.Año.DataPropertyName = "AñoCalendarioCurso";
-            this.Año.HeaderText = "Año";
-            this.Año.Name = "Año";
-            this.Año.ReadOnly = true;
-            // 
-            // Plan
-            // 
-            this.Plan.DataPropertyName = "PlanComisionCurso";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
-            // 
-            // Alumnos
-            // 
-            this.Alumnos.HeaderText = "Alumnos";
-            this.Alumnos.Name = "Alumnos";
-            this.Alumnos.ReadOnly = true;
-            this.Alumnos.Text = "Ver Alumnos";
-            this.Alumnos.ToolTipText = "Ver Alumnos";
             // 
             // tableLayoutPanel1
             // 
@@ -168,6 +116,58 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Size = new System.Drawing.Size(662, 334);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // IDCurso
+            // 
+            this.IDCurso.DataPropertyName = "IDCurso";
+            this.IDCurso.HeaderText = "IDCurso";
+            this.IDCurso.Name = "IDCurso";
+            this.IDCurso.ReadOnly = true;
+            this.IDCurso.Visible = false;
+            // 
+            // Comision
+            // 
+            this.Comision.DataPropertyName = "ComisionCurso";
+            this.Comision.HeaderText = "Comision";
+            this.Comision.Name = "Comision";
+            this.Comision.ReadOnly = true;
+            // 
+            // Materia
+            // 
+            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Materia.DataPropertyName = "MateriaCurso";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
+            // 
+            // Año
+            // 
+            this.Año.DataPropertyName = "AñoCalendarioCurso";
+            this.Año.HeaderText = "Año";
+            this.Año.Name = "Año";
+            this.Año.ReadOnly = true;
+            // 
+            // Cargo
+            // 
+            this.Cargo.DataPropertyName = "Cargo";
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
+            // 
+            // Plan
+            // 
+            this.Plan.DataPropertyName = "PlanCurso";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            // 
+            // Alumnos
+            // 
+            this.Alumnos.HeaderText = "Alumnos";
+            this.Alumnos.Name = "Alumnos";
+            this.Alumnos.ReadOnly = true;
+            this.Alumnos.Text = "Ver Alumnos";
+            this.Alumnos.ToolTipText = "Ver Alumnos";
+            // 
             // ComisionesProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,7 +175,6 @@ namespace UI.Desktop
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ComisionesProfesor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos";
             this.Load += new System.EventHandler(this.ComisionesProfesor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisionesProfesor)).EndInit();
@@ -194,8 +193,8 @@ namespace UI.Desktop
         private System.Windows.Forms.DataGridViewTextBoxColumn IDCurso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Año;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
         private System.Windows.Forms.DataGridViewButtonColumn Alumnos;
     }

@@ -31,9 +31,9 @@ namespace Business.Logic
             _CursoData.Update(curso);
         }
 
-        public List<Curso> GetCursosDisponibles(int año, int idPlan)
+        public List<Curso> GetCursosDisponibles(int año, Persona Alumno)
         {
-            return _CursoData.GetCursosDisponibles(año, idPlan);
+            return _CursoData.GetCursosDisponibles(año, Alumno);
         }
 
         public List<Curso> GetAll(int año)

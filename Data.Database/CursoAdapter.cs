@@ -12,7 +12,7 @@ namespace Data.Database
     public class CursoAdapter : Adapter
     {
 
-        public List<Curso> GetCursosDisponibles(int año, int id_plan)
+        public List<Curso> GetCursosDisponibles(int año, Persona Alumno)
         {
             List<Curso> listaCursos = new List<Curso>();
             try
@@ -28,10 +28,17 @@ namespace Data.Database
                                                       "     on esp.id_especialidad = pl.id_especialidad" +
                                                       " inner join materias mat" +
                                                       "     on mat.id_materia = cur.id_materia" +
-                                                      " where pl.id_plan = @idplan and cur.anio_calendario = @anio", sqlConn);
+                                                      " left join alumnos_inscripciones ai" +
+                                                      "     on ai.id_curso = cur.id_curso " +
+                                                      "     and ai.id_alumno != @id_alumno" +
+                                                      " where pl.id_plan = @idplan and cur.anio_calendario = @anio" +
+                                                      "         and cur.id_curso not in (select ai.id_curso" +
+                                                      "                                  from alumnos_inscripciones ai" +
+                                                      "                                  where ai.id_alumno = 307) ", sqlConn);
 
                 cmdCursos.Parameters.Add("@anio", SqlDbType.Int).Value = año;
-                cmdCursos.Parameters.Add("@idplan", SqlDbType.Int).Value = id_plan;
+                cmdCursos.Parameters.Add("@idplan", SqlDbType.Int).Value = Alumno.Plan.ID;
+                cmdCursos.Parameters.Add("@id_alumno", SqlDbType.Int).Value = Alumno.ID;
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
 
                 while (drCursos.Read())
@@ -173,7 +180,11 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                string consulta = "select * from cursos where id_curso=@id";
+                string consulta = " select * " +
+                                  " from cursos c " +
+                                  " inner join comisiones com" +
+                                  "     on com.id_comision = c.id_comision " +
+                                  " where id_curso=@id";
                 SqlCommand cmdCurso = new SqlCommand(consulta, sqlConn);
                 cmdCurso.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 SqlDataReader drCurso = cmdCurso.ExecuteReader();
@@ -182,12 +193,19 @@ namespace Data.Database
                     c.ID = (int)drCurso["id_curso"];
                     c.AnioCalendario = (int)drCurso["anio_calendario"];
                     c.Cupo = (int)drCurso["cupo"];
-                    int idMateria = (int)drCurso["id_materia"];
-                    MateriaAdapter ma = new MateriaAdapter();
-                    c.Materia = ma.GetOne(idMateria);
-                    int idComision = (int)drCurso["id_comision"];
-                    ComisionAdapter ca = new ComisionAdapter();
-                    c.Comision = ca.GetOne(idComision);
+
+                    Materia m = new Materia();
+                    m.ID = (int)drCurso["id_materia"];
+                    c.Materia = m;
+
+                    Comision com = new Comision();
+                    com.ID = (int)drCurso["id_comision"];
+
+                    Plan pl = new Plan();
+                    pl.ID = (int)drCurso["id_plan"];
+                    com.Plan = pl;
+
+                    c.Comision = com;
                 }
                 drCurso.Close();
             }

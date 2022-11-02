@@ -31,15 +31,15 @@ namespace UI.Desktop
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvAlumnosCurso = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.Titulo = new System.Windows.Forms.Label();
             this.IDInscripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CargarNota = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.Titulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosCurso)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(613, 367);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(656, 367);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // dgvAlumnosCurso
@@ -79,13 +79,56 @@ namespace UI.Desktop
             this.dgvAlumnosCurso.Location = new System.Drawing.Point(3, 3);
             this.dgvAlumnosCurso.Name = "dgvAlumnosCurso";
             this.dgvAlumnosCurso.ReadOnly = true;
-            this.dgvAlumnosCurso.Size = new System.Drawing.Size(607, 332);
+            this.dgvAlumnosCurso.Size = new System.Drawing.Size(650, 332);
             this.dgvAlumnosCurso.TabIndex = 0;
             this.dgvAlumnosCurso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnosCurso_CellContentClick);
             // 
+            // IDInscripcion
+            // 
+            this.IDInscripcion.DataPropertyName = "ID";
+            this.IDInscripcion.HeaderText = "IDInscripcion";
+            this.IDInscripcion.Name = "IDInscripcion";
+            this.IDInscripcion.ReadOnly = true;
+            this.IDInscripcion.Visible = false;
+            // 
+            // Legajo
+            // 
+            this.Legajo.DataPropertyName = "Legajo";
+            this.Legajo.HeaderText = "Legajo";
+            this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
+            // 
+            // Alumno
+            // 
+            this.Alumno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Alumno.DataPropertyName = "NombreYApellido";
+            this.Alumno.HeaderText = "Alumno";
+            this.Alumno.Name = "Alumno";
+            this.Alumno.ReadOnly = true;
+            // 
+            // Condicion
+            // 
+            this.Condicion.DataPropertyName = "Condicion";
+            this.Condicion.HeaderText = "Condición";
+            this.Condicion.Name = "Condicion";
+            this.Condicion.ReadOnly = true;
+            // 
+            // Nota
+            // 
+            this.Nota.DataPropertyName = "Nota";
+            this.Nota.HeaderText = "Nota";
+            this.Nota.Name = "Nota";
+            this.Nota.ReadOnly = true;
+            // 
+            // CargarNota
+            // 
+            this.CargarNota.HeaderText = "Cargar Nota";
+            this.CargarNota.Name = "CargarNota";
+            this.CargarNota.ReadOnly = true;
+            // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(535, 341);
+            this.btnSalir.Location = new System.Drawing.Point(578, 341);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 1;
@@ -96,7 +139,7 @@ namespace UI.Desktop
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(454, 341);
+            this.btnActualizar.Location = new System.Drawing.Point(497, 341);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 2;
@@ -114,49 +157,10 @@ namespace UI.Desktop
             this.Titulo.TabIndex = 4;
             this.Titulo.Text = "Alumnos del Curso";
             // 
-            // IDInscripcion
-            // 
-            this.IDInscripcion.DataPropertyName = "ID";
-            this.IDInscripcion.HeaderText = "IDInscripcion";
-            this.IDInscripcion.Name = "IDInscripcion";
-            this.IDInscripcion.ReadOnly = true;
-            this.IDInscripcion.Visible = false;
-            // 
-            // Legajo
-            // 
-            this.Legajo.HeaderText = "Legajo";
-            this.Legajo.Name = "Legajo";
-            this.Legajo.ReadOnly = true;
-            // 
-            // Alumno
-            // 
-            this.Alumno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Alumno.HeaderText = "Alumno";
-            this.Alumno.Name = "Alumno";
-            this.Alumno.ReadOnly = true;
-            // 
-            // Condicion
-            // 
-            this.Condicion.HeaderText = "Condición";
-            this.Condicion.Name = "Condicion";
-            this.Condicion.ReadOnly = true;
-            // 
-            // Nota
-            // 
-            this.Nota.HeaderText = "Nota";
-            this.Nota.Name = "Nota";
-            this.Nota.ReadOnly = true;
-            // 
-            // CargarNota
-            // 
-            this.CargarNota.HeaderText = "Cargar Nota";
-            this.CargarNota.Name = "CargarNota";
-            this.CargarNota.ReadOnly = true;
-            // 
             // AlumnosComision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(613, 407);
+            this.ClientSize = new System.Drawing.Size(656, 407);
             this.Controls.Add(this.Titulo);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AlumnosComision";

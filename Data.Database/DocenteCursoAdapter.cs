@@ -68,8 +68,8 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdCursosProfesor = new SqlCommand(" select dc.cargo, " +
-                                                              " cur.anio_calendario, cur.id_curso " +
-                                                              " com.desc_comision, " +
+                                                              " cur.anio_calendario, cur.id_curso, " +
+                                                              " com.desc_comision, com.anio_especialidad," +
                                                               " pl.desc_plan, " +
                                                               " esp.desc_especialidad, " +
                                                               " mat.desc_materia" +
@@ -94,6 +94,7 @@ namespace Data.Database
                 {
                     Curso c = new Curso();
                     c.ID = (int)drCursosProfesor["id_curso"];
+                    c.AnioCalendario = (int)drCursosProfesor["anio_calendario"];
 
                     Especialidad esp = new Especialidad();
                     esp.Descripcion = (string)drCursosProfesor["desc_especialidad"];
@@ -119,16 +120,16 @@ namespace Data.Database
                     listaCursos.Add(dc);
                 }
             }
-            catch (SqlException ex1)
+            /*catch (SqlException ex1)
             {
                 Exception ExcepcionManejada = new Exception("Error con la base de datos");
                 throw ExcepcionManejada;
-            }
-            catch (Exception ex2)
+            }*/
+            /*catch (Exception ex2)
             {
                 Exception ExcepcionManejada2 = new Exception("Error al recuperar la lista de cursos");
                 throw ExcepcionManejada2;
-            }
+            }*/
             finally
             {
                 this.CloseConnection();

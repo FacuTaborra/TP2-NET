@@ -26,7 +26,7 @@ namespace UI.Desktop
 
         private void tsbComisiones_Click(object sender, EventArgs e)
         {
-            ComisionesProfesor comisionesProfesor = new ComisionesProfesor();
+            ComisionesProfesor comisionesProfesor = new ComisionesProfesor(Profesor);
             comisionesProfesor.ShowDialog();
         }
     }

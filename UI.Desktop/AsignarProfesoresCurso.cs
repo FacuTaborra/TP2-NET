@@ -63,10 +63,28 @@ namespace UI.Desktop
             {
                 DocenteCursoLogic dcl = new DocenteCursoLogic();
                 DocenteCurso ProfesorTitular = dcl.GetProfesorCurso(CursoActual.ID, DocenteCurso.TiposCargos.Profesor);
-                this.cbProfesoresTitulares.SelectedValue = ProfesorTitular.Docente.ID;
-
                 DocenteCurso ProfesorAuxiliar = dcl.GetProfesorCurso(CursoActual.ID, DocenteCurso.TiposCargos.Auxiliar);
-                this.cbProfesoresAuxiliar.SelectedValue = ProfesorAuxiliar.Docente.ID;
+
+                if (ProfesorTitular.Docente != null )
+                {
+                    this.cbProfesoresTitulares.SelectedValue = ProfesorTitular.Docente.ID;
+                }
+                else
+                {
+                    this.cbProfesoresTitulares.SelectedIndex = 0;
+                }
+
+                if (ProfesorAuxiliar.Docente != null)
+                {
+                    this.cbProfesoresAuxiliar.SelectedValue = ProfesorAuxiliar.Docente.ID;
+                }
+                else
+                {
+                    this.cbProfesoresAuxiliar.SelectedIndex = 0;
+                }
+
+
+
             }
 
         }
@@ -109,12 +127,12 @@ namespace UI.Desktop
             if (Validaciones.ValidaProfesores(idTitular, idAuxiliar))
             {
                 this.MapearAdatos();
+                this.Close();
             }
             else
             {
                 Notificar("Error","El profesor titular y auxiliar no pueden ser iguales", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -37,6 +37,7 @@ namespace UI.Desktop
             {
                 CursoLogic cl = new CursoLogic();
                 _CursoActual = cl.GetOne(id);
+                _idPlanFiltro = _CursoActual.Comision.Plan.ID;
                 MapearDeDatos();
             }
 
@@ -136,7 +137,7 @@ namespace UI.Desktop
 
             ComisionLogic cl = new ComisionLogic();
             List<Comision> listaComisiones = new List<Comision>();
-            listaComisiones = cl.GetAll();
+            listaComisiones = cl.GetAllPlan(_idPlanFiltro);
             Comision comisionExtra = new Comision();
             comisionExtra.ID = 0;
             comisionExtra.Descripcion = "Seleccionar comision";

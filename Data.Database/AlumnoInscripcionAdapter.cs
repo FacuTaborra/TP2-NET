@@ -19,11 +19,11 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdAlumnosCurso = new SqlCommand(" select ai.id_inscripcion, ai.condicion, ai.nota, ai.id_curso" +
+                SqlCommand cmdAlumnosCurso = new SqlCommand(" select ai.id_inscripcion, ai.condicion, ai.nota, ai.id_curso, " +
                                                             "        alu.nombre, alu.apellido, alu.legajo, alu.id_persona " +
                                                             " from alumnos_inscripciones ai" +
-                                                            " inner join alumnos alu" +
-                                                            "   on alu.id_alumno = ai.id_alumno" +
+                                                            " inner join personas alu" +
+                                                            "   on alu.id_persona = ai.id_alumno" +
                                                             " where ai.id_curso = @idCurso" +
                                                             " order by apellido desc, nombre desc", sqlConn);
 
@@ -82,7 +82,8 @@ namespace Data.Database
                                                                "        alu.id_persona, alu.legajo," +
                                                                "        c.anio_calendario," +
                                                                "        m.desc_materia," +
-                                                               "        pl.desc_plan " +
+                                                               "        pl.desc_plan, pl.id_plan, " +
+                                                               "        esp.id_especialidad, esp.desc_especialidad" +
                                                                " from personas alu" +
                                                                " inner join alumnos_inscripciones ai" +
                                                                "     on ai.id_alumno = alu.id_persona" +
@@ -94,6 +95,8 @@ namespace Data.Database
                                                                "     on c.id_comision = com.id_comision" +
                                                                " inner join planes pl" +
                                                                "     on pl.id_plan = com.id_plan" +
+                                                               " inner join especialidades esp " +
+                                                               "    on esp.id_especialidad = pl.id_especialidad" +
                                                                " where alu.legajo = @legajo", sqlConn);
                 cmdEstadoAcademico.Parameters.Add("@legajo", SqlDbType.Int).Value = legajo;
                 SqlDataReader drEstadoAcademico = cmdEstadoAcademico.ExecuteReader();
@@ -106,7 +109,11 @@ namespace Data.Database
                     
                     ai.ID = (int)drEstadoAcademico["id_inscripcion"];
                     ai.Condicion = (string)drEstadoAcademico["condicion"];
-                    ai.Nota = (int)drEstadoAcademico["nota"];
+                    if ((int)drEstadoAcademico["nota"] != 0)
+                    {
+                        ai.Nota = (int)drEstadoAcademico["nota"];
+                    }
+                    
 
                     Curso c = new Curso();
                     c.AnioCalendario = (int)drEstadoAcademico["anio_calendario"];
@@ -115,7 +122,13 @@ namespace Data.Database
                     m.Descripcion = (string)drEstadoAcademico["desc_materia"];
                     c.Materia = m;
 
+                    Especialidad esp = new Especialidad();
+                    esp.ID = (int)drEstadoAcademico["id_especialidad"];
+                    esp.Descripcion = (string)drEstadoAcademico["desc_especialidad"];
+
                     Plan p = new Plan((string)drEstadoAcademico["desc_plan"]);
+                    p.ID = (int)drEstadoAcademico["id_plan"];
+                    p.Especialidad = esp;
 
                     Comision com = new Comision();
                     com.Plan = p;
@@ -133,11 +146,11 @@ namespace Data.Database
                 Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
                 throw ExcepcionManejada;
             }
-            catch (Exception Ex2)
+            /*catch (Exception Ex2)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar inscripciones", Ex2);
                 throw ExcepcionManejada;
-            }
+            }*/
             finally
             {
                 this.CloseConnection();
@@ -265,11 +278,12 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                string consulta = "insert into alumnos_inscripciones (id_alumno, id_curso)" +
-                    "values(@alu, @curso)";
+                string consulta = "insert into alumnos_inscripciones (id_alumno, id_curso, condicion)" +
+                    "values(@alu, @curso, @condicion) select @@identity";
                 SqlCommand cmdInsert = new SqlCommand(consulta, sqlConn);
-                cmdInsert.Parameters.Add("alu", SqlDbType.Int).Value = ai.Alumno.ID;
-                cmdInsert.Parameters.Add("curso", SqlDbType.Int).Value = ai.Curso.ID;
+                cmdInsert.Parameters.Add("@alu", SqlDbType.Int).Value = ai.Alumno.ID;
+                cmdInsert.Parameters.Add("@curso", SqlDbType.Int).Value = ai.Curso.ID;
+                cmdInsert.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = "Cursando";
                 ai.ID = decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (SqlException Ex1)
@@ -294,13 +308,13 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                string consulta = "update alumnos_inscripciones set id_alumno=@alu, id_curso=@curso, condicion=@con,nota=@nota where id_inscripcion=@id)";
+                string consulta = "update alumnos_inscripciones set id_alumno=@alu, id_curso=@curso, condicion=@con,nota=@nota where id_inscripcion=@id";
                 SqlCommand cmdUpdate = new SqlCommand(consulta, sqlConn);
-                cmdUpdate.Parameters.Add("id", SqlDbType.Int).Value = ai.ID;
-                cmdUpdate.Parameters.Add("alu", SqlDbType.Int).Value = ai.Alumno.ID;
-                cmdUpdate.Parameters.Add("curso", SqlDbType.Int).Value = ai.Curso.ID;
-                cmdUpdate.Parameters.Add("con", SqlDbType.VarChar, 50).Value = ai.Condicion;
-                cmdUpdate.Parameters.Add("nota", SqlDbType.Int).Value = ai.Nota;
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = ai.ID;
+                cmdUpdate.Parameters.Add("@alu", SqlDbType.Int).Value = ai.Alumno.ID;
+                cmdUpdate.Parameters.Add("@curso", SqlDbType.Int).Value = ai.Curso.ID;
+                cmdUpdate.Parameters.Add("@con", SqlDbType.VarChar, 50).Value = ai.Condicion;
+                cmdUpdate.Parameters.Add("@nota", SqlDbType.Int).Value = ai.Nota;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (SqlException Ex1)

@@ -66,14 +66,27 @@ namespace Business.Logic
             }
         }
 
-        public static bool EstaInscripto()
+        public static bool EstaInscripto(int idCurso, int idAlumno)
         {
-            return true; // falta codear
+            AlumnoInscripcionLogic alumnoInscripcionLogic = new AlumnoInscripcionLogic();
+            //falta terminar, pero en forma grafica no se puede agregar.
+            // basicamente esto siempre devolveria true
+            return true;
         }
 
-        public static bool HayCupo()
+        public static bool HayCupo(int id_curso)
         {
-            return true; // falta codear
+            CursoLogic cl = new CursoLogic();
+            Curso c = cl.GetOne(id_curso);
+            if(c.Cupo > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
 

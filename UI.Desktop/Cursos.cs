@@ -33,12 +33,18 @@ namespace UI.Desktop
         private void Cursos_Load(object sender, EventArgs e)
         {
             Listar(DateTime.UtcNow.Year);
-            //tira un error si dejo el cb vacio
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
+            if (this.cbConsultaAño.SelectedValue != null)
+            {
+                this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
+            }
+            else
+            {
+                this.Listar(DateTime.UtcNow.Year);
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -67,7 +73,10 @@ namespace UI.Desktop
                 int selectedID = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
                 CursosDesktop cd = new CursosDesktop(selectedID, ApplicationForm.ModoForm.modificacion);
                 cd.ShowDialog();
-                this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
+                if (this.cbConsultaAño.SelectedValue != null)
+                {
+                    this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
+                }
             }
             else
             {

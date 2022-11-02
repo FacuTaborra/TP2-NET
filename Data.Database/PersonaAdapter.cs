@@ -18,7 +18,13 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas ", sqlConn);
+                SqlCommand cmdPersonas = new SqlCommand(" select * " +
+                                                        " from personas per" +
+                                                        " inner join planes pl" +
+                                                        "   on pl.id_plan = per.id_plan" +
+                                                        " inner join especialidades esp" +
+                                                        "   on esp.id_especialidad = pl.id_especialidad" +
+                                                        " order by per.nombre, per.apellido ", sqlConn);
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
                 while (drPersonas.Read())
                 {

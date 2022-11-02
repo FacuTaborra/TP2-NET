@@ -88,5 +88,11 @@ namespace Business.Entities
             get { return Nombre + " " + Apellido;}
         }
 
+        public String NombreYApellidoYTipo
+        {
+            get { return Nombre + " " + Apellido + " " + TipoPersona; }
+
+        }
+
     }
 }

@@ -23,6 +23,11 @@ namespace Business.Logic
             ComisionData = new ComisionAdapter();
         }
 
+        public List<Comision> GetAllPlan(int idplan)
+        {
+            return ComisionData.GetAllPlan(idplan);
+        }
+
         public List<Comision> GetAll()
         {
             return ComisionData.GetAll();

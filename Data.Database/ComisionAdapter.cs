@@ -11,6 +11,56 @@ namespace Data.Database
 {
     public class ComisionAdapter: Adapter
     {
+        public List<Comision> GetAllPlan(int idPlan)
+        {
+            List<Comision> comisiones = new List<Comision>();
+            try
+            {
+                this.OpenConnection();
+                string consulta = " Select * " +
+                                  " from comisiones c" +
+                                  " inner join planes pl" +
+                                  "   on pl.id_plan = c.id_plan" +
+                                  " inner join especialidades esp" +
+                                  "   on esp.id_especialidad = pl.id_especialidad" +
+                                  " where pl.id_plan = @idPlan";
+                SqlCommand cmdComisiones = new SqlCommand(consulta, sqlConn);
+                cmdComisiones.Parameters.Add("@idPlan", SqlDbType.Int).Value = idPlan;
+                SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
+                while (drComisiones.Read())
+                {
+                    Comision com = new Comision();
+                    com.ID = (int)drComisiones["id_comision"];
+                    com.Descripcion = (string)drComisiones["desc_comision"];
+                    com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
+                    Plan p = new Plan((int)drComisiones["id_plan"]);
+                    p.Descripcion = (string)drComisiones["desc_plan"];
+
+                    Especialidad esp = new Especialidad((int)drComisiones["id_especialidad"]);
+                    esp.Descripcion = (string)drComisiones["desc_especialidad"];
+                    p.Especialidad = esp;
+
+                    com.Plan = p;
+                    comisiones.Add(com);
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", sqlEx);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de comisiones", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return comisiones;
+        }
+
 
         public List<Comision> GetAll()
         {

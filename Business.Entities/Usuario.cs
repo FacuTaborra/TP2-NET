@@ -51,5 +51,9 @@ namespace Business.Entities
             set { _Persona = value; }
         }
 
+        public Persona.TiposPersonas TipoPersona
+        {
+            get { return Persona.TipoPersona; }
+        }
     }
 }

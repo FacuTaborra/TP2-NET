@@ -42,5 +42,15 @@ namespace Business.Entities
         {
             get { return Curso.Comision.Plan; }
         }
+
+        public String NombreYApellido
+        {
+            get { return Alumno.Nombre + " " + Alumno.Apellido; }
+        }
+
+        public int Legajo
+        {
+            get { return Alumno.Legajo; }
+        }
     }
 }

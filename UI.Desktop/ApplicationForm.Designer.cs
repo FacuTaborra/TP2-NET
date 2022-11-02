@@ -80,6 +80,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(825, 409);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ApplicationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notificación";
             this.Load += new System.EventHandler(this.ApplicationForm_Load);
             this.ResumeLayout(false);

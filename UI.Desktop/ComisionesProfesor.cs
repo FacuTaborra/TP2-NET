@@ -13,7 +13,6 @@ namespace UI.Desktop
     public partial class ComisionesProfesor : UI.Desktop.ApplicationForm
     {
         public Persona _profesor;
-        public DocenteCursoLogic _DataCurso;
         
         public Persona Profesor
         {
@@ -21,16 +20,18 @@ namespace UI.Desktop
             set { _profesor = value; }
         }
 
-        public ComisionesProfesor()
+        public ComisionesProfesor(Persona profesor)
         {
+            Profesor = profesor;
             InitializeComponent();
             this.dgvComisionesProfesor.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            _DataCurso = new DocenteCursoLogic();
-            this.dgvComisionesProfesor.DataSource = _DataCurso.GetCursosProfesor(Profesor.ID);
+            DocenteCursoLogic _DataCurso = new DocenteCursoLogic();
+            List<DocenteCurso> docenteCursos = _DataCurso.GetCursosProfesor(Profesor.ID);
+            this.dgvComisionesProfesor.DataSource = docenteCursos;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -18,6 +18,7 @@ namespace UI.Desktop
         {
             IdCurso = idCurso;
             InitializeComponent();
+            this.dgvAlumnosCurso.AutoGenerateColumns = false;
         }
 
         public void Listar()
@@ -33,10 +34,11 @@ namespace UI.Desktop
 
         private void dgvAlumnosCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 4)
+            if(e.ColumnIndex == 5)
             {
                 CargaNota cargaNota = new CargaNota(int.Parse(this.dgvAlumnosCurso.CurrentRow.Cells[0].Value.ToString()));
                 cargaNota.ShowDialog();
+                Listar();
             }
         }
 
