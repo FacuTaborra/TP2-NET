@@ -33,6 +33,12 @@ namespace UI.Desktop
             this.tcPersonas = new System.Windows.Forms.ToolStripContainer();
             this.tlPersonas = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.tsPersonas = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,12 +49,6 @@ namespace UI.Desktop
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.tsPersonas = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tcPersonas.ContentPanel.SuspendLayout();
             this.tcPersonas.TopToolStripPanel.SuspendLayout();
             this.tcPersonas.SuspendLayout();
@@ -63,11 +63,11 @@ namespace UI.Desktop
             // tcPersonas.ContentPanel
             // 
             this.tcPersonas.ContentPanel.Controls.Add(this.tlPersonas);
-            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(1049, 303);
+            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(1022, 396);
             this.tcPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcPersonas.Location = new System.Drawing.Point(0, 0);
+            this.tcPersonas.Location = new System.Drawing.Point(0, 25);
             this.tcPersonas.Name = "tcPersonas";
-            this.tcPersonas.Size = new System.Drawing.Size(1049, 328);
+            this.tcPersonas.Size = new System.Drawing.Size(1022, 421);
             this.tcPersonas.TabIndex = 0;
             this.tcPersonas.Text = "toolStripContainer1";
             // 
@@ -89,7 +89,7 @@ namespace UI.Desktop
             this.tlPersonas.RowCount = 2;
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlPersonas.Size = new System.Drawing.Size(1049, 303);
+            this.tlPersonas.Size = new System.Drawing.Size(1022, 396);
             this.tlPersonas.TabIndex = 0;
             // 
             // dgvPersonas
@@ -113,83 +113,13 @@ namespace UI.Desktop
             this.dgvPersonas.MultiSelect = false;
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersonas.Size = new System.Drawing.Size(1043, 268);
+            this.dgvPersonas.Size = new System.Drawing.Size(1016, 361);
             this.dgvPersonas.TabIndex = 0;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.DataPropertyName = "Apellido";
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            this.Direccion.DataPropertyName = "Direccion";
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.DataPropertyName = "Telefono";
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
-            // FechaNacimiento
-            // 
-            this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
-            this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
-            this.FechaNacimiento.Name = "FechaNacimiento";
-            this.FechaNacimiento.ReadOnly = true;
-            // 
-            // Legajo
-            // 
-            this.Legajo.DataPropertyName = "Legajo";
-            this.Legajo.HeaderText = "Legajo";
-            this.Legajo.Name = "Legajo";
-            this.Legajo.ReadOnly = true;
-            // 
-            // TipoPersona
-            // 
-            this.TipoPersona.DataPropertyName = "TipoPersona";
-            this.TipoPersona.HeaderText = "Tipo";
-            this.TipoPersona.Name = "TipoPersona";
-            this.TipoPersona.ReadOnly = true;
-            // 
-            // Plan
-            // 
-            this.Plan.DataPropertyName = "Plan";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(890, 277);
+            this.btnActualizar.Location = new System.Drawing.Point(863, 370);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -199,7 +129,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(971, 277);
+            this.btnSalir.Location = new System.Drawing.Point(944, 370);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -216,7 +146,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsPersonas.Location = new System.Drawing.Point(3, 0);
             this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(184, 25);
+            this.tsPersonas.Size = new System.Drawing.Size(153, 25);
             this.tsPersonas.TabIndex = 0;
             // 
             // tsbNuevo
@@ -250,16 +180,93 @@ namespace UI.Desktop
             this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Apellido.DataPropertyName = "Apellido";
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 77;
+            // 
+            // Telefono
+            // 
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
+            this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.ReadOnly = true;
+            // 
+            // Legajo
+            // 
+            this.Legajo.DataPropertyName = "Legajo";
+            this.Legajo.HeaderText = "Legajo";
+            this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
+            // 
+            // TipoPersona
+            // 
+            this.TipoPersona.DataPropertyName = "TipoPersona";
+            this.TipoPersona.HeaderText = "Tipo";
+            this.TipoPersona.Name = "TipoPersona";
+            this.TipoPersona.ReadOnly = true;
+            this.TipoPersona.Visible = false;
+            // 
+            // Plan
+            // 
+            this.Plan.DataPropertyName = "Plan";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            // 
             // Personas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 328);
+            this.ClientSize = new System.Drawing.Size(1022, 446);
             this.Controls.Add(this.tcPersonas);
             this.Name = "Personas";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personas";
             this.Load += new System.EventHandler(this.Personas_Load);
+            this.Controls.SetChildIndex(this.tcPersonas, 0);
             this.tcPersonas.ContentPanel.ResumeLayout(false);
             this.tcPersonas.TopToolStripPanel.ResumeLayout(false);
             this.tcPersonas.TopToolStripPanel.PerformLayout();
@@ -270,6 +277,7 @@ namespace UI.Desktop
             this.tsPersonas.ResumeLayout(false);
             this.tsPersonas.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

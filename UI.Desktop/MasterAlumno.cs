@@ -42,8 +42,9 @@ namespace UI.Desktop
 
         private void inscripcionACursadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InscripcionCurso ic = new InscripcionCurso();
-            ic.ShowDialog();
+            InscripcionCurso ic = new InscripcionCurso(Alumno);
+            ic.Show();
+            this.Close();
         }
     }
 }

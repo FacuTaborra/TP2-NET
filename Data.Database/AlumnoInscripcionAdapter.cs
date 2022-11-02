@@ -13,6 +13,65 @@ namespace Data.Database
     public class AlumnoInscripcionAdapter:Adapter
     {
 
+        public List<AlumnoInscripcion> GetAlumnosCurso(int IdCurso)
+        {
+            List<AlumnoInscripcion> AlumnosCurso = new List<AlumnoInscripcion>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnosCurso = new SqlCommand(" select ai.id_inscripcion, ai.condicion, ai.nota, ai.id_curso" +
+                                                            "        alu.nombre, alu.apellido, alu.legajo, alu.id_persona " +
+                                                            " from alumnos_inscripciones ai" +
+                                                            " inner join alumnos alu" +
+                                                            "   on alu.id_alumno = ai.id_alumno" +
+                                                            " where ai.id_curso = @idCurso" +
+                                                            " order by apellido desc, nombre desc", sqlConn);
+
+
+                cmdAlumnosCurso.Parameters.Add("@idCurso", SqlDbType.Int).Value = IdCurso;
+
+                SqlDataReader drAlumnosCurso = cmdAlumnosCurso.ExecuteReader();
+                while (drAlumnosCurso.Read())
+                {
+                    AlumnoInscripcion ai = new AlumnoInscripcion();
+
+                    Persona alu = new Persona((int)drAlumnosCurso["id_persona"]);
+                    alu.Legajo = (int)drAlumnosCurso["legajo"];
+                    alu.Nombre = (string)drAlumnosCurso["nombre"];
+                    alu.Apellido = (string)drAlumnosCurso["apellido"];
+
+                    Curso c = new Curso();
+                    c.ID = (int)drAlumnosCurso["id_curso"];
+
+                    ai.ID = (int)drAlumnosCurso["id_inscripcion"];
+                    ai.Condicion = (string)drAlumnosCurso["condicion"];
+                    ai.Nota = (int)drAlumnosCurso["nota"];
+
+                    ai.Curso = c;
+                    ai.Alumno = alu;
+
+                    AlumnosCurso.Add(ai);
+                }
+                drAlumnosCurso.Close();
+            }
+            catch (SqlException Ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar inscripciones", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return AlumnosCurso;
+        }
+
+
         public List<AlumnoInscripcion> GetEstadoAcademico(int legajo)
         {
             List<AlumnoInscripcion> EstadoAcademico = new List<AlumnoInscripcion>();
@@ -20,29 +79,29 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdEstadoAcademico = new SqlCommand(" Select ai.id_inscripcion, ai.condicion, ai.nota," +
-                                                      "        alu.id_alumno, alu.legajo," +
-                                                      "        c.anio_academico," +
-                                                      "        m.desc_materia," +
-                                                      "        p.desc_plan " +
-                                                      " from Persona alu" +
-                                                      " inner join alunos_inscripciones ai" +
-                                                      "     on ai.id_persona = alu.id_persona" +
-                                                      " inner join cursos c" +
-                                                      "     on c.id_curso = ai.id_curso" +
-                                                      " inner join materias m" +
-                                                      "     on m.id_materia = c.id_materia" +
-                                                      " inner join comisiones com" +
-                                                      "     on c.id_comision = com.id_comision" +
-                                                      " inner join planes pl" +
-                                                      "     on pl.id_plan = com.id_plan" +
-                                                      " where alu.legajo = @legajo", sqlConn);
+                                                               "        alu.id_persona, alu.legajo," +
+                                                               "        c.anio_calendario," +
+                                                               "        m.desc_materia," +
+                                                               "        pl.desc_plan " +
+                                                               " from personas alu" +
+                                                               " inner join alumnos_inscripciones ai" +
+                                                               "     on ai.id_alumno = alu.id_persona" +
+                                                               " inner join cursos c" +
+                                                               "     on c.id_curso = ai.id_curso" +
+                                                               " inner join materias m" +
+                                                               "     on m.id_materia = c.id_materia" +
+                                                               " inner join comisiones com" +
+                                                               "     on c.id_comision = com.id_comision" +
+                                                               " inner join planes pl" +
+                                                               "     on pl.id_plan = com.id_plan" +
+                                                               " where alu.legajo = @legajo", sqlConn);
                 cmdEstadoAcademico.Parameters.Add("@legajo", SqlDbType.Int).Value = legajo;
                 SqlDataReader drEstadoAcademico = cmdEstadoAcademico.ExecuteReader();
                 while (drEstadoAcademico.Read())
                 {
                     AlumnoInscripcion ai = new AlumnoInscripcion();
                     
-                    Persona alu = new Persona((int)drEstadoAcademico["id_alumno"]);
+                    Persona alu = new Persona((int)drEstadoAcademico["id_persona"]);
                     alu.Legajo = (int)drEstadoAcademico["legajo"];
                     
                     ai.ID = (int)drEstadoAcademico["id_inscripcion"];
@@ -206,13 +265,11 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                string consulta = "insert into alumnos_inscripciones (id_alumno, id_curso, condicion, nota)" +
-                    "values(@alu, @curso, @con, @nota)";
+                string consulta = "insert into alumnos_inscripciones (id_alumno, id_curso)" +
+                    "values(@alu, @curso)";
                 SqlCommand cmdInsert = new SqlCommand(consulta, sqlConn);
                 cmdInsert.Parameters.Add("alu", SqlDbType.Int).Value = ai.Alumno.ID;
                 cmdInsert.Parameters.Add("curso", SqlDbType.Int).Value = ai.Curso.ID;
-                cmdInsert.Parameters.Add("con", SqlDbType.VarChar, 50).Value = ai.Condicion;
-                cmdInsert.Parameters.Add("nota", SqlDbType.Int).Value = ai.Nota;
                 ai.ID = decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (SqlException Ex1)

@@ -16,6 +16,7 @@ namespace UI.Desktop
     {
 
         private Curso _CursoActual;
+        public int _idPlanFiltro { get; set; }
 
         public CursosDesktop()
         {
@@ -23,8 +24,9 @@ namespace UI.Desktop
         }
 
 
-        public CursosDesktop(ModoForm modo) : this()
+        public CursosDesktop(ModoForm modo, int idPlan) : this()
         {
+            _idPlanFiltro = idPlan;
             _Modo = modo;
         }
 
@@ -108,8 +110,6 @@ namespace UI.Desktop
                 int comID = int.Parse(cbComision.SelectedValue.ToString());
                 ComisionLogic cl = new ComisionLogic();
                 _CursoActual.Comision = cl.GetOne(comID);
-                string show = "Nueva Mat: " + _CursoActual.Materia.ID + "  ComisionActual: " + _CursoActual.Comision.ID;
-                MessageBox.Show(show);
                 if (_Modo == ModoForm.alta)
                 {
                     _CursoActual.State = BusinessEntity.States.New;
@@ -125,11 +125,11 @@ namespace UI.Desktop
         {
             MateriaLogic ml = new MateriaLogic();
             List<Materia> listaMaterias = new List<Materia>();
-            listaMaterias = ml.GetAll();
+            listaMaterias = ml.GetAllWhithPlan(_idPlanFiltro);
             Materia materiaExtra = new Materia();
             materiaExtra.ID = 0;
             materiaExtra.Descripcion = "Seleccionar Materia";
-            listaMaterias.Add(materiaExtra);
+            listaMaterias.Insert(0, materiaExtra);
             this.cbMateria.DataSource = listaMaterias;
             this.cbMateria.DisplayMember = "Descripcion";
             this.cbMateria.ValueMember = "ID";
@@ -140,7 +140,7 @@ namespace UI.Desktop
             Comision comisionExtra = new Comision();
             comisionExtra.ID = 0;
             comisionExtra.Descripcion = "Seleccionar comision";
-            listaComisiones.Add(comisionExtra);
+            listaComisiones.Insert(0, comisionExtra);
             this.cbComision.DataSource = listaComisiones;
             this.cbComision.ValueMember = "ID";
             this.cbComision.DisplayMember = "Descripcion";
@@ -152,8 +152,8 @@ namespace UI.Desktop
             }
             else
             {
-                this.cbMateria.SelectedIndex = listaMaterias.Count() - 1;
-                this.cbComision.SelectedIndex = listaComisiones.Count() - 1;
+                this.cbMateria.SelectedIndex = 0;
+                this.cbComision.SelectedIndex = 0;
             }
         }
 
@@ -212,7 +212,18 @@ namespace UI.Desktop
             base.GuardarCambios();
             MapearADatos();
             CursoLogic cl = new CursoLogic();
-            cl.Save(_CursoActual);
+            _CursoActual = cl.Save(_CursoActual); //se Guarda el id
+            if(_Modo == ModoForm.alta)
+            {
+                AsignarProfesoresCurso asignarProfesoresCurso = new AsignarProfesoresCurso(_CursoActual, ModoForm.alta);
+                asignarProfesoresCurso.ShowDialog();
+            }
+            else
+            {
+                AsignarProfesoresCurso asignarProfesoresCurso = new AsignarProfesoresCurso(_CursoActual, ModoForm.modificacion);
+                asignarProfesoresCurso.ShowDialog();
+            }
+            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

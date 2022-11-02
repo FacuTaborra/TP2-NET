@@ -6,18 +6,15 @@ namespace Business.Entities
 {
     public class DocenteCurso : BusinessEntity
     {
-        private TiposCragos _cargo;
+        private TiposCargos _cargo;
         private Curso _Curso;
         private Persona _Docente;
-
-
         
-        public TiposCragos Cargo
+        public TiposCargos Cargo
         {
             get { return _cargo; }
             set { _cargo = value; }
         } 
-
 
         public Persona Docente
         {
@@ -31,10 +28,38 @@ namespace Business.Entities
             set { _Curso = value; }
         }
 
-        public enum TiposCragos
+        public enum TiposCargos
         {
             Auxiliar,
             Profesor
         }
+
+        // devoluciones para mapear datos en grilla de CursosProfesor
+
+        public String MateriaCurso
+        {
+            get { return Curso.Materia.Descripcion; }
+        }
+
+        public int AñoCalendarioCurso
+        {
+            get { return Curso.AnioCalendario; }
+        }
+
+        public String PlanCurso
+        {
+            get { return Curso.Comision.Plan.DescripcionYEspecialidad; }
+        }
+
+        public String ComisionCurso
+        {
+            get { return Curso.Comision.Descripcion; }
+        }
+
+        public int IDCurso
+        {
+            get{ return Curso.ID; }
+        }
+
     }
 }

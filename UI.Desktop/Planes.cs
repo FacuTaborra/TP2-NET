@@ -35,7 +35,11 @@ namespace UI.Desktop
 
         private void dgvPlanes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex == 3)
+            {
+                UI.Desktop.Materias mt = new UI.Desktop.Materias(int.Parse(this.dgvPlanes.CurrentRow.Cells[0].Value.ToString()));
+                mt.ShowDialog();
+            }
         }
 
         private void Planes_Load(object sender, EventArgs e)

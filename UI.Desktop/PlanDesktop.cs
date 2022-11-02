@@ -23,12 +23,7 @@ namespace UI.Desktop
 
         public PlanDesktop(ModoForm modo) : this()
         {
-            if (_Modo == ModoForm.alta)
-            {
-                this.btnMateriasPlan.Visible = false;
-                this.labelMateriasPlan.Visible = false;
-                this.btnAceptar.Text = "Guardar";
-            }
+           
         }
 
 
@@ -43,8 +38,6 @@ namespace UI.Desktop
             }
             if (_Modo == ModoForm.modificacion)
             {
-                this.btnMateriasPlan.Visible = true;
-                this.labelMateriasPlan.Visible = true;
                 this.btnAceptar.Text = "Guardar";
             }
             else if (_Modo == ModoForm.baja)
@@ -52,9 +45,6 @@ namespace UI.Desktop
                 this.btnAceptar.Text = "Eliminar";
                 this.txtDesc.ReadOnly = true;
                 this.cbEspecialidad.Enabled = false;
-                this.btnMateriasPlan.Visible = true;
-                this.labelMateriasPlan.Visible = true;
-                this.btnMateriasPlan.Enabled = false;
             }
             else if (_Modo == ModoForm.consulta)
             {
@@ -147,19 +137,6 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void btnMateriasPlan_Click(object sender, EventArgs e)
-        {
-            UI.Desktop.Materias mt = null;
-            if(_Modo == ModoForm.alta)
-            {
-                mt = new UI.Desktop.Materias();
-            }
-            else if (_Modo == ModoForm.modificacion)
-            {
-                mt = new UI.Desktop.Materias(int.Parse(this.txtID.Text));
-                
-            }
-            mt.ShowDialog();
-        }
+       
     }
 }

@@ -12,7 +12,28 @@ namespace Business.Logic
 {
     public class Validaciones
     {
-
+        public static bool ValidaNota(int nota)
+        {
+            if(nota<=10 && nota>=1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool ValidaProfesores(int id_DocenteTitular, int id_DocenteAuxiliar)
+        {
+            if(id_DocenteTitular != id_DocenteAuxiliar)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static bool emailValido(string strMailAddress)
         {
             // Return true if strIn is in valid e-mail format.
@@ -44,6 +65,17 @@ namespace Business.Logic
                 return false;
             }
         }
+
+        public static bool EstaInscripto()
+        {
+            return true; // falta codear
+        }
+
+        public static bool HayCupo()
+        {
+            return true; // falta codear
+        }
+
 
     }
 }

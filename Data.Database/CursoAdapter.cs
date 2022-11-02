@@ -12,6 +12,70 @@ namespace Data.Database
     public class CursoAdapter : Adapter
     {
 
+        public List<Curso> GetCursosDisponibles(int año, int id_plan)
+        {
+            List<Curso> listaCursos = new List<Curso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand(" select cur.id_curso, cur.cupo, com.desc_comision, com.anio_especialidad, pl.desc_plan, esp.desc_especialidad, mat.desc_materia " +
+                                                      " from cursos cur" +
+                                                      " inner join comisiones com" +
+                                                      "  on com.id_comision = cur.id_comision" +
+                                                      " inner join planes pl" +
+                                                      "     on pl.id_plan = com.id_plan" +
+                                                      " inner join especialidades esp" +
+                                                      "     on esp.id_especialidad = pl.id_especialidad" +
+                                                      " inner join materias mat" +
+                                                      "     on mat.id_materia = cur.id_materia" +
+                                                      " where pl.id_plan = @idplan and cur.anio_calendario = @anio", sqlConn);
+
+                cmdCursos.Parameters.Add("@anio", SqlDbType.Int).Value = año;
+                cmdCursos.Parameters.Add("@idplan", SqlDbType.Int).Value = id_plan;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    Curso c = new Curso();
+                    c.ID = (int)drCursos["id_curso"];
+                    c.Cupo = (int)drCursos["cupo"];
+
+                    Especialidad esp = new Especialidad();
+                    esp.Descripcion = (string)drCursos["desc_especialidad"];
+
+                    Plan p = new Plan((string)drCursos["desc_plan"]);
+                    p.Especialidad = esp;
+
+                    Comision com = new Comision();
+                    com.AnioEspecialidad = (int)drCursos["anio_especialidad"];
+                    com.Descripcion = (string)drCursos["desc_comision"];
+                    com.Plan = p;
+
+                    Materia mat = new Materia();
+                    mat.Descripcion = (string)drCursos["desc_materia"];
+
+                    c.Comision = com;
+                    c.Materia = mat;
+
+                    listaCursos.Add(c);
+                }
+            }
+            catch (SqlException ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos");
+                throw ExcepcionManejada;
+            }
+            catch (Exception ex2)
+            {
+                Exception ExcepcionManejada2 = new Exception("Error al recuperar la lista de cursos");
+                throw ExcepcionManejada2;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return listaCursos;
+        }
 
         public List<Curso> GetAll()
         {
@@ -172,7 +236,7 @@ namespace Data.Database
         }
 
 
-        public void Insert(Curso c)
+        public Curso Insert(Curso c)
         {
             try
             {
@@ -199,6 +263,7 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
+            return c;
         }
 
 
@@ -232,11 +297,11 @@ namespace Data.Database
             }
         }
 
-        public void Save(Curso c)
+        public Curso Save(Curso c)
         {
             if (c.State == BusinessEntity.States.New)
             {
-                this.Insert(c);
+                c = this.Insert(c);
             }
             else if (c.State == BusinessEntity.States.Modified)
             {
@@ -248,6 +313,7 @@ namespace Data.Database
             }
 
             c.State = BusinessEntity.States.Unmodified;
+            return c;
         }
 
         public List<int> GetAños()

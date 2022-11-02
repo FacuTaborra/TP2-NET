@@ -9,6 +9,132 @@ namespace Data.Database
 {
     public class DocenteCursoAdapter:Adapter
     {
+        public DocenteCurso GetProfesorCurso(int idCurso, DocenteCurso.TiposCargos cargo)
+        {
+            DocenteCurso CursoProfesor = new DocenteCurso();
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdGetOne = new SqlCommand(" select dc.id_dictado, dc.cargo, " +
+                                                      "        dc.id_curso," +
+                                                      "        per.nombre, per.apellido, per.id_persona" +
+                                                      " from docentes_cursos dc" +
+                                                      " inner join personas per" +
+                                                      "     on per.id_persona = dc.id_docente  " +
+                                                      " where dc.id_curso = @id and dc.cargo = @cargo", sqlConn);
+                cmdGetOne.Parameters.Add("@id", SqlDbType.Int).Value = idCurso;
+                cmdGetOne.Parameters.Add("@cargo", SqlDbType.Int).Value = cargo;
+                SqlDataReader drGetProfesorCurso = cmdGetOne.ExecuteReader();
+                if (drGetProfesorCurso.Read())
+                {
+                    CursoProfesor.ID = (int)drGetProfesorCurso["id_dictado"];
+
+                    Curso c = new Curso();
+                    c.ID = (int)drGetProfesorCurso["id_curso"];
+                    CursoProfesor.Curso = c;
+
+                    Persona docente = new Persona();
+                    docente.ID = (int)drGetProfesorCurso["id_persona"];
+                    docente.Nombre = (string)drGetProfesorCurso["nombre"];
+                    docente.Apellido = (string)drGetProfesorCurso["apellido"];
+                    CursoProfesor.Docente = docente;
+
+                    CursoProfesor.Cargo = (DocenteCurso.TiposCargos)drGetProfesorCurso["cargo"];
+
+                }
+                drGetProfesorCurso.Close();
+            }
+            /*catch (SqlException Ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar dictado", Ex2);
+                throw ExcepcionManejada;
+            }*/
+            finally
+            {
+                this.CloseConnection();
+            }
+            return CursoProfesor;
+        }
+        public List<DocenteCurso> GetCursosProfesor(int idProfesor)
+        {
+            List<DocenteCurso> listaCursos = new List<DocenteCurso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursosProfesor = new SqlCommand(" select dc.cargo, " +
+                                                              " cur.anio_calendario, cur.id_curso " +
+                                                              " com.desc_comision, " +
+                                                              " pl.desc_plan, " +
+                                                              " esp.desc_especialidad, " +
+                                                              " mat.desc_materia" +
+                                                              " from docentes_cursos dc" +
+                                                              " inner join cursos cur" +
+                                                              "     on cur.id_curso = dc.id_curso" +
+                                                              " inner join comisiones com" +
+                                                              "     on com.id_comision = cur.id_comision" +
+                                                              " inner join planes pl " +
+                                                              "     on pl.id_plan = com.id_plan" +
+                                                              " inner join especialidades esp " +
+                                                              "     on esp.id_especialidad = pl.id_especialidad" +
+                                                              " inner join materias mat " +
+                                                              "     on mat.id_materia = cur.id_materia" +
+                                                              " where id_docente = @id_profesor" +
+                                                              " order by cur.anio_calendario desc , dc.cargo asc", sqlConn);
+
+                cmdCursosProfesor.Parameters.Add("@id_profesor", SqlDbType.Int).Value = idProfesor;
+                SqlDataReader drCursosProfesor = cmdCursosProfesor.ExecuteReader();
+
+                while (drCursosProfesor.Read())
+                {
+                    Curso c = new Curso();
+                    c.ID = (int)drCursosProfesor["id_curso"];
+
+                    Especialidad esp = new Especialidad();
+                    esp.Descripcion = (string)drCursosProfesor["desc_especialidad"];
+
+                    Plan p = new Plan((string)drCursosProfesor["desc_plan"]);
+                    p.Especialidad = esp;
+
+                    Comision com = new Comision();
+                    com.AnioEspecialidad = (int)drCursosProfesor["anio_especialidad"];
+                    com.Descripcion = (string)drCursosProfesor["desc_comision"];
+                    com.Plan = p;
+
+                    Materia mat = new Materia();
+                    mat.Descripcion = (string)drCursosProfesor["desc_materia"];
+
+                    c.Comision = com;
+                    c.Materia = mat;
+
+                    DocenteCurso dc = new DocenteCurso();
+                    dc.Curso = c;
+                    dc.Cargo = (DocenteCurso.TiposCargos)drCursosProfesor["cargo"];
+
+                    listaCursos.Add(dc);
+                }
+            }
+            catch (SqlException ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos");
+                throw ExcepcionManejada;
+            }
+            catch (Exception ex2)
+            {
+                Exception ExcepcionManejada2 = new Exception("Error al recuperar la lista de cursos");
+                throw ExcepcionManejada2;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return listaCursos;
+        }
         public List<DocenteCurso> GetAll()
         {
             List<DocenteCurso> lista = new List<DocenteCurso>();
@@ -28,7 +154,7 @@ namespace Data.Database
                     int IDDocente = (int)drGetAll["id_docente"];
                     PersonaAdapter pa = new PersonaAdapter();
                     dc.Docente = pa.GetOne(IDDocente);
-                    dc.Cargo = (DocenteCurso.TiposCragos)drGetAll["cargo"];
+                    dc.Cargo = (DocenteCurso.TiposCargos)drGetAll["cargo"];
 
                     lista.Add(dc);
                 }
@@ -71,7 +197,7 @@ namespace Data.Database
                     int IDDocente = (int)drGetOne["id_docente"];
                     PersonaAdapter pa = new PersonaAdapter();
                     dc.Docente = pa.GetOne(IDDocente);
-                    dc.Cargo = (DocenteCurso.TiposCragos)drGetOne["cargo"];
+                    dc.Cargo = (DocenteCurso.TiposCargos)drGetOne["cargo"];
                 }
                 drGetOne.Close();
             }
@@ -98,11 +224,13 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                string consulta = "insert into docentes_cursos (id_docente, id_curso, cargo) values(@id_docente, @id_curso, @cargo)";
+                string consulta = " INSERT INTO docentes_cursos (id_curso, id_docente, cargo) " +
+                                  " VALUES (@id_curso, @id_docente, @cargo) " +
+                                  " SELECT @@identity";
                 SqlCommand cmdInsert = new SqlCommand(consulta, sqlConn);
-                cmdInsert.Parameters.Add("id_docente", SqlDbType.Int).Value = dc.Docente.ID;
-                cmdInsert.Parameters.Add("id_curso", SqlDbType.Int).Value = dc.Curso.ID;
-                cmdInsert.Parameters.Add("cargo", SqlDbType.Int).Value = (int)dc.Cargo;
+                cmdInsert.Parameters.Add("@id_docente", SqlDbType.Int).Value = dc.Docente.ID;
+                cmdInsert.Parameters.Add("@id_curso", SqlDbType.Int).Value = dc.Curso.ID;
+                cmdInsert.Parameters.Add("@cargo", SqlDbType.Int).Value = (int)dc.Cargo;
                 dc.ID = decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (SqlException Ex1)

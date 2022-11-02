@@ -24,6 +24,18 @@ namespace Business.Logic
             CursoData = new CursoAdapter();
         }
 
+        public void RestoCupo(Curso curso)
+        {
+            curso = GetOne(curso.ID);
+            curso.Cupo = curso.Cupo - 1;
+            _CursoData.Update(curso);
+        }
+
+        public List<Curso> GetCursosDisponibles(int año, int idPlan)
+        {
+            return _CursoData.GetCursosDisponibles(año, idPlan);
+        }
+
         public List<Curso> GetAll(int año)
         {
             return CursoData.GetAll(año);
@@ -44,9 +56,9 @@ namespace Business.Logic
             CursoData.Delete(id);
         }
 
-        public void Save(Curso curso)
+        public Curso Save(Curso curso)
         {
-            CursoData.Save(curso);
+            return CursoData.Save(curso);
         }
 
         public List<int> GetAños()

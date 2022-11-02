@@ -31,12 +31,12 @@ namespace UI.Desktop
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvEstadoAcademico = new System.Windows.Forms.DataGridView();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadoAcademico)).BeginInit();
             this.SuspendLayout();
@@ -76,26 +76,6 @@ namespace UI.Desktop
             this.dgvEstadoAcademico.Size = new System.Drawing.Size(600, 330);
             this.dgvEstadoAcademico.TabIndex = 0;
             // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(528, 339);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 2;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F);
-            this.label1.Location = new System.Drawing.Point(196, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 31);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Estado Academico";
-            // 
             // Materia
             // 
             this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -126,6 +106,26 @@ namespace UI.Desktop
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(528, 339);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 2;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F);
+            this.label1.Location = new System.Drawing.Point(196, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(217, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Estado Academico";
+            // 
             // EstadoAcademico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +133,7 @@ namespace UI.Desktop
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "EstadoAcademico";
+            this.Load += new System.EventHandler(this.EstadoAcademico_Load);
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.tableLayoutPanel1.ResumeLayout(false);

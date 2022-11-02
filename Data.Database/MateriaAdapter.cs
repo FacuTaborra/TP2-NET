@@ -108,7 +108,9 @@ namespace Data.Database
                 SqlCommand cmdMaterias = new SqlCommand(" Select * " +
                                                         " from materias as mat " +
                                                         " inner join planes as p " +
-                                                        "       on mat.id_plan = p.id_plan " +
+                                                        "       on mat.id_plan = p.id_plan" +
+                                                        " inner join especialidades esp" +
+                                                        "   on esp.id_especialidad = p.id_especialidad " +
                                                         " where mat.id_plan = @idPlan", sqlConn);
                 cmdMaterias.Parameters.Add("@idPlan", SqlDbType.Int).Value = id_plan;
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
@@ -122,6 +124,7 @@ namespace Data.Database
                     Plan p = new Plan((int)drMaterias["id_plan"]);
                     p.Descripcion = (string)drMaterias["desc_plan"];
                     Especialidad e = new Especialidad((int)drMaterias["id_especialidad"]);
+                    e.Descripcion = (string)drMaterias["desc_especialidad"];
                     p.Especialidad = e;
                     mat.Plan = p;
                     materias.Add(mat);

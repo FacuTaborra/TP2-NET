@@ -32,7 +32,8 @@ namespace UI.Desktop
 
         private void Cursos_Load(object sender, EventArgs e)
         {
-            Listar(0);
+            Listar(DateTime.UtcNow.Year);
+            //tira un error si dejo el cb vacio
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -49,9 +50,14 @@ namespace UI.Desktop
 
         private void tsbNew_Click(object sender, EventArgs e)
         {
-            CursosDesktop cd = new CursosDesktop(ApplicationForm.ModoForm.alta);
-            cd.ShowDialog();
-            this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
+
+            EligePlanCurso eligePlanCurso = new EligePlanCurso();
+            eligePlanCurso.ShowDialog();
+            if (this.cbConsultaAño.SelectedValue != null)
+            {
+                this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
+            }
+            
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -62,7 +68,6 @@ namespace UI.Desktop
                 CursosDesktop cd = new CursosDesktop(selectedID, ApplicationForm.ModoForm.modificacion);
                 cd.ShowDialog();
                 this.Listar(int.Parse(this.cbConsultaAño.SelectedValue.ToString()));
-
             }
             else
             {

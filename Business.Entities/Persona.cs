@@ -83,5 +83,10 @@ namespace Business.Entities
              set { _TipoPersona = value; }
         }
 
+        public String NombreYApellido
+        {
+            get { return Nombre + " " + Apellido;}
+        }
+
     }
 }

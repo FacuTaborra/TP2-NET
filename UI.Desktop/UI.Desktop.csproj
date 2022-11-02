@@ -47,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnosComision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnosComision.Designer.cs">
+      <DependentUpon>AlumnosComision.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarProfesoresCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarProfesoresCurso.Designer.cs">
+      <DependentUpon>AsignarProfesoresCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CargaNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaNota.Designer.cs">
+      <DependentUpon>CargaNota.cs</DependentUpon>
     </Compile>
     <Compile Include="Comisiones.cs">
       <SubType>Form</SubType>
@@ -65,6 +83,12 @@
     <Compile Include="ComisionesDesktop.Designer.cs">
       <DependentUpon>ComisionesDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComisionesProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionesProfesor.Designer.cs">
+      <DependentUpon>ComisionesProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +100,12 @@
     </Compile>
     <Compile Include="CursosDesktop.Designer.cs">
       <DependentUpon>CursosDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EligePlanCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EligePlanCurso.Designer.cs">
+      <DependentUpon>EligePlanCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="Especialidades.cs">
       <SubType>Form</SubType>
@@ -119,6 +149,12 @@
     <Compile Include="EstadoAcademico.Designer.cs">
       <DependentUpon>EstadoAcademico.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterProfesor.Designer.cs">
+      <DependentUpon>MasterProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="MateriaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +178,12 @@
     </Compile>
     <Compile Include="MenuAdmin.Designer.cs">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuProfesor.Designer.cs">
+      <DependentUpon>MenuProfesor.cs</DependentUpon>
     </Compile>
     <Compile Include="Personas.cs">
       <SubType>Form</SubType>
@@ -187,8 +229,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlumnosComision.resx">
+      <DependentUpon>AlumnosComision.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarProfesoresCurso.resx">
+      <DependentUpon>AsignarProfesoresCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargaNota.resx">
+      <DependentUpon>CargaNota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comisiones.resx">
       <DependentUpon>Comisiones.cs</DependentUpon>
@@ -196,11 +247,17 @@
     <EmbeddedResource Include="ComisionesDesktop.resx">
       <DependentUpon>ComisionesDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ComisionesProfesor.resx">
+      <DependentUpon>ComisionesProfesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cursos.resx">
       <DependentUpon>Cursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CursosDesktop.resx">
       <DependentUpon>CursosDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EligePlanCurso.resx">
+      <DependentUpon>EligePlanCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Especialidades.resx">
       <DependentUpon>Especialidades.cs</DependentUpon>
@@ -223,6 +280,9 @@
     <EmbeddedResource Include="EstadoAcademico.resx">
       <DependentUpon>EstadoAcademico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MasterProfesor.resx">
+      <DependentUpon>MasterProfesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuProfesor.resx">
+      <DependentUpon>MenuProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personas.resx">
       <DependentUpon>Personas.cs</DependentUpon>

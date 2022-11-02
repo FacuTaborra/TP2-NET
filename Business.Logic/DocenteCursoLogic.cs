@@ -18,7 +18,15 @@ namespace Business.Logic
             set { _DCData = value; }
         }
 
+        public DocenteCurso GetProfesorCurso(int idCurso, DocenteCurso.TiposCargos cargo)
+        {
+            return DCData.GetProfesorCurso(idCurso, cargo);
+        }
 
+        public List<DocenteCurso> GetCursosProfesor(int idProfesor)
+        {
+            return _DCData.GetCursosProfesor(idProfesor);
+        }
 
         public DocenteCursoLogic()
         {

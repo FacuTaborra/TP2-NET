@@ -49,6 +49,12 @@ namespace UI.Desktop
             idplan = id_plan;
             InitializeComponent();
             this.dgvMaterias.AutoGenerateColumns = false;
+            this.tlMaterias.Dock = DockStyle.Fill;
+            this.cbPlanes.Visible = false;
+            this.btnBuscar.Visible = false;
+            this.TituloElegirPlan.Visible = false;
+            this.tsMaterias.Visible = false;
+            
             // falta ocultar el toolscript
             ListarRespectoPlan(idplan);
         }
@@ -83,7 +89,18 @@ namespace UI.Desktop
 
         private void Materias_Load(object sender, EventArgs e)
         {
-            
+            PlanLogic pl = new PlanLogic();
+            List<Plan> planes = pl.GetAll();
+            Plan p = new Plan();
+            p.Descripcion = "Plan";
+            Especialidad es = new Especialidad();
+            es.Descripcion = " ";
+            p.Especialidad = es;
+            p.ID = 0;
+            planes.Insert(0, p);
+            this.cbPlanes.DataSource = planes;
+            this.cbPlanes.DisplayMember = "DescripcionYEspecialidad";
+            this.cbPlanes.ValueMember = "ID";
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -184,9 +201,16 @@ namespace UI.Desktop
             }
         }
 
-        private void dgvMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            if(this.cbPlanes.SelectedValue != null)
+            {
+                this.ListarRespectoPlan(int.Parse(this.cbPlanes.SelectedValue.ToString()));
+            }
+            else
+            {
+                Notificar("Error", "Debe seleccionar un Plan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

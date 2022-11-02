@@ -33,5 +33,10 @@ namespace Business.Entities
             set { _Materia = value; }
         }
 
+        public string PlanComision
+        {
+            get { return Comision.Plan.Descripcion + " " + Comision.Plan.Especialidad.Descripcion;}
+        }
+
     }
 }

@@ -31,5 +31,10 @@ namespace UI.Desktop
             menuAlumno.Show();
             this.Close();
         }
+
+        private void EstadoAcademico_Load(object sender, EventArgs e)
+        {
+            Listar();
+        }
     }
 }

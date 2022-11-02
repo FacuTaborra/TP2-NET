@@ -66,7 +66,9 @@ namespace UI.Desktop
                 }
                 else if(u.Persona.TipoPersona == (Persona.TiposPersonas)2)
                 {
-                    
+                    MenuProfesor menuProfesor = new MenuProfesor(u.Persona);
+                    menuProfesor.Show();
+                    this.Close();
                 }
                 else
                 {
