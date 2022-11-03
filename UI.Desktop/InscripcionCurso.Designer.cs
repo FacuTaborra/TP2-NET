@@ -32,14 +32,14 @@ namespace UI.Desktop
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvInscripciones = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.Id_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripciones)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +48,7 @@ namespace UI.Desktop
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F);
-            this.label1.Location = new System.Drawing.Point(167, 30);
+            this.label1.Location = new System.Drawing.Point(233, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 31);
             this.label1.TabIndex = 3;
@@ -68,11 +68,13 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 300);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(683, 300);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // dgvInscripciones
             // 
+            this.dgvInscripciones.AllowUserToAddRows = false;
+            this.dgvInscripciones.AllowUserToDeleteRows = false;
             this.dgvInscripciones.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.dgvInscripciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInscripciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -86,46 +88,31 @@ namespace UI.Desktop
             this.dgvInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInscripciones.Location = new System.Drawing.Point(3, 3);
             this.dgvInscripciones.Name = "dgvInscripciones";
-            this.dgvInscripciones.Size = new System.Drawing.Size(554, 265);
+            this.dgvInscripciones.ReadOnly = true;
+            this.dgvInscripciones.Size = new System.Drawing.Size(677, 265);
             this.dgvInscripciones.TabIndex = 0;
             this.dgvInscripciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInscripciones_CellContentClick);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(3, 274);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(482, 274);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // Id_curso
             // 
             this.Id_curso.DataPropertyName = "ID";
             this.Id_curso.HeaderText = "id_curso";
             this.Id_curso.Name = "Id_curso";
+            this.Id_curso.ReadOnly = true;
             this.Id_curso.Visible = false;
             // 
             // Materia
             // 
-            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Materia.DataPropertyName = "Materia";
             this.Materia.HeaderText = "Materia";
             this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
+            this.Materia.Width = 67;
             // 
             // Comision
             // 
+            this.Comision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Comision.DataPropertyName = "Comision";
             this.Comision.HeaderText = "Comision";
             this.Comision.Name = "Comision";
@@ -152,11 +139,31 @@ namespace UI.Desktop
             this.btnInscribirse.ReadOnly = true;
             this.btnInscribirse.Text = "inscribirse";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(3, 274);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 1;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(605, 274);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 2;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // InscripcionCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 371);
+            this.ClientSize = new System.Drawing.Size(683, 371);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "InscripcionCurso";
