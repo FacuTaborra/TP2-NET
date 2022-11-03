@@ -36,7 +36,6 @@ namespace Business.Entities
 
 		public String DescripcionYEspecialidad
         {
-			
             get {
 				var especialidad = Especialidad;
 				return Descripcion + " " + especialidad.Descripcion; 
@@ -47,5 +46,10 @@ namespace Business.Entities
 		{
 			return DescripcionYEspecialidad;
 		}
+
+		public String DescripcionEpecialidad
+        {
+            get { return Especialidad.Descripcion; }
+        }
 	}
 }

@@ -79,5 +79,17 @@ namespace UI.Desktop
             comisionesForm.Show();
             this.Close();
         }
+
+        private void tsReporteCursos_Click(object sender, EventArgs e)
+        {
+            EligeAñoInformeCurso eligeAñoInformeCurso = new EligeAñoInformeCurso();
+            eligeAñoInformeCurso.ShowDialog();
+        }
+
+        private void reportePlanesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportPlanes report = new ReportPlanes();
+            report.ShowDialog();
+        }
     }
 }

@@ -41,6 +41,9 @@ namespace UI.Desktop
             this.tsCursos = new System.Windows.Forms.ToolStripSplitButton();
             this.tsMaterias = new System.Windows.Forms.ToolStripMenuItem();
             this.tsComisiones = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsReporteCursos = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportePlanesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuToolScript.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +53,8 @@ namespace UI.Desktop
             this.MenuToolScript.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsPlanes,
             this.tsUsuarios,
-            this.tsCursos});
+            this.tsCursos,
+            this.toolStripDropDownButton1});
             this.MenuToolScript.Location = new System.Drawing.Point(0, 0);
             this.MenuToolScript.Name = "MenuToolScript";
             this.MenuToolScript.Size = new System.Drawing.Size(600, 25);
@@ -145,14 +149,39 @@ namespace UI.Desktop
             this.tsComisiones.Text = "Gestionar Comisiones";
             this.tsComisiones.Click += new System.EventHandler(this.tsComisiones_Click);
             // 
-            // Master
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsReporteCursos,
+            this.reportePlanesToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(66, 22);
+            this.toolStripDropDownButton1.Text = "Reportes";
+            // 
+            // tsReporteCursos
+            // 
+            this.tsReporteCursos.Name = "tsReporteCursos";
+            this.tsReporteCursos.Size = new System.Drawing.Size(180, 22);
+            this.tsReporteCursos.Text = "Reporte Cursos";
+            this.tsReporteCursos.Click += new System.EventHandler(this.tsReporteCursos_Click);
+            // 
+            // reportePlanesToolStripMenuItem
+            // 
+            this.reportePlanesToolStripMenuItem.Name = "reportePlanesToolStripMenuItem";
+            this.reportePlanesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportePlanesToolStripMenuItem.Text = "Reporte Planes";
+            this.reportePlanesToolStripMenuItem.Click += new System.EventHandler(this.reportePlanesToolStripMenuItem_Click);
+            // 
+            // MasterAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 354);
             this.Controls.Add(this.MenuToolScript);
-            this.Name = "Master";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "MasterAdmin";
             this.Text = "Master";
             this.MenuToolScript.ResumeLayout(false);
             this.MenuToolScript.PerformLayout();
@@ -174,5 +203,8 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripSplitButton tsCursos;
         private System.Windows.Forms.ToolStripMenuItem tsMaterias;
         private System.Windows.Forms.ToolStripMenuItem tsComisiones;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem tsReporteCursos;
+        private System.Windows.Forms.ToolStripMenuItem reportePlanesToolStripMenuItem;
     }
 }

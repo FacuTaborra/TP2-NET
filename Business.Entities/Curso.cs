@@ -38,5 +38,16 @@ namespace Business.Entities
             get { return Comision.Plan.Descripcion + " " + Comision.Plan.Especialidad.Descripcion;}
         }
 
+        public String DescripcionMateria
+        {
+            get { return Materia.Descripcion; }
+        }
+
+        public String DescripcionComision
+        {
+            get { return Comision.Descripcion; }
+        }
+
+
     }
 }

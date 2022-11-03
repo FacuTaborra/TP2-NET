@@ -136,7 +136,17 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                string consulta = "select * from cursos where anio_calendario = @anio";
+                string consulta = " select * " +
+                                  " from cursos cur" +
+                                  " inner join materias mat" +
+                                  "     on mat.id_materia = cur.id_materia" +
+                                  " inner join comisiones com" +
+                                  "     on com.id_comision = cur.id_comision" +
+                                  " inner join planes pl" +
+                                  "     on pl.id_plan = com.id_plan" +
+                                  " inner join especialidades esp" +
+                                  "     on esp.id_especialidad = pl.id_especialidad" +
+                                  " where anio_calendario = @anio";
                 SqlCommand cmdCursos = new SqlCommand(consulta, sqlConn);
                 cmdCursos.Parameters.Add("@anio",SqlDbType.Int ).Value = año;
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
@@ -147,12 +157,21 @@ namespace Data.Database
                     c.ID = (int)drCursos["id_curso"];
                     c.AnioCalendario = (int)drCursos["anio_calendario"];
                     c.Cupo = (int)drCursos["cupo"];
-                    int idMat = (int)drCursos["id_materia"];
-                    MateriaAdapter ma = new MateriaAdapter();
-                    c.Materia = ma.GetOne(idMat);
-                    int idComi = (int)drCursos["id_comision"];
-                    ComisionAdapter ca = new ComisionAdapter();
-                    c.Comision = ca.GetOne(idComi);
+                    Materia mat = new Materia();
+                    mat.ID = (int)drCursos["id_materia"];
+                    mat.Descripcion = (string)drCursos["desc_materia"];
+                    c.Materia = mat;
+                    Comision com = new Comision();
+                    com.ID = (int)drCursos["id_comision"];
+                    com.Descripcion = (string)drCursos["desc_comision"];
+                    Especialidad esp = new Especialidad();
+                    esp.Descripcion = (string)drCursos["desc_especialidad"];
+
+                    Plan p = new Plan((string)drCursos["desc_plan"]);
+                    p.Especialidad = esp;
+                    com.Plan = p;
+
+                    c.Comision = com;
 
                     listaCursos.Add(c);
                 }

@@ -34,6 +34,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -100,6 +118,12 @@
     </Compile>
     <Compile Include="CursosDesktop.Designer.cs">
       <DependentUpon>CursosDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EligeAñoInformeCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EligeAñoInformeCurso.Designer.cs">
+      <DependentUpon>EligeAñoInformeCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="EligePersonaUsuario.cs">
       <SubType>Form</SubType>
@@ -221,6 +245,19 @@
     <Compile Include="PlanEstudio.Designer.cs">
       <DependentUpon>PlanEstudio.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCursos.Designer.cs">
+      <DependentUpon>ReportCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportPlanes.Designer.cs">
+      <DependentUpon>ReportPlanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CursosDesktop.resx">
       <DependentUpon>CursosDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EligeAñoInformeCurso.resx">
+      <DependentUpon>EligeAñoInformeCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EligePersonaUsuario.resx">
       <DependentUpon>EligePersonaUsuario.cs</DependentUpon>
@@ -322,6 +362,14 @@
     <EmbeddedResource Include="PlanEstudio.resx">
       <DependentUpon>PlanEstudio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportCursos.rdlc" />
+    <EmbeddedResource Include="ReportPlanes.rdlc" />
+    <EmbeddedResource Include="ReportCursos.resx">
+      <DependentUpon>ReportCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPlanes.resx">
+      <DependentUpon>ReportPlanes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,7 +386,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Business.Entities.Curso.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Persona+TiposPersonas.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Plan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -361,6 +412,24 @@
       <Project>{b17d42ad-8a5e-4902-8a8f-5f9e3f08e294}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
