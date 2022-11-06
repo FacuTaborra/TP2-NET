@@ -86,7 +86,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\logo-utn.png" />
     <Content Include="Login.aspx" />
-    <Content Include="personas.aspx" />
+    <Content Include="Personas.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -146,12 +146,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="personas.aspx.cs">
-      <DependentUpon>personas.aspx</DependentUpon>
+    <Compile Include="Personas.aspx.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="personas.aspx.designer.cs">
-      <DependentUpon>personas.aspx</DependentUpon>
+    <Compile Include="Personas.aspx.designer.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>

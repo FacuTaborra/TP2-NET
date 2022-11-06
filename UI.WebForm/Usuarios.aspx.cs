@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.WebForm
 {
-    public partial class Usuarios : Default
+    public partial class Usuarios : UI.WebForm.Default
     {
         UsuarioLogic _logic;
 
