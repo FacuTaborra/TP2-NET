@@ -6,7 +6,8 @@
 			<siteMapNode url="Especialidades.aspx" title="Especialidades"  description="Gestionar Especialidades" roles="Administrador"/>
 			<siteMapNode url="Planes.aspx" title="Planes"  description="Gestionar Planes" roles="Administrador" />
 			<siteMapNode url="Materias.aspx" title="Materias"  description="Gestionar Materias" roles="Administrador" />
-			<siteMapNode url="Comisiones.aspx" title="Comisiones" description="Gestionar Personas" roles="Administrador"/>
+			<siteMapNode url="Comisiones.aspx" title="Comisiones" description="Gestionar Comisiones" roles="Administrador"/>
+			<siteMapNode url="Cursos.aspx" title="Cursos" description="Gestionar Cursos" roles="Administrador"/>
 			<siteMapNode url="Personas.aspx" title="Personas" description="Gestionar Personas" roles="Administrador"/>
 		</siteMapNode>
 		<siteMapNode roles="Alumno"  title="Alumno" description="Alumno">

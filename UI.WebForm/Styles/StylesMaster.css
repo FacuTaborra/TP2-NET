@@ -71,8 +71,9 @@
 }
 
 .formLabel{
-    width: 150px;
+    width: 100px;
     text-align:right;
+    margin-right: 10px;
 }
 
 .formTextBox{
@@ -99,4 +100,11 @@
     margin-top: 60px;
     justify-content: center;
     align-items: center;
+}
+
+.dropdown-toggle {
+    width: 250px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid #ced4da;
 }
