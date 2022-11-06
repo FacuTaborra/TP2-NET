@@ -59,15 +59,26 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            /*List<Plan> planes = this.Logic.GetAll(); 
-            foreach(Plan p in planes)
-            {
-                EspecialidadLogic el = new EspecialidadLogic();
-                p.Especialidad = el.GetOne(p.Especialidad.ID);
-            }*/
+
 
             this.gridView.DataSource =  this.Logic.GetAll(); // cambiar y traer las especialidades
             this.gridView.DataBind();
+        }
+
+        private void LoadDropDown()
+        {
+            EspecialidadLogic el = new EspecialidadLogic();
+            List<Especialidad> listaEsp = new List<Especialidad>();
+            listaEsp = el.GetAll();
+            Especialidad extraEsp = new Especialidad();
+            extraEsp.ID = 0;
+            extraEsp.Descripcion = "Seleccionar Plan";
+            listaEsp.Add(extraEsp);
+            this.ddlEspecialidad.DataSource = listaEsp;
+            this.ddlEspecialidad.DataValueField = "ID";
+            this.ddlEspecialidad.DataTextField = "Descripcion";
+            this.ddlEspecialidad.DataBind();
+            this.ddlEspecialidad.SelectedValue = 0.ToString();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -75,6 +86,7 @@ namespace UI.Web
             if (!this.Page.IsPostBack)
             {
                 this.LoadGrid();
+                this.LoadDropDown();
             }
         }
 
@@ -88,7 +100,7 @@ namespace UI.Web
             this.Entity = this.Logic.GetOne(id);
             this.IDPlanTextBox.Text = this.Entity.ID.ToString();
             this.DescripcionTextBox.Text = this.Entity.Descripcion;
-            this.IDEspecialidadTextBox.Text = this.Entity.Especialidad.ID.ToString();
+            this.ddlEspecialidad.SelectedValue = this.Entity.Especialidad.ID.ToString();
         }
 
         protected void editarLinkButton_Click(object sender, EventArgs e)
@@ -104,7 +116,7 @@ namespace UI.Web
 
         protected void LoadEntity(Plan plan)
         {
-            int idEsp = int.Parse(this.IDEspecialidadTextBox.Text);
+            int idEsp = int.Parse(this.ddlEspecialidad.SelectedValue);
             EspecialidadLogic el = new EspecialidadLogic();
             plan.Especialidad = el.GetOne(idEsp);
             plan.Descripcion = this.DescripcionTextBox.Text;
@@ -147,7 +159,7 @@ namespace UI.Web
         private void EnableForm(bool enable)
         {
             this.DescripcionTextBox.Enabled = enable;
-            this.IDEspecialidadTextBox.Enabled = enable;
+            this.ddlEspecialidad.Enabled = enable;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
@@ -176,8 +188,9 @@ namespace UI.Web
 
         private void ClearForm()
         {
-            this.IDEspecialidadTextBox.Text = string.Empty;
+            this.ddlEspecialidad.SelectedValue = 0.ToString();
             this.DescripcionTextBox.Text = string.Empty;
+            this.IDPlanTextBox.Text = string.Empty;
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)

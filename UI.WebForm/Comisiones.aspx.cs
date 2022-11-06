@@ -138,7 +138,7 @@ namespace UI.WebForm
             this.ddlPlanes.SelectedValue = 0.ToString();
         }
 
-        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.GridView.SelectedValue;
         }

@@ -96,6 +96,15 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
 
         /// <summary>
+        /// DescReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DescReq;
+
+        /// <summary>
         /// AnioEspecialidadLabel control.
         /// </summary>
         /// <remarks>
@@ -114,6 +123,24 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox txtAnioEspecialidad;
 
         /// <summary>
+        /// anioEspReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator anioEspReq;
+
+        /// <summary>
+        /// anioInRange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator anioInRange;
+
+        /// <summary>
         /// PlanLabel control.
         /// </summary>
         /// <remarks>
@@ -130,6 +157,15 @@ namespace UI.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPlanes;
+
+        /// <summary>
+        /// errores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary errores;
 
         /// <summary>
         /// formActionPanel control.

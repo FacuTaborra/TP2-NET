@@ -18,10 +18,11 @@
 }
 
 
-#gridPanel, .gridActionPanel, #formActionPanelt,#formPanel, .formActionPanel{
+#gridPanel, .gridActionPanel, #formActionPanel,#formPanel, .formActionPanel{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 .table {
@@ -71,7 +72,7 @@
 }
 
 .formLabel{
-    width: 100px;
+    width: 150px;
     text-align:right;
     margin-right: 10px;
 }
@@ -107,4 +108,5 @@
     background-color: transparent;
     color: black;
     border: 1px solid #ced4da;
+    text-align: left;
 }
