@@ -11,12 +11,15 @@
 			<siteMapNode url="Personas.aspx" title="Personas" description="Gestionar Personas" roles="Administrador"/>
 		</siteMapNode>
 		<siteMapNode roles="Alumno"  title="Alumno" description="Alumno">
-			<siteMapNode url="Login.aspx" title="Login"  description="" roles="Alumno" />
+			<siteMapNode url="MateriasPlan.aspx" title="Materias del Plan"  description="Materias del Plan" roles="Alumno" />
+			<siteMapNode url="EstadoAcademico.aspx" title="Estado Académico"  description="Estado Académico" roles="Alumno" />
+			<siteMapNode roles="Alumno"  title="Inscripciones" description="Inscripciones">
+				<siteMapNode url="InscripcionExamen.aspx" title="Incripción a Exámenes"  description="Inscripcion Examen" roles="Alumno" />
+				<siteMapNode url="InscripcionCurso.aspx" title="Incripción a Curso"  description="Inscripcion Curso" roles="Alumno" />
+			</siteMapNode>
+			</siteMapNode>
+		<siteMapNode roles="Profesor" title="Profesor" description="Profesor	">
+			<siteMapNode url="ComisionesProfesor.aspx" title="Comisiones"  description="Comisiones Profesor" />
 		</siteMapNode>
-		<!--<siteMapNode roles="Profesor" description="Profesor	">
-			<siteMapNode url="Planes.aspx" title="Planes"  description="" />
-			<siteMapNode url="Materias.aspx" title="Materias"  description="" />
-			<siteMapNode url="Comisiones.aspx" title="Comisiones" description=""/>
-		</siteMapNode>-->
 	</siteMapNode>
 </siteMap>

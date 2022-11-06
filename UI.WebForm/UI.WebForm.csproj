@@ -79,13 +79,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlumnosComision.aspx" />
     <Content Include="Comisiones.aspx" />
+    <Content Include="ComisionesProfesor.aspx" />
     <Content Include="Cursos.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Especialidades.aspx" />
+    <Content Include="EstadoAcademico.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\logo-utn.png" />
+    <Content Include="InscripcionCurso.aspx" />
+    <Content Include="InscripcionExamen.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MateriasPlan.aspx" />
     <Content Include="Personas.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -108,12 +114,26 @@
     <Content Include="Materias.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnosComision.aspx.cs">
+      <DependentUpon>AlumnosComision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlumnosComision.aspx.designer.cs">
+      <DependentUpon>AlumnosComision.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Comisiones.aspx.cs">
       <DependentUpon>Comisiones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Comisiones.aspx.designer.cs">
       <DependentUpon>Comisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComisionesProfesor.aspx.cs">
+      <DependentUpon>ComisionesProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComisionesProfesor.aspx.designer.cs">
+      <DependentUpon>ComisionesProfesor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cursos.aspx.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
@@ -136,8 +156,29 @@
     <Compile Include="Especialidades.aspx.designer.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EstadoAcademico.aspx.cs">
+      <DependentUpon>EstadoAcademico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EstadoAcademico.aspx.designer.cs">
+      <DependentUpon>EstadoAcademico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InscripcionCurso.aspx.cs">
+      <DependentUpon>InscripcionCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InscripcionCurso.aspx.designer.cs">
+      <DependentUpon>InscripcionCurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InscripcionExamen.aspx.cs">
+      <DependentUpon>InscripcionExamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InscripcionExamen.aspx.designer.cs">
+      <DependentUpon>InscripcionExamen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -145,6 +186,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MateriasPlan.aspx.cs">
+      <DependentUpon>MateriasPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MateriasPlan.aspx.designer.cs">
+      <DependentUpon>MateriasPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Personas.aspx.cs">
       <DependentUpon>Personas.aspx</DependentUpon>
