@@ -23,7 +23,6 @@ namespace UI.WebForm
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel gridPanel;
 
-
         /// <summary>
         /// gridView control.
         /// </summary>

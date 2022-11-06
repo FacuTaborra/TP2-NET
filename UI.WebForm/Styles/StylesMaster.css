@@ -13,12 +13,12 @@
     flex-direction:row;
 }
 
-.navbar, .navbar-collapse {
+.navbar, .navbar-collapse, .dropdown-item {
     background-color: #50c9c3;
 }
 
 
-#gridPanel, .gridActionPanel{
+#gridPanel, .gridActionPanel, #formActionPanelt,#formPanel, .formActionPanel{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,6 @@
     border-color: #50c9c3;
     font-size: 15px;
     color: #50c9c3;
-
 }
 
 .btnSeleccionar:hover {
@@ -57,16 +56,47 @@
     padding: 5px 30px;
     text-decoration:none;
     color:black;
-    width:600;
+    width:600px;
 }
 
     .actionPanelLink:hover {
         background-color: #50c9c3;
         text-decoration: none;
         color: black;
-        width: 600;
+        width: 600px;
     }
 
 .lastLink{
     border:none;
+}
+
+.formLabel{
+    width: 150px;
+    text-align:right;
+}
+
+.formTextBox{
+    width: 250px;
+}
+
+.formRow{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:row;
+    margin-bottom: 5px;
+}
+
+.formDiv {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.formPanel {
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
 }

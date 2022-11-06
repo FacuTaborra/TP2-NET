@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Especialidades" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Especialidades.aspx.cs" Inherits="UI.WebForm.Especialidades" %>
-<asp:Content ID="Content1" CssClass="formContent" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
     <asp:Panel ID="gridPanel" runat="server">
         <asp:GridView  ID="gridView" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" HorizontalAlign="Center" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -25,22 +25,30 @@
         </div>
    </asp:Panel>
 
-    <asp:Panel ID="formPanel" Visible="false" HorizontalAlign="Center" runat="server">
-        <asp:Label ID="IDLabel" runat="server" Text="ID: " ></asp:Label>
-        <asp:TextBox ID="IDTextBox" runat="server" enable="false" Enabled="False"></asp:TextBox>
-        <br />
-        <asp:Label ID="descripcionLabel" runat="server" Text="Descripción: " ></asp:Label>
-        <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="descripcionReq" runat="server" ErrorMessage="El campo descripcion no puede estar vacío"
-         ControlToValidate ="descripcionTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
-        <br />
-        <asp:ValidationSummary ID="Errores" ForeColor="Red" runat="server"/>
+     <asp:Panel ID="formPanel" CssClass="formPanel" Visible="false" HorizontalAlign="Center" runat="server">
+        <div class="formDiv">
+            <div class="formRow">
+                <asp:Label ID="IDLabel" runat="server" CssClass="formLabel" Text="ID: " ></asp:Label>
+                <asp:TextBox ID="IDTextBox" runat="server" CssClass="form-control formTextBox mb-2 mr-sm-2" enable="false" Enabled="False"></asp:TextBox>
+            </div>
+            <div class="formRow">
+            <asp:Label ID="descripcionLabel" CssClass="formLabel" runat="server" Text="Descripción: " ></asp:Label>
+            <asp:TextBox ID="descripcionTextBox" type="text" CssClass="form-control formTextBox mb-2 mr-sm-2" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="descripcionReq" runat="server" ErrorMessage="El campo descripcion no puede estar vacío"
+             ControlToValidate ="descripcionTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
+            </div>
+            <asp:ValidationSummary ID="Errores" ForeColor="Red" runat="server"/>
+        </div>
 
-        <asp:Panel ID="formActionPanel" runat="server" >
-            <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
-            <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
-         </asp:Panel>
-    </asp:Panel>
+        <asp:Panel ID="formActionPanel" CssClass="formActionPanel" runat="server" >
+            <div class="actionPanel">
+                <asp:LinkButton ID="aceptarLinkButton"  class="actionPanelLink" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
+                <asp:LinkButton ID="cancelarLinkButton"  class="actionPanelLink lastLink" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
+            </div> 
+        </asp:Panel>
+     </asp:Panel>
+    
+
 
 
 </asp:Content>
