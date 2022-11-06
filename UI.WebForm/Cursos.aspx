@@ -51,9 +51,9 @@
 
             <asp:Panel ID="Panel1" CssClass="formActionPanel" runat="server" >
                 <div class="actionPanel">
-                    <asp:LinkButton ID="LinkButton1"  class="actionPanelLink" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
-                    <asp:LinkButton ID="LinkButton2"  class="actionPanelLink lastLink" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
+                    <asp:LinkButton ID="aceptarLinkButton"  class="actionPanelLink" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
+                    <asp:LinkButton ID="cancelarLinkButton"  class="actionPanelLink lastLink" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
                 </div>
-        </asp:Panel>
-    </asp:Panel>
+            </asp:Panel>
+     </asp:Panel>
 </asp:Content>

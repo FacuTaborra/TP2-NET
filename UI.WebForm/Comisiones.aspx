@@ -45,6 +45,7 @@
                 <asp:DropDownList ID="ddlPlanes" CssClass="btn btn-secondary dropdown-toggle" runat="server"></asp:DropDownList>
             </div>
         <asp:ValidationSummary ID="errores" ForeColor="Red" runat="server"/>
+        
         <asp:Panel ID="formActionPanel" CssClass="formActionPanel" runat="server" >
             <div class="actionPanel">
                 <asp:LinkButton ID="aceptarLinkButton"  class="actionPanelLink" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>

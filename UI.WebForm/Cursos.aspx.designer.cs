@@ -123,21 +123,21 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// LinkButton1 control.
+        /// aceptarLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton aceptarLinkButton;
 
         /// <summary>
-        /// LinkButton2 control.
+        /// cancelarLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.LinkButton cancelarLinkButton;
     }
 }
