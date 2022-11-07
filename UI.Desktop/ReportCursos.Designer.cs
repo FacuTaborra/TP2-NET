@@ -50,14 +50,14 @@ namespace UI.Desktop
             this.rvCursos.Location = new System.Drawing.Point(0, 0);
             this.rvCursos.Name = "rvCursos";
             this.rvCursos.ServerReport.BearerToken = null;
-            this.rvCursos.Size = new System.Drawing.Size(800, 894);
+            this.rvCursos.Size = new System.Drawing.Size(800, 749);
             this.rvCursos.TabIndex = 0;
             // 
             // ReportCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 894);
+            this.ClientSize = new System.Drawing.Size(800, 749);
             this.Controls.Add(this.rvCursos);
             this.Name = "ReportCursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

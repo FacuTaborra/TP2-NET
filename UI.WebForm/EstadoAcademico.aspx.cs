@@ -19,6 +19,7 @@ namespace UI.WebForm
                 return d.UsuarioActual;
             }
         }
+
         private AlumnoInscripcionLogic _aiLogic;
         private AlumnoInscripcionLogic AILogic
         {

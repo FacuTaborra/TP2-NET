@@ -11,25 +11,25 @@ namespace UI.WebForm
 {
 
 
-    public partial class AlumnosComision
+    public partial class ReportesPlan
     {
 
         /// <summary>
-        /// gridView control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridView;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// cargarNotaLinkButton control.
+        /// Repeater1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton cargarNotaLinkButton;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }
