@@ -80,7 +80,7 @@ namespace UI.WebForm
             {
                 CursoLogic cl = new CursoLogic();
                 this.CursoActual = cl.GetOne(this.SelectedID);
-                Response.Redirect("~/AlumnosComision.aspx");
+                Response.Redirect(string.Format("~/AlumnosComision.aspx?idCurso={0}", CursoActual.ID));
             }
         }
 

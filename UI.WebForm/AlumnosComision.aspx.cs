@@ -11,20 +11,10 @@ namespace UI.WebForm
 {
     public partial class AlumnosComision : ComisionesProfesor
     {
-
-        private Curso _CursoActual;
-        public new Curso CursoActual
+        private void LoadGrid(int idCurso)
         {
-            get 
-            {
-                ComisionesProfesor cp = new ComisionesProfesor();
-                return cp.CursoActual;
-            }
-        }
-
-        private void LoadGrid()
-        {
-
+            AlumnoInscripcionLogic ail = new AlumnoInscripcionLogic();
+            this.gridView.DataSource = ail.GetAlumnosCurso(idCurso);
         }
 
 
@@ -32,7 +22,8 @@ namespace UI.WebForm
         {
             if (!Page.IsPostBack)
             {
-                LoadGrid();
+                int idCurso = int.Parse(Request.QueryString["idCurso"]);
+                LoadGrid(idCurso);
             }
         }
 
