@@ -53,7 +53,7 @@ namespace UI.Desktop
             this.toolStripContainer1.ContentPanel.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripContainer1.ContentPanel.Controls.Add(this.label1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(488, 381);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(488, 356);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 25);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -86,7 +86,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(488, 340);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(488, 315);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvMateriasPlan
@@ -101,7 +101,7 @@ namespace UI.Desktop
             this.dgvMateriasPlan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMateriasPlan.Location = new System.Drawing.Point(3, 3);
             this.dgvMateriasPlan.Name = "dgvMateriasPlan";
-            this.dgvMateriasPlan.Size = new System.Drawing.Size(482, 302);
+            this.dgvMateriasPlan.Size = new System.Drawing.Size(482, 277);
             this.dgvMateriasPlan.TabIndex = 0;
             // 
             // desc_materia
@@ -136,7 +136,7 @@ namespace UI.Desktop
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(291, 311);
+            this.btnActualizar.Location = new System.Drawing.Point(291, 286);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(94, 26);
             this.btnActualizar.TabIndex = 1;
@@ -145,7 +145,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(391, 311);
+            this.btnSalir.Location = new System.Drawing.Point(391, 286);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(94, 26);
             this.btnSalir.TabIndex = 2;

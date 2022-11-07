@@ -43,6 +43,16 @@ namespace Business.Entities
             return ID.ToString();
         }
 
+        public string DescripcionMatertia
+        {
+            get { return Materia.Descripcion; }
+        }
+
+        public string DescripcionComision
+        {
+            get { return Comision.Descripcion; }
+        }
+
 
     }
 }

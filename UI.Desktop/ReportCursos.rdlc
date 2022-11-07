@@ -9,10 +9,10 @@
               <Width>1.62407cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.88808cm</Width>
+              <Width>3.61125cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.9023cm</Width>
+              <Width>3.66417cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.74065cm</Width>
@@ -63,7 +63,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox8">
+                    <Textbox Name="Textbox3">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -82,7 +82,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -99,7 +99,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox4">
+                    <Textbox Name="Textbox7">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -118,7 +118,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -247,14 +247,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="DescripcionMateria">
+                    <Textbox Name="DescripcionMatertia">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DescripcionMateria.Value</Value>
+                              <Value>=Fields!DescripcionMatertia.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                               </Style>
@@ -265,7 +265,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>DescripcionMateria</rd:DefaultName>
+                      <rd:DefaultName>DescripcionMatertia</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -282,7 +282,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="DescripcionComision">
+                    <Textbox Name="DescripcionComision1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -290,7 +290,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DescripcionComision.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -298,7 +300,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>DescripcionComision</rd:DefaultName>
+                      <rd:DefaultName>DescripcionComision1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -408,9 +410,9 @@
         </TablixRowHierarchy>
         <DataSetName>ReportCursos</DataSetName>
         <Top>2.13995cm</Top>
-        <Left>3.123cm</Left>
+        <Left>3.37945cm</Left>
         <Height>2.19333cm</Height>
-        <Width>14.65509cm</Width>
+        <Width>14.14014cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -480,7 +482,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.27197in</Width>
+  <Width>8.96776in</Width>
   <Page>
     <PageHeader>
       <Height>1.68796cm</Height>
@@ -713,8 +715,8 @@
           <DataField>DescripcionComision</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DescripcionMateria">
-          <DataField>DescripcionMateria</DataField>
+        <Field Name="DescripcionMatertia">
+          <DataField>DescripcionMatertia</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ID">
