@@ -38,14 +38,9 @@ namespace Business.Entities
             get { return Comision.Plan.Descripcion + " " + Comision.Plan.Especialidad.Descripcion;}
         }
 
-        public String DescripcionMateria
+        public override string ToString()
         {
-            get { return Materia.Descripcion; }
-        }
-
-        public String DescripcionComision
-        {
-            get { return Comision.Descripcion; }
+            return ID.ToString();
         }
 
 

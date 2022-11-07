@@ -81,7 +81,7 @@ namespace Data.Database
                 SqlCommand cmdEstadoAcademico = new SqlCommand(" Select ai.id_inscripcion, ai.condicion, ai.nota," +
                                                                "        alu.id_persona, alu.legajo," +
                                                                "        c.anio_calendario," +
-                                                               "        m.desc_materia," +
+                                                               "        m.id_materia, m.desc_materia," +
                                                                "        pl.desc_plan, pl.id_plan, " +
                                                                "        esp.id_especialidad, esp.desc_especialidad" +
                                                                " from personas alu" +
@@ -109,16 +109,16 @@ namespace Data.Database
                     
                     ai.ID = (int)drEstadoAcademico["id_inscripcion"];
                     ai.Condicion = (string)drEstadoAcademico["condicion"];
-                    if ((int)drEstadoAcademico["nota"] != 0)
-                    {
+                    var nota = drEstadoAcademico["nota"];
                         ai.Nota = (int)drEstadoAcademico["nota"];
-                    }
-                    
+
+
 
                     Curso c = new Curso();
                     c.AnioCalendario = (int)drEstadoAcademico["anio_calendario"];
 
                     Materia m = new Materia();
+                    m.ID = (int)drEstadoAcademico["id_materia"];
                     m.Descripcion = (string)drEstadoAcademico["desc_materia"];
                     c.Materia = m;
 

@@ -19,10 +19,7 @@
 		<siteMapNode roles="Alumno"  title="Alumno" description="Alumno">
 			<siteMapNode url="MateriasPlan.aspx" title="Materias del Plan"  description="Materias del Plan" roles="Alumno" />
 			<siteMapNode url="EstadoAcademico.aspx" title="Estado Académico"  description="Estado Académico" roles="Alumno" />
-			<siteMapNode roles="Alumno"  title="Inscripciones" description="Inscripciones">
-				<siteMapNode url="InscripcionExamen.aspx" title="Incripción a Exámenes"  description="Inscripcion Examen" roles="Alumno" />
-				<siteMapNode url="InscripcionCurso.aspx" title="Incripción a Curso"  description="Inscripcion Curso" roles="Alumno" />
-			</siteMapNode>
+			<siteMapNode url="InscripcionCurso.aspx" title="Incripción a Curso"  description="Inscripcion Curso" roles="Alumno" />
 		</siteMapNode>
 		
 		<siteMapNode roles="Profesor" title="Profesor" description="Profesor	">

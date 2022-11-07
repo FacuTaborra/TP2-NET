@@ -90,7 +90,6 @@
     <Content Include="Global.asax" />
     <Content Include="Images\logo-utn.png" />
     <Content Include="InscripcionCurso.aspx" />
-    <Content Include="InscripcionExamen.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Administrativos.aspx" />
     <Content Include="MateriasPlan.aspx" />
@@ -181,13 +180,6 @@
     </Compile>
     <Compile Include="InscripcionCurso.aspx.designer.cs">
       <DependentUpon>InscripcionCurso.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InscripcionExamen.aspx.cs">
-      <DependentUpon>InscripcionExamen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InscripcionExamen.aspx.designer.cs">
-      <DependentUpon>InscripcionExamen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

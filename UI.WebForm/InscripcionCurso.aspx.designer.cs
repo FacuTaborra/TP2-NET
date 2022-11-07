@@ -87,31 +87,40 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.TextBox txtMateria;
 
         /// <summary>
-        /// comisiontxt control.
+        /// txtComision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox comisiontxt;
+        protected global::System.Web.UI.WebControls.TextBox txtComision;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtPlan;
 
         /// <summary>
-        /// txtAnio control.
+        /// txtAnioEsp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnio;
+        protected global::System.Web.UI.WebControls.TextBox txtAnioEsp;
+
+        /// <summary>
+        /// txtAnioCurso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAnioCurso;
 
         /// <summary>
         /// Panel1 control.
@@ -123,21 +132,21 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// inscribirLinkButton control.
+        /// finalizarLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton inscribirLinkButton;
+        protected global::System.Web.UI.WebControls.LinkButton finalizarLinkButton;
 
         /// <summary>
-        /// cancelarLinkButton control.
+        /// cancelarInscLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton cancelarLinkButton;
+        protected global::System.Web.UI.WebControls.LinkButton cancelarInscLinkButton;
     }
 }

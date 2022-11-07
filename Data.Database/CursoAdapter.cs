@@ -12,13 +12,13 @@ namespace Data.Database
     public class CursoAdapter : Adapter
     {
 
-        public List<Curso> GetCursosDisponibles(int año, Persona Alumno)
+        public List<Curso> GetCursosDisponibles(int anio, Persona Alumno)
         {
             List<Curso> listaCursos = new List<Curso>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdCursos = new SqlCommand(" select cur.id_curso, cur.cupo, cur.anio_calendario, com.desc_comision, com.anio_especialidad, pl.desc_plan, esp.desc_especialidad, mat.desc_materia " +
+                SqlCommand cmdCursos = new SqlCommand(" select cur.*, com.*, pl.*, esp.*, mat.* " +
                                                       " from cursos cur" +
                                                       " inner join comisiones com" +
                                                       "  on com.id_comision = cur.id_comision" +
@@ -34,9 +34,9 @@ namespace Data.Database
                                                       " where pl.id_plan = @idplan and cur.anio_calendario = @anio" +
                                                       "         and cur.id_curso not in (select ai.id_curso" +
                                                       "                                  from alumnos_inscripciones ai" +
-                                                      "                                  where ai.id_alumno = 307) ", sqlConn);
+                                                      "                                  where ai.id_alumno = @id_alumno) ", sqlConn);
 
-                cmdCursos.Parameters.Add("@anio", SqlDbType.Int).Value = año;
+                cmdCursos.Parameters.Add("@anio", SqlDbType.Int).Value = anio;
                 cmdCursos.Parameters.Add("@idplan", SqlDbType.Int).Value = Alumno.Plan.ID;
                 cmdCursos.Parameters.Add("@id_alumno", SqlDbType.Int).Value = Alumno.ID;
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
@@ -47,19 +47,28 @@ namespace Data.Database
                     c.ID = (int)drCursos["id_curso"];
                     c.Cupo = (int)drCursos["cupo"];
                     c.AnioCalendario = (int)drCursos["anio_calendario"];
+                    
                     Especialidad esp = new Especialidad();
+                    esp.ID = (int)drCursos["id_especialidad"];
                     esp.Descripcion = (string)drCursos["desc_especialidad"];
-
-                    Plan p = new Plan((string)drCursos["desc_plan"]);
+                 
+                    Plan p = new Plan();
+                    p.Descripcion = (string)drCursos["desc_plan"];
+                    p.ID= (int)drCursos["id_plan"];
                     p.Especialidad = esp;
 
                     Comision com = new Comision();
+                    com.ID = (int)drCursos["id_comision"];
                     com.AnioEspecialidad = (int)drCursos["anio_especialidad"];
                     com.Descripcion = (string)drCursos["desc_comision"];
                     com.Plan = p;
 
                     Materia mat = new Materia();
+                    mat.ID = (int)drCursos["id_materia"];
                     mat.Descripcion = (string)drCursos["desc_materia"];
+                    mat.HSTotales = (int)drCursos["hs_totales"];
+                    mat.HSSemanales = (int)drCursos["hs_semanales"];
+                    mat.Plan = p;
 
                     c.Comision = com;
                     c.Materia = mat;
@@ -201,8 +210,14 @@ namespace Data.Database
                 this.OpenConnection();
                 string consulta = " select * " +
                                   " from cursos c " +
-                                  " inner join comisiones com" +
+                                  " inner join comisiones com " +
                                   "     on com.id_comision = c.id_comision " +
+                                  "inner join planes pl " +
+                                  "     on pl.id_plan = com.id_plan " +
+                                  "inner join especialidades esp " +
+                                  "     on esp.id_especialidad=pl.id_especialidad " +
+                                  "inner join materias mat " +
+                                  "     on c.id_materia = mat.id_materia "+
                                   " where id_curso=@id";
                 SqlCommand cmdCurso = new SqlCommand(consulta, sqlConn);
                 cmdCurso.Parameters.Add("@id", SqlDbType.Int).Value = id;
@@ -212,18 +227,19 @@ namespace Data.Database
                     c.ID = (int)drCurso["id_curso"];
                     c.AnioCalendario = (int)drCurso["anio_calendario"];
                     c.Cupo = (int)drCurso["cupo"];
-
-                    Materia m = new Materia();
-                    m.ID = (int)drCurso["id_materia"];
-                    c.Materia = m;
-
+                    Materia mat = new Materia();
+                    mat.ID = (int)drCurso["id_materia"];
+                    mat.Descripcion = (string)drCurso["desc_materia"];
+                    c.Materia = mat;
                     Comision com = new Comision();
                     com.ID = (int)drCurso["id_comision"];
-
-                    Plan pl = new Plan();
-                    pl.ID = (int)drCurso["id_plan"];
-                    com.Plan = pl;
-
+                    com.Descripcion = (string)drCurso["desc_comision"];
+                    com.AnioEspecialidad = (int)drCurso["anio_especialidad"];
+                    Especialidad esp = new Especialidad();
+                    esp.Descripcion = (string)drCurso["desc_especialidad"];
+                    Plan p = new Plan((string)drCurso["desc_plan"]);
+                    p.Especialidad = esp;
+                    com.Plan = p;
                     c.Comision = com;
                 }
                 drCurso.Close();

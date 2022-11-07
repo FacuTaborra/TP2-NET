@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Business.Entities;
 
 namespace UI.WebForm
 {
@@ -15,6 +16,11 @@ namespace UI.WebForm
             Baja,
             Modificacion
         }
+        public Usuario UsuarioActual
+        {
+            get { return (Usuario)Session["UsrActual"]; }
+        }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
