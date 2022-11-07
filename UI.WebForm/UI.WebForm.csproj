@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alumnos.aspx" />
     <Content Include="AlumnosComision.aspx" />
     <Content Include="Comisiones.aspx" />
     <Content Include="ComisionesProfesor.aspx" />
@@ -92,8 +93,9 @@
     <Content Include="InscripcionExamen.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MateriasPlan.aspx" />
-    <Content Include="Personas.aspx" />
+    <Content Include="Administrativos.aspx" />
     <Content Include="Planes.aspx" />
+    <Content Include="Profesores.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -114,6 +116,13 @@
     <Content Include="Materias.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alumnos.aspx.cs">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumnos.aspx.designer.cs">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AlumnosComision.aspx.cs">
       <DependentUpon>AlumnosComision.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,12 +203,12 @@
     <Compile Include="MateriasPlan.aspx.designer.cs">
       <DependentUpon>MateriasPlan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Personas.aspx.cs">
-      <DependentUpon>Personas.aspx</DependentUpon>
+    <Compile Include="Administrativos.aspx.cs">
+      <DependentUpon>Administrativos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Personas.aspx.designer.cs">
-      <DependentUpon>Personas.aspx</DependentUpon>
+    <Compile Include="Administrativos.aspx.designer.cs">
+      <DependentUpon>Administrativos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
@@ -207,6 +216,13 @@
     </Compile>
     <Compile Include="Planes.aspx.designer.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores.aspx.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesores.aspx.designer.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

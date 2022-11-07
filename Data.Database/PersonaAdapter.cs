@@ -161,7 +161,14 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@fena", SqlDbType.DateTime).Value = per.FechaNacimiento;
                 cmdSave.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
                 cmdSave.Parameters.Add("@tp", SqlDbType.Int).Value = (int)per.TipoPersona;
-                cmdSave.Parameters.Add("@idp", SqlDbType.Int).Value = per.Plan.ID; //corregir
+                if (per.TipoPersona == Persona.TiposPersonas.Alumno)
+                {
+                    cmdSave.Parameters.Add("@idp", SqlDbType.Int).Value = per.Plan.ID;
+                }
+                else
+                {
+                    cmdSave.Parameters.Add("@idp", SqlDbType.Int).Value = 2;
+                } //corregir
                 per.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             /*catch (SqlException Ex2)
@@ -194,7 +201,14 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@fena", SqlDbType.DateTime, 50).Value = per.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
                 cmdUpdate.Parameters.Add("@tp", SqlDbType.Int).Value = per.TipoPersona;
-                cmdUpdate.Parameters.Add("@plan", SqlDbType.Int).Value = per.Plan.ID;
+                if (per.Plan!=null)
+                {
+                    cmdUpdate.Parameters.Add("@plan", SqlDbType.Int).Value = per.Plan.ID;
+                }
+                else
+                {
+                    cmdUpdate.Parameters.Add("@plan", SqlDbType.Int).Value = 2;
+                }
 
                 cmdUpdate.ExecuteNonQuery();
             }

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Personas.aspx.cs" Inherits="UI.WebForm.Personas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Alumnos.aspx.cs" Inherits="UI.WebForm.Alumnos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
-    <asp:Panel ID="gridPanel" runat="server">
+        <asp:Panel ID="gridPanel" runat="server">
         <asp:GridView  ID="gridView" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" HorizontalAlign="Center" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
@@ -86,7 +86,12 @@
             </div>
             <div class="formRow">
                 <asp:Label ID="tipoPersonaLabel" CssClass="formLabel" runat="server" Text="Tipo Persona: " ></asp:Label>
-                <asp:DropDownList ID="ddlTipoPersona"  CssClass="btn btn-secondary dropdown-toggle" runat="server" OnLoad="ddlTipoPersona_Load"></asp:DropDownList>
+                <asp:DropDownList ID="ddlTipoPersona"  CssClass="btn btn-secondary dropdown-toggle" runat="server" OnLoad="ddlTipoPersona_Load">
+                    <asp:ListItem>Administrador</asp:ListItem>
+                    <asp:ListItem>Alumno</asp:ListItem>
+                    <asp:ListItem>Profesor</asp:ListItem>
+                    <asp:ListItem Selected="True">Seleccionar Plan</asp:ListItem>
+                </asp:DropDownList>
                 <%--<asp:RequiredFieldValidator ID="PlanReq" runat="server" ErrorMessage="Seleccione un plan" ControlToValidate ="ddlPlan" ForeColor="Red">#</asp:RequiredFieldValidator>--%>        
             </div>
         </div>
@@ -100,7 +105,4 @@
             </div> 
         </asp:Panel>
     </asp:Panel>
-
-
-
 </asp:Content>
