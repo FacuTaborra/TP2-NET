@@ -18,7 +18,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdCursos = new SqlCommand(" select cur.id_curso, cur.cupo, com.desc_comision, com.anio_especialidad, pl.desc_plan, esp.desc_especialidad, mat.desc_materia " +
+                SqlCommand cmdCursos = new SqlCommand(" select cur.id_curso, cur.cupo, cur.anio_calendario, com.desc_comision, com.anio_especialidad, pl.desc_plan, esp.desc_especialidad, mat.desc_materia " +
                                                       " from cursos cur" +
                                                       " inner join comisiones com" +
                                                       "  on com.id_comision = cur.id_comision" +
@@ -46,7 +46,7 @@ namespace Data.Database
                     Curso c = new Curso();
                     c.ID = (int)drCursos["id_curso"];
                     c.Cupo = (int)drCursos["cupo"];
-
+                    c.AnioCalendario = (int)drCursos["anio_calendario"];
                     Especialidad esp = new Especialidad();
                     esp.Descripcion = (string)drCursos["desc_especialidad"];
 
