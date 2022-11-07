@@ -15,6 +15,42 @@ namespace UI.WebForm
     {
 
         /// <summary>
+        /// ddlPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlan;
+
+        /// <summary>
+        /// formActionPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formActionPanel;
+
+        /// <summary>
+        /// FiltrarLinkButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton FiltrarLinkButton;
+
+        /// <summary>
+        /// cancelarLinkButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton cancelarLinkButton;
+
+        /// <summary>
         /// gridPanel control.
         /// </summary>
         /// <remarks>

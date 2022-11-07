@@ -28,17 +28,40 @@ namespace UI.WebForm
 
         private void LoadGrid()
         {
-            Usuario usrActual = UI.WebForm.Site.UsrActual;
-            this.gridView.DataSource = Logic.GetAllWhithUser(usrActual.ID);
-            this.DataBind();
+
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.gridView.DataSource = Logic.GetAll();
+            this.gridView.DataBind();
+        }
 
+        protected void descPlan_Load(object sender, EventArgs e)
+        {
             if (!this.Page.IsPostBack)
             {
-                LoadGrid();
+                PlanLogic pl = new PlanLogic();
+                List<Plan> planes = pl.GetAll();
+                Plan plan = new Plan();
+                plan.Descripcion = "Plan";
+                planes.Insert(0, plan);
+                this.ddlPlan.DataSource = planes;
+                this.ddlPlan.DataTextField = "Descripcion";
+                this.ddlPlan.DataValueField = "ID";
+                this.ddlPlan.DataBind();
             }
+        }
+
+        protected void FiltrarLinkButton_Click(object sender, EventArgs e)
+        {
+            int idPlan = int.Parse(this.ddlPlan.SelectedValue);
+            this.gridView.DataSource = Logic.GetAllWhithPlan(idPlan);
+            this.gridView.DataBind();
+        }
+
+        protected void cancelarLinkButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
