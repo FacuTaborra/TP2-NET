@@ -92,8 +92,8 @@
     <Content Include="InscripcionCurso.aspx" />
     <Content Include="InscripcionExamen.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="MateriasPlan.aspx" />
     <Content Include="Administrativos.aspx" />
+    <Content Include="MateriasPlan.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Profesores.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -196,19 +196,19 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MateriasPlan.aspx.cs">
-      <DependentUpon>MateriasPlan.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MateriasPlan.aspx.designer.cs">
-      <DependentUpon>MateriasPlan.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Administrativos.aspx.cs">
       <DependentUpon>Administrativos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administrativos.aspx.designer.cs">
       <DependentUpon>Administrativos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MateriasPlan.aspx.cs">
+      <DependentUpon>MateriasPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MateriasPlan.aspx.designer.cs">
+      <DependentUpon>MateriasPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
