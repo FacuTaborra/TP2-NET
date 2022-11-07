@@ -147,6 +147,52 @@ namespace Data.Database
             return materias;
         }
 
+        public List<Materia> GetAllWhithUser(int usrID)
+        {
+            List<Materia> materias = new List<Materia>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdMaterias = new SqlCommand(" Select mat.* " +
+                                                        " from materias mat" +
+                                                        "inner join planes pl on pl.id_plan = mat.id_plan" +
+                                                        "inner join personas per on per.id_plan = pl.id_plan" +
+                                                        "inner join usuarios usr on per.id_persona = usr.id_persona" +
+                                                        "where usr.id_usuario= @usrID", sqlConn);
+                cmdMaterias.Parameters.Add("@usrID", SqlDbType.Int).Value = usrID;
+                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
+                while (drMaterias.Read())
+                {
+                    Materia mat = new Materia();
+                    mat.ID = (int)drMaterias["id_materia"];
+                    mat.Descripcion = (string)drMaterias["desc_materia"];
+                    mat.HSSemanales = (int)drMaterias["hs_semanales"];
+                    mat.HSTotales = (int)drMaterias["hs_totales"];
+                    Plan p = new Plan((int)drMaterias["id_plan"]);
+                    p.Descripcion = (string)drMaterias["desc_plan"];
+                    Especialidad e = new Especialidad((int)drMaterias["id_especialidad"]);
+                    e.Descripcion = (string)drMaterias["desc_especialidad"];
+                    p.Especialidad = e;
+                    mat.Plan = p;
+                    materias.Add(mat);
+                }
+            }
+            catch (SqlException Ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Materias", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return materias;
+        }
 
 
         public void Delete(int id)
@@ -201,6 +247,8 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+        
 
 
         protected void Update(Materia mat)
