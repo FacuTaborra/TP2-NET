@@ -31,7 +31,15 @@ namespace Business.Logic
 
         public List<Materia> GetAllWhithPlan(int id_plan)
         {
-            return MateriaData.GetAllWhithPlan(id_plan);
+            if (id_plan != 0)
+            {
+                return MateriaData.GetAllWhithPlan(id_plan);
+
+            }
+            else
+            {
+                return MateriaData.GetAll();
+            }
         }
 
         public List<Materia> GetAllWhithUser(int usrID)

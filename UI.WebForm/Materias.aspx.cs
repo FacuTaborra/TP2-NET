@@ -74,7 +74,29 @@ namespace UI.WebForm
             if (!this.Page.IsPostBack)
             {
                 LoadGrid();
+                LoadDropDown();
             }
+        }
+
+
+        private void LoadDropDown()
+        {
+                PlanLogic pl = new PlanLogic();
+                List<Plan> planes = pl.GetAll();
+                Plan plan = new Plan();
+                plan.Descripcion = "Sin filtro";
+                planes.Insert(0, plan);
+                this.ddlFiltroPlan.DataSource = planes;
+                this.ddlFiltroPlan.DataTextField = "Descripcion";
+                this.ddlFiltroPlan.DataValueField = "ID";
+                this.ddlFiltroPlan.DataBind();
+        }
+
+        protected void FiltrarLinkButton_Click(object sender, EventArgs e)
+        {
+            int idPlan = int.Parse(this.ddlPlan.SelectedValue);
+            this.gridView.DataSource = Logic.GetAllWhithPlan(idPlan);
+            this.gridView.DataBind();
         }
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
