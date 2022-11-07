@@ -61,7 +61,14 @@ namespace Business.Entities
         {
             get { return _FechaNacimiento; }
             set { _FechaNacimiento = value; }
-        } 
+        }
+
+        public string DiaFechaNacimiento
+        {
+            get { return _FechaNacimiento.ToShortDateString(); }
+        }
+
+
         public Plan Plan
         {
             get { return _Plan; }

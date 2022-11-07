@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administrativos.aspx.cs" Inherits="UI.WebForm.Personas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administrativos.aspx.cs" Inherits="UI.WebForm.Administrativos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
     <asp:Panel ID="gridPanel" runat="server">
+       <h1 class="GridTitle">Administrativos</h1>
         <asp:GridView  ID="gridView" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" HorizontalAlign="Center" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
@@ -10,10 +11,9 @@
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre"/>
                 <asp:BoundField HeaderText="Apellido" DataField="Apellido"/>
                 <asp:BoundField HeaderText="Direccion" DataField="Direccion"/>
-                <asp:BoundField HeaderText="FechaNacimiento" DataField="FechaNacimiento"/>
+                <asp:BoundField HeaderText="FechaNacimiento" DataField="DiaFechaNacimiento"/>
                 <asp:BoundField HeaderText="EMail" DataField="Email"/>
                 <asp:BoundField HeaderText="Teléfono" DataField="Telefono"/>
-                <asp:BoundField HeaderText="Tipo Persona" DataField="TipoPersona"/>
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" ButtonType="Button">
                     <ControlStyle CssClass="btnSeleccionar btn btn-outline-info" />
                 </asp:CommandField>
@@ -77,11 +77,6 @@
                 <asp:TextBox ID="telefonoTextBox" CssClass="form-control formTextBox mb-2 mr-sm-2" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="telReq" runat="server" ErrorMessage="El telefono no puede estar vacío"
                  ControlToValidate ="telefonoTextBox" ForeColor="Red">#</asp:RequiredFieldValidator>
-            </div>
-            <div class="formRow">
-                <asp:Label ID="PlanLabel" visible="false" CssClass="formLabel" runat="server" Text="Plan: " ></asp:Label>
-                <asp:DropDownList ID="ddlPlan" visible="false"  CssClass="btn btn-secondary dropdown-toggle" runat="server"></asp:DropDownList>
-                <%--<asp:RequiredFieldValidator ID="PlanReq" runat="server" ErrorMessage="Seleccione un plan" ControlToValidate ="ddlPlan" ForeColor="Red">#</asp:RequiredFieldValidator>--%>        
             </div>
             <div class="formRow">
                 <asp:Label ID="tipoPersonaLabel" CssClass="formLabel" runat="server" Text="Tipo Persona: " ></asp:Label>

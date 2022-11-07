@@ -10,7 +10,7 @@ using Business.Logic;
 
 namespace UI.WebForm
 {
-    public partial class Personas : UI.WebForm.Default
+    public partial class Administrativos : UI.WebForm.Default
     {
         PersonaLogic _logic;
 
@@ -75,15 +75,6 @@ namespace UI.WebForm
 
         private void LoadDropDown()
         {
-            PlanLogic pl = new PlanLogic();
-            List<Plan> planes = pl.GetAll();
-            Plan plan = new Plan();
-            plan.Descripcion = "Plan";
-            planes.Insert(0, plan);
-            this.ddlPlan.DataSource = planes;
-            this.ddlPlan.DataTextField = "Descripcion";
-            this.ddlPlan.DataValueField = "ID";
-            this.ddlPlan.DataBind();
 
             if (this.FormMode == FormModes.Alta)
             {
@@ -94,16 +85,16 @@ namespace UI.WebForm
                 switch (Entity.TipoPersona)
                 {
                     case Persona.TiposPersonas.Administrador:
-                        ddlPlan.SelectedIndex = 0;
+                        ddlTipoPersona.SelectedIndex = 0;
                         break;
                     case Persona.TiposPersonas.Alumno:
-                        ddlPlan.SelectedIndex = 1;
+                        ddlTipoPersona.SelectedIndex = 1;
                         break;
                     case Persona.TiposPersonas.Profesor:
-                        ddlPlan.SelectedIndex = 2;
+                        ddlTipoPersona.SelectedIndex = 2;
                         break;
                     default:
-                        ddlPlan.SelectedIndex = 3;
+                        ddlTipoPersona.SelectedIndex = 3;
                         break;
                 }
             }
@@ -133,11 +124,6 @@ namespace UI.WebForm
             this.fechaNacTextBox.Text = Entity.FechaNacimiento.ToString();
             this.telefonoTextBox.Text = Entity.Telefono;
             this.ddlTipoPersona.SelectedValue = Entity.TipoPersona.ToString();
-            if (Entity.TipoPersona == Persona.TiposPersonas.Alumno)
-            {
-                this.PlanLabel.Visible = true;
-                this.ddlPlan.Visible = true;
-            }
         }
 
         private void LoadEntity(Persona per)
@@ -150,16 +136,7 @@ namespace UI.WebForm
             per.FechaNacimiento = DateTime.Parse(this.fechaNacTextBox.Text);
             per.Direccion = this.direcTextBox.Text;
             per.TipoPersona =(Persona.TiposPersonas)ddlTipoPersona.SelectedIndex;
-            if (this.ddlTipoPersona.SelectedValue==1.ToString())
-            {
-                int idPlan = int.Parse(this.ddlPlan.SelectedValue);
-                PlanLogic pl = new PlanLogic();
-                per.Plan = pl.GetOne(idPlan);
-            }
-            else
-            {
-                per.Plan = null;
-            }
+            per.Plan = null;
         }
 
         private void SaveEntity(Persona per)
@@ -181,7 +158,6 @@ namespace UI.WebForm
             this.fechaNacTextBox.Enabled = enable;
             this.telefonoTextBox.Enabled = enable;
             this.ddlTipoPersona.Enabled = enable;
-            this.ddlPlan.Enabled = enable;
         }
 
         private void ClearForm()
@@ -193,7 +169,6 @@ namespace UI.WebForm
             this.direcTextBox.Text = string.Empty;
             this.fechaNacTextBox.Text =string.Empty;
             this.telefonoTextBox.Text = string.Empty;
-            this.ddlPlan.SelectedValue = 0.ToString();
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)

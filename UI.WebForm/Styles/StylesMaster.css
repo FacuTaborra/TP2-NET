@@ -17,6 +17,12 @@
     background-color: #50c9c3;
 }
 
+.GridTitle {
+    width: 100vw;
+    padding: 20px;
+    color: #1e625e;
+    text-align: center;
+}
 
 #gridPanel, .gridActionPanel, #formActionPanel,#formPanel, .formActionPanel{
     display: flex;
