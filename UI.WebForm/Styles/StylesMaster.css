@@ -129,3 +129,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.lbCerrarSession {
+    text-decoration: none;
+    background-color: black;
+    margin-right: 10px;
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: auto;
+}

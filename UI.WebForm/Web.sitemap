@@ -14,6 +14,10 @@
 				<siteMapNode url="Profesores.aspx" title="Profesores" description="Gestionar Profesores" roles="Administrador"/>				
 				<siteMapNode url="Alumnos.aspx" title="Alumnos" description="Gestionar Alumnos" roles="Administrador"/>				
 			</siteMapNode>
+			<siteMapNode roles="Administrador"  title="Reportes" description="Reportes">
+				<siteMapNode url="ReportesPlan.aspx" title="Planes" description="Reporte Planes" roles="Administrador"/>
+				<siteMapNode url="ReportesCursos.aspx" title="Cursos" description="Reporte Planes" roles="Administrador"/>
+			</siteMapNode>
 		</siteMapNode>
 		
 		<siteMapNode roles="Alumno"  title="Alumno" description="Alumno">

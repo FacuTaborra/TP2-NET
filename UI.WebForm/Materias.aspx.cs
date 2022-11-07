@@ -94,7 +94,7 @@ namespace UI.WebForm
 
         protected void FiltrarLinkButton_Click(object sender, EventArgs e)
         {
-            int idPlan = int.Parse(this.ddlPlan.SelectedValue);
+            int idPlan = int.Parse(this.ddlFiltroPlan.SelectedValue);
             this.gridView.DataSource = Logic.GetAllWhithPlan(idPlan);
             this.gridView.DataBind();
         }

@@ -30,6 +30,7 @@
                         <DynamicMenuItemStyle CssClass="dropdown-item" />
                     </asp:Menu>
                 </div>
+                <asp:LinkButton ID="lbCerrarSession" CssClass="lbCerrarSession" runat="server" OnClick="lbCerrarSession_Click" Text="Cerrar Sesión"></asp:LinkButton>
             </nav>
             <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
             <div>

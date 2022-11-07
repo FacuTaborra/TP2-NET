@@ -26,7 +26,7 @@
                         </div>
                         <div class="loginRow">
                             <asp:Label ID="labelPassword" class="formLabel" Text="Contraseña:" runat="server"></asp:Label>
-                            <asp:TextBox ID="txtPassword" class="formTxt" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" type="password" class="formTxt" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="passReq" runat="server" ControlToValidate="txtPassword" forecolor="Red" ErrorMessage="Ingrese su contraseña."></asp:RequiredFieldValidator>
                         </div>
                         <div class="loginRow" ID="divErrorInicio" visible="false" runat="server">                        

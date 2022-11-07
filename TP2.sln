@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Desktop", "UI.Desktop\UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Logic", "Business.Logic\Business.Logic.csproj", "{B17D42AD-8A5E-4902-8A8F-5F9E3F08E294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Util\Util.csproj", "{D6DF98FD-247C-4A05-9D64-A41130E0CB57}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Entities", "Business.Entities\Business.Entities.csproj", "{D6769220-EFF3-4495-83B5-F1F89D710587}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Database", "Data.Database\Data.Database.csproj", "{18D1C50F-58E0-4D94-B05B-4A95A146E6BB}"
@@ -31,10 +29,6 @@ Global
 		{B17D42AD-8A5E-4902-8A8F-5F9E3F08E294}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B17D42AD-8A5E-4902-8A8F-5F9E3F08E294}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B17D42AD-8A5E-4902-8A8F-5F9E3F08E294}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6DF98FD-247C-4A05-9D64-A41130E0CB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6DF98FD-247C-4A05-9D64-A41130E0CB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6DF98FD-247C-4A05-9D64-A41130E0CB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6DF98FD-247C-4A05-9D64-A41130E0CB57}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D6769220-EFF3-4495-83B5-F1F89D710587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6769220-EFF3-4495-83B5-F1F89D710587}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6769220-EFF3-4495-83B5-F1F89D710587}.Release|Any CPU.ActiveCfg = Release|Any CPU

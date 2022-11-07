@@ -48,5 +48,11 @@ namespace UI.WebForm
             string[] rol = { this.TipoPersonaActual};
             HttpContext.Current.User = new GenericPrincipal(HttpContext.Current.User.Identity, rol);
         }
+
+        protected void lbCerrarSession_Click(object sender, EventArgs e)
+        {
+            UsrActual = null;
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

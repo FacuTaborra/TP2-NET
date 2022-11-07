@@ -30,34 +30,34 @@ namespace UI.Desktop
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.rvPlanes = new Microsoft.Reporting.WinForms.ReportViewer();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.PlanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rvPlanes = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.PlanBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rvPlanes
-            // 
-            this.rvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "ReportPlanes";
-            reportDataSource1.Value = this.PlanBindingSource;
-            this.rvPlanes.LocalReport.DataSources.Add(reportDataSource1);
-            this.rvPlanes.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReportPlanes.rdlc";
-            this.rvPlanes.Location = new System.Drawing.Point(0, 0);
-            this.rvPlanes.Name = "rvPlanes";
-            this.rvPlanes.ServerReport.BearerToken = null;
-            this.rvPlanes.Size = new System.Drawing.Size(800, 990);
-            this.rvPlanes.TabIndex = 0;
             // 
             // PlanBindingSource
             // 
             this.PlanBindingSource.DataSource = typeof(Business.Entities.Plan);
             // 
+            // rvPlanes
+            // 
+            this.rvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "ReportPlanes";
+            reportDataSource2.Value = this.PlanBindingSource;
+            this.rvPlanes.LocalReport.DataSources.Add(reportDataSource2);
+            this.rvPlanes.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReportPlanes.rdlc";
+            this.rvPlanes.Location = new System.Drawing.Point(0, 0);
+            this.rvPlanes.Name = "rvPlanes";
+            this.rvPlanes.ServerReport.BearerToken = null;
+            this.rvPlanes.Size = new System.Drawing.Size(800, 749);
+            this.rvPlanes.TabIndex = 0;
+            // 
             // ReportPlanes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 990);
+            this.ClientSize = new System.Drawing.Size(800, 749);
             this.Controls.Add(this.rvPlanes);
             this.Name = "ReportPlanes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
