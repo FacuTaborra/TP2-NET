@@ -33,6 +33,21 @@ namespace Business.Entities
             set { _Nota = value; }
         }
 
+        public String ValorNota
+        {
+            get
+            {
+                if (Nota == 0)
+                {
+                    return "Pendiente";
+                }
+                else
+                {
+                    return Nota.ToString();
+                }
+            }
+        }
+
         public Materia MateriaCurso
         {
             get { return Curso.Materia; }

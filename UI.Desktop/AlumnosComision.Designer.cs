@@ -31,15 +31,15 @@ namespace UI.Desktop
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvAlumnosCurso = new System.Windows.Forms.DataGridView();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.Titulo = new System.Windows.Forms.Label();
             this.IDInscripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CargarNota = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.Titulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosCurso)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,37 @@ namespace UI.Desktop
             this.dgvAlumnosCurso.TabIndex = 0;
             this.dgvAlumnosCurso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnosCurso_CellContentClick);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(578, 341);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 1;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnActualizar.Location = new System.Drawing.Point(497, 341);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 2;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // Titulo
+            // 
+            this.Titulo.AutoSize = true;
+            this.Titulo.Font = new System.Drawing.Font("Times New Roman", 20.25F);
+            this.Titulo.Location = new System.Drawing.Point(195, 6);
+            this.Titulo.Name = "Titulo";
+            this.Titulo.Size = new System.Drawing.Size(226, 31);
+            this.Titulo.TabIndex = 4;
+            this.Titulo.Text = "Alumnos del Curso";
+            // 
             // IDInscripcion
             // 
             this.IDInscripcion.DataPropertyName = "ID";
@@ -115,7 +146,7 @@ namespace UI.Desktop
             // 
             // Nota
             // 
-            this.Nota.DataPropertyName = "Nota";
+            this.Nota.DataPropertyName = "ValorNota";
             this.Nota.HeaderText = "Nota";
             this.Nota.Name = "Nota";
             this.Nota.ReadOnly = true;
@@ -125,37 +156,6 @@ namespace UI.Desktop
             this.CargarNota.HeaderText = "Cargar Nota";
             this.CargarNota.Name = "CargarNota";
             this.CargarNota.ReadOnly = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(578, 341);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(497, 341);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // Titulo
-            // 
-            this.Titulo.AutoSize = true;
-            this.Titulo.Font = new System.Drawing.Font("Times New Roman", 20.25F);
-            this.Titulo.Location = new System.Drawing.Point(195, 6);
-            this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(226, 31);
-            this.Titulo.TabIndex = 4;
-            this.Titulo.Text = "Alumnos del Curso";
             // 
             // AlumnosComision
             // 
