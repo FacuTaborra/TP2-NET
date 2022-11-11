@@ -3,9 +3,8 @@
 
     
     <h1 class="GridTitle" >Comisiones Profesor </h1>
-        <asp:Label ID="prueba" runat="server"></asp:Label>
         <asp:Panel runat="server" ID="gridPanel">
-         <asp:GridView  ID="GridView" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" HorizontalAlign="Center" SelectedRowStyle-ForeColor="White" DataKeyNames="ID"  CellPadding="4"   ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView_SelectedIndexChanged1">
+         <asp:GridView  ID="GridView" CssClass="table table-striped" runat="server" RowStyle-HorizontalAlign="Center" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" HorizontalAlign="Center" SelectedRowStyle-ForeColor="White" DataKeyNames="ID"  CellPadding="4"   ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView_SelectedIndexChanged1">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />            
              <Columns>
                 <asp:BoundField DataField="ComisionCurso" HeaderText="Comision" />
@@ -25,9 +24,9 @@
 
    <asp:Panel ID="gridActionPanel" CssClass="gridActionPanel" HorizontalAlign="Center" runat="server">
         <div class="actionPanel">
-            <asp:LinkButton ID="alumnosComLinkButton"  class="actionPanelLink" runat="server" OnClick="alumnosComLinkButton_Click" >Ver Alumnos Comision</asp:LinkButton>
+            <asp:LinkButton ID="btnAlumnosComi"  class="actionPanelLink" runat="server" OnClick="btnAlumnosComi_Click"  >Ver alumnos de la comision</asp:LinkButton>
         </div>
+    <asp:Label ID="SeleccionarLabel" runat="server" ForeColor="Red" Text="Seleccione una comisión" Visible="false"></asp:Label>
    </asp:Panel>
-
 
 </asp:Content>

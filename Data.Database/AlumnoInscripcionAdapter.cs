@@ -47,7 +47,7 @@ namespace Data.Database
                     ai.Condicion = (string)drAlumnosCurso["condicion"];
                     ai.Nota = (int)drAlumnosCurso["nota"];
 
-                ai.Curso = c;
+                    ai.Curso = c;
                     ai.Alumno = alu;
 
                     AlumnosCurso.Add(ai);
@@ -109,10 +109,7 @@ namespace Data.Database
                     
                     ai.ID = (int)drEstadoAcademico["id_inscripcion"];
                     ai.Condicion = (string)drEstadoAcademico["condicion"];
-                    //if ((int)drEstadoAcademico["nota"] != 0)
-                    //{
-                        ai.Nota = (int)drEstadoAcademico["nota"];
-                    //}
+                    ai.Nota = (int)drEstadoAcademico["nota"];
 
 
                     Curso c = new Curso();

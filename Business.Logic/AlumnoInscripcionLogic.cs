@@ -27,7 +27,7 @@ namespace Business.Logic
         {
             AlumnoInscripcion alumnoInscripcion = this.GetOne(id_inscripcion);
             alumnoInscripcion.Nota = nota;
-            if (nota <= 3)
+            if (nota <= 3 && nota>0)
             {
                 alumnoInscripcion.Condicion = "Desaprobado";
             } else if (nota <= 5 && nota >= 4)
@@ -36,6 +36,10 @@ namespace Business.Logic
             } else if (nota >= 6)
             {
                 alumnoInscripcion.Condicion = "Aprobado";
+            }
+            else if (nota == 0)
+            {
+                alumnoInscripcion.Condicion = "Cursando";
             }
             this.Update(alumnoInscripcion);
         }

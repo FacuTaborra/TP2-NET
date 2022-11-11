@@ -45,7 +45,7 @@ namespace Data.Database
                 }
                 drGetProfesorCurso.Close();
             }
-            /*catch (SqlException Ex1)
+            catch (SqlException Ex1)
             {
                 Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
                 throw ExcepcionManejada;
@@ -54,7 +54,7 @@ namespace Data.Database
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar dictado", Ex2);
                 throw ExcepcionManejada;
-            }*/
+            }
             finally
             {
                 this.CloseConnection();
@@ -67,7 +67,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdCursosProfesor = new SqlCommand(" select dc.cargo, " +
+                SqlCommand cmdCursosProfesor = new SqlCommand(" select id_dictado, dc.cargo, " +
                                                               " cur.anio_calendario, cur.id_curso, " +
                                                               " com.desc_comision, com.anio_especialidad," +
                                                               " pl.desc_plan, " +
@@ -114,22 +114,23 @@ namespace Data.Database
                     c.Materia = mat;
 
                     DocenteCurso dc = new DocenteCurso();
+                    dc.ID = (int)drCursosProfesor["id_dictado"];
                     dc.Curso = c;
                     dc.Cargo = (DocenteCurso.TiposCargos)drCursosProfesor["cargo"];
 
                     listaCursos.Add(dc);
                 }
             }
-            /*catch (SqlException ex1)
+            catch (SqlException ex1)
             {
                 Exception ExcepcionManejada = new Exception("Error con la base de datos");
                 throw ExcepcionManejada;
-            }*/
-            /*catch (Exception ex2)
+            }
+            catch (Exception ex2)
             {
                 Exception ExcepcionManejada2 = new Exception("Error al recuperar la lista de cursos");
                 throw ExcepcionManejada2;
-            }*/
+            }
             finally
             {
                 this.CloseConnection();
@@ -218,6 +219,41 @@ namespace Data.Database
             }
             return dc;
         }
+
+
+        public int GetCursoDelDictado(int id)
+        {
+            int IDCurso = 0;
+            try
+            {
+                this.OpenConnection();
+                string consulta = "select id_curso from docentes_cursos where id_dictado=@id";
+                SqlCommand cmd = new SqlCommand(consulta, sqlConn);
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    IDCurso = (int)dr["id_curso"];
+                }
+                dr.Close();
+            }
+            catch (SqlException Ex1)
+            {
+                Exception ExcepcionManejada = new Exception("Error con la base de datos", Ex1);
+                throw ExcepcionManejada;
+            }
+            catch (Exception Ex2)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar dictado", Ex2);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return IDCurso;
+        }
+
 
 
         public void Insert(DocenteCurso dc)

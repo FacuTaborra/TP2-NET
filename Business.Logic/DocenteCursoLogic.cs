@@ -28,6 +28,11 @@ namespace Business.Logic
             return _DCData.GetCursosProfesor(idProfesor);
         }
 
+        public int GetCursoDelDictado(int id)
+        {
+            return _DCData.GetCursoDelDictado(id);
+        }
+
         public DocenteCursoLogic()
         {
             DCData = new DocenteCursoAdapter();

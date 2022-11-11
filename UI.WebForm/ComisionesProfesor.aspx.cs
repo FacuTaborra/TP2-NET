@@ -27,6 +27,19 @@ namespace UI.WebForm
             set { _CursoActual = value; }
         }
 
+        DocenteCursoLogic _logic;
+        private DocenteCursoLogic Logic
+        {
+            get
+            {
+                if (_logic == null)
+                {
+                    _logic = new DocenteCursoLogic();
+                }
+                return _logic;
+            }
+        }
+
         private int SelectedID
         {
             get
@@ -74,13 +87,17 @@ namespace UI.WebForm
         }
 
 
-        protected void alumnosComLinkButton_Click(object sender, EventArgs e)
+        protected void btnAlumnosComi_Click(object sender, EventArgs e)
         {
+            this.SeleccionarLabel.Visible = true;
             if (IsEntitySelected)
             {
-                CursoLogic cl = new CursoLogic();
-                this.CursoActual = cl.GetOne(this.SelectedID);
-                Response.Redirect(string.Format("~/AlumnosComision.aspx?idCurso={0}", CursoActual.ID));
+                int idCursoDelDictado = Logic.GetCursoDelDictado(this.SelectedID);
+                Response.Redirect("~/AlumnosComision.aspx?idCurso=" + idCursoDelDictado);
+            }
+            else
+            {
+                this.SeleccionarLabel.Visible = true;
             }
         }
 

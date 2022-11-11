@@ -14,7 +14,7 @@ namespace Business.Logic
     {
         public static bool ValidaNota(int nota)
         {
-            if(nota<=10 && nota>=1)
+            if(nota<=10 && nota>=0)
             {
                 return true;
             }

@@ -15,15 +15,6 @@ namespace UI.WebForm
     {
 
         /// <summary>
-        /// prueba control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prueba;
-
-        /// <summary>
         /// gridPanel control.
         /// </summary>
         /// <remarks>
@@ -51,12 +42,21 @@ namespace UI.WebForm
         protected global::System.Web.UI.WebControls.Panel gridActionPanel;
 
         /// <summary>
-        /// alumnosComLinkButton control.
+        /// btnAlumnosComi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton alumnosComLinkButton;
+        protected global::System.Web.UI.WebControls.LinkButton btnAlumnosComi;
+
+        /// <summary>
+        /// SeleccionarLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SeleccionarLabel;
     }
 }
